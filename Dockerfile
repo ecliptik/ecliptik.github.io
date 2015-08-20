@@ -11,9 +11,9 @@ WORKDIR /app
 ADD Gemfile /app/Gemfile
 
 #Install Deps
-RUN ["gem", "install", "bundler"]
-RUN ["bundle", "install", "--standalone"]
+RUN [ "gem", "install", "bundler" ]
+RUN [ "bundle", "install", "--standalone" ]
 
 #Run jekyll
-CMD []
-ENTRYPOINT ["bundler", "exec", "jekyll", "serve"]
+ENTRYPOINT [ "bundle", "exec" ]
+CMD [ "jekyll", "serve" ]
