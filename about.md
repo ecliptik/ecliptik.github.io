@@ -6,7 +6,7 @@ permalink: /about/
 
 I am an Information Technology engineer on the Unix Configuration Management team at [Qualcomm](https://www.qualcomm.com) in San Diego California. My day-to-day responsibities include maintaining our operating system install environment, working with our in-house configuration management suite, and developing processes and tools to streamline IT.
 
-Afterhours I enjoy being a father and husband, collecting and playing video games, finding new places to eat on [Convoy](http://www.convoydistrict.com/eat/), and learning about new technology.
+Afterhours I enjoy being a father and husband, collecting and playing video games, finding new places to eat on [Convoy](http://www.convoydistrict.com/eat/), and learning about technology.
 
 ## Skills
 
