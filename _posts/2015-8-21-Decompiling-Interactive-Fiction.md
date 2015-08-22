@@ -3,8 +3,6 @@ layout: post
 title: Decompiling Interactive Fiction
 ---
 
-*\#zmachine \#interactivefiction \#zork*
-
 A couple of weeks ago a friend of mine pointed me to the web-based interactive fiction piece called [Aisle](http://iplayif.com/?story=http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js). As I played it, I immediately started wondering how I could get a text blob of all the possible paths instead of trying to figure out all the actions required to input into the interpreter.
 
 <img src="{{ site.baseurl }}/images/aisle.png" alt="Aisle Introduction"/>
@@ -50,3 +48,5 @@ There are many other tools included in ztools that can provide additional inform
 Interactive fiction is just more than a big blob of text. Since the early days of Z-Machine, these stories have not only included fascinating stories, but also puzzles and other methods of fully immersing a reader. Fully exploring and creating Z-Machine and Interactive fiction is best left to to the [experts](http://inform7.com/learn/) if you'd like to learn more.
 
 It also appears the Z-code Tools are not packaged in [Debian](http://www.debian.org), and this may be a fun project to do sometime.
+
+*\#zmachine \#interactivefiction \#zork*
