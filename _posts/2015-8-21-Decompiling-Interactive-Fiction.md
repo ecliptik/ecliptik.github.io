@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Decompiling Interactive Fiction
+categories: [coding]
+tags: [zmachine, interactivefiction, zork]
 ---
 
 A couple of weeks ago a friend of mine pointed me to the web-based interactive fiction piece called [Aisle](http://iplayif.com/?story=http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js). As I played it, I immediately started wondering how I could get a text blob of all the possible paths instead of trying to figure out all the actions required to input into the interpreter.

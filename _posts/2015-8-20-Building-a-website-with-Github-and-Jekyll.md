@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Building a website with Github and Jekyll
+categories: [github, coding]
+tags: [docker, jekyll, github]
 ---
 
 After a long time of [www.ecliptik.com](http://www.ecliptik.com) being offline I finally brought it back online with [Github Pages](https://pages.github.com/). I really like the concept of having a static site using Markdown files and a template to quickly bring online a modern looking blog without the hassle of configuring a content management system, web server, or database.
