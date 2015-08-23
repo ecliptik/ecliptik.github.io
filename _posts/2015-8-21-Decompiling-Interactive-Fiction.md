@@ -52,5 +52,3 @@ There are many other tools included in ztools that can provide additional inform
 Interactive fiction is just more than a big blob of text. Since the early days of Z-Machine, these stories have not only included fascinating stories, but also puzzles and other methods of fully immersing a reader. Fully exploring and creating Z-Machine and Interactive fiction is best left to to the [experts](http://inform7.com/learn/) if you'd like to learn more.
 
 It also appears the Z-code Tools are not packaged in [Debian](http://www.debian.org), and this may be a fun project to do sometime.
-
-*\#zmachine \#interactivefiction \#zork*

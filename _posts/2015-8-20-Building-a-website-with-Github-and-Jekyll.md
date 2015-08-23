@@ -24,5 +24,3 @@ Configuration file: /app/_config.yml
       Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.108220049 seconds.
       Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.116449572 seconds.
 {% endhighlight %}
-
-*\#docker \#jekyll \#github*
