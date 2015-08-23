@@ -4,6 +4,11 @@ layout: default
 
 <article class="post">
   <h1>{{ page.title }}</h1>
+    {% if page.tags.size > 0 %}
+    <section class="tags">
+        <strong>Tags:</strong> {% for tag in page.tags %}<a href="{{ site.baseurl }}tag/{{ tag }}">{{ tag }}</a>{% if forloop.last == false %},&nbsp;{% endif %}{% endfor %}
+    </section>
+    {% endif %}
 
   <div class="entry">
     {{ content }}
