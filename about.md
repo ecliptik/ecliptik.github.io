@@ -15,8 +15,10 @@ Afterhours I enjoy being a father and husband, collecting and playing video game
   - [Google Cloud Platform](https://cloud.google.com/)
   - [Docker](https://www.docker.com)
   - [Git Source Code Management](https://git-scm.com/)
+  - [GitHub](https://www.github.com/)
   - [Jenkins Continous Integration](https://jenkins-ci.org/)
   - [Mediawiki](https://www.mediawiki.org/wiki/MediaWiki)
+  - [Hipchat](https://www.hipchat.com/)
 - **Operating Systems**
   - [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
   - [Community Enterprise OS \(CentOS\)](https://www.centos.org/)
