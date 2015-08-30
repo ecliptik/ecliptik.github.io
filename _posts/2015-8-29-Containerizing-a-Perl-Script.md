@@ -15,7 +15,7 @@ In [Docker](https://www.docker.com), the [ENTRYPOINT](https://docs.docker.com/re
 
 ## Dockerfile Example
 
-Let's walk through an example that runs a simple perl script called [ps.pl](https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-ps-pl) printing out a simple process table using the CPAN module [Proc::ProcessTable](http://search.cpan.org/~durist/Proc-ProcessTable-0.39/ProcessTable.pm) and has *-h* and *-v* arguments.
+Let's walk through an example that runs a simple perl script called [ps.pl](https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-ps-pl), which prints a simple process table using the CPAN module [Proc::ProcessTable](http://search.cpan.org/~durist/Proc-ProcessTable-0.39/ProcessTable.pm) and has simple *-h* and *-v* arguments.
 
 This [Dockerfile](https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-dockerfile) will setup the following environment,
 
