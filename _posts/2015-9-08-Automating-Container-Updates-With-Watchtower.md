@@ -17,7 +17,7 @@ That's where [Watchtower](https://labs.ctl.io/watchtower-automatic-updates-for-d
 
 For a simple case study, two containers, one running [nginx](https://hub.docker.com/_/nginx/) and the other running [mongodb](https://hub.docker.com/_/mongo/) are configured. While the bulk of the configuration is complete, occasionally a container image update is needed. Right now these containers are running on a handful of systems, and re-deploying with an Ansible playbook is a good option without much overhead. But what happens on the next configuration change and the containers are running on 60 systems? 1000 systems? 10,000 systems? Ansible at this point may not be the right tool here.
 
-This is where [Watchtower](https://hub.docker.com/r/centurylink/watchtower/)  comes in. Watchtower itself is a privledged container, with the ability to keep an eye on either all it's co-existing containers or only ones you specify. If you can already deploy containers onto your container host, deploying Watchtower already fits into your existing workflow.
+Watchtower itself is a privledged container, with the ability to keep an eye on either all it's co-existing containers or only ones you specify. If you can already deploy containers onto your container host, deploying Watchtower should integrate easily into your existing container deployment workflow.
 
 Starting up a Watchtower container and having it watch the containers nginx and mongodb is easy as running,
 
@@ -56,4 +56,4 @@ time="2015-09-08T23:36:27Z" level=info msg="Starting /nginx"
 ## Conclusion
 As you can see Watchtower is a powerful tool for keeping running containers up-to-date with what's in a Docker registry. The only thing Watchtower does not do (which is mentioned on their page) is the first-run issue, where Watchtower only has the ability to watch running containers up updates and not starting them initially.
 
-There are a variety of Docker orchestration tools that can handle this ([Compose](https://docs.docker.com/compose/), [Swarm](https://docs.docker.com/swarm/), [Rancher](http://rancher.com/) and maybe in the future Watchtower itself will gain this feature and more.
+There are a variety of Docker orchestration tools that can handle this ([Compose](https://docs.docker.com/compose/), [Swarm](https://docs.docker.com/swarm/), [Rancher](http://rancher.com/)) and maybe in the future Watchtower itself will gain a first-run feature.
