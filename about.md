@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am a remote DevOps Engineer working at [Demandbase](https://www.demandbase.com). My day-to-day responsibities include working with the DevOps team on maintaining our AWS infrastructure, developing [Chef](https://www.chef.io/) recipes, wrangling [Jenkins](https://jenkins-ci.org/) and collaborating with our development and QA teams.
+I am a remote DevOps Engineer working at [Demandbase](https://www.demandbase.com). My day-to-day responsibilities include working with the DevOps team on maintaining our AWS infrastructure, developing [Chef](https://www.chef.io/) recipes, wrangling [Jenkins](https://jenkins-ci.org/) and collaborating with our development and QA teams.
 
 Afterhours I enjoy being a father and husband, collecting and playing video games, finding new places to eat on [Convoy](http://www.convoydistrict.com/eat/), and learning about technology.
 
