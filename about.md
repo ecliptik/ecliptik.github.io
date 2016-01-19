@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am an Information Technology engineer on the Unix Configuration Management team at [Qualcomm](https://www.qualcomm.com) in San Diego California. My day-to-day responsibities include maintaining our operating system install environment, working with our in-house configuration management suite, and developing processes and tools to streamline IT.
+I am a remote DevOps Engineer working at [Demandbase](https://www.demandbase.com). My day-to-day responsibities include working with the DevOps team on maintaining our AWS infrastructure, developing [Chef](https://www.chef.io/) recipes, wrangling [Jenkins](https://jenkins-ci.org/) and collaborating with our development and QA teams.
 
 Afterhours I enjoy being a father and husband, collecting and playing video games, finding new places to eat on [Convoy](http://www.convoydistrict.com/eat/), and learning about technology.
 
@@ -14,11 +14,13 @@ Afterhours I enjoy being a father and husband, collecting and playing video game
   - [Amazon Web Services](https://aws.amazon.com/)
   - [Google Cloud Platform](https://cloud.google.com/)
   - [Docker](https://www.docker.com)
+  - [Chef](https://www.chef.io/)
   - [Git Source Code Management](https://git-scm.com/)
   - [GitHub](https://www.github.com/)
   - [Jenkins Continous Integration](https://jenkins-ci.org/)
   - [Mediawiki](https://www.mediawiki.org/wiki/MediaWiki)
   - [Hipchat](https://www.hipchat.com/)
+  - [Slack](https://www.slack.com/)
 - **Operating Systems**
   - [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
   - [Community Enterprise OS \(CentOS\)](https://www.centos.org/)
