@@ -21,12 +21,15 @@ Afterhours I enjoy being a father and husband, collecting and playing video game
   - [Mediawiki](https://www.mediawiki.org/wiki/MediaWiki)
   - [Hipchat](https://www.hipchat.com/)
   - [Slack](https://www.slack.com/)
+  - [Rancher](http://rancher.com/)
 - **Operating Systems**
   - [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
   - [Community Enterprise OS \(CentOS\)](https://www.centos.org/)
   - [Ubuntu Linux](https://www.ubuntu.com/)
   - [Debian Linux](https://www.debian.org/)
   - [Apple OSX](https://www.apple.com/osx/)
+  - [CoreOS](https://coreos.com/)
+  - [Alpine Linux](http://www.alpinelinux.org/)
 - **Configuration Management**
   - [Chef](https://www.chef.io/)
   - [Ansible](http://www.ansible.com/home)
