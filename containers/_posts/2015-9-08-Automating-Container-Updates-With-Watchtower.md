@@ -21,37 +21,37 @@ Watchtower itself is a privledged container, with the ability to keep an eye on 
 
 Starting up a Watchtower container and having it watch the containers nginx and mongodb is easy as running,
 
-{% highlight bash %}
+```shell
 [root@containerhost-001 ~]# docker run -d \
 >  --name watchtower \
 >  -v /var/run/docker.sock:/var/run/docker.sock \
 >  centurylink/watchtower nginx mongodb
-{% endhighlight %}
+```
 
 This will pull the container from Docker Hub and run as a privileged container with access to the docker.sock via a mount,
 
-{% highlight bash %}
+```shell
 [root@containerhost-001 ~]# docker ps -a | grep centurylink/watchtower
 CONTAINER ID      IMAGE                         COMMAND                  CREATED          STATUS        PORTS    NAMES
 2b794d39a65e      centurylink/watchtower        "/watchtower nginx m     11 seconds ago   Up 9 seconds            watchtower
-{% endhighlight %}
+```
 
 Running a docker logs -f watchtower will show Watchtower checking every ~5 Minutes if the nginx and mongodb containers are updated on the Docker Registry,
 
-{% highlight bash %}
+```shell
 [root@containerhost-001 ~]# docker logs -f watchtower
 time="2015-09-08T23:10:08Z" level=info msg="Checking containers for updated images"
 time="2015-09-08T23:10:08Z" level=info msg="Checking containers for updated images"
 time="2015-09-08T23:15:11Z" level=info msg="Checking containers for updated images"
-{% endhighlight %}
+```
 
 If the nginx container image is updated and pushed to the registyr, Watchtower will notice the update, [stop the container gracefully](https://labs.ctl.io/gracefully-stopping-docker-containers/), and restart the container using the updated image,
 
-{% highlight bash %}
+```shell
 time="2015-09-08T23:36:11Z" level=info msg="Found new nginx;latest image (84b9c9eec0387b6fd3f41325acddde84f2fd2c1efea9b7c398826b71eeba8822)"
 time="2015-09-08T23:36:12Z" level=info msg="Stopping /nginx (351486f71db2b658a176a594fc7408b0859a7998bdcd03d204c9654a81279c13) with SIGTERM"
 time="2015-09-08T23:36:27Z" level=info msg="Starting /nginx"
-{% endhighlight %}
+```
 
 ## Conclusion
 As you can see Watchtower is a powerful tool for keeping running containers up-to-date with what's in a Docker registry. The only thing Watchtower does not do (which is mentioned on their page) is the first-run issue, where Watchtower only has the ability to watch running containers up updates and not starting them initially.

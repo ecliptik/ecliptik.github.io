@@ -27,24 +27,24 @@ This [Dockerfile](https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-doc
 
 ---
 
-{% highlight bash %}
+```
 FROM ubuntu:14.04
 MAINTAINER Micheal Waltz <ecliptik@gmail.com>
-{% endhighlight %}
+```
 
 This is a standard start to a Dockerfile, using the Docker Hub [Ubuntu image](https://hub.docker.com/_/ubuntu/) tagged 14.04 and the name of the maintainer.
 
 ---
 
-{% highlight bash %}
+```
 ENV DEBIAN_FRONTEND=noninteractive LANG=en_US.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US.UTF-8
-{% endhighlight %}
+```
 
 Here some environment variables are set, which make installing Debian packages through *apt* completely non-interactive and make the environment fully UTF-8.
 
 ---
 
-{% highlight bash %}
+```
 RUN [ "apt-get", "-q", "update" ]
 RUN [ "apt-get", "-qy", "--force-yes", "upgrade" ]
 RUN [ "apt-get", "-qy", "--force-yes", "dist-upgrade" ]
@@ -54,32 +54,32 @@ RUN [ "apt-get", "install", "-qy", "--force-yes", \
       "cpanminus" ]
 RUN [ "apt-get", "clean" ]
 RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
-{% endhighlight %}
+```
 
 Fully updates Ubuntu, installs **perl** and **cpanminus** packages, and cleans up apt to save some space.
 
 ---
 
-{% highlight bash %}
+```
 RUN ["cpanm", "Proc::ProcessTable", "Data::Dumper" ]
-{% endhighlight %}
+```
 
 Uses [cpanminus](http://search.cpan.org/~miyagawa/App-cpanminus-0.05/cpanm) which makes installing CPAN modules dead simple within a Docker container to install dependencies.
 
 ---
 
-{% highlight bash %}
+```
 COPY [ "./ps.pl", "/app/ps.pl" ]
 RUN [ "chmod", "+x",  "/app/ps.pl" ]
-{% endhighlight %}
+```
 
 Copies *ps.pl* script into /app of the container and makes it executable.
 
 ---
 
-{% highlight bash %}
+```
 ENTRYPOINT [ "/app/ps.pl" ]
-{% endhighlight %}
+```
 
 Sets the ENTRYPOINT to the *ps.pl* script.
 
@@ -87,15 +87,14 @@ Sets the ENTRYPOINT to the *ps.pl* script.
 
 Now that the Dockerfile is complete, build a container image with the name **ps-perl**,
 
-
-{% highlight bash %}
-docker build -t ps-perl .
-{% endhighlight %}
+```shell
+% docker build -t ps-perl .
+```
 
 With a container image ready, run it using the *-it* and *--rm* options so the container is automatically removed when completd,
 
-{% highlight bash %}
-docker run -it --rm ps-perl
+```shell
+% docker run -it --rm ps-perl
 PID    TTY        STAT     START                    COMMAND
 1      /dev/console run      Sun Aug 30 04:39:38 2015 /usr/bin/perl -w /app/ps.pl
 --------------------------------
@@ -108,21 +107,23 @@ pctmem:  0.08
 cmndline:  /usr/bin/perl -w /app/ps.pl
 exec:  /usr/bin/perl
 cwd:  /
-{% endhighlight %}
+```
 
 Command line arguments will also pass into the container when run,
 
 *-h*
-{% highlight bash %}
-docker run -it --rm ps-perl -h
+
+```shell
+% docker run -it --rm ps-perl -h
 A simple perl version of ps
-{% endhighlight %}
+```
 
 *-v*
-{% highlight bash %}
-docker run -it --rm ps-perl -v
+
+```shell
+% docker run -it --rm ps-perl -v
 Version: 1.0
-{% endhighlight %}
+```
 
 ## Conclusions
 
