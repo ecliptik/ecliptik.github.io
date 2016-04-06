@@ -13,8 +13,6 @@ WORKDIR ${APP_DIR}
 #Install runtime packages
 RUN apk --no-cache add \
           ca-certificates \
-          py-pygments \
-          python \
           ruby \
           ruby-bundler \
           ruby-io-console \
