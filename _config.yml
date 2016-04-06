@@ -54,11 +54,15 @@ baseurl: ""
 #
 
 markdown: kramdown
-highlighter: rogue
+highlighter: rouge
 permalink: /:title/
 
 # The release of Jekyll Now that you're using
-version: v1.1.0
+version: v1.2.0
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Set the Sass partials directory, as we're using @imports
 sass:
@@ -73,6 +77,7 @@ gems:
 # Exclude these files from your production _site
 exclude:
     - Gemfile
+    - Dockerfile
     - Gemfile.lock
     - LICENSE
     - README.md
