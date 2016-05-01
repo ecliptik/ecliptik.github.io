@@ -4,9 +4,9 @@ title: About
 permalink: /about/
 ---
 
-I am a remote DevOps Engineer working at [Demandbase](https://www.demandbase.com). My day-to-day responsibilities include working with the DevOps team on maintaining our AWS infrastructure, developing [Chef](https://www.chef.io/) recipes, wrangling [Jenkins](https://jenkins-ci.org/) and collaborating with our development and QA teams.
+I am a remote DevOps Engineer working at [Demandbase](https://www.demandbase.com). My day-to-day responsibilities include working with the DevOps team on maintaining our [AWS](https://aws.amazon.com/) infrastructure, developing [Chef](https://www.chef.io/) recipes, wrangling [Jenkins](https://jenkins-ci.org/) jobs, developing [Docker](https://www.docker.com) containers and deploying them to [Rancher](http://rancher.com/), and collaborating with our development and QA teams.
 
-Afterhours I enjoy being a father and husband, collecting and playing video games, finding new places to eat on [Convoy](http://www.convoydistrict.com/eat/), and learning about technology.
+Afterhours I enjoy being a father and husband, collecting and playing new and retro video games, finding new places to eat on [Convoy](http://www.convoydistrict.com/eat/), and learning about technology.
 
 ## Skills
 
@@ -22,6 +22,8 @@ Afterhours I enjoy being a father and husband, collecting and playing video game
   - [Hipchat](https://www.hipchat.com/)
   - [Slack](https://www.slack.com/)
   - [Rancher](http://rancher.com/)
+  - [Packer](https://www.packer.io/intro/)
+  - [Confd](http://www.confd.io/)
 - **Operating Systems**
   - [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
   - [Community Enterprise OS \(CentOS\)](https://www.centos.org/)
@@ -39,9 +41,10 @@ Afterhours I enjoy being a father and husband, collecting and playing video game
   - [Perl](https://www.perl.org/)
 - **Project Management**
   - [Jira](https://www.atlassian.com/software/jira)
-  - Release Management
+  - [Confluence](https://www.atlassian.com/software/confluence)
   - [Agile Development](http://www.agilemanifesto.org/)
   - [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development))
+  - Release Management
   - Lifecycle Management
 
 ## GPG Key
