@@ -21,7 +21,7 @@ Afterhours I enjoy being a father and husband, collecting and playing new and re
   - [Mediawiki](https://www.mediawiki.org/wiki/MediaWiki)
   - [Hipchat](https://www.hipchat.com/)
   - [Slack](https://www.slack.com/)
-  - [Rancher](http://rancher.com/)
+  - [Rancher](https://rancher.com/)
   - [Packer](https://www.packer.io/intro/)
   - [Confd](http://www.confd.io/)
 - **Operating Systems**
