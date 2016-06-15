@@ -49,5 +49,5 @@ Afterhours I enjoy being a father and husband, collecting and playing new and re
 
 ## GPG
 
-[4096R/CD3671F9](https://pgp.mit.edu/pks/lookup?op=vindex&search=0x4FA270F5CD3671F9)
-[keybase.io/ecliptik](https://keybase.io/ecliptik)
+- [4096R/CD3671F9](https://pgp.mit.edu/pks/lookup?op=vindex&search=0x4FA270F5CD3671F9)
+- [keybase.io/ecliptik](https://keybase.io/ecliptik)
