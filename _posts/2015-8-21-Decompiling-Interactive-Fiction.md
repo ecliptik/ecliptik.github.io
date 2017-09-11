@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Decompiling Interactive Fiction
-categories: [coding]
+category: coding
 tags: [zmachine, interactivefiction, zork]
 ---
 

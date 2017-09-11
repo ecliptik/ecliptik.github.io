@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Building a website with Github and Jekyll
-categories: [github, coding]
+category: coding
 tags: [docker, jekyll, github]
 ---
 
