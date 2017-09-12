@@ -30,17 +30,17 @@ apt update
 apt install -y kubeadm kubelet
 ```
 
+### Setup the Master Node
+As root, init the cluster with the network CIDR for Flannel .
+
+```shell
+kubeadm init --pod-network-cidr 10.244.0.0/16`
+```
+
 Setup forwarding, this is required for newer versions of Docker (17.05+).
 
 ```shell
 sudo iptables -A FORWARD -o cni0 -j ACCEPT
-```
-
-### Setup the Master Node
-As root init the cluster with the network CIDR for Flannel.
-
-```shell
-kubeadm init --pod-network-cidr 10.244.0.0/16`
 ```
 
 As the `pirate` user setup kube config to run kube commands as non-root.
@@ -64,7 +64,9 @@ kubectl create clusterrolebinding permissive-binding \
 ```
 
 ### Setup Flannel CNI
-By default Kubernetes does not configure a [Container Network Interface](https://cncf.io/projects/) and needs to have one installed. Flannel has an ARM version available and works reasonably well on the Raspberry Pi 3. Note that as of this writing v0.8.0 has a [known bug](https://github.com/coreos/flannel/issues/773) where it will not start on an ARM architecture. Using v0.7.1 is recommended.
+By default Kubernetes does not configure a [Container Network Interface](https://cncf.io/projects/) and needs to have one installed. [Flannel](https://github.com/coreos/flannel) has an ARM version available and works reasonably well on the Raspberry Pi 3.
+
+> Note: As of this writing, v0.8.0 has a [known bug](https://github.com/coreos/flannel/issues/773) where it will not start on an ARM architecture. Using v0.7.1 is recommended.
 
 Setup RBAC role for flannel since newer versions of k8s have this enabled by default.
 
