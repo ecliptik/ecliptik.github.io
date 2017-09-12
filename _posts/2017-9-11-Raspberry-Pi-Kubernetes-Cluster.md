@@ -9,6 +9,8 @@ Notes from setting up a three node [Raspberry Pi 3 Model B](https://www.raspberr
 
 Originally from [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/) with some additions to fix things I ran into when following the guide.
 
+![RPI Cluster](/images/posts/k8s-rpi-cluster.jpg)
+
 ## Installing and Configuring HypriotOS
 Flash HypriotOS v1.5.0 to SD card. By using HypriotOS we can avoid a lot of the issues that comes with installing Docker on ARM.
 
