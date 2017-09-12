@@ -32,7 +32,7 @@ apt update
 apt install -y kubeadm kubelet
 ```
 
-Setup forwarding, this is required for newer versions of Docker (17.05+). You should restart the node/docker after doing this so the changes take effect in CNI. See this [issues](https://github.com/coreos/flannel/issues/799) for more information.
+Setup forwarding, this is required for newer versions of Docker (17.05+). You should restart the node/docker after doing this so the changes take effect in CNI. See this [issue](https://github.com/coreos/flannel/issues/799) for more information.
 
 ```shell
 iptables -P FORWARD ACCEPT
@@ -53,6 +53,14 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 echo "export KUBECONFIG=${HOME}/.kube/config" >> ~/.bashrc
 source ~/.bashrc
+```
+
+Add some additional iptables rules in order for external DNS in containers to work properly. See this [issue](https://github.com/coreos/flannel/issues/799) for more information.
+
+```shell
+sudo iptables -t nat -A POSTROUTING -s 10.244.0.0/16 ! -d 10.244.0.0/16 -j MASQUERADE
+sudo iptables -I FORWARD 1 -i cni0 -j ACCEPT -m comment --comment "flannel subnet"
+sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subnet"
 ```
 
 Create a cluster service account which makes some things work better (not entirey if this is required, but it doesn't hurt).
