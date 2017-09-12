@@ -32,6 +32,12 @@ apt update
 apt install -y kubeadm kubelet
 ```
 
+Setup forwarding, this is required for newer versions of Docker (17.05+). You should restart the node/docker after doing this so the changes take effect in CNI.
+
+```shell
+iptables -P FORWARD ACCEPT
+```
+
 ### Setup the Master Node
 As root, init the cluster with the network CIDR for Flannel .
 
@@ -64,6 +70,7 @@ By default Kubernetes does not configure a [Container Network Interface](https:/
 
 > Note: As of this writing, v0.8.0 has a [known bug](https://github.com/coreos/flannel/issues/773) where it will not start on an ARM architecture. Using v0.7.1 is recommended.
 
+
 Setup RBAC role for flannel since newer versions of k8s have this enabled by default.
 
 ```shell
@@ -76,14 +83,10 @@ Install flannel using the ARM image.
 curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
 ```
 
-Setup forwarding, this is required for newer versions of Docker (17.05+).
-
-```shell
-iptables -A FORWARD -o cni0 -j ACCEPT
-```
-
 ## Setup Worker Nodes
-On each worker node run the `kubeadm join` command that was output after successfully runing `kubeadm init` on the master node.
+On each worker node run the `kubeadm join` command that was output after successfully running `kubeadm init` on the master node.
+
+Join the node to the cluster
 
 ```shell
 sudo kubeadm join --token=$TOKEN
