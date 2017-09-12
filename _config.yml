@@ -59,7 +59,7 @@ highlighter: rouge
 permalink: /:title/
 
 # The release of Jekyll Now that you're using
-version: v1.2.0
+version: v3.5.2
 
 kramdown:
   input: GFM
@@ -70,7 +70,7 @@ sass:
   style: :expanded # You might prefer to minify using :compressed
 
 # Use the following plug-ins
-gems:
+plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-paginate
   - jekyll-gist
