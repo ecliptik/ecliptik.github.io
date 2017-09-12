@@ -32,7 +32,7 @@ apt update
 apt install -y kubeadm kubelet
 ```
 
-Setup forwarding, this is required for newer versions of Docker (17.05+). You should restart the node/docker after doing this so the changes take effect in CNI.
+Setup forwarding, this is required for newer versions of Docker (17.05+). You should restart the node/docker after doing this so the changes take effect in CNI. See this [issues](https://github.com/coreos/flannel/issues/799) for more information.
 
 ```shell
 iptables -P FORWARD ACCEPT
