@@ -1,31 +1,14 @@
-FROM alpine
-MAINTAINER Micheal Waltz <ecliptik@gmail.com>
+FROM ruby:2.4.1-alpine
+LABEL maintainer="Micheal Waltz <ecliptik@gmail.com>"
 
 #Listen on port 4000
 EXPOSE 4000
 
-#Set APP_DIR
-ENV APP_DIR /app
-
 #Set our workdir
-WORKDIR ${APP_DIR}
+WORKDIR /app
 
-#Install runtime packages
-RUN apk --no-cache add \
-          ca-certificates \
-          ruby \
-          ruby-bundler \
-          ruby-io-console \
-          ruby-json \
-          libffi \
-          libxml2 \
-          libxslt \
-          zlib
-
-# Copy Gemfile for gem install
-RUN mkdir -p ${APP_DIR}
-WORKDIR ${APP_DIR}
-COPY Gemfile ${APP_DIR}
+COPY Gemfile .
+COPY Gemfile.lock .
 
 #Install build packages
 RUN apk --no-cache add \
@@ -35,9 +18,13 @@ RUN apk --no-cache add \
           libxml2-dev \
           libxslt-dev \
           ruby-dev && \
-    bundle config build.nokogiri --use-system-libraries && \
-    bundle package --all && \
-    bundle install --local --system && \
+    apk --no-cache add \
+          ca-certificates \
+          libffi \
+          libxml2 \
+          libxslt \
+          zlib && \
+    bundle install --system && \
     apk del build-dependencies
 
 #Run jekyll
