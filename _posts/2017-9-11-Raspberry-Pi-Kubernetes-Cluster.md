@@ -36,13 +36,7 @@ apt install -y kubeadm kubelet
 As root, init the cluster with the network CIDR for Flannel .
 
 ```shell
-kubeadm init --pod-network-cidr 10.244.0.0/16`
-```
-
-Setup forwarding, this is required for newer versions of Docker (17.05+).
-
-```shell
-sudo iptables -A FORWARD -o cni0 -j ACCEPT
+kubeadm init --pod-network-cidr 10.244.0.0/16
 ```
 
 As the `pirate` user setup kube config to run kube commands as non-root.
@@ -80,6 +74,12 @@ Install flannel using the ARM image.
 
 ```shell
 curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
+```
+
+Setup forwarding, this is required for newer versions of Docker (17.05+).
+
+```shell
+iptables -A FORWARD -o cni0 -j ACCEPT
 ```
 
 ## Setup Worker Nodes
