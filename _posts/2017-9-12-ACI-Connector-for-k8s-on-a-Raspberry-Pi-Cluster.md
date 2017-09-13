@@ -20,7 +20,7 @@ Read more about Azure Container Instances,
 The upstream aci-connector-k8s image is x86 only, but since it's written in typescript it can easily be run on different architectures. To run on a Raspberry Pi k8s cluster, all that is required is building an armhf Docker image.
 
 ### Building a Nodejs ARM Docker Image
-The aci-connector-k8s [Dockerfile](https://github.com/Azure/aci-connector-k8s/blob/master/Dockerfile) uses `node:8.4.0-alpine` as it's base image. While there are some "unofficial" node ARM images, lets create one from a somewhat official repository. This involves finding an armhf Alpine 3.6 image, copying/pasting the [node:3.4-alpine Dockerfile](https://github.com/nodejs/docker-node/blob/master/8.4/alpine/Dockerfile), replacing the `FROM` with the armhf version of alpine, and building the image.
+The aci-connector-k8s [Dockerfile](https://github.com/Azure/aci-connector-k8s/blob/master/Dockerfile) uses `node:8.4.0-alpine` as it's base image. While there are some "unofficial" node ARM images, lets create one from a somewhat official repository. This involves finding an armhf Alpine 3.6 image, copying/pasting the [node:8.4-alpine Dockerfile](https://github.com/nodejs/docker-node/blob/master/8.4/alpine/Dockerfile), replacing the `FROM` with the armhf version of alpine, and building the image.
 
 There are two ways to build an armhf image,
 
@@ -31,7 +31,7 @@ There are two ways to build an armhf image,
   - Dramatically speed up builds
   - Could have unforseen issues due to running in an emulated environment
 
-After first attempting option 1 and 2 hours later and losing the ability to ssh into the Raspberry Pi, option 2 is a much faster approach. Building on a MacBook Pro using the built-in multiarch features of Docker for Mac, works well, but is still slow even on a 4 core system. Fortunately Using up a 24-core [Packet.net](https://www.packet.net) Type 2 bare-metal instance to cross-compile using Multiarch is easy to do too.
+After first attempting option 1, two hours later and losing the ability to ssh into the Raspberry Pi, option 2 is a much faster approach. Building on a MacBook Pro using the built-in multiarch features of Docker for Mac works well, but is still slow even on a 4 core system. Fortunately Using up a 24-core [Packet.net](https://www.packet.net) Type 2 bare-metal instance to cross-compile using Multiarch is easy to do too.
 
 > Note: The official Docker images for armhf are [arm32v6](https://hub.docker.com/r/arm32v6/) and [arm32v7](https://hub.docker.com/r/arm32v7/). These will work natively on a Raspberry Pi and in Docker for Mac, but they will not work on Linux system running Docker. In order to cross-compile a Docker image on Linux the [Multiarch](https://github.com/multiarch) images are required.
 
