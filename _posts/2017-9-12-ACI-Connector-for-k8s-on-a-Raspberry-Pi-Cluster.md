@@ -16,7 +16,7 @@ Read more about Azure Container Instances,
 - [https://docs.microsoft.com/en-us/azure/container-instances/](https://docs.microsoft.com/en-us/azure/container-instances/)
 - [https://azure.microsoft.com/en-us/blog/announcing-azure-container-instances/](https://azure.microsoft.com/en-us/blog/announcing-azure-container-instances/)
 
-## Creating an ARM aci-connector-k8s Container for Raspberry Pi
+## Creating an aci-connector-k8s ARM Image for Raspberry Pi
 The upstream aci-connector-k8s image is x86 only, but since it's written in typescript it can easily be run on different architectures. To run on a Raspberry Pi k8s cluster, all that is required is building an armhf Docker image.
 
 ### Building a Nodejs ARM Docker Image
