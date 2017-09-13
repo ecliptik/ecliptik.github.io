@@ -20,6 +20,9 @@ Read more about Azure Container Instances,
 The upstream aci-connector-k8s image is x86 only, but since it's written in typescript it can easily be run on different architectures. To run on a Raspberry Pi k8s cluster, all that is required is building an armhf Docker image.
 
 ### Building a Nodejs ARM Docker Image
+
+> Note: As of 9/12/2017 [Docker Hub Official Images support multi-platform](https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/) and re-building an image for armhf (or arm64, ppc64le, and s390x) is no longer required if using a supported image (currently Debian based only, Alpine based like below still need to be re-built).
+
 The aci-connector-k8s [Dockerfile](https://github.com/Azure/aci-connector-k8s/blob/master/Dockerfile) uses `node:8.4.0-alpine` as it's base image. While there are some "unofficial" node ARM images, lets create one from a somewhat official repository. This involves finding an armhf Alpine 3.6 image, copying/pasting the [node:8.4-alpine Dockerfile](https://github.com/nodejs/docker-node/blob/17c50cb300581280805a4183524fbf57840f3a7e/8.4/alpine/Dockerfile), replacing the `FROM` with the armhf version of alpine, and building the image.
 
 There are two ways to build an armhf image,
