@@ -107,6 +107,22 @@ Join the node to the cluster
 sudo kubeadm join --token=$TOKEN
 ```
 
+
+Add some additional iptables rules in order for external DNS and forwarding in containers to work properly. See this [issue](https://github.com/coreos/flannel/issues/799) for more information.
+
+Install `iptables-persistent` package to save iptables rules,
+
+```shell
+apt install -y iptables-persistent
+```
+
+```shell
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -t nat -A POSTROUTING -s 10.244.0.0/16 ! -d 10.244.0.0/16 -j MASQUERADE
+sudo iptables -I FORWARD 1 -i cni0 -j ACCEPT -m comment --comment "flannel subnet"
+sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subnet"
+```
+
 ## Verifying
 Show Node Status
 
