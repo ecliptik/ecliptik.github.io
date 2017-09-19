@@ -32,11 +32,6 @@ apt update
 apt install -y kubeadm kubelet
 ```
 
-Setup forwarding, this is required for newer versions of Docker (17.05+). You should restart the node/docker after doing this so the changes take effect in CNI. See this [issue](https://github.com/coreos/flannel/issues/799) for more information.
-
-```shell
-iptables -P FORWARD ACCEPT
-```
 
 ### Setup the Master Node
 As root, init the cluster with the network CIDR for Flannel .
@@ -55,14 +50,6 @@ echo "export KUBECONFIG=${HOME}/.kube/config" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Add some additional iptables rules in order for external DNS in containers to work properly. See this [issue](https://github.com/coreos/flannel/issues/799) for more information.
-
-```shell
-sudo iptables -t nat -A POSTROUTING -s 10.244.0.0/16 ! -d 10.244.0.0/16 -j MASQUERADE
-sudo iptables -I FORWARD 1 -i cni0 -j ACCEPT -m comment --comment "flannel subnet"
-sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subnet"
-```
-
 Create a cluster service account which makes some things work better (not entirey if this is required, but it doesn't hurt).
 
 ```shell
@@ -78,7 +65,6 @@ By default Kubernetes does not configure a [Container Network Interface](https:/
 
 > Note: As of this writing, v0.8.0 has a [known bug](https://github.com/coreos/flannel/issues/773) where it will not start on an ARM architecture. Using v0.7.1 is recommended.
 
-
 Setup RBAC role for flannel since newer versions of k8s have this enabled by default.
 
 ```shell
@@ -89,6 +75,27 @@ Install flannel using the ARM image.
 
 ```shell
 curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
+```
+
+Add some additional iptables rules in order for external DNS and forwarding in containers to work properly. See this [issue](https://github.com/coreos/flannel/issues/799) for more information.
+
+Install `iptables-persistent` package to save iptables rules,
+
+```shell
+apt install -y iptables-persistent
+```
+
+```shell
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -t nat -A POSTROUTING -s 10.244.0.0/16 ! -d 10.244.0.0/16 -j MASQUERADE
+sudo iptables -I FORWARD 1 -i cni0 -j ACCEPT -m comment --comment "flannel subnet"
+sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subnet"
+```
+
+Save iptable rules,
+
+```shell
+netfilter-persistent save
 ```
 
 ## Setup Worker Nodes
