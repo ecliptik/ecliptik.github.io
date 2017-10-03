@@ -36,9 +36,18 @@ There are two ways to build an armhf image,
 
 After first attempting option 1, two hours later and losing the ability to ssh into the Raspberry Pi, option 2 is a much faster approach. Building on a MacBook Pro using the built-in multiarch features of Docker for Mac works well, but is still slow even on a 4 core system. Fortunately Using up a 24-core [Packet.net](https://www.packet.net) Type 2 bare-metal instance to cross-compile using Multiarch is easy to do too.
 
-> Note: The official Docker images for armhf are [arm32v6](https://hub.docker.com/r/arm32v6/) and [arm32v7](https://hub.docker.com/r/arm32v7/). These will work natively on a Raspberry Pi and in Docker for Mac, but they will not work on Linux system running Docker. In order to cross-compile a Docker image on Linux the [Multiarch](https://github.com/multiarch) images are required.
+> Note: The official Docker images for armhf are [arm32v6](https://hub.docker.com/r/arm32v6/) and [arm32v7](https://hub.docker.com/r/arm32v7/). These will work natively on a Raspberry Pi, Docker for Mac, Multiarch, and a Linux system with `qemu-*-static support`. For full details on these see [my post on cross-building Docker images](http://www.ecliptik.com/Cross-Building-and-Running-Multi-Arch-Docker-Images/).
 
 A armhf multiarch nodejs [Dockerfile](https://github.com/ecliptik/dockerfiles/blob/master/node/Dockerfile.alpine.armhf) was built on the Packet.net Type 2 instance and pushed to Docker hub as `ecliptik/node:8.4.0-alpine-armhf`. This only took a few minutes using the Type 2 instance, much faster than Raspberry Pi or Macbook Pro.
+
+Example Using Multiarch to re-build a node armhf alpine image,
+
+```
+curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c044d61e6d02756bb8ed1557b2f0c7a0d7fead6f/8.4/alpine/Dockerfile | sed "s/alpine:3.6/multiarch\/alpine:armhf-v3.6/" > Dockerfile.node.armhf
+
+docker build -f Dockerfile.node.armhf -t ecliptik/node:8.4.0-alpine-armhf .
+docker push ecliptik/node:8.4.0-alpine-armhf
+```
 
 ### Building an aci-connector-k8s ARM Docker Image
 Once a nodejs arm-alpine image is created, clone the [aci-connector-k8s](https://github.com/Azure/aci-connector-k8s) repositoriy, and update the `Dockerfile` to use the `ecliptik/node:8.4.0-alpine-armhf` image. Additionaly, use the `Dockefile` below to use multi-stage builds for improved image size.
@@ -48,7 +57,7 @@ Once a nodejs arm-alpine image is created, clone the [aci-connector-k8s](https:/
 With an updated `Dockerfile` in the cloned repo, build the aci-connector-k8s image _on_ a Raspberry Pi,
 
 ```shell
-docker build -t aci-connector-k8s:armhf .
+docker build -t ecliptik/aci-connector-k8s:alpine-armhf .
 docker push ecliptik/aci-connector-k8s:alpine-armhf
 ```
 
