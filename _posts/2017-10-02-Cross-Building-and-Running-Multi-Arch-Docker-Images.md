@@ -41,8 +41,7 @@ Building an image is as easy as taking an existing `Dockerfile` and changing it'
 For example to re-build the [NodeJS Debian Image](https://github.com/nodejs/docker-node/blob/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile) for arm32v7.
 
 ```
-🐳 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile \
-| sed "s/buildpack-deps:stretch/arm32v7\/buildpack-deps:stretch/g" > Dockerfile.nodejs.armhf
+🐳 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile | sed "s/buildpack-deps:stretch/arm32v7\/buildpack-deps:stretch/g" > Dockerfile.nodejs.armhf
 
 🐳 docker build -f Dockerfile.nodejs.armhf -t nodejs:armhf .
 ```
@@ -85,8 +84,7 @@ Building an image is similiar to Docker For Mac, take an existing `Dockerfile` a
 For example to re-build the [NodeJS Alpine Image](https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile) for aarch64,
 
 ```
-🐳 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile \
-| sed "s/alpine:3.6/multiarch\/alpine:aarch64-v3.6/g" > Dockerfile.nodejs.aarch64
+🐳 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile | sed "s/alpine:3.6/multiarch\/alpine:aarch64-v3.6/g" > Dockerfile.nodejs.aarch64
 
 🐳 docker build -f Dockerfile.nodejs.aarch64 -t nodejs:aarch64 .
 ```
