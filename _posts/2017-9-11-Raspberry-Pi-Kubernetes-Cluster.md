@@ -5,14 +5,14 @@ category: containers
 tags: [docker, arm, kubernetes, raspberrypi]
 ---
 
-Notes from setting up a three node [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [Kubernetes](https://kubernetes.io) cluster using [HypriotOS](https://github.com/hypriot/image-builder-rpi/releases).
+Notes from setting up a three node [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [Kubernetes](https://kubernetes.io) cluster using [HypriotOS 64-bit](https://github.com/DieterReuter/image-builder-rpi64/releases).
 
-Originally from [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/) with some additions to fix things I ran into when following the guide.
+Originally from [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/) with some additions to fix things I ran into when following the guide. This guide uses a 64-bit version of HypriotOS and only armv8 64-bit Docker images will work.
 
 ![RPI Cluster](/images/posts/k8s-rpi-cluster.jpg)
 
 ## Installing and Configuring HypriotOS
-Flash HypriotOS v1.5.0 to SD card. By using HypriotOS we can avoid a lot of the issues that comes with installing Docker on ARM.
+Flash [HypriotOS v1.6.0 64-bit](https://github.com/DieterReuter/image-builder-rpi64/releases) to SD card. By using HypriotOS we can avoid a lot of the issues that comes with installing Docker on ARM.
 
 To begin, boot the Raspberry Pi to Hypriot, login and update system.
 
@@ -32,9 +32,10 @@ apt update
 apt install -y kubeadm kubelet
 ```
 
-
 ### Setup the Master Node
 As root, init the cluster with the network CIDR for Flannel .
+
+> As of this writing this will install and configure [Kubernetes 1.8](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#v180)
 
 ```shell
 kubeadm init --pod-network-cidr 10.244.0.0/16
@@ -50,52 +51,13 @@ echo "export KUBECONFIG=${HOME}/.kube/config" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Create a cluster service account which makes some things work better (not entirey if this is required, but it doesn't hurt).
-
-```shell
-kubectl create clusterrolebinding permissive-binding \
-        --clusterrole=cluster-admin \
-        --user=admin \
-        --user=kubelet \
-        --group=system:serviceaccounts
-```
-
 ### Setup Flannel CNI
-By default Kubernetes does not configure a [Container Network Interface](https://cncf.io/projects/) and needs to have one installed. [Flannel](https://github.com/coreos/flannel) has an ARM version available and works reasonably well on the Raspberry Pi 3.
+By default Kubernetes does not configure a [Container Network Interface](https://cncf.io/projects/) and needs to have one installed. [Flannel](https://github.com/coreos/flannel) has an arm64 version available and works reasonably well on the Raspberry Pi 3 and HypriotOS.
 
-> Note: As of this writing, v0.8.0 has a [known bug](https://github.com/coreos/flannel/issues/773) where it will not start on an ARM architecture. Using v0.7.1 is recommended.
-
-Setup RBAC role for flannel since newer versions of k8s have this enabled by default.
+Install flannel using the arm64 image.
 
 ```shell
-curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel-rbac.yml | kubectl create -f -
-```
-
-Install flannel using the ARM image.
-
-```shell
-curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
-```
-
-Add some additional iptables rules in order for external DNS and forwarding in containers to work properly. See this [issue](https://github.com/coreos/flannel/issues/799) for more information.
-
-Install `iptables-persistent` package to save iptables rules,
-
-```shell
-apt install -y iptables-persistent
-```
-
-```shell
-sudo iptables -P FORWARD ACCEPT
-sudo iptables -t nat -A POSTROUTING -s 10.244.0.0/16 ! -d 10.244.0.0/16 -j MASQUERADE
-sudo iptables -I FORWARD 1 -i cni0 -j ACCEPT -m comment --comment "flannel subnet"
-sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subnet"
-```
-
-Save iptable rules,
-
-```shell
-netfilter-persistent save
+curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.0/Documentation/kube-flannel.yml | sed "s/amd64/arm64/g" | kubectl create -f -
 ```
 
 ## Setup Worker Nodes
@@ -107,14 +69,17 @@ Join the node to the cluster
 sudo kubeadm join --token=$TOKEN
 ```
 
+## Setup Iptables Rules
 
-Add some additional iptables rules in order for external DNS and forwarding in containers to work properly. See this [issue](https://github.com/coreos/flannel/issues/799) for more information.
+Add some additional iptables rules in order for external DNS and forwarding in containers to work properly. See this [issue](https://github.com/coreos/flannel/issues/799) for more information. Run these commands on the master and all worker nodes.
 
 Install `iptables-persistent` package to save iptables rules,
 
 ```shell
-apt install -y iptables-persistent
+sudo apt install -y iptables-persistent
 ```
+
+Setup iptables for flannel CNI,
 
 ```shell
 sudo iptables -P FORWARD ACCEPT
@@ -123,15 +88,21 @@ sudo iptables -I FORWARD 1 -i cni0 -j ACCEPT -m comment --comment "flannel subne
 sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subnet"
 ```
 
+Save iptable rules so they persist after reboot,
+
+```shell
+netfilter-persistent save
+```
+
 ## Verifying
 Show Node Status
 
 ```shell
 $ kubectl get nodes -o wide
-NAME      STATUS    AGE       VERSION   EXTERNAL-IP   OS-IMAGE                        KERNEL-VERSION
-navi      Ready     18m       v1.7.5    <none>        Raspbian GNU/Linux 8 (jessie)   4.4.50-hypriotos-v7+
-tael      Ready     11m       v1.7.5    <none>        Raspbian GNU/Linux 8 (jessie)   4.4.50-hypriotos-v7+
-tatl      Ready     11m       v1.7.5    <none>        Raspbian GNU/Linux 8 (jessie)   4.4.50-hypriotos-v7+
+NAME      STATUS    ROLES     AGE       VERSION   EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION    CONTAINER-RUNTIME
+navi      Ready     master    15m       v1.8.0    <none>        Debian GNU/Linux 9 (stretch)   4.9.13-bee42-v8   docker://Unknown
+tael      Ready     <none>    9m        v1.8.0    <none>        Debian GNU/Linux 9 (stretch)   4.9.13-bee42-v8   docker://Unknown
+tatl      Ready     <none>    8m        v1.8.0    <none>        Debian GNU/Linux 9 (stretch)   4.9.13-bee42-v8   docker://Unknown
 ```
 
 Show Pod Status
@@ -139,15 +110,15 @@ Show Pod Status
 ```shell
 $ kubectl get pods --all-namespaces
 NAMESPACE     NAME                           READY     STATUS    RESTARTS   AGE
-kube-system   etcd-navi                      1/1       Running   0          7m
-kube-system   kube-apiserver-navi            1/1       Running   0          7m
-kube-system   kube-controller-manager-navi   1/1       Running   0          7m
-kube-system   kube-dns-2459497834-g4tz6      3/3       Running   0          6m
-kube-system   kube-flannel-ds-vlnw5          2/2       Running   0          57s
-kube-system   kube-flannel-ds-xsfnc          2/2       Running   0          4m
-kube-system   kube-flannel-ds-zntxs          2/2       Running   0          48s
-kube-system   kube-proxy-b17qz               1/1       Running   0          48s
-kube-system   kube-proxy-m105w               1/1       Running   0          6m
-kube-system   kube-proxy-wpjj4               1/1       Running   0          57s
-kube-system   kube-scheduler-navi            1/1       Running   0          7m
+kube-system   etcd-navi                      1/1       Running   0          15m
+kube-system   kube-apiserver-navi            1/1       Running   0          15m
+kube-system   kube-controller-manager-navi   1/1       Running   1          15m
+kube-system   kube-dns-596cf7c484-qrqsx      3/3       Running   0          14m
+kube-system   kube-flannel-ds-2rzg7          1/1       Running   0          8m
+kube-system   kube-flannel-ds-852gj          1/1       Running   0          13m
+kube-system   kube-flannel-ds-qxmws          1/1       Running   0          10m
+kube-system   kube-proxy-92762               1/1       Running   0          10m
+kube-system   kube-proxy-r78jd               1/1       Running   0          14m
+kube-system   kube-proxy-tfdjr               1/1       Running   0          8m
+kube-system   kube-scheduler-navi            1/1       Running   0          15
 ```
