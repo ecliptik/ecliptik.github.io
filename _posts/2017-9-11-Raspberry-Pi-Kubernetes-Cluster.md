@@ -14,7 +14,7 @@ Originally from [Setup Kubernetes on a Raspberry Pi Cluster easily the official 
 ## Installing and Configuring HypriotOS
 Flash [HypriotOS v1.6.0 64-bit](https://github.com/DieterReuter/image-builder-rpi64/releases) to SD card. By using HypriotOS we can avoid a lot of the issues that comes with installing Docker on ARM.
 
-To begin, boot the Raspberry Pi to Hypriot, login and update system.
+To begin, boot the Raspberry Pi to Hypriot, login and update system,
 
 ```shell
 sudo apt update
@@ -22,7 +22,7 @@ sudo apt upgrade -y
 ```
 
 ## Installing Kubernetes
-Install Kubernetes from [official package repositories](https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubelet-and-kubeadm) on each node.
+Install Kubernetes from [official package repositories](https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubelet-and-kubeadm) on each node,
 
 ```shell
 sudo su -
@@ -33,7 +33,7 @@ apt install -y kubeadm kubelet
 ```
 
 ### Setup the Master Node
-As root, init the cluster with the network CIDR for Flannel .
+As root, init the cluster with the network CIDR for Flannel,
 
 > As of this writing this will install and configure [Kubernetes 1.8](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#v180)
 
@@ -41,7 +41,7 @@ As root, init the cluster with the network CIDR for Flannel .
 kubeadm init --pod-network-cidr 10.244.0.0/16
 ```
 
-As the `pirate` user setup kube config to run kube commands as non-root.
+As the `pirate` user setup kube config to run kubectl commands as non-root,
 
 ```shell
 mkdir -p $HOME/.kube
@@ -54,7 +54,7 @@ source ~/.bashrc
 ### Setup Flannel CNI
 By default Kubernetes does not configure a [Container Network Interface](https://cncf.io/projects/) and needs to have one installed. [Flannel](https://github.com/coreos/flannel) has an arm64 version available and works reasonably well on the Raspberry Pi 3 and HypriotOS.
 
-Install flannel using the arm64 image.
+Install flannel using arm64 images,
 
 ```shell
 curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.0/Documentation/kube-flannel.yml | sed "s/amd64/arm64/g" | kubectl create -f -
@@ -63,7 +63,7 @@ curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.0/Documentation/
 ## Setup Worker Nodes
 On each worker node run the `kubeadm join` command that was output after successfully running `kubeadm init` on the master node.
 
-Join the node to the cluster
+Join the node to the cluster,
 
 ```shell
 sudo kubeadm join --token=$TOKEN
@@ -91,11 +91,11 @@ sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subne
 Save iptable rules so they persist after reboot,
 
 ```shell
-netfilter-persistent save
+sudo netfilter-persistent save
 ```
 
 ## Verifying
-Show Node Status
+Show Node Status,
 
 ```shell
 $ kubectl get nodes -o wide
@@ -105,7 +105,7 @@ tael      Ready     <none>    9m        v1.8.0    <none>        Debian GNU/Linux
 tatl      Ready     <none>    8m        v1.8.0    <none>        Debian GNU/Linux 9 (stretch)   4.9.13-bee42-v8   docker://Unknown
 ```
 
-Show Pod Status
+Show Pod Status,
 
 ```shell
 $ kubectl get pods --all-namespaces
@@ -121,4 +121,47 @@ kube-system   kube-proxy-92762               1/1       Running   0          10m
 kube-system   kube-proxy-r78jd               1/1       Running   0          14m
 kube-system   kube-proxy-tfdjr               1/1       Running   0          8m
 kube-system   kube-scheduler-navi            1/1       Running   0          15
+```
+
+## Run A Test Pod
+
+Using [Docker Hub Official Multi-Platform Images](https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/) makes running official Docker hub images on arm64 hardware much easier. Since Docker Hub now understands architecture manifest, no specific architecture tags are required and any official images will work on a Raspberry Pi k8s cluster without a specific tag.
+
+> Official images based off Alpine Linux currently do not work - see [Issue #304](https://github.com/gliderlabs/docker-alpine/issues/304) for more information.
+
+In this example, we'll run the [official nginx image](https://hub.docker.com/_/nginx/) and have it listen on port 80.
+
+First, deploy a nginx service with 3 replicas,
+
+```shell
+$ kubectl run nginx --image=nginx --replicas=3 --port=80
+deployment "nginx" created
+```
+
+Expose pods in nginx service on port 80,
+```shell
+$ kubectl expose deployment nginx --port 80
+service "nginx" exposed
+```
+
+Get endpoints for nginx service,
+
+```shell
+$ kubectl get endpoints
+NAME         ENDPOINTS                                   AGE
+kubernetes   192.168.7.220:6443                          37m
+nginx        10.244.1.2:80,10.244.1.3:80,10.244.2.2:80   23s
+```
+
+Run curl against an endpoint IP to test,
+
+> `curl` should work against all endpoint IPs on all nodes, if not double check the iptables rules above
+
+```shell
+$ curl 10.244.2.2 | head -n 5
+<DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
 ```
