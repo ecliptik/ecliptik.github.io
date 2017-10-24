@@ -33,6 +33,7 @@ latest: Pulling from arm32v7/debian
 d0e027c48353: Pull complete
 Digest: sha256:d74cc69431f03bbfbbf9fd52c1eabd6ca491280a03da267acb63b65b81e30c8a
 
+/ # uname -a
 Linux 4372bf9a3462 4.9.41-moby #1 SMP Wed Sep 6 00:05:16 UTC 2017 armv7l GNU/Linux
 ```
 
