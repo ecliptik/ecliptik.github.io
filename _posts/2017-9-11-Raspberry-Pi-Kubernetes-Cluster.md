@@ -12,7 +12,7 @@ Originally from [Setup Kubernetes on a Raspberry Pi Cluster easily the official 
 ![RPI Cluster](/images/posts/k8s-rpi-cluster.jpg)
 
 ## Installing and Configuring HypriotOS
-Flash [HypriotOS v1.6.0 64-bit](https://github.com/DieterReuter/image-builder-rpi64/releases) to SD card. By using HypriotOS we can avoid a lot of the issues that comes with installing Docker on ARM.
+Flash [HypriotOS 64-bit](https://github.com/DieterReuter/image-builder-rpi64/releases) to SD card. By using HypriotOS we can avoid a lot of the issues that comes with installing Docker on ARM.
 
 > You can skip the following steps for updating, setting up the k8s repo, and installing the k8s package using `--userdata` with the [flash](https://github.com/hypriot/flash) tool. See this [example](https://github.com/ecliptik/rpi/blob/master/hypriot/user-data.yml).
 
