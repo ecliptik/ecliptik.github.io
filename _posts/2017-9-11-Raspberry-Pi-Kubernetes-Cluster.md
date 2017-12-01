@@ -58,8 +58,10 @@ By default Kubernetes does not configure a [Container Network Interface](https:/
 
 Install flannel using arm64 images,
 
+> With older versions of flannel, additinoal iptables rules were required, this was fixed in [v0.9.1](https://github.com/coreos/flannel/pull/872) (thanks for the tip Frank!)
+
 ```shell
-curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.0/Documentation/kube-flannel.yml | sed "s/amd64/arm64/g" | kubectl create -f -
+curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed "s/amd64/arm64/g" | kubectl create -f -
 ```
 
 ## Setup Worker Nodes
@@ -71,40 +73,15 @@ Join the node to the cluster,
 sudo kubeadm join --token=$TOKEN
 ```
 
-## Setup Iptables Rules
-
-Add some additional iptables rules in order for external DNS and forwarding in containers to work properly. See this [issue](https://github.com/coreos/flannel/issues/799) for more information. Run these commands on the master and all worker nodes.
-
-Install `iptables-persistent` package to save iptables rules,
-
-```shell
-sudo apt install -y iptables-persistent
-```
-
-Setup iptables for flannel CNI,
-
-```shell
-sudo iptables -P FORWARD ACCEPT
-sudo iptables -t nat -A POSTROUTING -s 10.244.0.0/16 ! -d 10.244.0.0/16 -j MASQUERADE
-sudo iptables -I FORWARD 1 -i cni0 -j ACCEPT -m comment --comment "flannel subnet"
-sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subnet"
-```
-
-Save iptable rules so they persist after reboot,
-
-```shell
-sudo netfilter-persistent save
-```
-
 ## Verifying
 Show Node Status,
 
 ```shell
 $ kubectl get nodes -o wide
-NAME      STATUS    ROLES     AGE       VERSION   EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION    CONTAINER-RUNTIME
-navi      Ready     master    15m       v1.8.0    <none>        Debian GNU/Linux 9 (stretch)   4.9.13-bee42-v8   docker://Unknown
-tael      Ready     <none>    9m        v1.8.0    <none>        Debian GNU/Linux 9 (stretch)   4.9.13-bee42-v8   docker://Unknown
-tatl      Ready     <none>    8m        v1.8.0    <none>        Debian GNU/Linux 9 (stretch)   4.9.13-bee42-v8   docker://Unknown
+NAME      STATUS    ROLES     AGE       VERSION   EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION        CONTAINER-RUNTIME
+navi      Ready     master    13m       v1.8.4    <none>        Debian GNU/Linux 9 (stretch)   4.9.65-hypriotos-v8   docker://17.10.0-ce
+tael      Ready     <none>    4m        v1.8.4    <none>        Debian GNU/Linux 9 (stretch)   4.9.65-hypriotos-v8   docker://17.10.0-ce
+tatl      Ready     <none>    4m        v1.8.4    <none>        Debian GNU/Linux 9 (stretch)   4.9.65-hypriotos-v8   docker://17.10.0-ce
 ```
 
 Show Pod Status,
@@ -157,7 +134,7 @@ nginx        10.244.1.2:80,10.244.1.3:80,10.244.2.2:80   23s
 
 Run curl against an endpoint IP to test,
 
-> `curl` should work against all endpoint IPs on all nodes, if not double check the iptables rules above
+> `curl` should work against all endpoint IPs on all nodes
 
 ```shell
 $ curl 10.244.2.2 | head -n 5
