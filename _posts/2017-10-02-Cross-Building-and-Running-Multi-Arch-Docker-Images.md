@@ -2,7 +2,7 @@
 layout: post
 title: Cross Building and Running Multi-Arch Docker Images
 category: containers
-tags: [docker, arm, raspberrypi]
+tags: docker arm raspberrypi
 ---
 
 When running a [Raspberry Pi cluster](http://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/), sometimes there's just not enough power to build native armhf Docker images in a reasonable amount of time.

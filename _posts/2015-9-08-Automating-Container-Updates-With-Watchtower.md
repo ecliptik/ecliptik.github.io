@@ -2,7 +2,7 @@
 layout: post
 title: Automating Container Updates With Watchtower
 category: containers
-tags: [docker, containers, watchtower]
+tags: docker containers watchtower
 ---
 
 You have your services containerized, you've just deployed them to your fleet of 1000 container hosts and everything is running smoothly. Then you realize that you missed a crucial command in the [Dockerfile](https://docs.docker.com/reference/builder/), and well, re-building the container image and pushing to the repository is easy, but what about the 100's of containers out there running the old version?

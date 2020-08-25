@@ -2,7 +2,7 @@
 layout: post
 title: Raspberry Pi Kubernetes Cluster
 category: containers
-tags: [docker, arm, kubernetes, raspberrypi]
+tags: docker arm kubernetes raspberrypi
 ---
 
 Notes from setting up a three node [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [Kubernetes](https://kubernetes.io) cluster using [HypriotOS 64-bit](https://github.com/DieterReuter/image-builder-rpi64/releases).
