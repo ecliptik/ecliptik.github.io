@@ -1,4 +1,4 @@
-FROM ruby:2.4.1-alpine
+FROM ruby:2.7
 LABEL maintainer="Micheal Waltz <ecliptik@gmail.com>"
 
 #Listen on port 4000
@@ -11,21 +11,11 @@ COPY Gemfile .
 COPY Gemfile.lock .
 
 #Install build packages
-RUN apk --no-cache add \
-        --virtual build-dependencies \
-          build-base \
-          libffi-dev \
-          libxml2-dev \
-          libxslt-dev \
-          ruby-dev && \
-    apk --no-cache add \
-          ca-certificates \
-          libffi \
-          libxml2 \
-          libxslt \
-          zlib && \
-    bundle install --system && \
-    apk del build-dependencies
+RUN apt-get update && apt-get install -y \
+          build-essential \
+          ca-certificates
+
+RUN bundle install --system
 
 #Run jekyll
 ENTRYPOINT ["bundle"]
