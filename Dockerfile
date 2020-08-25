@@ -14,7 +14,6 @@ COPY Gemfile.lock .
 RUN apt-get update && apt-get install -y \
           build-essential \
           ca-certificates
-
 RUN bundle install --system
 
 #Run jekyll
