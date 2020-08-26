@@ -111,7 +111,6 @@ h3 {
 code.background { background-color: #eee8d5; }
 
 
-
 /*** Structure ***/
 #page {
 	width: 800px;
@@ -121,14 +120,18 @@ code.background { background-color: #eee8d5; }
 
 #header {
 	width: 800px;
-	margin: 40px auto 50px auto;
+	margin: 30px auto 10px auto;
 }
+
 #header h1 {
-	font-size: 32px;
-	margin-bottom: 4px;
+	font-size: 32px; margin: 0;
 }
 #header h1 a {
 	border: none;
+}
+
+#header p{
+	margin: 0;
 }
 
 #footer {
