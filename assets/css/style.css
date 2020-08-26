@@ -127,7 +127,7 @@ h3 {
 }
 
 #footer {
-	width: 500px;
+	width: 800px;
 	margin: 50px auto 20px auto;
 	padding-top: 10px;
 	font-size: 0.85em;
@@ -274,7 +274,7 @@ img.center {
   text-transform: none;
   line-height: 1.7;
 }
- 
+
 .icon-sun:before { content: '\e801'; }
 .icon-anchor:before { content: '\e800'; }
 .icon-anchor {
