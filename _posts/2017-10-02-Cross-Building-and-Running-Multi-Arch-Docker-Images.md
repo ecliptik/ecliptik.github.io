@@ -23,7 +23,7 @@ Since the original beta, [Docker for Mac](https://www.docker.com/docker-mac) has
 
 If you have Docker for Mac you can test this out by running any multi-arch Docker image from Docker Hub such as the official `arm32v7/debian` image,
 
-```
+```console
 🐳 uname -a
 Darwin sheik.local 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64 x86_64 i386 MacBookPro11,3 Darwin
 
@@ -41,7 +41,7 @@ Building an image is as easy as taking an existing `Dockerfile` and changing it'
 
 For example to re-build the [NodeJS Debian Image](https://github.com/nodejs/docker-node/blob/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile) for arm32v7.
 
-```
+```console
 🐳 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile | sed "s/buildpack-deps:stretch/arm32v7\/buildpack-deps:stretch/g" > Dockerfile.nodejs.armhf
 
 🐳 docker build -f Dockerfile.nodejs.armhf -t nodejs:armhf .
@@ -59,13 +59,13 @@ Most major Linux distributions have a way of setting up `binfmt_misc` using qemu
 
 To setup `qemu-user-static`, follow the [README](https://github.com/multiarch/qemu-user-static/blob/master/README.md), which basically consists of,
 
-```
+```console
 🐳 docker run --rm --privileged multiarch/qemu-user-static:register
 ```
 
 With `qemu-user-static` setup, test `qemu-user-static` support works with a Multiarch image,
 
-```
+```console
 🐳 uname -a
 Linux jezebel 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) x86_64 GNU/Linux
 
@@ -84,7 +84,7 @@ Building an image is similiar to Docker For Mac, take an existing `Dockerfile` a
 
 For example to re-build the [NodeJS Alpine Image](https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile) for aarch64,
 
-```
+```console
 🐳 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile | sed "s/alpine:3.6/multiarch\/alpine:aarch64-v3.6/g" > Dockerfile.nodejs.aarch64
 
 🐳 docker build -f Dockerfile.nodejs.aarch64 -t nodejs:aarch64 .
@@ -107,7 +107,7 @@ Both Debian and Ubuntu include the [qemu-user-static](https://packages.debian.or
 
 To setup `qemu-user-static` using the `apt` on Debian or Ubuntu,
 
-```
+```console
 🐳 apt update
 🐳 apt install -y qemu qemu-user-static qemu-user binfmt-support
 ```
@@ -117,7 +117,7 @@ Any architecture that is supported on Docker Hub and `qemu-*-static` should run 
 ### QEMU Examples
 
 Run a [arm32v7/debian](https://hub.docker.com/r/arm32v7/debian/) image, bind mount the `/usr/bin/qemu-arm-static` binary into the container,
-```
+```console
 🐳 uname -a
 Linux jezebel 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) x86_64 GNU/Linux
 
@@ -133,7 +133,7 @@ Linux 7d91bbe1e01b 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) armv
 
 Run a [s390x/debian](https://hub.docker.com/r/s390x/debian/) image, bind mount the `/usr/bin/qemu-s390x-static` binary into the container,
 
-```
+```console
 🐳 uname -a
 Linux jezebel 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) x86_64 GNU/Linux
 

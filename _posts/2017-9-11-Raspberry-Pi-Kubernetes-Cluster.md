@@ -18,7 +18,7 @@ Flash [HypriotOS 64-bit](https://github.com/DieterReuter/image-builder-rpi64/rel
 
 To begin, boot the Raspberry Pi to Hypriot, login and update system,
 
-```shell
+```console
 sudo apt update
 sudo apt upgrade -y
 ```
@@ -26,7 +26,7 @@ sudo apt upgrade -y
 ## Installing Kubernetes
 Install Kubernetes from [official package repositories](https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubelet-and-kubeadm) on each node,
 
-```shell
+```console
 sudo su -
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
@@ -39,13 +39,13 @@ As root, init the cluster with the network CIDR for Flannel,
 
 > As of this writing this will install and configure [Kubernetes 1.8](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#v180)
 
-```shell
+```console
 kubeadm init --pod-network-cidr 10.244.0.0/16
 ```
 
 As the `pirate` user setup kube config to run kubectl commands as non-root,
 
-```shell
+```console
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -60,7 +60,7 @@ Install flannel using arm64 images,
 
 > With older versions of flannel, additinoal iptables rules were required, this was fixed in [v0.9.1](https://github.com/coreos/flannel/pull/872) (thanks for the tip Frank!)
 
-```shell
+```console
 curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed "s/amd64/arm64/g" | kubectl create -f -
 ```
 
@@ -69,14 +69,14 @@ On each worker node run the `kubeadm join` command that was output after success
 
 Join the node to the cluster,
 
-```shell
+```console
 sudo kubeadm join --token=$TOKEN
 ```
 
 ## Verifying
 Show Node Status,
 
-```shell
+```console
 $ kubectl get nodes -o wide
 NAME      STATUS    ROLES     AGE       VERSION   EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION        CONTAINER-RUNTIME
 navi      Ready     master    13m       v1.8.4    <none>        Debian GNU/Linux 9 (stretch)   4.9.65-hypriotos-v8   docker://17.10.0-ce
@@ -86,7 +86,7 @@ tatl      Ready     <none>    4m        v1.8.4    <none>        Debian GNU/Linux
 
 Show Pod Status,
 
-```shell
+```console
 $ kubectl get pods --all-namespaces
 NAMESPACE     NAME                           READY     STATUS    RESTARTS   AGE
 kube-system   etcd-navi                      1/1       Running   0          15m
@@ -112,20 +112,20 @@ In this example, we'll run the [official nginx image](https://hub.docker.com/_/n
 
 First, deploy a nginx service with 3 replicas,
 
-```shell
+```console
 $ kubectl run nginx --image=nginx --replicas=3 --port=80
 deployment "nginx" created
 ```
 
 Expose pods in nginx service on port 80,
-```shell
+```console
 $ kubectl expose deployment nginx --port 80
 service "nginx" exposed
 ```
 
 Get endpoints for nginx service,
 
-```shell
+```console
 $ kubectl get endpoints
 NAME         ENDPOINTS                                   AGE
 kubernetes   192.168.7.220:6443                          37m
@@ -136,7 +136,7 @@ Run curl against an endpoint IP to test,
 
 > `curl` should work against all endpoint IPs on all nodes
 
-```shell
+```console
 $ curl 10.244.2.2 | head -n 5
 <DOCTYPE html>
 <html>

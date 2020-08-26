@@ -9,7 +9,7 @@ After a long time of [www.ecliptik.com](http://www.ecliptik.com) being offline I
 
 While building the site, I created a [Dockerfile](https://github.com/ecliptik/ecliptik.github.io/blob/master/Dockerfile) to make viewing the site locally before pushing to Github. The container image [ecliptik/jekyll](https://hub.docker.com/r/ecliptik/jekyll/) built from this Dockerfile is also on Docker Hub.
 
-```shell
+```console
 jezebel in ~/git/ecliptik.github.io (master●●)
 % docker run -it --rm -p 4000:4000 -v $(pwd):/app ecliptik/jekyll:latest
 Configuration file: /app/_config.yml

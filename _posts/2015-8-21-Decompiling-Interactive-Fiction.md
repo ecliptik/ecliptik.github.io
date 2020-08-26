@@ -14,7 +14,7 @@ I took a look at the source and discovered Aisle was using a tool called [Parchm
 
 Since Linux has a [base64\(1\)](http://man7.org/linux/man-pages/man1/base64.1.html) utility, I figured I'd strip out the javascript and decode the text to see if I could read the text blob and thus read every possible scenario in the story.
 
-```shell
+```console
 % sed -e "s/processBase64Zcode('//g" Aisle.z5.js \
 | sed -e "s/');//g" \
 | base64 --decode > Aisle.z5
@@ -22,7 +22,7 @@ Since Linux has a [base64\(1\)](http://man7.org/linux/man-pages/man1/base64.1.ht
 
 At first I did this without output redirection, and it flooded my terminal with binary control characters, essentially frying it. I killed the tmux window, and started again, this time looking to see if the file type was known.
 
-```shell
+```console
 % file Aisle.z5
 Aisle.z5: Infocom (Z-machine 5, Release 1 / Serial 990528)
 ```
@@ -37,7 +37,7 @@ Some addition searches didn't really uncover much on how to *de-compile* a Z-Mac
 
 Finally I found [Z-Code Tools](http://inform-fiction.org/zmachine/zcode.html). There was no compiled binaries for Linux, and if there were, they probably don't work anymore on a newer version of Linux. I downloaded the source and a make later made the binaries magically appear. The freshly compiled **txd** tool finally yielded the results I wanted:
 
-```shell
+```console
 % ./txd /var/tmp/Aisle.z5 | grep gnocchi | head -5
 gnocchiyou
 S139: "You pick up a bag of gnocchi and turn it over. The doughy balls weigh your eyes; gnocchi, women, a woman, statues, a slow motion crash of flesh on show her some gnocchi and then you eat it and live happily ever after." intelligent. Leaving the gnocchi you walk over and drop to a knee. "Will you

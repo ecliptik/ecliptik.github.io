@@ -42,7 +42,7 @@ A armhf multiarch nodejs [Dockerfile](https://github.com/ecliptik/dockerfiles/bl
 
 Example Using Multiarch to re-build a node armhf alpine image,
 
-```
+```console
 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c044d61e6d02756bb8ed1557b2f0c7a0d7fead6f/8.4/alpine/Dockerfile | sed "s/alpine:3.6/multiarch\/alpine:armhf-v3.6/" > Dockerfile.node.armhf
 
 docker build -f Dockerfile.node.armhf -t ecliptik/node:8.4.0-alpine-armhf .
@@ -56,7 +56,7 @@ Once a nodejs arm-alpine image is created, clone the [aci-connector-k8s](https:/
 
 With an updated `Dockerfile` in the cloned repo, build the aci-connector-k8s image _on_ a Raspberry Pi,
 
-```shell
+```console
 docker build -t ecliptik/aci-connector-k8s:alpine-armhf .
 docker push ecliptik/aci-connector-k8s:alpine-armhf
 ```
@@ -68,7 +68,7 @@ Now that we have a armhf image capable of running on a Raspberry Pi, we can depl
 
 First clone the [aci-connector-k8s](https://github.com/Azure/aci-connector-k8s) repository onto the Raspberry Pi cluster master,
 
-```shell
+```console
 git clone https://github.com/Azure/aci-connector-k8s.git
 ```
 
@@ -78,13 +78,13 @@ Next, if you used `kubeadm` to create your cluster and RBAC is enabled, you'll n
 
 Create the RBAC role for the connector,
 
-```shell
+```console
 curl -sSL https://raw.githubusercontent.com/alexjmoore/aci-connector-k8s-arm/master/aci-connector-rbac.yaml | kubectl create -f -
 ```
 
 Under `spec` in the `examples/aci-connector.yaml` add the RBAC role,
 
-```shell
+```console
 serviceAccountName: aci-connector-sa
 ```
 
@@ -98,7 +98,7 @@ Updated `examples/aci-connector.yaml` with RBAC role and `ecliptik/aci-connector
 
 Deploy the aci-connector pod,
 
-```shell
+```console
 kubectl create -f examples/aci-connector.yaml
 ```
 
@@ -106,7 +106,7 @@ Wait a few minutes while the pod comes into service (mostly waiting for the imag
 
 Verify aci-connector pod has started,
 
-```shell
+```console
 kubectl get pods
 NAME                             READY     STATUS    RESTARTS   AGE
 aci-connector-1252680567-b88w6   1/1       Running   0          3m
@@ -114,7 +114,7 @@ aci-connector-1252680567-b88w6   1/1       Running   0          3m
 
 Verify aci-connector node is added,
 
-```shell
+```console
 kubectl get nodes -o wide
 NAME            STATUS    AGE       VERSION   EXTERNAL-IP   OS-IMAGE                        KERNEL-VERSION
 aci-connector   Ready     2m        v1.6.6    <none>        <unknown>                       <unknown>
@@ -125,15 +125,15 @@ tatl            Ready     1h        v1.7.5    <none>        Raspbian GNU/Linux 8
 
 Deploy `example/nginx-pod.yaml` pod from aci-connector-k8s repo,
 
-```shell
+```console
 kubectl create -f examples/nginx-pod.yaml
 pod "nginx" created
 ```
 
 Verify pod deployed and is running in ACI,
 
-```shell
- kubectl get pods -o wide
+```console
+kubectl get pods -o wide
  NAME                             READY     STATUS    RESTARTS   AGE       IP               NODE
  aci-connector-1696751608-tcjcq   1/1       Running   0          24m       10.244.2.4       tael
  nginx                            1/1       Running   0          10s       104.42.235.280   aci-connector

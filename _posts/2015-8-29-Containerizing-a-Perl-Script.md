@@ -27,7 +27,7 @@ This [Dockerfile](https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-doc
 
 ---
 
-```
+```dockerfile
 FROM ubuntu:14.04
 MAINTAINER Micheal Waltz <ecliptik@gmail.com>
 ```
@@ -36,7 +36,7 @@ This is a standard start to a Dockerfile, using the Docker Hub [Ubuntu image](ht
 
 ---
 
-```
+```dockerfile
 ENV DEBIAN_FRONTEND=noninteractive LANG=en_US.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US.UTF-8
 ```
 
@@ -44,7 +44,7 @@ Here some environment variables are set, which make installing Debian packages t
 
 ---
 
-```
+```dockerfile
 RUN [ "apt-get", "-q", "update" ]
 RUN [ "apt-get", "-qy", "--force-yes", "upgrade" ]
 RUN [ "apt-get", "-qy", "--force-yes", "dist-upgrade" ]
@@ -60,7 +60,7 @@ Fully updates Ubuntu, installs **perl** and **cpanminus** packages, and cleans u
 
 ---
 
-```
+```dockerfile
 RUN ["cpanm", "Proc::ProcessTable", "Data::Dumper" ]
 ```
 
@@ -68,7 +68,7 @@ Uses [cpanminus](http://search.cpan.org/~miyagawa/App-cpanminus-0.05/cpanm) whic
 
 ---
 
-```
+```dockerfile
 COPY [ "./ps.pl", "/app/ps.pl" ]
 RUN [ "chmod", "+x",  "/app/ps.pl" ]
 ```
@@ -77,7 +77,7 @@ Copies *ps.pl* script into /app of the container and makes it executable.
 
 ---
 
-```
+```dockerfile
 ENTRYPOINT [ "/app/ps.pl" ]
 ```
 
@@ -87,13 +87,13 @@ Sets the ENTRYPOINT to the *ps.pl* script.
 
 Now that the Dockerfile is complete, build a container image with the name **ps-perl**,
 
-```shell
+```console
 % docker build -t ps-perl .
 ```
 
 With a container image ready, run it using the *-it* and *--rm* options so the container is automatically removed when completd,
 
-```shell
+```console
 % docker run -it --rm ps-perl
 PID    TTY        STAT     START                    COMMAND
 1      /dev/console run      Sun Aug 30 04:39:38 2015 /usr/bin/perl -w /app/ps.pl
@@ -113,14 +113,14 @@ Command line arguments will also pass into the container when run,
 
 *-h*
 
-```shell
+```console
 % docker run -it --rm ps-perl -h
 A simple perl version of ps
 ```
 
 *-v*
 
-```shell
+```console
 % docker run -it --rm ps-perl -v
 Version: 1.0
 ```
