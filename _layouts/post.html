@@ -11,6 +11,8 @@ layout: default
 	{% else %}
 		<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
 	{% endif %}
+<hr>
+
 
 <span>[
   {% for tag in page.tags %}
@@ -19,8 +21,9 @@ layout: default
   {% endfor %}
 ]</span>
 
-	<div class="post-content">{{ content }}</div>
+<br>
+<br>
+<div class="post-content">{{ content }}</div>
 
-	<p class="meta">Posted on <span class="postdate">{{ page.date | date: "%b %d, %Y" }}</span></p>
-
+<p class="meta">Posted on <span class="postdate">{{ page.date | date: "%b %d, %Y" }}</span></p>
 </article>
