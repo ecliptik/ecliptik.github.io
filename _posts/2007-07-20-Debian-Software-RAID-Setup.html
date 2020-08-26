@@ -1,0 +1,52 @@
+---
+layout: post
+title: Debian Software RAID Setup
+tags: debian linux
+---
+<span style="font-weight: bold;font-size:130%;" >The Problem</span>
+
+Over the past few years space on my server would increase based on the deals found on sites like <a href="http://www.slickdeals.net/">Slickdeals</a>. After some time this lead to a mishmash of two PATAs and one SATA at 120Gb, 160Gb, and 200Gb respectively on my personal media server. Glad as I was to have all this space it started to become disk management issue since I wanted the bulk of the space consolidated for media. Filling up one drive would require me to move data to another with more space, causing organization and software issues (NFS would not single export multiple mounts).
+<span style="font-size:130%;">
+</span><span style="font-weight: bold;font-size:130%;" >Remedy</span>
+
+Last week this all became moot when Fry's advertised a <a href="http://www.seagate.com/ww/v/index.jsp?locale=en-US&name=null&amp;amp;amp;amp;vgnextoid=65837ea70fafd010VgnVCM100000dd04090aRCRD&vgnextchannel=ee9ed21c2f32b010VgnVCM100000dd04090aRCRD&amp;reqPage=Model">500Gb SATAII Maxtor drive</a> for 90$. My EPoX motherboard was capable for <a href="http://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0">RAID-0</a> and <a href="http://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_1">RAID-1</a> so I figured it was time to upgrade to a terabyte and bought two.
+
+The initial plan was to create a RAID-0 array (striping for performance), re-install <a href="http://www.debian.org/">Debian</a>, copy all data, and remove the older drives for noise and heat reasons. With two of them PATA drives, they could stay in the system  easily copy straight to the new array. The older SATA drive had the OS and I wanted to keep it around for config reference when I was re-setting up the server. Both of the SATA ports would be used for the new array, not allowing this SATA to remain in the system, this was solved by purchasing a <a href="http://www.masscool.com/masscool/Product.aspx?ID=255">Masscool PATA/SATA external USB enclosure</a> and copying the data from there.
+
+<span style="font-weight: bold;font-size:130%;" >Issues</span>
+
+Once everything was hooked up I ran the RAID BIOS config, set the new SATAs for RAID-0, and booted up the Debian Netinst CD. Surprisingly the installer showed both 500Gb drives as /dev/sda and /dev/sdb, completely ignoring the BIOS set RAID array. After doing a bit of <a href="http://linuxmafia.com/faq/Hardware/sata.html">research online</a> for the RAID chipset (VIA VT6420) I found that it <a href="http://linuxmafia.com/faq/Hardware/sata.html#via6421">wasn't capable</a> for true <a href="http://en.wikipedia.org/wiki/RAID#Hardware_RAID"><span style="font-style: italic;">hardware </span>RAID</a> and instead relied on drivers in the OS to function properly, aka "fakeraid". These drivers only really existed for Windows and not Linux. Eventually I did find ones for Linux, but they were binary only and didn't look too friendly.
+
+I thought about using them, but then remembered that Linux can do <a href="http://en.wikipedia.org/wiki/RAID#Software_RAID"><span style="font-style: italic;">software </span>RAID</a>. Having briefly heard about software RAID before I was suspicious until I read a <a href="http://linux.yyz.us/why-software-raid.html">few</a> <a href="http://librenix.com/?inode=7912">articles</a> explaining it's virtues. After tracking down a <a href="http://ads.wars-nicht.de/blog/archives/54-Install-Debian-Etch-on-a-Software-Raid-1-with-S-ATA-disks.html">how-to Software RAID for Debian</a><a href="http://ads.wars-nicht.de/blog/archives/54-Install-Debian-Etch-on-a-Software-Raid-1-with-S-ATA-disks.html"> </a>before I knew it I had a software RAID-0 array running on /dev/md0. For screen shots check out this <a href="http://users.piuha.net/martti/comp/ubuntu/raid.html">Ubuntu Server Install</a> guide.
+
+<span style="font-weight: bold;font-size:130%;" >Debian Config</span>
+
+The biggest choice while running the install was which file system to us. I gave ext3 a try first, with formatted space coming up to around 870Gb. XFS came out to 932Gb which was better, but after reading <a href="http://en.wikipedia.org/wiki/Xfs#Disadvantages">XFS's disadvantages</a> (no journaling for data blocks) I decided it wasn't the best choice. JFS was last, which I was running on one of the drives I was replacing. It had worked flawlessly for the past couple of years, proving itself in the type of setup I would use. Overall JFS was the best option, giving a total of 932Gb of formatted space, For comparisons sake, a friend with the same setup ended up with 840Gb using NTFS on Windows.
+
+I started the OS install, designating the entire drive as /, but hit a bump when it came to installing GRUB, which said it couldn't install to the MBR. I tried a few partition schemes to no avail, getting "unable to create partition" messages for everything, including swap. After a bit of frustration I split the OS and data onto separate drives; a spare 80Gb PATA for the OS and the RAID for data. I created a basic partition scheme (600Mb for /boot, 70Gb for /, and 5Gb for swap) on the OS drive and then mounted the RAID on /home, since this is where the bulk of the data would go anyway.
+
+<span style="font-weight: bold;font-size:130%;" >Results</span>
+
+Debian finished the install without a hitch and soon I was booting into my new clean system. A few <span style="font-style: italic;">cp -pfr</span> and hours later I had successfully moved my server to the new drive and array. Below are some technical details:
+
+<blockquote style="font-style: italic;">micheal@jezebel:~$ df -h
+Filesystem                Size      Used     Avail     Use%     Mounted on
+/dev/hda3                  70G      4.5G       62G          7%         /
+tmpfs                             502M       0            502M       0%        /lib/init/rw
+udev                                 10M       60K        10M          1%        /dev
+tmpfs                             502M       0            502M       0%        /dev/shm
+/dev/hda1                 564M     37M      499M       7%         /boot
+/dev/md0                  932G     385G    547G       42%       /home</blockquote>
+<blockquote style="font-style: italic;">micheal@jezebel:~$ cat /proc/mdstat
+Personalities : [raid0]
+md0 : active raid0 sda1[0] sdb1[1]
+976767872 blocks 64k chunks
+
+unused devices: none <none>  <none></none></none></blockquote><blockquote style="font-style: italic;">micheal@jezebel:~$ sudo hdparm -tT /dev/md0
+/dev/md0:
+Timing cached reads:   1210 MB in  2.00 seconds = 604.80 MB/sec
+Timing buffered disk reads:  442 MB in  3.01 seconds = 147.07 MB/sec</blockquote>Particularly impressive are results of 147 MB/sec on <span style="font-style: italic;">hdparm</span>, which is leagues beyond the 60MB/sec seen on the original SATA drive. A few config changes over the next few days and the server was up and running normally.
+<span style="font-size:130%;">
+</span><span style="font-weight: bold;font-size:130%;" >Conclusion</span>
+
+Overall Linux's software RAID capabilities are impressive, not only can it do 0 and 1, but when re-compiling the kernel it has just as may options, if not more, than a traditional hardware card. Performance is outstanding, without being limited by the RAID hardware it mostly depends on bus and CPU speed, which are easier to upgrade than a RAID card. After this experience with software RAID I would not only recommenced it for personal use but enterprise also, proving itself in configuration, ease of use, and performance.

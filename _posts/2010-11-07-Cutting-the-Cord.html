@@ -1,0 +1,35 @@
+---
+layout: post
+title: Cutting the Cord
+tags: htpc linux
+---
+Sometime in the mid summer of this year my brother and I spoke briefly about canceling cable TV and going to an Internet only feed. The idea quickly faded since the alternatives, while there, just weren't up to meeting our entertainment requirements. A few weeks ago with an deal between Time Warner and ESPN (more on this later) and the new <a href="http://junocake.blogspot.com/2010/11/jezebel-70.html">media server I built</a>&nbsp;it was time to cut the cord. With broadcast HDTV, a PS3, and Linux based media server here's how we did it and ended up saving a ton of $.<br />
+<br />
+<b><span class="Apple-style-span" style="font-size: x-large;">Movies</span></b><br />
+<br />
+We had the movie option in our cable TV package, with Encore, Starz, and a few other channels excluding the more premium ones like HBO and Showtime. This was by far the easiest to check off by using <a href="http://www.netflix.com/">Netflix</a>. The PS3 is capable of streaming all of the on-demand Netflix catalog, as well as play blu-ray and DVDs with the 10$ one-at-a-time plan. Netflix is only expanding their streaming library in addition to making more HD streams available. I also have many movies ripped to the linux media server and pushed out to the PS3 via a UPnP server software called <a href="http://fuppes.ulrich-voelkel.de/">fuppes</a> for streaming of my movie collection.<br />
+<br />
+<b><span class="Apple-style-span" style="font-size: x-large;">Network TV</span></b><br />
+<br />
+With cable we had a DVR package to record and replay shows back later on in the week. Time Warner also had a nice On-Demand feature to play a majority of network and cable channels shows anytime even if it wasn't recorded on the DVR. Since HDTV came about a few years ago network TV looks just as good, if not better, than it's HD cable counterpart. By purchasing a <a href="http://www.newegg.com/Product/Product.aspx?Item=N82E16882557001&amp;nm_mc=TEMC-RMA-Approvel&amp;cm_mmc=TEMC-RMA-Approvel-_-Content-_-text-_-">HD antenna</a> and putting it over the bookcase we're able to get the local SD network channels in 1080i. Now this isn't as ideal as having the DVR or On-Demand on TW, but the biggest piece in this puzzle was the software called <a href="http://playon.tv/">playon.tv</a>.<br />
+<br />
+Playon.tv runs on a Windows computer and scrapes streaming websites like <a href="http://hulu.com/">hulu.com</a>, <a href="http://cbs.com/">cbs.com</a>, <a href="http://tv.com/">tv.com</a>, etc. It transcodes the streams on the fly and then presents them as a UPnP media server to various devices such as the Wii or PS3. It also has a mobile feature, and devices like an iPad or iPhone can connect to the media server over a remote 3G connection for playback anywhere. The one downside is the streams are not in HD, although HD support is promised by the developers soon. Total cost is 40$ a month with 20$ a month renewal and it more than makes up for the lack of DVR. On a technical note, playon.tv will run just fine in a Windows XP KVM guest on my linux media server with 2 vCPUs and 4GB of memory dedicated to it.<br />
+<br />
+<b><span class="Apple-style-span" style="font-size: x-large;">Sports</span></b><br />
+<br />
+By far the most asked question I get when talking to people about this is "what about sports?". There's almost this myth that you NEED cable to get live sports, which is absolutely not true. With the advent of <a href="http://espn3.com/">espn3.com</a> almost any live sporting even can be watched via a web browser. There's even sports on there I've never heard of. The only downside here is that in order to get espn3.com your ISP needs to have inked a deal with ESPN3. Up until a week ago Time Warner had not done this but now is available, in addition to a new TW only website called <a href="http://espnnetworks.com/">espnnetworks.com</a> which adds even more live sports content. Time Warner unfortunately requires you have ESPN as part of your video cable package, which we do not. Logging into another TW customers account however gets around this. Right now playon.tv supports ESPN3 for non-login ISPs, so for TW customers you still need to go through the web browser. With a media server connected to the same TV this isn't much of an issue. HDTV sports broadcasts look even better than cable since they're still in 1080i but don't suffer from the compression artifacts that most cable channels seem to add. Finally, if you really want to see a live sports even and you can't get it at home, it's probably time to leave the living room.<br />
+<br />
+<b><span class="Apple-style-span" style="font-size: x-large;">Notes</span></b><br />
+<br />
+While we own all three major gaming systems the PS3 was chosen since it can do everything we need and we have a nice bluetooth remote that looks like it belongs in the living room.<br />
+<br />
+We tried out Hulu+ for streaming over the PS3, and even though it had excellent HD output, it was lacking many of the shows available on the website. Strange since it's 10$ a month and you're paying to get less content... In the future if Hulu decides to do things different I'll revisit it.<br />
+<br />
+Since a lot of this is network dependent, I upgraded our <a href="http://www.newegg.com/Product/Product.aspx?Item=N82E16833124388&amp;nm_mc=TEMC-RMA-Approvel&amp;cm_mmc=TEMC-RMA-Approvel-_-Content-_-text-_-">router</a> to one capable of 802.11n and gigabit ethernet speeds so the media server and PS3 aren't laggy when talking to one another.<br />
+<br />
+Time Warner is still in use for the Internet connection, but Verizon is planning<a href="http://www.informationweek.com/news/infrastructure/management/showArticle.jhtml?articleID=227500029"> on rolling out their LTE network</a> to San Diego before the end of 2010. Hopefully they start offering service as an ISP and we can replace the cable connection completely.<br />
+<br />
+<i><b>Update</b></i><br />
+<i><b><br />
+</b></i><br />
+I switched from Windows XP to Windows 7 due to XP seeming to crash daily. Along with improved stability,Win 7 is also 64-bit and can handle all 4 cores when Playon moves to HD streams. The only issue was the AC97' sound card that KVM emulates doesn't have 64-bit Win 7 drivers, and other sound card options don't work either. Playon ships with a virtual audio device that takes care of transcoding the audio to work around this.

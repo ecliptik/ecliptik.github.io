@@ -1,0 +1,77 @@
+---
+layout: post
+title: Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48
+tags: vim google cr-48 linux
+---
+While there are my other impressive hacks going around for the CR-48 (<a href="http://www.minecraftforum.net/viewtopic.php?f=3&amp;t=117623">minecraft</a>, <a href="https://sites.google.com/a/chromium.org/dev/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information/how-to-boot-ubuntu-on-a-cr-48">ubuntu</a>) I needed a few utilities that were more pragmatic. The following assumes that your CR-48 is in <a href="http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information">developer mode</a> and you have a basic understanding of bash, scp, and compiling source code under GNU/Linux.<br />
+<br />
+<b>Vim</b><br />
+<br />
+When I first went into the developer shell I saw approximately 1000 different binaries to run, but not one of them was a text editor. Eventually I stumbled upon qemacs, but we're just on a CR-48 not the middle ages. It was time to figure out how to get vim up and running.<br />
+<br />
+Although ChromeOS is it's own GNU/Linux distro, it appears to mimic Debian/Ubuntu and is adhering somewhat to the LSB. I first just tried a straight copy of the vim binary from a Ubuntu 10.04 system but after some investigating with ldd saw it had a lot of shared libraries that weren't available on the CR-48 (most notably libselinux.so). So the quickest way to get around this was to build a static binary on a 32-bit Debian host (Ubuntu works as well).<br />
+<br />
+On a 32-bit Debian Squeeze I downloaded latest <a href="http://www.vim.org/sources.php">VIM source code</a> and built a static binary with a limited set of features and disabling GUI and selinux options:<br />
+<code><br />
+USER@DEBIAN ~ $ wget ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2<br />
+USER@DEBIAN ~ $&nbsp;tar -xvjf vim-7.3.tar.bz2<br />
+USER@DEBIAN ~ $&nbsp;cd vim73<br />
+USER@DEBIAN ~ $&nbsp;export LDFLAGS=-static<br />
+USER@DEBIAN ~ $&nbsp;./configure --with-features=small --disable-gui --with-vim-name=vi --disable-selinux<br />
+USER@DEBIAN ~ $&nbsp;make<br />
+</code><br />
+This will make a static binary called <i>vi</i>&nbsp;in the <i>src</i>&nbsp;directory. On the CR-48 in <i>/home/chronos/user</i>&nbsp;make a directory called <i>bin</i>&nbsp;and scp the <i>vi</i> binary to it.<br />
+<br />
+Try and execute it, but you'll get a <b>Permission Denied</b>&nbsp;error because by default the <i>/home/chronos/user</i>&nbsp;directory is mounted with the <i>noexec</i>&nbsp;option. Fix this by remounting it with <i>exec.</i><br />
+<code><br />
+chronos@localhost ~ $&nbsp;sudo mount -i -o remount,exec /home/chronos/user<br />
+</code><br />
+Now the binary will run and you have a basic vi editor.<br />
+<br />
+<b>rdesktop</b><br />
+<br />
+Rdesktop is much easier to put on the CR-48 since all of the libraries are available. From a 32-bit Debian/Ubuntu host, or by downloading the <a href="http://packages.debian.org/lenny/i386/rdesktop/download">rdesktop i686 package</a> from packages.debian.org, copy the rdesktop binary to the <i>/home/chronos/user/bin</i>&nbsp;directory. If it's mounted with <i>exec</i>&nbsp;then it will just run. Pass it whatever options you like, and it will open a new GUI window on the CR-48, completely independent of the Chrome UI and any shells.<br />
+<code><br />
+chronos@localhost ~ $ ~/bin/rdesktop -u USERNAME -g 1280x800 -K -z -r clipboard:PRIMARYCLIPBOARD HOSTNAME<br />
+</code><br />
+Copy/paste works well, although the arrow keys may not function properly due to the keymap not getting set correctly. This may be due to a libiconv issue and I'll need to spend some more time figuring it out.<br />
+<br />
+<b>External Monitors</b><br />
+<br />
+While the CR-48 works just fine with it's VGA output without much tweaking, you'll either need to sign in/out or reboot the laptop for it to display to an external monitor. In dev mode xrandr is available making it easy to switch between display resolutions.<br />
+<br />
+Mirror to a monitor that can do 1024x768:<br />
+<code><br />
+chronos@localhost ~ $&nbsp;xrandr --output LVDS1 --mode 1024x768 --output VGA1 --mode 1024x768<br />
+</code><br />
+Turn off the external display and reset the CR-48 display back to the default 1280x800:<br />
+<code><br />
+chronos@localhost ~ $&nbsp;xrandr --output LVDS1 --mode 1280x800 --output VGA1 --off<br />
+</code><br />
+<b>X Forwarding</b><br />
+<br />
+The simplest piece to enable is X-forwarding from a remote X client. Connect over ssh with the&amp; <i>-Y</i> option and run any X applications:<br />
+<code><br />
+chronos@localhost ~ $&nbsp;ssh -Y USER@HOSTNAME<br />
+</code><br />
+<b>Bringing It All Together</b><br />
+<br />
+Now that all the binaries are in place let's set it up so they work across reboots.<br />
+<br />
+Edit <i>/home/chronos/user/.bashrc</i>&nbsp;with our new vi editor and append the following:<br />
+<code><br />
+#Setup our environment<br />
+source ~/.bash_aliases<br />
+PATH=$PATH:~/bin<br />
+<br />
+#Remount /home/chronos/user as exec so anything in ~/bin runs<br />
+sudo mount -i -o remount,exec /home/chronos/user<br />
+</code><br />
+Create a <i>/home/chronos/user/.bash_aliases</i> and add in any aliases:<br />
+<code><br />
+alias rdesktop-home='~/bin/rdesktop -g 1280x800 -u USER -K -z -r clipboard=PRIMARYCLIPBOARD HOSTNAME'<br />
+alias projon='xrandr --output LVDS1 --mode 1024x768 --output VGA1 --mode 1024x768'<br />
+alias projoff='xrandr --output LVDS1 --mode 1280x800 --output VGA1 --off'<br />
+alias ssh-host='ssh -Y USER@HOSTNAME'<br />
+</code><br />
+Now you have a much more flexible environment to add your own aliases, functions, and binaries.

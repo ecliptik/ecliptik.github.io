@@ -1,0 +1,27 @@
+---
+layout: post
+title: Random Debian Scripts
+tags: debian linux
+---
+Today at work I decided to do make a few Debian scripts for generating a dynamic <a href="http://en.wikipedia.org/wiki/MOTD">MOTD</a> and auto-updating using apt-get and I thought I'd share.
+
+<span style="font-weight: bold;"><a href="http://www.ecliptik.com/files/scripts/debian_motd.sh">Debian MOTD</a>
+
+</span>The first script is a fun one and requires the <a href="http://packages.debian.org/stable/games/fortune-mod">fortune</a> and <a href="http://packages.debian.org/stable/games/cowsay">cowsay</a> packages. When run, it generates a cow saying a random message from the fortune quote program and writes it to /etc/motd. Cowsay isn't just limited to a cow, and a look through the documentation will reveal a whole range of ASCII art. Mine is set to run every night at midnight and it makes for some fun variety throughout the week. Here's an example of what a login looks like:
+<blockquote><pre>Welcome to Debian GNU/Linux 3.1!
+_________________________________________
+/ Q: What do Winnie the Pooh and John the \
+| Baptist have in common? A: The same     |
+\ middle name.                            /
+-----------------------------------------
+     \   ^__^
+      \  (oo)\_______
+         (__)\       )\/\
+             ||----w |
+             ||     ||
+
+Linux jezebel 2.6.16-2006-03-28-mcw-01 #1
+PREEMPT Tue Mar 28 21:32:57 PST 2006 x86_64 GNU/Linux</pre></blockquote><a href="http://www.ecliptik.com/files/scripts/debian_apt_upgrade.sh"><span style="font-weight: bold;">Debian Apt AutoUpdate</span></a>
+
+The second is for those who get tired of running the same <span style="font-style: italic;">apt-get update &&amp; apt-get upgrade</span> command day after day just to keep their system up-to-date. The script is simple enough, using the -y argument to allow for unattended updates and writing verbose output to a log file.<a href="http://www.ecliptik.com/files/scripts/debian_apt_upgrade.sh">
+</a>

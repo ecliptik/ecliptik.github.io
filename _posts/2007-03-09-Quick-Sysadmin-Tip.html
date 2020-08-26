@@ -1,0 +1,7 @@
+---
+layout: post
+title: Quick Sysadmin Tip
+tags: linux
+---
+Ever noticed you're running out of room on a partition and you'd like to free up some space quickly that may be hidden in unused directories? Here's a quick and easy way using the <span style="font-style: italic;">du </span>command:
+<ol><li>Find the partition that's low on space and cd into it</li><li>Do <span style="font-style: italic;">du -sh * | grep G</span> to give a usage summary in human readable form and grepping out any dirs with a gigabyte or more</li><li>Look at the results and see if there's any dirs you could remove, or go into further</li><li>Repeat steps 2 and 3 until you've gone through the directory tree, removing any unnecessary files and directories</li></ol>Sure it's only useful for large portions of space, but you could replace the G with an M to get more results. Searching for larger files over a gig is usually quicker and produces better results though.

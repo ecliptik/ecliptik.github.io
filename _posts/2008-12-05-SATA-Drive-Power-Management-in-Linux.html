@@ -1,0 +1,35 @@
+---
+layout: post
+title: SATA Drive Power Management in Linux
+tags: linux debian
+---
+I recently purchased a new 1TB HDD for a new power efficient server I built and I wanted to share a few of the power saving tips I discovered after reading a few <a href="http://www.lesswatts.org/tips/disks.php">sites</a>.
+
+<span style="font-weight: bold;">File system</span>
+
+I was originally going to use ext3 for compatibility reasons, but after reading into <a href="http://en.wikipedia.org/wiki/JFS_%28file_system%29">JFS</a> more I found that it's lighter on CPU and a bit more power friendly, so I used it to format this new drive. I also disabled atime and diratime within <span style="font-style: italic;">/etc/fstab</span>.
+
+<blockquote>/dev/mapper/jezebel-homevol    /home     jfs    noatime,nodiratime    0    1</blockquote><span style="font-weight: bold;">hdparm</span>
+
+Many newer drives support advanced power management on the drive itself, mostly at the sake of performance but since this is a data drive that sits idle most of the time the hit is negligible.
+<blockquote>sudo hdparm -M 128 /dev/sdb
+sudo hdparm -B 100 -S 240 /dev/sdb</blockquote>The first will enable Acoustic Mode and the second will set spin down after 20 minutes of idle time. You can make the permanent by adding them in <span style="font-style: italic;">/etc/hdparm.conf</span>.
+
+<span style="font-weight: bold;">Kernel params</span>
+
+Most of these tricks are for laptops, but they work just as well on an always-on server by enabling them in <span style="font-style: italic;">/etc/sysctl.conf</span>.
+
+<blockquote>#Specific Flash and Power Tweaks
+#
+#Set Laptop mode for less disk writes
+vm.laptop_mode = 1
+#
+#Set Dirty writeback higher
+vm.dirty_writeback_centisecs = 1500
+vm.dirty_expire_centisecs = 1500
+vm.dirty_ratio = 25
+
+#
+#Set swappiness
+vm.swappiness = 20</blockquote>Swappiness is set lower than default to keep swap around in case it's needed but to not use it very much.
+<blockquote></blockquote>
