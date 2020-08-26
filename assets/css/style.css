@@ -13,9 +13,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: bullet;
+ul {
+	list-style: disc;
 }
+
+ol {
+	list-style: decimal;
+}
+
 blockquote, q {
 	quotes: none;
 }
@@ -34,7 +39,7 @@ table {
 body {
 	font-family: Verdana, serif;
 	font-size: 18px;
-	line-height: 1.7;
+	line-height: 1.4;
 }
 
 a, a:active, a:visited {
@@ -47,9 +52,10 @@ a:hover {
 	color: #000000;
 }
 
-p, pre { margin-bottom: 15px; }
-ul, ol { padding: 0 0 18px 30px; }
-ol li, ul li { margin-top: 10px; margin-bottom: 10px; }
+p { margin: 20px 0px 20px; }
+p.copyright { margin: 0 0 20px; }
+ul, ol { padding: 0 0 0 30px; }
+ol li, ul li { margin-top: 1px; margin-bottom: 1px; }
 em, i { font-style: italic; }
 strong, b { font-weight: bold; }
 small { font-size: 0.85em; }
@@ -77,19 +83,17 @@ acronym, abbr {
 
 
 h1 {
-	font-size: 17px;
-	margin: 0 0 10px 0;
+	font-size: 18px;
+	margin: 10px 0 10px;
 }
 h2 {
 	font-size: 15px;
-	margin: 0 0 10px 0;
+	margin: 10px 0 10px;
 }
 h3 {
 	font-size: 14px;
-	margin: 0 0 10px 0;
+	margin: 10px 0 10px;
 }
-
-
 
 /*** Useful Classes ***/
 .clear { clear: both; }
@@ -104,6 +108,7 @@ h3 {
 .img-middle { vertical-align: middle; }
 .nopadding { padding: 0; }
 .nounderline { text-decoration: underline; }
+code.background { background-color: #eee8d5; }
 
 
 
@@ -155,7 +160,7 @@ h3 {
 #sidebar a {
 	border: none;
 	font-family: "Helvetica Neue", "Helvetica", serif;
-	font-size: 1.2em;
+	font-size: 1.3em;
 	padding: 2px 4px;
 }
 
@@ -163,7 +168,7 @@ h3 {
 
 /*** Posts ***/
 article {
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 }
 
 article h1 {
@@ -275,8 +280,8 @@ img.center {
   line-height: 1.7;
 }
 
-.icon-sun:before { content: '\e801'; }
-.icon-anchor:before { content: '\e800'; }
+.icon-cloud:before { content: '☁️'} 
+.icon-anchor:before { content: '☁️'} 
 .icon-anchor {
 	font-size: 65%;
 }
