@@ -1,68 +1,90 @@
 ---
 layout: post
 title: Sierra Wireless MC5725 on Debian Linux
-tags: debian linux
+category: blogger
+tags: debian linux blogger
 ---
+<p>
 When I started my new job I was given an HP Compaq 6910p as a work laptop, which came with a nice embedded 1xEVDO (Sierra Wireless MC5725) card that I could use to get online anywhere where there is a Verizon signal. Over the past week or so I've been migrating from Windows XP to Debian, and this was the last bit of hardware I needed working. Here are my notes on how to get it up and running:
+</p>
 
-<span style="font-weight: bold;">Requirements:</span>
+<h1>Requirements:</h1>
+<p>
 Kernel 2.6.21 or newer with sierra module compiled or latest from <a href="http://www.sierrawireless.com/faq/ShowFAQ.aspx?ID=607">http://www.sierrawireless.com/faq/ShowFAQ.aspx?ID=607</a>
 Device activated in Windows and powered on (disable turning power off in preferences)
+</p>
 
-<span style="font-weight: bold;">Load the modules:</span>
-<span style="font-style: italic;">sudo modprobe usbserial vendor=0x03f0 product=0x211d</span>
-<span style="font-style: italic;">sudo modprobe sierra</span>
+<h2>Load the modules:</h2>
+<blockquote><pre>
+sudo modprobe usbserial vendor=0x03f0 product=0x211d
+sudo modprobe sierra
+</pre></blockquote>
 
-<span style="font-weight: bold;">Setup kppp:</span>
- Uncomment noauth in /etc/ppp/peers/kppp-options
- Modem device: /dev/ttyUSB0
- Flow Control: Hardware
- Line termination CR
- Connection Speed 921600
- Phone Number: #777
- Authentication: PAP/CHAP
- Login ID: your_device_phone_number@vzw3g.com
- Password: vzw
+<h2>Setup kppp:</h2>
+<blockquote><pre>
+Uncomment noauth in <code>/etc/ppp/peers/kppp-options</code>
+Modem device: /dev/ttyUSB0
+Flow Control: Hardware
+Line termination CR
+Connection Speed 921600
+Phone Number: #777
+Authentication: PAP/CHAP
+Login ID: your_device_phone_number@vzw3g.com
+Password: vzw
+</pre></blockquote>
 
-<span style="font-weight: bold;">Automatically load modules in Debian:</span>
+<h2>Automatically load modules in Debian:</h2>
+<blockquote><pre>
 edit /etc/modprobe.conf/usbserial and add:
- options usbserial vendor=0x03f0 product=0x211d
-edit /etc/modules and add:
- sierra
+options usbserial vendor=0x03f0 product=0x211d
+</pre></blockquote>
 
-<span style="font-weight: bold;">Refrences:</span>
-<a href="http://www.ka9q.net/5220.html">http://www.ka9q.net/5220.html</a>
-<a href="http://www.linuxquestions.org/questions/linux-networking-3/motorola-e815-evdo-cant-dial-phone-592375/">http://www.linuxquestions.org/questions/linux-networking-3/motorola-e815-evdo-cant-dial-phone-592375/</a>
-<a href="http://tuxmobil.org/ibm_lenovo_thinkpad_t61_nc216ge_umts_linux.html">http://tuxmobil.org/ibm_lenovo_thinkpad_t61_nc216ge_umts_linux.html</a>
+<p>
+edit <code>/etc/modules</code> and add:
+<blockquote><pre>
+sierra
+</pre></blockquote>
 
-<span style="font-weight: bold;">Some Technical Info:</span>
+<h2>Refrences:</h2>
+<p>
+<ul>
+  <li><a href="http://www.ka9q.net/5220.html">http://www.ka9q.net/5220.html</a></li>
+  <li><a href="http://www.linuxquestions.org/questions/linux-networking-3/motorola-e815-evdo-cant-dial-phone-592375/">http://www.linuxquestions.org/questions/linux-networking-3/motorola-e815-evdo-cant-dial-phone-592375/</a></li>
+  <li><a href="http://tuxmobil.org/ibm_lenovo_thinkpad_t61_nc216ge_umts_linux.html">http://tuxmobil.org/ibm_lenovo_thinkpad_t61_nc216ge_umts_linux.html</a></li>
+</ul>
 
-<span style="font-style: italic;">lsusb -v</span>:
-<blockquote> Bus 002 Device 003: ID 03f0:211d Hewlett-Packard
-Device Descriptor:
-bLength                18
-bDescriptorType         1
-bcdUSB               1.10
-bDeviceClass            0 (Defined at Interface level)
-bDeviceSubClass         0
-bDeviceProtocol         0
-bMaxPacketSize0        64
-idVendor           0x03f0 Hewlett-Packard
-idProduct          0x211d
-bcdDevice            0.02
-iManufacturer           1 HP
-iProduct                2 HP ev2210 1xEV-DO Broadband Wireless Module
-iSerial                 0 </blockquote>
+<h2>Some Technical Info:</h2>
 
-<span style="font-style: italic;">dmesg</span>:
-<blockquote>[ 1976.898309] usbcore: registered new interface driver usbserial
-[ 1976.898435] drivers/usb/serial/usb-serial.c: USB Serial support registered for generic
-[ 1976.898527] usbserial_generic 2-1:1.0: generic converter detected
-[ 1976.898645] usb 2-1: generic converter now attached to ttyUSB0
-[ 1976.898738] usb 2-1: generic converter now attached to ttyUSB1
-[ 1976.898828] usb 2-1: generic converter now attached to ttyUSB2
-[ 1976.898897] usbcore: registered new interface driver usbserial_generic
-[ 1976.898957] drivers/usb/serial/usb-serial.c: USB Serial Driver core
-[ 1982.544979] drivers/usb/serial/usb-serial.c: USB Serial support registered for Sierra USB modem
-[ 1982.545685] usbcore: registered new interface driver sierra
-[ 1982.545762] drivers/usb/serial/sierra.c: USB Driver for Sierra Wireless USB modems: v.1.2.8</blockquote>
+<code>lsusb -v</code>
+<blockquote><pre>
+Bus 002 Device 003: ID 03f0:211d Hewlett-Packard
+    Device Descriptor:
+    bLength 18
+    bDescriptorType 1
+    bcdUSB 1.10
+    bDeviceClass 0 (Defined at Interface level)
+    bDeviceSubClass 0
+    bDeviceProtocol 0
+    bMaxPacketSize0 64
+    idVendor 0x03f0 Hewlett-Packard
+    idProduct 0x211d
+    bcdDevice 0.02
+    iManufacturer 1 HP
+    iProduct 2 HP ev2210 1xEV-DO Broadband Wireless Module
+    iSerial 0
+</pre></blockquote>
+
+<code>dmesg</code>
+<blockquote><pre>
+    1976.898309] usbcore: registered new interface driver usbserial
+    [ 1976.898435] drivers/usb/serial/usb-serial.c: USB Serial support registered for generic
+    [ 1976.898527] usbserial_generic 2-1:1.0: generic converter detected
+    [ 1976.898645] usb 2-1: generic converter now attached to ttyUSB0
+    [ 1976.898738] usb 2-1: generic converter now attached to ttyUSB1
+    [ 1976.898828] usb 2-1: generic converter now attached to ttyUSB2
+    [ 1976.898897] usbcore: registered new interface driver usbserial_generic
+    [ 1976.898957] drivers/usb/serial/usb-serial.c: USB Serial Driver core
+    [ 1982.544979] drivers/usb/serial/usb-serial.c: USB Serial support registered for Sierra USB modem
+    [ 1982.545685] usbcore: registered new interface driver sierra
+    [ 1982.545762] drivers/usb/serial/sierra.c: USB Driver for Sierra Wireless USB modems: v.1.2.8
+</pre></blockquote>

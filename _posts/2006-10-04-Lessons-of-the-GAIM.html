@@ -1,13 +1,32 @@
 ---
 layout: post
 title: Lessons of the GAIM
-tags: linux debian
+category: blogger
+tags: linux debian blogger
 ---
+<p>
 I got a new computer at work last week (I mainly wanted it cause of the larger hard drive). So I went through the motions installing all my favorite apps, which included <a href="http://gaim.sourceforge.net/"><span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_0">GAIM</span></a>. A wonderful open source application that I've been using almost as long as I've been using GNU/Linux. A few years ago they released a Windows client that I've also happily enjoyed while working in a windows environment. Unfortunately with this new install I ran into two major problems.
-<ol><li><span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_1">GAIM</span> would not sign onto AOL with any screen name</li><li><span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_2">GAIM</span> eventually didn't even start up when I tried to run it</li></ol>After a few hours of researched I solved both problems and I'm posting my results here:
+</p>
 
+<p>
+<ol>
+    <li><span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_1">GAIM</span> would not sign onto AOL with any screen name</li>
+    <li><span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_2">GAIM</span> eventually didn't even start up when I tried to run it</li>
+</ol>
+</p>
+
+<p>
+After a few hours of researched I solved both problems and I'm posting my results here:
+</p>
+
+<p>
 If you install <a href="http://www.cygwin.com/"><span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_3">Cygwin</span></a>, go into the folder: C:\Program Files\<span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_4">Gaim</span>\<span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_5">plugins</span> and remove the <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_6">tcl</span>.<span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_7">dll</span> file. For some reason the <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_8">Cygwin</span> <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_9">tcl</span>.<span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_10">dll</span> will take over and cause <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_11">GAIM</span> not to start up properly. By removing this .<span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_12">dll</span> everything works fine and you won't even notice it's gone.
+</p>
 
+</p>
 If the connection status stops at "Connection established, cookie sent" when trying to connect to AOL you must install the version of <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_13">GTK</span> that comes with <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_14">GAIM</span> and not a newer version. I installed <a href="http://gimp-win.sourceforge.net/stable.html"><span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_15">GTK</span> v2.8</a> thinking that it was newer than v2.6 that <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_16">GAIM</span> comes bundled with, but apparently there's some type of bug that prevents it from working correctly. The same issue appears with <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_17">GAIM</span> 2.0 beta.
+</p>
 
+<p>
 So there you go; if you run <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_18">Cygwin</span> and <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_19">GAIM</span> remove the <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_20">tcl</span>.<span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_21">dll</span> and don't install a version of <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_22">GTK</span> that doesn't come bundled with <span onclick="BLOG_clickHandler(this)" class="blsp-spelling-error" id="SPELLING_ERROR_23">GAIM</span> on windows.
+</p>

@@ -1,59 +1,114 @@
 ---
 layout: post
 title: LVM Disk Recipes for Debian
-tags: lvm debian linux
+category: blogger
+tags: lvm debian linux blogger
 ---
+<p>
 After much wrangling and researching I finally figured out how to get LVM disk recipes to work with Debian preseeding. The following recipe will create a partition layout of what's in the table. When making these recipes make sure that you account for extra whitespace that may be hiding (especially spaces) otherwise it may yield unexpected results.
+</p>
 
-<table border="1"><tbody><tr><th>Mount Point</th><th>Type</th><th>VG</th><th>LV Name</th><th>Size (MB)</th><th>Filesystem</th></tr><tr><td>/boot</td><td>Primary</td><td></td><td></td><td>100</td><td>ext3</td></tr><tr><td>/</td><td>LVM</td><td>vg00</td><td>/dev/vg00/rootvol</td><td>4096</td><td>ext3</td></tr><tr><td>/var</td><td>LVM</td><td>vg00</td>
-<td>/dev/vg00/varvol</td><td>1024</td><td>ext3</td></tr><tr><td>swap</td><td>LVM</td><td>vg00</td><td>/dev/vg00/swapvol</td><td>2048</td><td>swap</td></tr><tr><td>/home</td><td>LVM</td><td>vg00</td><td>/dev/vg00/homevol</td><td><i>remaining space</i></td><td>ext3</td></tr></tbody></table>
+<p>
+<table border="1">
+    <tbody>
+        <tr>
+            <th>Mount Point</th>
+            <th>Type</th>
+            <th>VG</th>
+            <th>LV Name</th>
+            <th>Size (MB)</th>
+            <th>Filesystem</th>
+        </tr>
+        <tr>
+            <td>/boot</td>
+            <td>Primary</td>
+            <td></td>
+            <td></td>
+            <td>100</td>
+            <td>ext3</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>LVM</td>
+            <td>vg00</td>
+            <td>/dev/vg00/rootvol</td>
+            <td>4096</td>
+            <td>ext3</td>
+        </tr>
+        <tr>
+            <td>/var</td>
+            <td>LVM</td>
+            <td>vg00</td>
+            <td>/dev/vg00/varvol</td>
+            <td>1024</td>
+            <td>ext3</td>
+        </tr>
+        <tr>
+            <td>swap</td>
+            <td>LVM</td>
+            <td>vg00</td>
+            <td>/dev/vg00/swapvol</td>
+            <td>2048</td>
+            <td>swap</td>
+        </tr>
+        <tr>
+            <td>/home</td>
+            <td>LVM</td>
+            <td>vg00</td>
+            <td>/dev/vg00/homevol</td>
+            <td><i>remaining space</i></td>
+            <td>ext3</td>
+        </tr>
+    </tbody>
+</table>
+</p>
 
-Recipe file:
+<h1>Recipe file:</h1>
 
 <blockquote>
-<pre>
+    <pre>
 Ubuntu/Debian Custom LVM Disk Recipe ::
 
-100 1000 100 ext3                              
+100 1000 100 ext3
     $primary{ }
     $bootable{ }
     device{ /dev/sda }
     method{ format }
-    format{ }            
+    format{ }
     use_filesystem{ }
     filesystem{ ext3 }
     mountpoint{ /boot }
 .
 
 100 100000 -1 lvm
-    $primary{ } $defaultignore{ } 
+    $primary{ } $defaultignore{ }
     method{ lvm } vg_name{ vg00 }
 .
 
-4096 10000 4096 ext3                        
+4096 10000 4096 ext3
     $lvmok{ } in_vg{ vg00 } lv_name{ rootvol }
-    method{ format } format{ }            
-    use_filesystem{ } filesystem{ ext3 }  
+    method{ format } format{ }
+    use_filesystem{ } filesystem{ ext3 }
     mountpoint{ / }
-.                                             
+.
 
-1024 4000 1024 ext3                           
+1024 4000 1024 ext3
     $lvmok{ } in_vg{ vg00 } lv_name{ varvol }
     method{ format } format{ }
-    use_filesystem{ } filesystem{ ext3 }  
+    use_filesystem{ } filesystem{ ext3 }
     mountpoint{ /var }
-.                                             
+.
 
 2048 5000 2048 linux-swap
     $lvmok{ } in_vg{ vg00 } lv_name{ swapvol }
     method{ swap } format{ }
-.                                             
+.
 
-1024 1000000 -1 ext3                  
+1024 1000000 -1 ext3
     $lvmok{ } in_vg{ vg00 } lv_name{ homevol }
-    method{ format } format{ }            
-    use_filesystem{ } filesystem{ ext3 }  
+    method{ format } format{ }
+    use_filesystem{ } filesystem{ ext3 }
     mountpoint{ /home }
-.                                             
+.
 </pre>
 </blockquote>

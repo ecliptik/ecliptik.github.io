@@ -1,25 +1,25 @@
 ---
 layout: post
 title: TW Cable Modem Status Chart
-tags: network linux
+category: blogger
+tags: network linux blogger
 ---
 Chart of our Time Warner cable modem going on and offline. Someone is coming out to replace the line from the alley to the house which hopefully fixes it.<br />
 <br />
-<script src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js" type="text/javascript">
- {"chartType":"AnnotatedTimeLine","chartName":"Cable Modem Status","dataSourceUrl":"//spreadsheets0.google.com/tq?key=0AvxdygqnNZZgdGdKUE9ScC1HMFNaNXpLVUFoOWttZ0E&range=A1%3AB2961&gid=0&transpose=0&headers=1&authkey=CM6E7OIN&pub=1","options":{"displayAnnotations":true,"showTip":true,"dataMode":"markers","maxAlternation":1,"allValuesSuffix":"","pointSize":"0","colors":["#3366CC","#DC3912","#FF9900","#109618","#990099","#0099C6","#DD4477","#66AA00","#B82E2E","#316395"],"smoothLine":false,"lineWidth":"2","labelPosition":"right","is3D":false,"displayRangeSelector":true,"hasLabelsColumn":true,"wmode":"opaque","allowCollapse":true,"displayZoomButtons":true,"isStacked":false,"mapType":"hybrid","width":700,"height":371},"refreshInterval":5} 
-</script><br />
-Script that generated data, originally was so I could tell the cable tech when the connection dropped and then I used the data over a few days to make the above graph.<br />
+
+:Script that generated data, originally was so I could tell the cable tech when the connection dropped and then I used the data over a few days to make the above graph.<br />
 <i>watch.sh</i><br />
 <br />
-<blockquote>#!/bin/bash<br />
-IP=8.8.8.8<br />
-<br />
-while true; do<br />
-DATE=`date +"%D %r"`<br />
-if ping -c 1 -W 2 ${IP} 2&gt;&amp;1 &gt;/dev/null; then<br />
-     echo "${DATE} - Ping successful"<br />
-else<br />
-     echo "${DATE} - Ping unsuccessful"<br />
-fi<br />
-sleep 60<br />
-done</blockquote>
+<code>#!/bin/bash<br />
+    IP=8.8.8.8<br />
+    <br />
+    while true; do<br />
+    DATE=`date +"%D %r"`<br />
+    if ping -c 1 -W 2 ${IP} 2&gt;&amp;1 &gt;/dev/null; then<br />
+    echo "${DATE} - Ping successful"<br />
+    else<br />
+    echo "${DATE} - Ping unsuccessful"<br />
+    fi<br />
+    sleep 60<br />
+    done
+</code>

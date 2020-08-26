@@ -1,6 +1,115 @@
 ---
 layout: post
 title: Ripping Vinyl with GNU/Linux
-tags: linux music
+category: blogger
+tags: linux music blogger
 ---
-Recently my Dad started sending me pieces of his vinyl record collection. He has a ton of good stuff from Led Zeppelin to The Beatles and everything in between from 65'-75'. My plan is to archive all the albums to my computer and do some other fancy things with them like converting each track to an MP3, allowing for easy distribution via CD or over the Internet. Below is the process that I used after doing many hours of research on and off line.<br /><br /><span style="font-weight: bold;font-size:130%;" >1. The Equipment</span><br />In high school I was able to acquire some relatively decent vintage stereo equipment before the prices shot up on <a href="http://electronics.listings.ebay.com/Vintage-Electronics_W0QQfromZR4QQsacatZ14998QQsocmdZListingItemListQQssPageNameZdcpCeTextNonFeat">eBay </a>in recent years. Here's the list of hardware I used:<br /><ul><li><a href="http://en.wikipedia.org/wiki/Technics">Technics</a> SL-20 Belt Drive Turntable</li><li>Technics SA-110 Stereo Receiver<br /></li><li>Technics SH-8XXX Graphic Equalizer</li><li>64-Bit <a href="http://www.debian.org/">Debian</a> GNU/Linux Computer</li></ul>All the equipment except the turntable was in excellent condition, but after taking it to <a href="http://www.google.com/maps?hl=en&q=classic+audio&amp;near=San+Diego,+CA&radius=0.0&amp;latlng=32715278,-117156389,17103527771711870381&dtab=3">Classic Audio Repair</a> in Normal Heights they replaced the RCA cable, belt, checked the speed, and recommended a <a href="http://www.musicdirect.com/products/detail.asp?sku=AGRAPRESGRE">Grado Green MM cartridge</a> for improved playback. They also showed me how to adjust the tone arm's counter balance and the correct anti-skate setting. Everything is hooked up through the record inputs/outputs on each device and the sound is excellent.<br /><br /><span style="font-weight: bold;font-size:130%;" >2. The Software</span><br />Noticeably I'm a huge Geek, and one of my requirements for doing this was everything application must be <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a>. The one exception is I compressed the tracks to MP3 instead of <a href="http://www.vorbis.com/">OGG</a>, this decision was made since my parents are the final destination and it will just make things simpler on their end. Here's the software I used for ripping, analyzing, processing, and encoding:<br /><ul><li><a href="http://audacity.sourceforge.net/">Audacity</a> - Recording and Track Splitting<br /></li><li><a href="http://normalize.nongnu.org/">Normalize-audio</a> - Sound Level Equalization</li><li><a href="http://easytag.sourceforge.net/">EasyTag</a> - MP3 Tagging (ID3v2)</li><li><a href="http://lame.sourceforge.net/index.php">LAME</a> - MP3 Encoding<br /></li><li><a href="http://flac.sourceforge.net/">FLAC</a> - Archival Lossless Encoding</li></ul><span style="font-weight: bold;font-size:130%;" >3. The Process</span><br />Before I rip a record I clean each record with a RCA disc washer kit, clean the tip of the stylus, and check that the EQ levels on the equalizer are all set to zero.<br /><br />In Audacity I play the record watch the levels when it peaks, moving the record level slider correctly so it's right around 0 since I don't want it to be too loud and end up distorted. I hit record in Audacity and start playing the record, checking the levels and making sure the sound is coming through and then sit back and listen to the wonderful sounds of 30 year old vinyl playing away. Once the side is recorded I cut off the beginning and end silence and save it as a WAV file which is usually around 190Mb or so. I do this for each record, being careful not to bump the turntable or cause any excessive disk activity on the computer that would distort the sound.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_dOKDBklCwu8/RhHIXqYPRkI/AAAAAAAAABE/m9_8SL8rs9g/s1600-h/audacity.png"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://1.bp.blogspot.com/_dOKDBklCwu8/RhHIXqYPRkI/AAAAAAAAABE/m9_8SL8rs9g/s320/audacity.png" alt="" id="BLOGGER_PHOTO_ID_5049036966097536578" border="0" /></a><br />Once all the vinyl is ripped digitally I process each WAV file through normalize-audio, which will boost the sound levels up to a normal volume acceptable for playback. The command is straightforward, just pass it a filename and it will only take a few seconds to up the levels.<br /><br />After the audio is normalized I re-open the WAV with Audacity and use the <span style="font-style: italic;">Edit->Split</span> feature to find the gaps between songs and cut the WAV into individual tracks. After the tracks are found I use <span style="font-style: italic;">File->Export Multiple</span> to export through LAME each track as a 192-kbps MP3 file, with a generic file name and no ID3v2 tags.<br /><br />Using the program EasyTag I then load that directory, and use the <a href="http://www.gnudb.org/">GNUDB </a>manual lookup to find the proper album, click apply to all tracks, then save the tags and file names. This will rename the tracks correctly and fill out all the ID3v2 tags, making it a lot easy to catalog and use with MP3 players.<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_dOKDBklCwu8/RggFJAbgdkI/AAAAAAAAAA4/usQ7OqL6rhU/s1600-h/easytag_vinyl.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://3.bp.blogspot.com/_dOKDBklCwu8/RggFJAbgdkI/AAAAAAAAAA4/usQ7OqL6rhU/s320/easytag_vinyl.jpg" alt="" id="BLOGGER_PHOTO_ID_5046289034760975938" border="0" /></a><br />The final step is to archive the original WAV file into FLAC, which is a lossless compression codec, cutting the size of the file by about 65% but maintaining the fidelity of the original WAV. The command I use to do this takes a while but as you can see the compression is impressive:<blockquote><span style="font-style: italic;">flac --lax -mep -b 8192 -l 32 -r 0,16 SideA.wav -o ../flac/SideA.flac<br /><br />190M SideA.wav<br />116M SideA.flac<br /></span></blockquote><span style="font-weight: bold;"><span style="font-weight: bold;font-size:130%;" >4. Results</span><br /></span>I tested the resulting MP3s in <a href="http://www.xmms.org/">XMMS</a>, <a href="http://www.winamp.com/">Winamp</a>, <a href="http://www.apple.com/itunes/">iTunes</a>, and streaming through <a href="http://freshmeat.net/projects/musicindex/">MusixIndex</a>, which all worked as expected:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_dOKDBklCwu8/RggE9wbgdjI/AAAAAAAAAAw/kDECg0K4NoA/s1600-h/ecliptik_mp3.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="http://2.bp.blogspot.com/_dOKDBklCwu8/RggE9wbgdjI/AAAAAAAAAAw/kDECg0K4NoA/s320/ecliptik_mp3.jpg" alt="" id="BLOGGER_PHOTO_ID_5046288841487447602" border="0" /></a><br /><span style="font-weight: bold;font-size:130%;" >5. Conclusions</span><br />Fortunately my Dad took great care of his record collection, and they still sound great. The packing itself is still in top condition and even better than what I'd expect it to look like after 30 years. Unfortunately no matter how much you do to improve the sound quality, through equipment, cleaning, and filters it's unrealistic to expect the records to play as well as when they were new. The sound was still amazing, but occasionally there are the pop/clicks and sometimes distortion of the sound. Each record is different,  some sound flawless while others (New Riders of the Purple Sage) are actually not circular anymore which causes the tonearm to skate some, adding a sort of swishing sound every revolution.<br /><br />Even with some of the sound flaws, I've come to accept that that's the way it is. If I wanted a clean error free recording I'd pick up the CD and just rip that instead, but then where's the fun in that? Plus the MP3s and FLAC sounds exactly like the original record, pops and all, which when listening on a portal MP3 player gives you the feeling of warmth you'd expect from original vinyl.<br /><br /><span style="font-size:130%;"><span style="font-weight: bold;">Update</span></span><br /><br />To address some comments:<br /><br />The equipment is hooked up like this:<br /><blockquote>Tunrtable-> RCA-> Receiver-> RCA-> Equalizer-> RCA to 1/8 Headphone jack -> Line-In on a PCI SoundBlaster Live!<br /></blockquote>The sound card is roughly 7 years old, but has excellent Linux support and Creative was one of the first hardware companies to produce open source drivers back then. All other inputs and channels on the card are muted to avoid any noise.<br /><br />The sound is through the equalizer to make sure all the levels were 0 before being send to the computer, it also gave me a visual clue to if the music was playing (occasionally I would mute the speaker volume). Plus, have you ever seen a Technics EQ from the early 1980s? The thing just looks damn cool when it's doing what it's doing.<br /><br />When I recorded with Audacity I set the record level to coincide with the VU level, making sure it peaked at 0. Normalizing the audio was minimal and since each album had a different record level I don't have the annoyance of one being louder than the other.<br /><br />I wanted to get the best quality I could (The new cartridge and cleaning gave the most improvement) but being that it is ~30 year vinyl I'm not going to be a huge stickler for perfection.<br /><br /><span style="font-weight: bold;font-size:130%;" >References</span><br /><a href="http://www.delback.co.uk/lp-cdr.htm">http://www.delback.co.uk/lp-cdr.htm</a><br /><a href="http://www.br0wn.co.uk/vinyltocd.htm">http://www.br0wn.co.uk/vinyltocd.htm</a><br /><a href="http://www.atpm.com/9.03/under-the-hood.shtml">http://www.atpm.com/9.03/under-the-hood.shtml</a><br /><a href="http://www.kuro5hin.org/story/2004/9/13/11498/3759">http://www.kuro5hin.org/story/2004/9/13/11498/3759</a><br /><a href="http://www.linuxjournal.com/article/6628">http://www.linuxjournal.com/article/6628</a><br /><a href="http://home.att.net/%7Ehalbower/music.html">http://home.att.net/~halbower/music.html</a><br /><a href="http://www.turntablebasics.com/advice.html">http://www.turntablebasics.com/advice.html</a>
+<p>
+Recently my Dad started sending me pieces of his vinyl record collection. He has a ton of good stuff from Led Zeppelin to The Beatles and everything in between from 65'-75'. My plan is to archive all the albums to my computer and do some other fancy things with them like converting each track to an MP3, allowing for easy distribution via CD or over the Internet. Below is the process that I used after doing many hours of research on and off line.<br /><br /><span style="font-weight: bold;font-size:130%;">
+</p>
+<h1>The Equipment</h1>
+<p>
+In high school I was able to acquire some relatively decent vintage stereo equipment before the prices shot up on <a href="http://electronics.listings.ebay.com/Vintage-Electronics_W0QQfromZR4QQsacatZ14998QQsocmdZListingItemListQQssPageNameZdcpCeTextNonFeat">eBay </a>in recent years. Here's the list of hardware I used:
+</p>
+<p>
+<ul>
+    <li><a href="http://en.wikipedia.org/wiki/Technics">Technics</a> SL-20 Belt Drive Turntable</li>
+    <li>Technics SA-110 Stereo Receiver<br /></li>
+    <li>Technics SH-8XXX Graphic Equalizer</li>
+    <li>64-Bit <a href="http://www.debian.org/">Debian</a> GNU/Linux Computer</li>
+</ul>
+</p>
+<p>
+All the equipment except the turntable was in excellent condition, but after taking it to <a href="http://www.google.com/maps?hl=en&q=classic+audio&amp;near=San+Diego,+CA&radius=0.0&amp;latlng=32715278,-117156389,17103527771711870381&dtab=3">Classic Audio Repair</a> in Normal Heights they replaced the RCA cable, belt, checked the speed, and recommended a <a href="http://www.musicdirect.com/products/detail.asp?sku=AGRAPRESGRE">Grado Green MM cartridge</a> for improved playback. They also showed me how to adjust the tone arm's counter balance and the correct anti-skate setting. Everything is hooked up through the record inputs/outputs on each device and the sound is excellent.<br /><br /><span style="font-weight: bold;font-size:130%;">
+</p>
+
+<h1>The Software</h1>
+<p>
+Noticeably I'm a huge Geek, and one of my requirements for doing this was everything application must be <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a>. The one exception is I compressed the tracks to MP3 instead of <a href="http://www.vorbis.com/">OGG</a>, this decision was made since my parents are the final destination and it will just make things simpler on their end. Here's the software I used for ripping, analyzing, processing, and encoding:
+</p>
+<p>
+<ul>
+    <li><a href="http://audacity.sourceforge.net/">Audacity</a> - Recording and Track Splitting<br /></li>
+    <li><a href="http://normalize.nongnu.org/">Normalize-audio</a> - Sound Level Equalization</li>
+    <li><a href="http://easytag.sourceforge.net/">EasyTag</a> - MP3 Tagging (ID3v2)</li>
+    <li><a href="http://lame.sourceforge.net/index.php">LAME</a> - MP3 Encoding<br /></li>
+    <li><a href="http://flac.sourceforge.net/">FLAC</a> - Archival Lossless Encoding</li>
+</ul>
+</p>
+
+<h1>The Process</h1>
+<p>
+Before I rip a record I clean each record with a RCA disc washer kit, clean the tip of the stylus, and check that the EQ levels on the equalizer are all set to zero.
+</p>
+<p>
+In Audacity I play the record watch the levels when it peaks, moving the record level slider correctly so it's right around 0 since I don't want it to be too loud and end up distorted. I hit record in Audacity and start playing the record, checking the levels and making sure the sound is coming through and then sit back and listen to the wonderful sounds of 30 year old vinyl playing away. Once the side is recorded I cut off the beginning and end silence and save it as a WAV file which is usually around 190Mb or so. I do this for each record, being careful not to bump the turntable or cause any excessive disk activity on the computer that would distort the sound.
+</p>
+<p>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/images/posts/audacity.png"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/images/posts/audacity.png" alt="" id="BLOGGER_PHOTO_ID_5049036966097536578" border="0" /></a>
+</p>
+<p>
+Once all the vinyl is ripped digitally I process each WAV file through normalize-audio, which will boost the sound levels up to a normal volume acceptable for playback. The command is straightforward, just pass it a filename and it will only take a few seconds to up the levels.
+</p>
+<p>
+After the audio is normalized I re-open the WAV with Audacity and use the <code>Edit->Split</code> feature to find the gaps between songs and cut the WAV into individual tracks. After the tracks are found I use <code>File->Export Multiple</code> to export through LAME each track as a 192-kbps MP3 file, with a generic file name and no ID3v2 tags.
+</p>
+<p>
+Using the program EasyTag I then load that directory, and use the <a href="http://www.gnudb.org/">GNUDB </a>manual lookup to find the proper album, click apply to all tracks, then save the tags and file names. This will rename the tracks correctly and fill out all the ID3v2 tags, making it a lot easy to catalog and use with MP3 players.
+</p>
+<p>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/images/posts/easytag_vinyl.jpg"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/images/posts/easytag_vinyl.jpg" alt="" id="BLOGGER_PHOTO_ID_5046289034760975938" border="0" /></a>
+</p>
+<p>
+The final step is to archive the original WAV file into FLAC, which is a lossless compression codec, cutting the size of the file by about 65% but maintaining the fidelity of the original WAV. The command I use to do this takes a while but as you can see the compression is impressive:<blockquote><code>flac --lax -mep -b 8192 -l 32 -r 0,16 SideA.wav -o ../flac/SideA.flac 190M SideA.wav 116M SideA.flac</code></blockquote>
+</p>
+
+
+<h1>Results</h1>
+<p>
+I tested the resulting MP3s in <a href="http://www.xmms.org/">XMMS</a>, <a href="http://www.winamp.com/">Winamp</a>, <a href="http://www.apple.com/itunes/">iTunes</a>, and streaming through <a href="http://freshmeat.net/projects/musicindex/">MusixIndex</a>, which all worked as expected:
+</p>
+<p>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/images/posts/ecliptik_mp3.jpg"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/images/posts/ecliptik_mp3.jpg" alt="" id="BLOGGER_PHOTO_ID_5046288841487447602" border="0" /></a>
+</p>
+
+<h1>Conclusions</h1>
+<p>
+Fortunately my Dad took great care of his record collection, and they still sound great. The packing itself is still in top condition and even better than what I'd expect it to look like after 30 years. Unfortunately no matter how much you do to improve the sound quality, through equipment, cleaning, and filters it's unrealistic to expect the records to play as well as when they were new. The sound was still amazing, but occasionally there are the pop/clicks and sometimes distortion of the sound. Each record is different, some sound flawless while others (New Riders of the Purple Sage) are actually not circular anymore which causes the tonearm to skate some, adding a sort of swishing sound every revolution.
+</p>
+<p>
+Even with some of the sound flaws, I've come to accept that that's the way it is. If I wanted a clean error free recording I'd pick up the CD and just rip that instead, but then where's the fun in that? Plus the MP3s and FLAC sounds exactly like the original record, pops and all, which when listening on a portal MP3 player gives you the feeling of warmth you'd expect from original vinyl.
+</p>
+
+<h1>Update</h1>
+
+<h2>To address some comments:</h2>
+
+<p>
+The equipment is hooked up like this:
+<blockquote>Tunrtable-> RCA-> Receiver-> RCA-> Equalizer-> RCA to 1/8 Headphone jack -> Line-In on a PCI SoundBlaster Live!</blockquote>
+</p>
+<p>
+The sound card is roughly 7 years old, but has excellent Linux support and Creative was one of the first hardware companies to produce open source drivers back then. All other inputs and channels on the card are muted to avoid any noise.
+</p>
+<p>
+The sound is through the equalizer to make sure all the levels were 0 before being send to the computer, it also gave me a visual clue to if the music was playing (occasionally I would mute the speaker volume). Plus, have you ever seen a Technics EQ from the early 1980s? The thing just looks damn cool when it's doing what it's doing.
+</p>
+<p>
+When I recorded with Audacity I set the record level to coincide with the VU level, making sure it peaked at 0. Normalizing the audio was minimal and since each album had a different record level I don't have the annoyance of one being louder than the other.
+</p>
+<p>
+I wanted to get the best quality I could (The new cartridge and cleaning gave the most improvement) but being that it is ~30 year vinyl I'm not going to be a huge stickler for perfection.
+</p>
+
+<h1>References</h1>
+<p>
+<ul>
+  <li><a href="http://www.delback.co.uk/lp-cdr.htm">http://www.delback.co.uk/lp-cdr.htm</a></li>
+  <li><a href="http://www.br0wn.co.uk/vinyltocd.htm">http://www.br0wn.co.uk/vinyltocd.htm</a></li>
+  <li><a href="http://www.atpm.com/9.03/under-the-hood.shtml">http://www.atpm.com/9.03/under-the-hood.shtml</a></li>
+  <li><a href="http://www.kuro5hin.org/story/2004/9/13/11498/3759">http://www.kuro5hin.org/story/2004/9/13/11498/3759</a></li>
+  <li><a href="http://www.linuxjournal.com/article/6628">http://www.linuxjournal.com/article/6628</a></li>
+  <li><a href="http://home.att.net/%7Ehalbower/music.html">http://home.att.net/~halbower/music.html</a></li>
+  <li><a href="http://www.turntablebasics.com/advice.html">http://www.turntablebasics.com/advice.html</a></li>
+</ul>
+</p>

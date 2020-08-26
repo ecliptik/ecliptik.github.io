@@ -1,41 +1,75 @@
 ---
 layout: post
 title: My First Vista Experience
-tags: windows
+category: blogger
+tags: windows blogger
 ---
-<span style="font-weight: bold;font-size:130%;" >More Entertaining</span>
 
+<h1>More Entertaining</h1>
+
+<p>
 I've personally been avoiding Microsoft Vista since it came out, mostly because I have a <a href="http://www.apple.com/macosx/tiger/">real OS</a> on my laptop and <a href="http://en.wikipedia.org/wiki/Windows_xp">one</a> that works reasonable well on my work computer. I've occasionally used Vista in passing, moving the mouse around, watching the pretty glass window border effect but never really digging into it until today.
+</p>
 
+<p>
 Normally my duties at work are purely sysadmin, building and maintaining servers and other tech support things. This morning due to a shortage of staff I once again donned my tech support hat and began working on a new Lenovo IBM Thinkpad with Vista Home Premium. The users was having issues with the amount of disk space taken up and wanted Mozilla Firefox re-installed on it. Shouldn't be too difficult....
+</p>
 
-<span style="font-size:130%;"><span style="font-weight: bold;">Space Requirements</span></span>
+<h1>Space Requirements</h1>
 
+<p>
 The journey begins with me first determining what's going on with the disk space, and why there's only 5Gb free. An overview of the hard drive shows that it's 56Gb total, but split into a 5Gb EISA partition and a 51Gb NTFS partition. I'm assuming the first one is part of the Thinkpad pre-install so I don't bother with it too much. After cruising the directories I find some that are large (5gb or so) and also look like Thinkpad specific pre-installs. Since they're labeled software, drivers, etc I remove them since all this seems useless with the machine up and running already. After all this I end up with 8Gb free (wtf?). I eventually find that most of it is tied up in user data that was moved from a previous laptop. Okay, so first problem is solved and it didn't really involve and Vista specific things since it's the same procedure under WinXP. Off to a good start.
+</p>
 
+<p>
 The second issue I figured shouldn't be anything special; uninstall the old version of Thunderbird, reinstall, and load up the old profile. This is the point where I was introduced to the wonderful new eXPerience that is Windows Vista.
+</p>
 
-<span style="font-weight: bold;"><span style="font-size:130%;">Safer</span></span>
+<h1>Safer</h1>
 
-First I go looking for Add/Remove programs, but it's renamed, it's now under Program and Features (Classic view). Okay, name change, eh it happens. I open it up, and watch the programs load almost like from a webpage, they just sort of "fill down" (it even has a progress bar in the "address bar"). I'm too quick for it and see Thunderbird so I attempt to click it, randomly it grabs my click and thinks I want some Thinkpad software instead.  Even for all this initial loading it didn't load the program icons so they need to fill in as I scroll down. Annoying. I find Thunderbird again, and click Uninstall.
+<p>
+First I go looking for Add/Remove programs, but it's renamed, it's now under Program and Features (Classic view). Okay, name change, eh it happens. I open it up, and watch the programs load almost like from a webpage, they just sort of "fill down" (it even has a progress bar in the "address bar"). I'm too quick for it and see Thunderbird so I attempt to click it, randomly it grabs my click and thinks I want some Thinkpad software instead. Even for all this initial loading it didn't load the program icons so they need to fill in as I scroll down. Annoying. I find Thunderbird again, and click Uninstall.
+<p>
 
+<p>
 Nothing happens. Nada. Zip. WTF? No error, no explanation. Okay, so it's a weird bug, so I decide to just install over the existing app. In order to do this I go online to get the latest version. Or not.
+</p>
 
-<span style="font-weight: bold;"><span style="font-size:130%;">Better Connected</span></span>
+<h1>Better Connected</h1>
 
+<p>
 I foolishly think that Vista saw the open AP that's literally sitting right next to it and connected. Nope. I look for the familiar wireless networking icon in the taskbar, but don't find it. "Ah ha!", I say to myself, "thinkpads have a on/off wireless switch on their front!". I'd been bitten by this oversight before, but not today. I find the switch, and it's on. Okay, so I dig through the control panel again and find the Network and Sharing center, which I find I have to turn on network discovery. Okay, so it's a security thing, not really user friendly but not horrible either. Eventually I connect it to the AP to which it says "Getting IP configuration" and "Refreshing IP address" (aren't that sort of the same thing?). It took a couple of minutes for this to complete, which on a MacBook I used earlier today it did it instantaneously. Foolishly, again, I assume I'm connected so I open IE7, to which I get the infamous "This page cannot be displayed" page. Wonderful. I want to invesitage this further, so I go to the Start button and look for the Run option to launch a command window from. It's not there, I look around briefly for it but give up. I attempt to connect to the campus wireless network now and after a minute of obtaining an address I'm on and can load up web page. Hooray, it's 2003 again! I switched back to the other AP just for kicks and see it now works, okay...?
+</p>
 
+<p>
 Now that I'm finally connected I go and download the latest Thunderbird, and attempt to run it. I thought that it would do that infamous pop-up authentication box but no, I attribute this to the account being an administrator. While the install is running it halts, saying it doesn't have permission to overwrite a .dll in the Thunderbird directory. I try again a few times, know it won't work, and cancel the install. I go to the source an attempt to delete the Thunderbird folder manually, only getting the same permission denied error. Um, maybe I'm not administrator? Quick check shows I am, once again WTF?
+</p>
 
+<p>
 Finally I decide to see if there are any updates, maybe there's a patch for something and a good reboot will fix things. An hour after I start the updates(14) it finally finishes and restarts. Nope, same thing.
+</p>
 
-<span style="font-size:130%;"><span style="font-weight: bold;">Memories</span></span>
+<h1>Memories</h1>
 
+<p>
 Wonderful. I'll attempt a few other things, but overall my first in-depth use of Vista was disappointing. My final thoughts:
-<ul><li>This is a dual-core 1.8Ghz laptop with 1Gb of memory, it shouldn't be this slow when trying to do simple default OS things (ie Program listing)</li><li>Yes, the WWW is great, but breadcrumbs, progress bars, and under-lined links all throughout? It's an Operating System, act like it.
-</li><li>How can I dig deeper? The Run dialog was simple and didn't confuse normal users, but it easily allowed a lot of hidden functionality for power users; regedit, msconfig, cmd, etc.</li><li>New security features. Yes, they're annoying, but if I'm administrator and I want to delete a file, let me. No how stupid it could be, it's my computer, I do what I want on it.
-</li></ul>After dealing with these issues listed I'm going to avoid Vista as much as I can personally and professionally. Which doesn't seem like a bad decision, seeing as MS appears to have given up on it like another ME with news that they're already <a href="http://news.com.com/Microsoft+looks+beyond+Vista,+sees+Vienna/2100-1016_3-6029241.html">working on the next Windows</a>. Of course they could just focus on releasing something built from the ground up, like their <a href="http://en.wikipedia.org/wiki/Singularity_%28operating_system%29">Singularity project</a>, and actually produce something innovative and worthy.
+</p>
+<p>
+<ul>
+    <li>This is a dual-core 1.8Ghz laptop with 1Gb of memory, it shouldn't be this slow when trying to do simple default OS things (ie Program listing)</li>
+    <li>Yes, the WWW is great, but breadcrumbs, progress bars, and under-lined links all throughout? It's an Operating System, act like it.
+    </li>
+    <li>How can I dig deeper? The Run dialog was simple and didn't confuse normal users, but it easily allowed a lot of hidden functionality for power users; regedit, msconfig, cmd, etc.</li>
+    <li>New security features. Yes, they're annoying, but if I'm administrator and I want to delete a file, let me. No how stupid it could be, it's my computer, I do what I want on it.
+    </li>
+</ul>
+</p>
+<p>
+After dealing with these issues listed I'm going to avoid Vista as much as I can personally and professionally. Which doesn't seem like a bad decision, seeing as MS appears to have given up on it like another ME with news that they're already <a href="http://news.com.com/Microsoft+looks+beyond+Vista,+sees+Vienna/2100-1016_3-6029241.html">working on the next Windows</a>. Of course they could just focus on releasing something built from the ground up, like their <a href="http://en.wikipedia.org/wiki/Singularity_%28operating_system%29">Singularity project</a>, and actually produce something innovative and worthy.
+</p>
 
-<span style="font-weight: bold;">Update:</span>
+<h1>Update:</h1>
 
+<p>
 Eventually I solved the problem by renaming the Mozilla Thunderbird directory and installing from scratch. My boss also discovered this was <a href="http://forums.mozillazine.org/viewtopic.php?p=2993783&amp;sid=fb054678289b306ecea7b91cec999118">a bug</a> related to the Logitech Quickcam software, which I promptly uninstalled.
+</p>
