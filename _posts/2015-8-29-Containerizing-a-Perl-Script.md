@@ -2,7 +2,7 @@
 layout: post
 title: Containerizing a Perl Script
 category: containers
-tags: [perl, docker, containers]
+tags: perl docker containers
 ---
 
 Almost every IT department has one; a Perl script written over a decade ago by a long-gone employee. It does it's job well, but no one wants to touch or take responsibility for it. You just want to upgrade your infrastructure and bring it along, but there are so many [CPAN](http://www.cpan.org/) modules and inconsitencies you want never want to look at it again. What to do?
