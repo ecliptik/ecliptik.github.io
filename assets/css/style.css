@@ -197,6 +197,11 @@ article .meta {
 	font-style: italic;
 }
 
+
+td, th {
+  padding: 7px;
+}
+
 img.left {
 	float: left;
 	margin: 0 1em 1em 0;
@@ -210,8 +215,6 @@ img.center {
 	text-align: center;
 	margin: 0 auto 1em auto;
 }
-
-
 
 /*** Pagination ***/
 .postnavigation {
@@ -227,8 +230,6 @@ img.center {
 .postnavigation .right {
 	float: right;
 }
-
-
 
 /*** Media Queries ***/
 @media all and (max-width: 1170px) {

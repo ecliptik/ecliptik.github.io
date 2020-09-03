@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vim, rdesktop, external monitors, and X Forwarding on a Google CR-4
-category: blogger8
+category: blogger
 tags: vim google cr-48 linux blogger
 ---
 While there are my other impressive hacks going around for the CR-48, [minecraft](https://www.minecraftforum.net/forums/minecraft-java-edition/discussion/120216-minecraft-on-the-cr-48-google-chrome-laptop), [ubuntu](https://sites.google.com/a/chromium.org/dev/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information/how-to-boot-ubuntu-on-a-cr-48), I needed a few utilities that were more pragmatic. The following assumes that your CR-48 is in [developer mode](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information) and you have a basic understanding of bash, scp, and compiling source code under GNU/Linux.
