@@ -52,7 +52,7 @@ a:hover {
 	color: #000000;
 }
 
-p { margin: 20px 0px 20px; }
+p { margin: 0px 0px 20px; }
 p.copyright { margin: 0 0 20px; }
 ul, ol { padding: 0 0 0 30px; }
 ol li, ul li { margin-top: 1px; margin-bottom: 1px; }
@@ -84,7 +84,7 @@ acronym, abbr {
 
 h1 {
 	font-size: 18px;
-	margin: 10px 0 10px;
+	margin: 15px 10px 5px 0;
 }
 h2 {
 	font-size: 15px;
