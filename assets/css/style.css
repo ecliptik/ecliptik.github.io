@@ -38,8 +38,8 @@ table {
 /*** Basics ***/
 body {
 	font-family: Verdana, serif;
-	font-size: 18px;
-	line-height: 1.4;
+	font-size: 16px;
+	line-height: 1.5;
 }
 
 a, a:active, a:visited {
@@ -113,13 +113,13 @@ code.background { background-color: #eee8d5; }
 
 /*** Structure ***/
 #page {
-	width: 800px;
+	width: 600px;
 	margin: 0 auto;
 	position: relative;
 }
 
 #header {
-	width: 800px;
+	width: 600px;
 	margin: 30px auto 10px auto;
 }
 
@@ -135,7 +135,7 @@ code.background { background-color: #eee8d5; }
 }
 
 #footer {
-	width: 800px;
+	width: 600px;
 	margin: 50px auto 20px auto;
 	padding-top: 10px;
 	font-size: 0.85em;
