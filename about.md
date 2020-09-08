@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-# About
-
 ## GPG
 - Public Key: [5F70 F2AC BD58 F580 DF15  3D1F 4FA2 70F5 CD36 71F9](https://keybase.io/ecliptik/pgp_keys.asc?fingerprint=5f70f2acbd58f580df153d1f4fa270f5cd3671f9)
 - [keybase.io/ecliptik](https://keybase.io/ecliptik)
