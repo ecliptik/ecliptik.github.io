@@ -10,9 +10,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
-	line-height: 1;
-}
 ul {
 	list-style: disc;
 }
@@ -40,6 +37,8 @@ body {
 	font-family: Verdana, serif;
 	font-size: 16px;
 	line-height: 1.5;
+  min-width: 600px;
+  max-width: 1600px;
 }
 
 a, a:active, a:visited {
@@ -83,15 +82,15 @@ acronym, abbr {
 
 
 h1 {
-	font-size: 18px;
-	margin: 15px 10px 5px 0;
+	font-size: 20px;
+	margin: 10px 0 10px;
 }
 h2 {
-	font-size: 15px;
+	font-size: 16px;
 	margin: 10px 0 10px;
 }
 h3 {
-	font-size: 14px;
+	font-size: 12px;
 	margin: 10px 0 10px;
 }
 
@@ -114,7 +113,7 @@ code.background { background-color: #eee8d5; }
 /*** Structure ***/
 #page {
 	width: 600px;
-	margin: 0 auto;
+	margin: 0 auto 0 auto;
 	position: relative;
 }
 
@@ -144,7 +143,7 @@ code.background { background-color: #eee8d5; }
 
 #content {
 	width: 800px;
-	margin: 0 auto;
+	margin: 0 auto 0 auto;
 }
 
 #sidebar {
@@ -152,6 +151,7 @@ code.background { background-color: #eee8d5; }
 	text-align: right;
 	width: 160px;
 	top: 0;
+  bottom: 200px;
 	left: -240px;
 }
 
