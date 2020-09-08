@@ -1,6 +1,8 @@
 ---
 layout: default
+permalink: /
 title: Home
+tags: cloud kubernetes containers docker blog devops sre professional
 ---
 
 ## Welcome
