@@ -18,4 +18,4 @@ RUN bundle install --system
 
 #Run jekyll
 ENTRYPOINT ["bundle"]
-CMD ["exec", "jekyll", "serve", "--host=0.0.0.0"]
+CMD ["exec", "jekyll", "serve", "--watch", "--livereload", "--host=0.0.0.0"]
