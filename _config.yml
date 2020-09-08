@@ -40,7 +40,7 @@ baseurl: ""
 #
 # !! You don't need to change any of the configuration flags below !!
 #
-permalink: pretty
+permalink: /:title/
 
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks

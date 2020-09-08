@@ -1,7 +1,9 @@
 ---
 layout: default
-title: Micheal Waltz - Principal DevOps Engineer
+title: Home
 ---
+
+## Welcome
 
 This is my tech [blog](/blog), updated occasionally with interesting things I have done at work or off-hours. My skills primarily focus on [Cloud Native Computing](https://www.cncf.io/) and modern application deployments with tools like [Kubernetes](https://kubernetes.io/), see [about](/about) for more.
 
