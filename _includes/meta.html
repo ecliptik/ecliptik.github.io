@@ -5,22 +5,23 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
   <meta name="robots" content="index, follow" />
   <meta name="author" content="{{ site.title }}" />
-  {%- assign sorttags = page.tags | remove: "[" | remove: "]" | remove: '"' | split:' ' | uniq | sort | compact-%}
+  {%- assign sorttags = page.tags | remove: "[" | remove: "]" | remove: '"' | split:' ' | uniq | sort | compact %}
   <meta name="keywords" content="{{ sorttags }}">
   <meta name="og:site_name" content="{{ site.title }} - {{ site.description }}" />
   <meta name="og:url" content="{{ site.url }}{{ page.url }}" />
   <meta name="twitter:site" content="@{{ site.links.twitter }}">
-  {%- if page.title -%}
+  {%- if page.title %}
   <meta property="og:title" content="{{ page.title }}" />
-  {%- endif -%}
-  {%- if page.excerpt -%}
-  {%- assign mungecontent =  page.excerpt| strip_html | strip_newlines | replace: ".", ". " | truncate: 120 -%}
+  {%- endif %}
+  {%- if page.excerpt %}
+  {%- assign mungecontent =  page.excerpt| strip_html | strip_newlines | replace: ".", ". " | truncate: 120 %}
   <meta name="description" content="{{ mungecontent }}" />
   <meta property="og:description" content="{{ mungecontent }}" />
   <meta property=”og:type” content=”article” />
-  {%- else -%}
+  {%- else %}
   <meta name="description" content="{{ site.title }} - {{ site.description }}">
   <meta property="og:description" content="{{ site.title }} - {{ site.description }}" />
-  {%- endif -%}
+  {%- endif %}
+
   <link rel="canonical" href="{{ site.url }}" />
 
