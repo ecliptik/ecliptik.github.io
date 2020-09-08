@@ -45,7 +45,7 @@ Before I rip a record I clean each record with a RCA disc washer kit, clean the 
 In Audacity I play the record watch the levels when it peaks, moving the record level slider correctly so it's right around 0 since I don't want it to be too loud and end up distorted. I hit record in Audacity and start playing the record, checking the levels and making sure the sound is coming through and then sit back and listen to the wonderful sounds of 30 year old vinyl playing away. Once the side is recorded I cut off the beginning and end silence and save it as a WAV file which is usually around 190Mb or so. I do this for each record, being careful not to bump the turntable or cause any excessive disk activity on the computer that would distort the sound.
 </p>
 <p>
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/images/posts/audacity.png"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/images/posts/audacity.png" alt="" id="BLOGGER_PHOTO_ID_5049036966097536578" border="0" /></a>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/assets/images/posts/audacity.png"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/assets/images/posts/audacity.png" alt="" id="BLOGGER_PHOTO_ID_5049036966097536578" border="0" /></a>
 </p>
 <p>
 Once all the vinyl is ripped digitally I process each WAV file through normalize-audio, which will boost the sound levels up to a normal volume acceptable for playback. The command is straightforward, just pass it a filename and it will only take a few seconds to up the levels.
@@ -57,7 +57,7 @@ After the audio is normalized I re-open the WAV with Audacity and use the <code>
 Using the program EasyTag I then load that directory, and use the <a href="http://www.gnudb.org/">GNUDB </a>manual lookup to find the proper album, click apply to all tracks, then save the tags and file names. This will rename the tracks correctly and fill out all the ID3v2 tags, making it a lot easy to catalog and use with MP3 players.
 </p>
 <p>
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/images/posts/easytag_vinyl.jpg"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/images/posts/easytag_vinyl.jpg" alt="" id="BLOGGER_PHOTO_ID_5046289034760975938" border="0" /></a>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/assets/images/posts/easytag_vinyl.jpg"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/assets/images/posts/easytag_vinyl.jpg" alt="" id="BLOGGER_PHOTO_ID_5046289034760975938" border="0" /></a>
 </p>
 <p>
 The final step is to archive the original WAV file into FLAC, which is a lossless compression codec, cutting the size of the file by about 65% but maintaining the fidelity of the original WAV. The command I use to do this takes a while but as you can see the compression is impressive:<blockquote><code>flac --lax -mep -b 8192 -l 32 -r 0,16 SideA.wav -o ../flac/SideA.flac 190M SideA.wav 116M SideA.flac</code></blockquote>
@@ -69,7 +69,7 @@ The final step is to archive the original WAV file into FLAC, which is a lossles
 I tested the resulting MP3s in <a href="http://www.xmms.org/">XMMS</a>, <a href="http://www.winamp.com/">Winamp</a>, <a href="http://www.apple.com/itunes/">iTunes</a>, and streaming through <a href="http://freshmeat.net/projects/musicindex/">MusixIndex</a>, which all worked as expected:
 </p>
 <p>
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/images/posts/ecliptik_mp3.jpg"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/images/posts/ecliptik_mp3.jpg" alt="" id="BLOGGER_PHOTO_ID_5046288841487447602" border="0" /></a>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="/assets/images/posts/ecliptik_mp3.jpg"><img width=600px style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer;" src="/assets/images/posts/ecliptik_mp3.jpg" alt="" id="BLOGGER_PHOTO_ID_5046288841487447602" border="0" /></a>
 </p>
 
 <h1>Conclusions</h1>
