@@ -3,8 +3,10 @@ layout: default
 title: Blog
 ---
 
+<h1>Blog</h1>
+
 <div id="blog-archives">
-<h1>Tags</h1>
+<h2>Tags</h2>
 {% capture temptags %}
   {% for tag in site.tags %}
     {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
@@ -19,7 +21,7 @@ title: Blog
 
 <hr>
 
-<h1>Posts</h1>
+<h2>Posts</h2>
   {% for post in site.posts %}
     <article class="post">
       {% if post.external-url %}

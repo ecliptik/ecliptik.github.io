@@ -1,17 +1,19 @@
 ---
-layout: page
+layout: default
 title: About
 permalink: /about/
 ---
 
-# GPG
+# About
+
+## GPG
 - Public Key: [5F70 F2AC BD58 F580 DF15  3D1F 4FA2 70F5 CD36 71F9](https://keybase.io/ecliptik/pgp_keys.asc?fingerprint=5f70f2acbd58f580df153d1f4fa270f5cd3671f9)
 - [keybase.io/ecliptik](https://keybase.io/ecliptik)
 
-# Certifications
+## Certifications
 - [Google Cloud Professional Cloud Architect](https://www.credential.net/7d6a6c1c-5355-4324-9165-f12bb06c37c2)
 
-# Skills
+## Skills
 
 | **Cloud and Infrastructure** | **Operating Systems** |
 | :---| :--- |
