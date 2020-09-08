@@ -232,7 +232,7 @@ img.center {
 }
 
 /*** Media Queries ***/
-@media all and (max-width: 1170px) {
+@media all {
 
 	#page, #header, #content, #footer {
 		width: inherit;
