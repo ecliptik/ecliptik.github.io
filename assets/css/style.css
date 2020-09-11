@@ -63,6 +63,7 @@ sub { vertical-align: sub; font-size: 0.85em; }
 
 code {
     font: 0.85em Monaco, Courier, Monospace;
+    margin: 10px 0 10px 0;
 }
 
 blockquote {
@@ -92,6 +93,10 @@ h2 {
 h3 {
 	font-size: 12px;
 	margin: 10px 0 10px;
+}
+
+hr {
+  margin: 15px 0 15px 0;
 }
 
 /*** Useful Classes ***/
