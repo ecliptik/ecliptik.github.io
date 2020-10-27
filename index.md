@@ -2,7 +2,7 @@
 layout: default
 permalink: /
 title: Welcome
-tags: cloud kubernetes containers docker blog devops sre professional
+tags: cloud kubernetes containers docker blog devops sre professional sre
 ---
 
 ## Welcome
