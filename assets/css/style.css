@@ -270,7 +270,6 @@ img.center {
   font-family: "solarthemeicons";
   font-style: normal;
   font-weight: normal;
-  speak: none;
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
@@ -285,4 +284,4 @@ img.center {
 .icon-anchor:before { content: '☁️'} 
 .icon-anchor {
   font-size: 65%;
-}5
+}
