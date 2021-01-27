@@ -14,7 +14,7 @@ One of the first things you do when signing up for Mastodon is [choose an instan
 
 The first few days I posted a few toots, followed some users on federated instances, and occasionally checked in on the local and federated timelines. I quickly realized that the federated timeline (a timeline which contains posts from all federated instances outside of Fosstodon) wasn't really for me, but the local timeline for Fosstodon was interesting. Because Fosstodon is only a few thousand users, there wasn't a firehose of posts to keep up on, and most users were posting links and comments on things that resonated with me.
 
-Checking in on the local feed every few hours gave me some insight into what types of posts would add to the community and I started putting a few things out there just to test out the interface and gain confidence in using the service.
+Checking in on the [local feed](https://fosstodon.org/web/timelines/public/local) every few hours gave insight into what types of posts would add to the community and I started putting a few things out there just to test out the interface and gain confidence in using the service.
 
 ## Gemini and Gopherspace
 
