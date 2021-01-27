@@ -8,7 +8,7 @@ One week ago I posted [my first toot](https://fosstodon.org/@ecliptik/1055853974
 
 ## Choosing an Instance
 
-One of the first things you do when signing up for Mastodon is [choosing an instance](https://joinmastodon.org/communities). I didn't quite understand this at first, but eventually realized it was akin to choosing a Geocities neighborhood in the 90s. The instance you sign up for is like a community, with similar interests and themes that best fit your online identity and personality. After reading about different intances and browsing public timelines of users, I choose [Fosstodon](https://hub.fosstodon.org/about/) as my home instance. I was drawn to their focus on [Free and Open Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software), which fits my style of computing and online interests.
+One of the first things you do when signing up for Mastodon is [choose an instance](https://joinmastodon.org/communities). I didn't quite understand this at first, but eventually realized it was akin to choosing a Geocities neighborhood in the 90s. The instance you sign up for is like a community, with similar interests and themes that best fit your online identity and personality. After reading about different intances and browsing public timelines of users, I choose [Fosstodon](https://hub.fosstodon.org/about/) as my home instance. I was drawn to their focus on [Free and Open Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software), which fits my style of computing and online interests.
 
 ## Trying Things Out
 
