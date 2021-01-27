@@ -1,58 +1,56 @@
 /*** Reset ***/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 ul {
-	list-style: disc;
+  list-style: disc;
 }
 
 ol {
-	list-style: decimal;
+  list-style: decimal;
 }
 
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after, q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
-
 
 /*** Basics ***/
 body {
-	font-family: Verdana, serif;
-	font-size: 16px;
-	line-height: 1.5;
+  font-family: Verdana, serif;
+  font-size: 16px;
+  line-height: 1.5;
   min-width: 600px;
   max-width: 1600px;
 }
 
 a, a:active, a:visited {
-	text-decoration: none;
-	border-bottom: 1px solid #839496;
-	padding-bottom: 2px;
+  text-decoration: none;
+  border-bottom: 1px solid #839496;
+  padding-bottom: 2px;
 }
 a:hover {
-	background-color: #839496;
-	color: #000000;
+  background-color: #839496;
+  color: #000000;
 }
 
 p { margin: 20px 0 20px 0; }
-p.copyright { margin: 0 0 20px; }
+p.copyright { font-size: 0.95em; margin: 0 0 20px; }
 ul, ol { padding: 0 0 0 30px; }
 ol li, ul li { margin-top: 1px; margin-bottom: 1px; }
 em, i { font-style: italic; }
@@ -67,32 +65,31 @@ code {
 }
 
 blockquote {
-    margin: 22px 22px;
-    padding: 0 20px;
-    border-left: 2px solid #000000;
-    font-size: 1.2em;
-    font-style: italic;
-    line-height: 1.5em;
+  margin: 22px 22px;
+  padding: 0 20px;
+  border-left: 2px solid #000000;
+  font-size: 1.2em;
+  font-style: italic;
+  line-height: 1.5em;
 }
 
 acronym, abbr {
-	cursor: help;
-	letter-spacing: 1px;
-	border-bottom: 1px dashed;
+  cursor: help;
+  letter-spacing: 1px;
+  border-bottom: 1px dashed;
 }
-
 
 h1 {
-	font-size: 20px;
-	margin: 10px 0 10px;
+  font-size: 20px;
+  margin: 10px 0 10px;
 }
 h2 {
-	font-size: 16px;
-	margin: 10px 0 10px;
+  font-size: 16px;
+  margin: 10px 0 10px;
 }
 h3 {
-	font-size: 12px;
-	margin: 10px 0 10px;
+  font-size: 12px;
+  margin: 10px 0 10px;
 }
 
 hr {
@@ -114,152 +111,147 @@ hr {
 .nounderline { text-decoration: underline; }
 code.background { background-color: #eee8d5; }
 
-
 /*** Structure ***/
 #page {
-	width: 600px;
-	margin: 0 auto 0 auto;
-	position: relative;
+  width: 600px;
+  margin: 0 auto 0 auto;
+  position: relative;
 }
 
 #header {
-	width: 600px;
-	margin: 30px auto 10px auto;
+  width: 600px;
+  margin: 30px auto 10px auto;
 }
 
 #header h1 {
-	font-size: 32px; margin: 0;
+  font-size: 32px; margin: 0;
 }
 #header h1 a {
-	border: none;
+  border: none;
 }
 
 #header p{
-	margin: 0;
+  margin: 0;
 }
 
 #footer {
-	width: 600px;
-	margin: 20px auto 20px auto;
-	padding-top: 10px;
-	font-size: 0.85em;
-	border-top: 1px solid #073642;
+  width: 600px;
+  margin: 20px auto 20px auto;
+  padding-top: 10px;
+  font-size: 0.65em;
+  border-top: 1px solid #073642;
 }
 
 #content {
-	width: 800px;
-	margin: 0 auto 0 auto;
+  width: 800px;
+  margin: 0 auto 0 auto;
 }
 
 #sidebar {
-	position: absolute;
-	text-align: right;
-	width: 160px;
-	top: 0;
+  position: absolute;
+  text-align: right;
+  width: 160px;
+  top: 0;
   bottom: 200px;
-	left: -240px;
+  left: -240px;
 }
 
 #sidebar li {
-	list-style: none;
-	margin: 2px 0;
+  list-style: none;
+  margin: 2px 0;
 }
 
 #sidebar a {
-	border: none;
-	font-family: "Helvetica Neue", "Helvetica", serif;
-	font-size: 1.3em;
-	padding: 2px 4px;
+  border: none;
+  font-family: "Helvetica Neue", "Helvetica", serif;
+  font-size: 1.3em;
+  padding: 2px 4px;
 }
-
-
 
 /*** Posts ***/
 article {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 article h1 {
-	font-size: 17px;
-	margin: 0 0 10px 0;
+  font-size: 17px;
+  margin: 0 0 10px 0;
 }
 article h1 a {
-	border: none;
+  border: none;
 }
 article h1 a.anchor {
-	margin-left: 8px;
+  margin-left: 8px;
 }
 
 article img {
-	display: block;
-	text-align: center;
-	margin: 0 auto 1em auto;
+  display: block;
+  text-align: center;
+  margin: 0 auto 1em auto;
 }
 
 article .meta {
-	padding-top: 6px;
-	font-size: 0.85em;
-	font-style: italic;
+  padding-top: 6px;
+  font-size: 0.85em;
+  font-style: italic;
 }
-
 
 td, th {
   padding: 7px;
 }
 
 img.left {
-	float: left;
-	margin: 0 1em 1em 0;
+  float: left;
+  margin: 0 1em 1em 0;
 }
 img.right {
-	float: right;
-	margin: 0 0 1em 1em;
+  float: right;
+  margin: 0 0 1em 1em;
 }
 img.center {
-	display: block;
-	text-align: center;
-	margin: 0 auto 1em auto;
+  display: block;
+  text-align: center;
+  margin: 0 auto 1em auto;
 }
 
 /*** Pagination ***/
 .postnavigation {
-	padding-top: 10px;
-    text-align: center;
-    font-size: 0.85em;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 0.85em;
 }
 
 .postnavigation .left {
-	float: left;
+  float: left;
 }
 
 .postnavigation .right {
-	float: right;
+  float: right;
 }
 
 /*** Media Queries ***/
 @media all and (max-width: 1170px) {
 
-	#page, #header, #content, #footer {
-		width: inherit;
-		padding-left: 10px;
-		padding-right: 10px;
-	}
+  #page, #header, #content, #footer {
+    width: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
-	#sidebar {
-		position: relative;
-		text-align: left;
-		width: 100%;
-		left: 0;
-		margin: 10px 10px 20px 10px;
-	}
+  #sidebar {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    left: 0;
+    margin: 10px 10px 20px 10px;
+  }
 
-	#sidebar nav select.mnav {
-		display: block;
-		margin-bottom: 15px;
-	}
+  #sidebar nav select.mnav {
+    display: block;
+    margin-bottom: 15px;
+  }
 
 }
-
 
 
 /*** Icons ***/
@@ -292,5 +284,5 @@ img.center {
 .icon-cloud:before { content: '☁️'} 
 .icon-anchor:before { content: '☁️'} 
 .icon-anchor {
-	font-size: 65%;
-}
+  font-size: 65%;
+}5

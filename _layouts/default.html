@@ -28,15 +28,10 @@
           <li><a href="/">Home</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/about/">About</a></li>
-          <li><a href="https://github.com/{{ site.links.github }}">Github</a></li>
-          <li><a href="https://gitlab.com/{{ site.links.gitlab }}">Gitlab</a></li>
           <li><a href="https://keybase.io/{{ site.links.keybase }}">Keybase</a></li>
-          <li><a href="https://www.linkedin.com/in/{{ site.links.linkedin }}">Linkedin</a></li>
-          <li><a href="https://ecliptik.newsblur.com">BlurBlog</a></li>
           <li><a href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a></li>
-          <li><a href="https://twitter.com/{{ site.links.twitter }}">Twitter</a></li>
-          <li><a href="mailto:{{ site.links.email }}">Email</a></li>
-          <li><a href="/feed.xml">RSS</a></li>
+          <li><a href="https://github.com/{{ site.links.github }}">Github</a></li>
+          <li><a href="https://www.linkedin.com/in/{{ site.links.linkedin }}">Linkedin</a></li>
         </ul>
       </nav>
     </div>
@@ -48,7 +43,7 @@
   </div>
 
   <footer id="footer">
-    <p class="copyright">Copyright &copy; {{ site.time | date: '%Y' }} {{ site.title }}. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme <a href="https://github.com/mattvh/solar-theme-jekyll">solar-theme-jekyll</a></p>
+    <p class="copyright">Copyright &copy; {{ site.time | date: '%Y' }} {{ site.title }} [<a href="mailto:{{ site.links.email }}">Email</a>|<a href="/feed.xml">RSS</a>]. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme <a href="https://github.com/mattvh/solar-theme-jekyll">solar-theme-jekyll</a></p>
   </footer>
 
   <script src="/assets/js/jquery.mobilemenu.min.js"></script>
