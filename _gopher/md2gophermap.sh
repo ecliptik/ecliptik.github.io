@@ -1,8 +1,8 @@
 #!/bin/bash
 #Convert a jekyll markdown post to a gophermap
-# Will create a sub-directory with the name of the post and a gophermap
-# converted to  70 columes with links. Tries to do basic http or gopher
-# linking. May not work well, but works well enough.
+#Will create a sub-directory with the name of the post and a gophermap
+#converted to  70 columns with links. Tries to do basic http or gopher
+#linking. May not work well, but works well enough.
 
 # usage: ./md2gophermap.sh ../_posts/post-to-convert.md
 
@@ -66,8 +66,7 @@ done
 #Make the subdirectory
 mkdir -p ${outdir}
 
-#Use the top of the original Markdown file to create a basic header in
-#the gophermap
+#Use the top of the original Markdown file to create a basic header
 head -6 ${input} | grep -v "layout" | grep -v "category" > ${outdir}/gophermap
 echo "" >> ${outdir}/gophermap
 cat ${output} >> ${outdir}/gophermap
