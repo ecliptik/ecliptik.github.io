@@ -1,6 +1,6 @@
 # Phlog
 
-This directory contains some basic shell scripts to convert markdown posts that jekyll uses to build the html website at [ecliptik.com](https://www.ecliptik.com) to plaintext [gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)).
+This directory contains some basic shell scripts to convert markdown posts that jekyll uses to build the html website at [ecliptik.com](https://www.ecliptik.com) to plaintext or a gophermap to put onto a phlog on [gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)).
 
 Results can be seen at my Gopherspace: gopher://rawtext.club:70/~ecliptik/phlog
 
