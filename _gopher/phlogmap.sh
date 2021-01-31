@@ -4,7 +4,7 @@
 #Originally from: https://johngodlee.github.io/2019/11/20/gopher.html
 
 #Use layout file for header on gophermap
-cat ../_layouts/phlog > gophermap
+cat _layouts/phlog > gophermap
 
 all=(_posts/*.txt)
 

@@ -34,4 +34,4 @@ for file in ../_posts/*.md; do ./md2gophermap.sh ${file}; done
 
 ### phlogmap.sh
 
-Create a `gophermap` linking the the latest 10 posts in `_posts`. Creates the link based off the `title:` in the post. Uses a template from `../_layouts/phlog` to create a header for the file and appends a link to the original HTML blogsource at the end.
+Create a `gophermap` linking the the latest 10 posts in `_posts`. Creates the link based off the `title:` in the post. Uses a template from `_layouts/phlog` to create a header for the file and appends a link to the original HTML blogsource at the end.
