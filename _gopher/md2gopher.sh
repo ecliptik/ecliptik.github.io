@@ -1,8 +1,8 @@
 #!/bin/bash
 #Convert a jekyll markdown post to plaintext suitable for gopher,
-# converted to  70 columns
+#converted to  70 columns
 
-# usage: ./md2gopher.sh ../_posts/post-to-convert.md
+#usage: ./md2gopher.sh ../_posts/post-to-convert.md
 
 #Take input and craft output file and directory vars for use later on
 input=$1
