@@ -4,7 +4,7 @@ This directory contains some basic shell scripts to convert markdown posts that 
 
 These tools were inspired (and some parts copied) from [Making a Gopherhole](https://johngodlee.github.io/2019/11/20/gopher.html).
 
-Results can be seen at my Gopherspace: gopher://rawtext.club:70/1~ecliptik/phlog
+Results can be seen at my Gopherhole: [gopher://rawtext.club:70/1~ecliptik/phlog](gopher://rawtext.club:70/1~ecliptik/phlog)
 
 ## Tools
 
