@@ -12,6 +12,7 @@ didn’t really think much about Gopher until I started reading more
 about the newer Gemini protocol on my foray into Mastodon last week
 and figuratively went “down” the Gopherhole.
 
+  [gopher]: https://en.wikipedia.org/wiki/Gopher_(protocol)
   [World Wide Web]: https://en.wikipedia.org/wiki/World_Wide_Web
   [Gemini]: https://gemini.circumlunar.space
   [into Mastodon]: https://www.ecliptik.com/One-Week-With-Mastodon/
