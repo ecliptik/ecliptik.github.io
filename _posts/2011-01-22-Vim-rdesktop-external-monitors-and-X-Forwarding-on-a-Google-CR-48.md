@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vim, rdesktop, external monitors, and X Forwarding on a Google CR-4
+title: Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48
 category: blogger
 tags: vim google cr-48 linux blogger
 ---
@@ -47,7 +47,6 @@ Copy/paste works well, although the arrow keys may not function properly due to 
 # External Monitors
 
 While the CR-48 works just fine with it's VGA output without much tweaking, you'll either need to sign in/out or reboot the laptop for it to display to an external monitor. In dev mode xrandr is available making it easy to switch between display resolutions.
-
 
 Mirror to a monitor that can do 1024x768:
 
