@@ -9,6 +9,8 @@ tags: gopher 100daystooffload
 
 The obvious questions is why make a Gopherhole (what [gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) sites are called) when all the action is on the [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web) over `html` and `http`? Didn't those protocols win the Internet two decades ago? I didn't really think much about Gopher until I started reading more about the newer [Gemini](https://gemini.circumlunar.space) protocol on my foray [into Mastodon](https://www.ecliptik.com/One-Week-With-Mastodon/) last week and figuratively went "down" the Gopherhole.
 
+[![1992 Gopher presentation slides](/assets/images/posts/gopher-slides.png){:width="80%" }](/assets/images/posts/gopher-slides.png)
+
 I was suprised to find not only a flourishing community, but was drawn to the simplicity of the protocol and creating for it. No more thinking about CSS oddities, having to learn whole web stacks with the latest-and-greatest toolsets. Most of what Gopher is now is the same as it was in the early 90s and it's something you can easily start learning about and doing without sinking a lot of time and effort just to get started. It reminds of learning Latin, even though it's a dead language, it's still useful and it will never change. It also has the advantages of being almost entirely text based and there's no tracking, cookies, or any of the risks and privacy concerns associated with the modern web.
 
 For a much more in-depth look on modern Gopher, I recommend reading [Burrowing A Gopher Hole](https://tedium.co/2017/06/22/modern-day-gopher-history/).

@@ -17,6 +17,10 @@ and figuratively went “down” the Gopherhole.
   [Gemini]: https://gemini.circumlunar.space
   [into Mastodon]: https://www.ecliptik.com/One-Week-With-Mastodon/
 
+[1992 Gopher presentation slides]{:width=“80%” }
+
+  [1992 Gopher presentation slides]: /assets/images/posts/gopher-slides.png
+
 I was suprised to find not only a flourishing community, but was drawn
 to the simplicity of the protocol and creating for it. No more
 thinking about CSS oddities, having to learn whole web stacks with the
