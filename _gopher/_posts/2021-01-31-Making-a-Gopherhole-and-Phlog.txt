@@ -64,14 +64,14 @@ services for gopher, gemini, and web.
   resources by stringing together command line tricks on a Linux
   system.
 
-I pondered joining for a while , since I wanted to make sure I would
-stick with the commitment and didn’t want to join and then lose
-interest a few weeks later. Even though RTC is a “slow” social
-network, I wanted to actively particpate in the community and not just
-be passive and looking for a free handout. Eventually I sent an invite
-request and was extended a membership. The first few days I spent
-checking out RTC from the cli; creating a prescense and reading the
-man pages for the local tools (which are excellent).
+I pondered joining for a few days to make sure I would stick with the
+commitment and didn’t want to join and then lose interest a few weeks
+later. Even though RTC is a “slow” social network, I wanted to
+actively particpate in the community and not just be passive and
+looking for a free handout. Eventually I sent an invite request and
+was extended a membership. The first few days I spent checking out RTC
+from the cli; creating a prescense and reading the man pages for the
+local tools (which are excellent).
 
 Finally I started adding things in ~ecliptik/public_gopher and got to
 work on making a gohperhole. Creating a gopherhole has been well

@@ -21,7 +21,7 @@ While browsing Gemini capsules (the term for Gemini sites), I came across the [P
 
 >RTC is a non-profit, do-it-yourself social network that uses a smaller, simpler, user-built toolkit. We are proudly the polar opposite of the big, exploitative, corporate-owned social media mega-sites. Not cool. Not easy. Not big. rawtext.club is what you make it. The point is that you can do a LOT using very minimal resources by stringing together command line tricks on a Linux system.
 
-I pondered joining for a while , since I wanted to make sure I would stick with the commitment and didn't want to join and then lose interest a few weeks later. Even though RTC is a "slow" social network, I wanted to actively particpate in the community and not just be passive and looking for a free handout. Eventually I sent an invite request and was extended a membership. The first few days I spent checking out RTC from the cli; creating a prescense and reading the man pages for the local tools (which are excellent).
+I pondered joining for a few days to make sure I would stick with the commitment and didn't want to join and then lose interest a few weeks later. Even though RTC is a "slow" social network, I wanted to actively particpate in the community and not just be passive and looking for a free handout. Eventually I sent an invite request and was extended a membership. The first few days I spent checking out RTC from the cli; creating a prescense and reading the man pages for the local tools (which are excellent).
 
 Finally I started adding things in `~ecliptik/public_gopher` and got to work on making a gohperhole. Creating a gopherhole has been well covered by others in other blog posts, which I heavily referenced when making the site,
 
