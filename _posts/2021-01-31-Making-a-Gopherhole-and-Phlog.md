@@ -29,7 +29,7 @@ Finally I started adding things in `~ecliptik/public_gopher` and got to work on 
 - [Generating a Gopher site with Hugo](https://jfm.carcosa.net/blog/computing/hugo-gopher/)
 - [Gopher? Gopher.](https://petermolnar.net/article/gopher/)
 
-On RTC user directories are world readable as well, so I poked around in some more well-known users `public_gopher` and saw how their sites were setup too. I used the gopher browser [Bombadillo](https://bombadillo.colorfield.space) as my main tool to view Gopherspace, and coincidentally [Lagrange](https://gmi.skyjake.fi/lagrange/), the browser I was using to browse Gemini, also supported gopher and would use it occasionally as a GUI view.
+On RTC, user directories are world readable, so I poked around in some more well-known users `public_gopher` dirs and saw how their gopherholes were setup. I used the gopher browser [Bombadillo](https://bombadillo.colorfield.space) as my main tool to view Gopherspace, and coincidentally [Lagrange](https://gmi.skyjake.fi/lagrange/), the browser I was using to browse Gemini, also supported gopher and would use it occasionally as a GUI view.
 
 The resulting gopherhole was relatively simple,
 
@@ -43,7 +43,7 @@ The resulting gopherhole was relatively simple,
 1 directory, 2 files
 ```
 
-Just a symlink to my `~/.who-is` (which is used on RTC as a profile) as an about page, a link to my Phlog, and a link back to the RTC gopherhole. The `gophermap` for this was simple enough.
+The about page is a symlink to my `~/.who-is` (which is used on RTC as a profile), a link to the Phlog dir, a web link to the www page, and a link back to the RTC gopherhole. The `gophermap` for this was simple.
 
 ```
 Welcome to ecliptik's Gopherhole
@@ -57,7 +57,7 @@ hecliptik.com	URL:https://www.ecliptik.com
 1rawtext.club	/       rawtext.club    70
 ```
 
-The most difficulty I had was getting the link identifiers  correct and tabs in the correct places.
+The most difficulty I had was getting the link identifiers and tabs in the correct places.
 
 Adding these files made the site live at [gopher://rawtext.club:70/1~ecliptik](gopher://rawtext.club:70/~ecliptik). If you don't have a gopher browser installed it's viewable through a [gopher proxy](https://gopher.floodgap.com/gopher/gw?a=gopher%3A%2F%2Frawtext.club%3A70%2F1%7Eecliptik) from [Floodgap](https://www.floodgap.com).
 

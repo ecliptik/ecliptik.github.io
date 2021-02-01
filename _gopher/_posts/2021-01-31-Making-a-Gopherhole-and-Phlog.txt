@@ -86,12 +86,12 @@ making the site,
   [Generating a Gopher site with Hugo]: https://jfm.carcosa.net/blog/computing/hugo-gopher/
   [Gopher? Gopher.]: https://petermolnar.net/article/gopher/
 
-On RTC user directories are world readable as well, so I poked around
-in some more well-known users public_gopher and saw how their sites
-were setup too. I used the gopher browser Bombadillo as my main tool
-to view Gopherspace, and coincidentally Lagrange, the browser I was
-using to browse Gemini, also supported gopher and would use it
-occasionally as a GUI view.
+On RTC, user directories are world readable, so I poked around in some
+more well-known users public_gopher dirs and saw how their gopherholes
+were setup. I used the gopher browser Bombadillo as my main tool to
+view Gopherspace, and coincidentally Lagrange, the browser I was using
+to browse Gemini, also supported gopher and would use it occasionally
+as a GUI view.
 
   [Bombadillo]: https://bombadillo.colorfield.space
   [Lagrange]: https://gmi.skyjake.fi/lagrange/
@@ -106,9 +106,9 @@ The resulting gopherhole was relatively simple,
 
     1 directory, 2 files
 
-Just a symlink to my ~/.who-is (which is used on RTC as a profile) as
-an about page, a link to my Phlog, and a link back to the RTC
-gopherhole. The gophermap for this was simple enough.
+The about page is a symlink to my ~/.who-is (which is used on RTC as a
+profile), a link to the Phlog dir, a web link to the www page, and a
+link back to the RTC gopherhole. The gophermap for this was simple.
 
     Welcome to ecliptik's Gopherhole
 
@@ -120,8 +120,8 @@ gopherhole. The gophermap for this was simple enough.
     hecliptik.com   URL:https://www.ecliptik.com
     1rawtext.club   /       rawtext.club    70
 
-The most difficulty I had was getting the link identifiers correct and
-tabs in the correct places.
+The most difficulty I had was getting the link identifiers and tabs in
+the correct places.
 
 Adding these files made the site live at
 gopher://rawtext.club:70/1~ecliptik. If you don’t have a gopher
