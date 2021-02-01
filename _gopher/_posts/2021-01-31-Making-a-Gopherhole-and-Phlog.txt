@@ -17,10 +17,7 @@ and figuratively went “down” the Gopherhole.
   [Gemini]: https://gemini.circumlunar.space
   [into Mastodon]: https://www.ecliptik.com/One-Week-With-Mastodon/
 
-[1992 Gopher presentation slides]{:width=“80%” }
-
-  [1992 Gopher presentation slides]: /assets/images/posts/gopher-slides.png
-
+Slides from 1992 Gopher presentation
 I was suprised to find not only a flourishing community, but was drawn
 to the simplicity of the protocol and creating for it. No more
 thinking about CSS oddities, having to learn whole web stacks with the
@@ -193,11 +190,11 @@ web browser anyway.
 {% gist da88bb18dac655ac924cbcc882192235 %}
 
 These plaintext posts rendered much nicer and I was happy with how
-they turned out,
+they turned out.
 
-[Phlog post in]{:width=“100%” }
+[Phlog post in Bombadillo]{:width=“100%” }
 
-  [Phlog post in]: /assets/images/posts/gopher-phlog-post-01.png
+  [Phlog post in Bombadillo]: /assets/images/posts/gopher-phlog-post-01.png
 
 One final step was automatically generating a Phlog index of posts.
 The post Making a Gopherhole that I used when making my own Gopherhole
