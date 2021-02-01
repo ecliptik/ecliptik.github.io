@@ -96,6 +96,14 @@ hr {
   margin: 15px 0 15px 0;
 }
 
+figcaption {
+  text-align: center;
+  margin: 0 auto 1em auto;
+  font-style: italic;
+  font-size: 14px;
+  color: #b58900;
+}
+
 /*** Useful Classes ***/
 .clear { clear: both; }
 .float-left { float: left; }

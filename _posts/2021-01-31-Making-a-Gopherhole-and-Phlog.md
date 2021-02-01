@@ -9,7 +9,11 @@ tags: gopher 100daystooffload
 
 The obvious questions is why make a Gopherhole (what [gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) sites are called) when all the action is on the [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web) over `html` and `http`? Didn't those protocols win the Internet two decades ago? I didn't really think much about Gopher until I started reading more about the newer [Gemini](https://gemini.circumlunar.space) protocol on my foray [into Mastodon](https://www.ecliptik.com/One-Week-With-Mastodon/) last week and figuratively went "down" the Gopherhole.
 
-[![1992 Gopher presentation slides](/assets/images/posts/gopher-slides.png){:width="80%" }](/assets/images/posts/gopher-slides.png)
+<figure>
+  <a href="/assets/images/posts/gopher-slides.png"><img src="/assets/images/posts/gopher-slides.png" alt="Slides from 1992 Gopher presentation*"/></a>
+  <figcaption>Slides from 1992 Gopher presentation</figcaption>
+</figure>
+
 
 I was suprised to find not only a flourishing community, but was drawn to the simplicity of the protocol and creating for it. No more thinking about CSS oddities, having to learn whole web stacks with the latest-and-greatest toolsets. Most of what Gopher is now is the same as it was in the early 90s and it's something you can easily start learning about and doing without sinking a lot of time and effort just to get started. It reminds of learning Latin, even though it's a dead language, it's still useful and it will never change. It also has the advantages of being almost entirely text based and there's no tracking, cookies, or any of the risks and privacy concerns associated with the modern web.
 
@@ -97,9 +101,9 @@ I decided then to just convert them to plaintext and not do a full `gophermap`, 
 
 {% gist da88bb18dac655ac924cbcc882192235 %}
 
-These plaintext posts rendered much nicer and I was happy with how they turned out,
+These plaintext posts rendered much nicer and I was happy with how they turned out.
 
-[![Phlog post in ](/assets/images/posts/gopher-phlog-post-01.png){:width="100%" }](/assets/images/posts/gopher-phlog-post-01.png)
+[![Phlog post in Bombadillo](/assets/images/posts/gopher-phlog-post-01.png){:width="100%" }](/assets/images/posts/gopher-phlog-post-01.png)
 
 One final step was automatically generating a Phlog index of posts. The post [Making a Gopherhole](https://johngodlee.github.io/2019/11/20/gopher.html) that I used when making my own Gopherhole had a script on taking the last 10 posts and generating a gophermap of them. I took this script and modified it some to include some things like a basic layout template.
 
