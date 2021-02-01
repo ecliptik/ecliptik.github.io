@@ -87,7 +87,7 @@ making the site,
   [Generating a Gopher site with Hugo]: https://jfm.carcosa.net/blog/computing/hugo-gopher/
   [Gopher? Gopher.]: https://petermolnar.net/article/gopher/
 
-On RTC, user directories are world readable, so I poked around in some
+On RTC, home directories are world readable, so I poked around in some
 more well-known users public_gopher dirs and saw how their gopherholes
 were setup. I used the gopher browser Bombadillo as my main tool to
 view Gopherspace, and coincidentally Lagrange, the browser I was using

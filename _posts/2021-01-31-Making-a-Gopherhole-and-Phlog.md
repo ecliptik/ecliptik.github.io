@@ -35,7 +35,7 @@ Finally I started adding things in `~ecliptik/public_gopher` and got to work on 
 - [Generating a Gopher site with Hugo](https://jfm.carcosa.net/blog/computing/hugo-gopher/)
 - [Gopher? Gopher.](https://petermolnar.net/article/gopher/)
 
-On RTC, user directories are world readable, so I poked around in some more well-known users `public_gopher` dirs and saw how their gopherholes were setup. I used the gopher browser [Bombadillo](https://bombadillo.colorfield.space) as my main tool to view Gopherspace, and coincidentally [Lagrange](https://gmi.skyjake.fi/lagrange/), the browser I was using to browse Gemini, also supported gopher and would use it occasionally as a GUI view.
+On RTC, home directories are world readable, so I poked around in some more well-known users `public_gopher` dirs and saw how their gopherholes were setup. I used the gopher browser [Bombadillo](https://bombadillo.colorfield.space) as my main tool to view Gopherspace, and coincidentally [Lagrange](https://gmi.skyjake.fi/lagrange/), the browser I was using to browse Gemini, also supported gopher and would use it occasionally as a GUI view.
 
 The resulting gopherhole was relatively simple,
 
