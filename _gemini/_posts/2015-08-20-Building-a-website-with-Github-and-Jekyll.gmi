@@ -1,0 +1,25 @@
+After a long time of www.ecliptik.com[1] being offline I finally brought it back online with Github Pages[2]. I really like the concept of having a static site using Markdown files and a template to quickly bring online a modern looking blog without the hassle of configuring a content management system, web server, or database.
+
+=> http://www.ecliptik.com 1: http://www.ecliptik.com
+=> https://pages.github.com/ 2: https://pages.github.com/
+
+While building the site, I created a Dockerfile[3] to make viewing the site locally before pushing to Github. The container image ecliptik/jekyll[4] built from this Dockerfile is also on Docker Hub.
+
+=> https://github.com/ecliptik/ecliptik.github.io/blob/master/Dockerfile 3: https://github.com/ecliptik/ecliptik.github.io/blob/master/Dockerfile
+=> https://hub.docker.com/r/ecliptik/jekyll/ 4: https://hub.docker.com/r/ecliptik/jekyll/
+
+```console
+jezebel in ~/git/ecliptik.github.io (master●●)
+% docker run -it --rm -p 4000:4000 -v $(pwd):/app ecliptik/jekyll:latest
+Configuration file: /app/_config.yml
+            Source: /app
+       Destination: /app/_site
+      Generating...
+                    done.
+ Auto-regeneration: enabled for '/app'
+Configuration file: /app/_config.yml
+    Server address: http://0.0.0.0:4000/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.108220049 seconds.
+      Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.116449572 seconds.
+```

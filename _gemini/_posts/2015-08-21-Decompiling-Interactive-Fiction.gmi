@@ -1,0 +1,67 @@
+A couple of weeks ago a friend of mine pointed me to the web-based interactive fiction piece called Aisle[1]. As I played it, I immediately started wondering how I could get a text blob of all the possible paths instead of trying to figure out all the actions required to input into the interpreter.
+
+=> http://iplayif.com/?story=http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js 1: http://iplayif.com/?story=http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js
+
+
+## Finding the Source
+
+I took a look at the source and discovered Aisle was using a tool called Parchment[2], which is designed for interactive web fiction. Looking at the javascript source of Aisle, it is basically a [http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js](base64 text blob) in a javascript function passed to Parchment.
+
+=> https://github.com/curiousdannii/parchment 2: https://github.com/curiousdannii/parchment
+
+Since Linux has a base64(1)[3] utility, I figured I'd strip out the javascript and decode the text to see if I could read the text blob and thus read every possible scenario in the story.
+
+=> http://man7.org/linux/man-pages/man1/base64.1.html 3: http://man7.org/linux/man-pages/man1/base64.1.html
+
+```console
+% sed -e "s/processBase64Zcode('//g" Aisle.z5.js \
+| sed -e "s/');//g" \
+| base64 --decode > Aisle.z5
+```
+
+At first I did this without output redirection, and it flooded my terminal with binary control characters, essentially frying it. I killed the tmux window, and started again, this time looking to see if the file type was known.
+
+```console
+% file Aisle.z5
+Aisle.z5: Infocom (Z-machine 5, Release 1 / Serial 990528)
+```
+
+A quick search on Infocom and Z-Machine[4], shows that Z-Machine was developed for interactive fiction in 1979 for Infocom text adventure games, of which Zork was the first and where the Z comes from. There's a whole lot of interesting history[5] online about Z-Machine if anyone wants to know more (spoiler: it's related to UCSD Pascal[6] P-Machine).
+
+=> https://en.wikipedia.org/wiki/Z-machine 4: https://en.wikipedia.org/wiki/Z-machine
+=> http://inform7.com/if/interpreters/ 5: http://inform7.com/if/interpreters/
+=> https://en.wikipedia.org/wiki/UCSD_Pascal 6: https://en.wikipedia.org/wiki/UCSD_Pascal
+
+## Decoding Z-Machine
+
+Now that the raw source was available, the next step was actually finding useful text. A search found an open source tool called Frotz[7] that can play these files, and the next thing I know I have Aisle running in a terminal and it works just like it does in the browser.
+
+=> http://frotz.sourceforge.net/ 7: http://frotz.sourceforge.net/
+
+Some addition searches didn't really uncover much on how to *de-compile* a Z-Machine file. Nothing in the Debian repos, and some additional man pages for Frotz didn't lead to much.
+
+Finally I found Z-Code Tools[8]. There was no compiled binaries for Linux, and if there were, they probably don't work anymore on a newer version of Linux. I downloaded the source and a make later made the binaries magically appear. The freshly compiled **txd** tool finally yielded the results I wanted:
+
+=> http://inform-fiction.org/zmachine/zcode.html 8: http://inform-fiction.org/zmachine/zcode.html
+
+```console
+% ./txd /var/tmp/Aisle.z5 | grep gnocchi | head -5
+gnocchiyou
+S139: "You pick up a bag of gnocchi and turn it over. The doughy balls weigh your eyes; gnocchi, women, a woman, statues, a slow motion crash of flesh on show her some gnocchi and then you eat it and live happily ever after." intelligent. Leaving the gnocchi you walk over and drop to a knee. "Will you
+```
+
+I put the full text dump of Aisle into a gist[9] if anyone is interested in taking a look.
+
+=> https://gist.github.com/ecliptik/1ce9c21f04c984c705b9 9: https://gist.github.com/ecliptik/1ce9c21f04c984c705b9
+
+There are many other tools included in ztools that can provide additional information, such as listing a dictionary of available actions and commands.
+
+## Final Thoughts
+
+Interactive fiction is just more than a big blob of text. Since the early days of Z-Machine, these stories have not only included fascinating stories, but also puzzles and other methods of fully immersing a reader. Fully exploring and creating Z-Machine and Interactive fiction is best left to to the experts[10] if you'd like to learn more.
+
+=> http://inform7.com/learn/ 10: http://inform7.com/learn/
+
+It also appears the Z-code Tools are not packaged in Debian[11], and this may be a fun project to do sometime.
+
+=> http://www.debian.org 11: http://www.debian.org

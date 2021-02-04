@@ -1,0 +1,205 @@
+When running a Raspberry Pi cluster[1], sometimes there's just not enough power to build native armhf Docker images in a reasonable amount of time.
+
+=> http://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/ 1: http://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/
+
+While the recent announcement of Docker Hub Official Multi-platform support[2] makes it easier to `run` official multi-arch images, building a multi-arch image still requires a cross-build environment to speed up builds on lower powered hardware or when you don't have the native platform.
+
+=> https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/ 2: https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/
+
+> Cross-building is defined as building a foreign architecture image different from the hosts architecture, such as building a armhf image on a x86 machine.
+There are three methods of cross-building and running multi-arch Docker images each with different considerations,
+
+* Docker for Mac
+* Multiarch on Linux
+* QEMU on Linux
+
+## Docker for Mac
+
+Since the original beta, Docker for Mac[3] has had binfmt_misc[4] support built-in[5], which allows it to execute arm containers on x86 without any additional configuration.
+
+=> https://www.docker.com/docker-mac 3: https://www.docker.com/docker-mac
+=> https://en.wikipedia.org/wiki/Binfmt_misc 4: https://en.wikipedia.org/wiki/Binfmt_misc
+=> https://twitter.com/quintus23m/status/713523016836231171 5: https://twitter.com/quintus23m/status/713523016836231171
+
+If you have Docker for Mac you can test this out by running any multi-arch Docker image from Docker Hub such as the official `arm32v7/debian` image,
+
+```console
+🐳 uname -a
+Darwin sheik.local 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64 x86_64 i386 MacBookPro11,3 Darwin
+
+🐳 docker run -it --rm arm32v7/debian /bin/bash
+Unable to find image 'arm32v7/debian:latest' locally
+latest: Pulling from arm32v7/debian
+d0e027c48353: Pull complete
+Digest: sha256:d74cc69431f03bbfbbf9fd52c1eabd6ca491280a03da267acb63b65b81e30c8a
+
+/ # uname -a
+Linux 4372bf9a3462 4.9.41-moby #1 SMP Wed Sep 6 00:05:16 UTC 2017 armv7l GNU/Linux
+```
+
+Building an image is as easy as taking an existing `Dockerfile` and changing it's `FROM` to point to a base multi-arch image. Depending on the image, it may fail if non-architecture binaries run, such as the `Dockerfile` using `wget` to download and run a non-native binary.
+
+For example to re-build the NodeJS Debian Image[6] for arm32v7.
+
+=> https://github.com/nodejs/docker-node/blob/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile 6: https://github.com/nodejs/docker-node/blob/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile
+
+```console
+🐳 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile | sed "s/buildpack-deps:stretch/arm32v7\/buildpack-deps:stretch/g" > Dockerfile.nodejs.armhf
+
+🐳 docker build -f Dockerfile.nodejs.armhf -t nodejs:armhf .
+```
+
+### Considerations
+
+This is the easiest and quickest way to build an run any 32-bit or 64-bit Docker images. Disadvantages are you must be running macOS and are limited by the hardware macOS will run on, this isn't an option for large multi-cpu cloud instance types that run Linux.
+
+## Multiarch on Linux
+
+Most major Linux distributions have a way of setting up `binfmt_misc` using qemu and other cross-architecture tools. These can be quite complicated to setup and rely on distribution specific knowledge. The Multiarch Project[7] makes setting up `binfmt_misc` much easier by wrapping the whole process in a Docker image itself called qemu-user-static[8]. This will install and setup the `qemu-*-static` configurations for all architectures excluding the native hardware.
+
+=> https://github.com/multiarch 7: https://github.com/multiarch
+=> https://github.com/multiarch/qemu-user-static 8: https://github.com/multiarch/qemu-user-static
+
+> Installing `qemu-user-static` using a container requires privileged mode since it will register binaries in the host systems `/proc` space
+To setup `qemu-user-static`, follow the README[9], which basically consists of,
+
+=> https://github.com/multiarch/qemu-user-static/blob/master/README.md 9: https://github.com/multiarch/qemu-user-static/blob/master/README.md
+
+```console
+🐳 docker run --rm --privileged multiarch/qemu-user-static:register
+```
+
+With `qemu-user-static` setup, test `qemu-user-static` support works with a Multiarch image,
+
+```console
+🐳 uname -a
+Linux jezebel 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) x86_64 GNU/Linux
+
+🐳 docker run -it --rm multiarch/alpine:aarch64-edge /bin/sh
+Unable to find image 'multiarch/alpine:aarch64-edge' locally
+aarch64-edge: Pulling from multiarch/alpine
+ee62da588733: Pull complete
+c782b02d60f2: Pull complete
+Digest: sha256:17a50d7864c2e052d1c48892252356c1ce9eea26d0a61236072d6c900e5bd6a6
+Status: Downloaded newer image for multiarch/alpine:aarch64-edge
+/ # uname -a
+Linux 62670af32738 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) aarch64 Linux
+```
+
+Building an image is similiar to Docker For Mac, take an existing `Dockerfile` and replace it's `FROM` with a corresponding Multiarch Docker Hub image[10].
+
+=> https://hub.docker.com/u/multiarch/ 10: https://hub.docker.com/u/multiarch/
+
+For example to re-build the NodeJS Alpine Image[11] for aarch64,
+
+=> https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile 11: https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile
+
+```console
+🐳 curl -sSL https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile | sed "s/alpine:3.6/multiarch\/alpine:aarch64-v3.6/g" > Dockerfile.nodejs.aarch64
+
+🐳 docker build -f Dockerfile.nodejs.aarch64 -t nodejs:aarch64 .
+```
+
+### Considerations
+
+While not as cookie cutter as Docker for Mac, using `qemu-user-static` makes setting up cross-build environments on Linux much easier than it used to be. This also allows you to use much more powerful x86 hardware (either bare metal or cloud) to quickly build Docker images for other architectures than x86.
+
+The only disadvantage is this method relies on images from Docker Hub that have `qemu-*-static` binaries added, this makes re-building images more difficult since you'll need to track down a `qemu` enabled image.
+
+Known repos that have `qemu` enabled images,
+
+* https://hub.docker.com/u/multiarch/[12][13]
+* https://hub.docker.com/u/resin/[14][15]
+
+## QEMU on Linux
+
+Both Debian and Ubuntu include the qemu-user-static[16] package that includes statically built emulation binaries for QEMU[17]. Installing the package on a host x86 architecture and bind mounting a `qemu-*-static` binary will allow the image to run a foreign architecture.
+
+=> https://hub.docker.com/u/multiarch/ 12: https://hub.docker.com/u/multiarch/
+=> https://hub.docker.com/u/multiarch/ 13: https://hub.docker.com/u/multiarch/
+=> https://hub.docker.com/u/resin/ 14: https://hub.docker.com/u/resin/
+=> https://hub.docker.com/u/resin/ 15: https://hub.docker.com/u/resin/
+=> https://packages.debian.org/sid/qemu-user-static 16: https://packages.debian.org/sid/qemu-user-static
+=> https://wiki.qemu.org/Main_Page 17: https://wiki.qemu.org/Main_Page
+
+To setup `qemu-user-static` using the `apt` on Debian or Ubuntu,
+
+```console
+🐳 apt update
+🐳 apt install -y qemu qemu-user-static qemu-user binfmt-support
+```
+
+Any architecture that is supported on Docker Hub and `qemu-*-static` should run by bind mounting the correct `qemu` binary and using the appropriate Docker image.
+
+### QEMU Examples
+
+Run a arm32v7/debian[18] image, bind mount the `/usr/bin/qemu-arm-static` binary into the container,
+
+=> https://hub.docker.com/r/arm32v7/debian/ 18: https://hub.docker.com/r/arm32v7/debian/
+
+```console
+🐳 uname -a
+Linux jezebel 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) x86_64 GNU/Linux
+
+🐳 docker run -it --rm -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static arm32v7/debian /bin/bash
+Unable to find image 'arm32v7/debian:latest' locally
+latest: Pulling from arm32v7/debian
+d0e027c48353: Pull complete
+Digest: sha256:d74cc69431f03bbfbbf9fd52c1eabd6ca491280a03da267acb63b65b81e30c8a
+Status: Downloaded newer image for arm32v7/debian:latest
+root@7d91bbe1e01b:/# uname -a
+Linux 7d91bbe1e01b 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) armv7l GNU/Linux
+```
+
+Run a s390x/debian[19] image, bind mount the `/usr/bin/qemu-s390x-static` binary into the container,
+
+=> https://hub.docker.com/r/s390x/debian/ 19: https://hub.docker.com/r/s390x/debian/
+
+```console
+🐳 uname -a
+Linux jezebel 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) x86_64 GNU/Linux
+
+🐳 docker run -it --rm -v /usr/bin/qemu-s390x-static:/usr/bin/qemu-s390x-static s390x/debian /bin/bash
+Unable to find image 's390x/debian:latest' locally
+latest: Pulling from s390x/debian
+2f25bc6ba506: Pull complete
+Digest: sha256:b01d35a1891549568b1f5fb66b329dded1e9cd45d6cb74f0c02aeb4c72a1417f
+Status: Downloaded newer image for s390x/debian:latest
+root@ad7f1fd946fa:/# uname -a
+Linux ad7f1fd946fa 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) s390x GNU/Linux
+```
+
+### Considerations
+
+Using the apt package for `qemu-user-static` is much more powerful and flexible than the Multiarch method, however it requires more knowledge and configuration when running a container since each architecture will require it's `qemu-*-static` binary bind mounted and a corresponding architecture Docker image.
+
+A disadvantage of this method is it's only useful for running a container, not building a new image since that would require the `FROM` image to include the `qemu-*-static` binary and it's not possible to bind mount the binary when using `docker build`. For detailed information on cross-building images see the Docker Libary Official Images[20] documentation.
+
+=> https://github.com/docker-library/official-images 20: https://github.com/docker-library/official-images
+
+Known official Docker multi-arch images,
+
+* arm32v6[21]
+* arm32v7[22]
+* arm64v8[23]
+* s390x[24]
+* ppc64le[25]
+
+## Final Considerations
+
+Cross-building Docker images is different than the recent Docker Hub Multi-arch support announcement in September 2017. That announcement is a feature of Docker Hub where a repository can have a single image name and include multiple architectures in a manifest. This means that when running Docker on any supported hardware with a multi-arch enabled image, Docker will know to use the proper image for the architecture
+
+=> https://hub.docker.com/u/arm32v6/ 21: https://hub.docker.com/u/arm32v6/
+=> https://hub.docker.com/u/arm32v7/ 22: https://hub.docker.com/u/arm32v7/
+=> https://hub.docker.com/u/arm64v8/ 23: https://hub.docker.com/u/arm64v8/
+=> https://hub.docker.com/r/s390x/ 24: https://hub.docker.com/r/s390x/
+=> https://hub.docker.com/u/ppc64le/ 25: https://hub.docker.com/u/ppc64le/
+
+Before, repositories would either maintain seperate images (eg https://hub.docker.com/u/arm64v8/[26]) or tag images with specific architectures (eg multiarch/debian-debootstrap:arm64-jessie). Now most of this is abstracted away and running `docker run -it --rm debian /bin/bash` on x86, armhf, or s390x will automatically know what to do without additional configuration.
+
+=> https://hub.docker.com/u/arm64v8/ 26: https://hub.docker.com/u/arm64v8/
+
+## References
+
+* https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/[27][28]
+* https://wiki.debian.org/RaspberryPi/qemu-user-static[29][30]
