@@ -52,7 +52,58 @@ docker push ecliptik/node:8.4.0-alpine-armhf
 ### Building an aci-connector-k8s ARM Docker Image
 Once a nodejs arm-alpine image is created, clone the [aci-connector-k8s](https://github.com/Azure/aci-connector-k8s) repositoriy, and update the `Dockerfile` to use the `ecliptik/node:8.4.0-alpine-armhf` image. Additionaly, use the `Dockefile` below to use multi-stage builds for improved image size.
 
-{% gist 995f318033d1fc395999d84cd4304cc1 %}
+```dockerfile
+### Base Image
+# Setup up a base image to use in Build and Runtime images
+FROM ecliptik/node:8.4.0-alpine-armhf AS base
+
+WORKDIR /app
+COPY package.json .
+
+### Build Image
+# Installs build dependencies and npm packages
+# Creates artifacts to copy into Runtime image
+FROM base AS build
+
+# Install build OS packages
+RUN set -ex && \
+        buildDeps=' \
+                make \
+                gcc \
+                g++ \
+                python \
+                py-pip \
+                curl \
+                openssl \
+        ' && \
+    apk add --no-cache \
+       --virtual .build-deps $buildDeps
+
+#Copy application into build image
+COPY . .
+
+# Install npm packages
+RUN npm install -g
+RUN npm install --silent --save-dev -g \
+       gulp-cli \
+       typescript
+
+# Compile typescript sources to javascript artifacts
+RUN tsc --target es5 connector.ts
+
+### Runtime Image
+# Copy artifacts from Build image and setups up entrypoint/cmd to run app
+FROM base AS runtime
+
+# Copy artifacts from Build Image
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/*.js ./
+COPY --from=build /app/LICENSE ./
+
+# Runtime command
+ENTRYPOINT ["node"]
+CMD ["connector.js"]
+```
 
 With an updated `Dockerfile` in the cloned repo, build the aci-connector-k8s image _on_ a Raspberry Pi,
 
@@ -94,7 +145,36 @@ Finally after the connector is setup to use the armhf image and RBAC, follow the
 
 Updated `examples/aci-connector.yaml` with RBAC role and `ecliptik/aci-connector-k8s:alpine-armhf` image
 
-{% gist 690d393bacd98fcc8313a9e45987ec84 %}
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: aci-connector
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aci-connector
+    spec:
+      serviceAccountName: aci-connector-sa
+      containers:
+      - name: aci-connector
+        image: ecliptik/aci-connector-k8s:alpine-armhf
+        imagePullPolicy: Always
+        env:
+        - name: AZURE_CLIENT_ID
+          value: 00000-000-00000-0000-0000
+        - name: AZURE_CLIENT_KEY
+          value: 00000-000-00000-0000-0000
+        - name: AZURE_TENANT_ID
+          value: 00000-000-00000-0000-0000
+        - name: AZURE_SUBSCRIPTION_ID
+          value: 100000-000-00000-0000-0000
+        - name: ACI_RESOURCE_GROUP
+          value: aci-test
+```
 
 Deploy the aci-connector pod,
 

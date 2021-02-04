@@ -93,13 +93,115 @@ After getting the basic site up I wanted to update it frequently with a Phlog, w
 
 A few others have already done this, as referenced above for Jekyll and Hugo already, but I wanted to do my own take on it. Originally I wrote a script that would convert a post to a `gophermap`, converting the links to blocks, identifying what type they were and creating item links.
 
-{% gist bbab8b15b76823621a1004f1e4b622e4 %}
+```bash
+#!/bin/bash
+#Convert a jekyll markdown post to a gophermap
+#Will create a sub-directory with the name of the post and a gophermap
+#converted to  70 columns with links. Tries to do basic http or gopher
+#linking. May not work well, but works well enough.
+
+# usage: ./md2gophermap.sh ../_posts/post-to-convert.md
+
+#Know Bugs
+#Pandoc does not wrap code blocks to the columns length and will get cut
+#off when rendered in the gophermap.
+#see: https://github.com/jgm/pandoc/issues/4302#issuecomment-360669013
+
+#Take input and craft output file and directory vars for use later on
+input=$1
+output=`basename ${input}`
+outdir=`basename -s .md ${output}`
+
+echo "converting ${input}"
+pandoc --from markdown --to markdown --reference-links --reference-location=block --columns=70 -o ${output} ${input}
+
+#Do some IFS changes in order to properly parse individual lines after conversion
+IFSORIG=${IFS}
+IFS="
+"
+
+#Create gophermap
+
+##HTML link syntax
+#hecliptik.com	URL:https://www.ecliptik.com
+
+##Gopher link syntax
+#1rawtext.club	/	rawtext.club	70
+
+#Go through the file line-by-line looking for http or gopher linkes and convert
+for line in `cat ${output}`; do
+  IFS=${IFSORIG}
+  if echo "${line}" | egrep -e "^.+\[.+\]:.+" >/dev/null; then
+
+    case ${line} in
+      *http*)
+        itemname=`echo ${line} |sed -r 's/\[(.*)\]/\1/' | awk -F: {'print $1'} |xargs`
+        itemlink=`echo ${line} |awk -F] {'print $2'} | sed -e "s%:\ %%"`
+        item="h${itemname}\tURL:${itemlink}"
+      ;;
+      *gopher*)
+        itemname=`echo ${line} |sed -r 's/\[(.*)\]/\1/' | awk -F: {'print $1'} |xargs`
+        itemserver=`echo ${line} |awk -F/ {'print $3'} | awk -F: {'print $1'}`
+        itemlink=`echo ${line} |awk -F/ {'print $4'}`
+        item="1${itemname}\t/${itemlink}\t${itemserver}\t70"
+    esac
+#Set IFS to new line in order to remove leading spaces
+ IFS="
+"
+
+    #Escape all special chars so they're replaced in sed
+    linemung=$(echo ${line} | sed -e 's`[][\\/.*^$]`\\&`g')
+    itemmung=$(echo ${item} | sed -e 's`[][\\/.*^$]`\\&`g')
+
+    #Replace markdown blocks with gophermap
+    sed -i -e "s/${linemung}/${itemmung}/" ${output}
+    sed -i -e "s/\\\t/\t/g" ${output}
+ fi
+done
+
+#Make the subdirectory
+mkdir -p ${outdir}
+
+#Use the top of the original Markdown file to create a basic header
+head -6 ${input} | grep -v "layout" | grep -v "category" > ${outdir}/gophermap
+echo "" >> ${outdir}/gophermap
+cat ${output} >> ${outdir}/gophermap
+
+#Convert --- lines to underscore
+sed -i -E "s/^--.+$/$(printf '%.0s_' {0..69})/g" ${outdir}/gophermap
+sed -i -E "s/^==.+$/$(printf '%.0s_' {0..69})/g" ${outdir}/gophermap
+
+#Remove the pandoc output file to clean up
+rm -fr ${output}
+```
 
 This worked out well, where a `gophermap` for each post under `_posts` was formatted properly into their own directories, wrapping was done, and the item links worked. However it just looked sort of off, and there was an issue where code blocks would not be wrapped by [pandoc](https://pandoc.org/).
 
 I decided then to just convert them to plaintext and not do a full `gophermap`, which preserved the formatting, wrapped text blocks more accurately, and just looked better in general. Most of the links in the posts are `http` anyway, so if they were followed they'd open in a web browser anyway.
 
-{% gist da88bb18dac655ac924cbcc882192235 %}
+```bash
+#!/bin/bash
+#Convert a jekyll markdown post to plaintext suitable for gopher,
+#converted to  70 columns
+
+#usage: ./md2gopher.sh ../_posts/post-to-convert.md
+
+#Take input and craft output file and directory vars for use later on
+input=$1
+outdir="_posts"
+output="${outdir}/`basename -s .md ${input}`.txt"
+
+mkdir -p ${outdir}
+
+echo "converting ${input} to ${output}"
+pandoc --from markdown --to plain --reference-links --reference-location=block --columns=70 -o ${output}.tmp ${input}
+
+#Use the top of the original Markdown file to create a basic header
+head -6 ${input} | grep -v "layout" | grep -v "category" > ${output}
+echo "" >> ${output}
+cat ${output}.tmp >> ${output}
+rm -fr ${output}.tmp
+```
 
 These plaintext posts rendered much nicer and I was happy with how they turned out.
 
@@ -107,7 +209,37 @@ These plaintext posts rendered much nicer and I was happy with how they turned o
 
 One final step was automatically generating a Phlog index of posts. The post [Making a Gopherhole](https://johngodlee.github.io/2019/11/20/gopher.html) that I used when making my own Gopherhole had a script on taking the last 10 posts and generating a gophermap of them. I took this script and modified it some to include some things like a basic layout template.
 
-{% gist 82aec9894b5a8e7627f7875fa530c989 %}
+```bash
+#!/bin/bash
+
+#Create gophermap of last 10 posts
+#Originally from: https://johngodlee.github.io/2019/11/20/gopher.html
+
+#Use layout file for header on gophermap
+cat _layouts/phlog > gophermap
+
+all=(_posts/*.txt)
+
+# Reverse order of posts array
+for (( i=${#all[@]}-1; i>=0; i-- )); do
+  rev_all[${#rev_all[@]}]=${all[i]}
+done
+
+# Get 10 most recent posts
+recent="${rev_all[@]:0:10}"
+
+# Add recent post links to gophermap
+for i in $recent; do
+  line=$(head -n 4 $i | grep -i "title:" | awk -F: {'print $2'} | xargs)
+  printf "0$line\t$i\n" >> gophermap
+done
+
+#Append footer with html link
+echo "" >> gophermap
+printf '%.0s_' {0..69} >> gophermap
+echo "" >> gophermap
+echo "hecliptik.com	URL:https://www.ecliptik.com" >> gophermap
+```
 
 The gophermap created while not fancy works well in displaying the latest 10 posts,
 

@@ -28,7 +28,48 @@ The following [Multi-Stage Dockerfile](https://docs.docker.com/develop/develop-i
 
 Here is the [Dockerfile](https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-dockerfile) in full,
 
-{% gist 9a868cbe348d87a5141a Dockerfile %}
+```dockerfile
+#This Dockerfile uses a Multi-Stage Build: https://docs.docker.com/develop/develop-images/multistage-build/
+FROM debian:stable-slim AS base
+LABEL maintainer="Micheal Waltz <dockerfiles@ecliptik.com>"
+
+# Environment
+ENV DEBIAN_FRONTEND=noninteractive \
+    LANG=en_US.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    LANGUAGE=en_US.UTF-8
+
+# Install runtime packages
+RUN apt-get update \
+    && apt-get install -y \
+      perl
+
+# Set app dir
+WORKDIR /app
+
+# Intermediate build layer
+FROM base AS build
+#Update system and install packages
+RUN apt-get update \
+    && apt-get install -yq \
+        build-essential \
+        cpanminus
+
+# Install cpan modules
+RUN cpanm Proc::ProcessTable Data::Dumper
+
+# Runtime layer
+FROM base AS run
+
+# Copy build artifacts from build layer
+COPY --from=build /usr/local /usr/local
+
+# Copy perl script
+COPY ./ps.pl .
+
+# Set Entrypoint
+ENTRYPOINT [ "/app/ps.pl" ]
+```
 
 ## Dockerfile Breakdown
 
