@@ -61,6 +61,14 @@ markdown2gopher () {
   output_tmp="${output}.tmp"
   output_head="${output}.head"
 
+  #Clean up any lingering files
+  if [ -f ${output_tmp} ]; then
+    rm -fr "${output_tmp}"
+  fi
+  if [ -f ${output_head} ]; then
+    rm -fr "${output_head}"
+  fi
+
   #Use pandoc to convert from markdown to plaintext
   pandoc --from markdown --to plain --reference-links --reference-location=block --columns=70 -o "${output_tmp}" "${clean_file}"
 
@@ -68,7 +76,7 @@ markdown2gopher () {
   head -6 "${filename}" | grep -v "layout" | grep -v "category" > "${output_head}"
   echo "${date}" >> "${output_head}"
   echo "" >> "${output_head}"
-  cat "${output_head}" "${output_tmp}" >> "${output}"
+  cat "${output_head}" "${output_tmp}" > "${output}"
 
   #Cleanup temp head files
   rm -fr "${output_head}" "${output_tmp}" "${clean_file}"
