@@ -99,7 +99,6 @@ count_posts () {
   done
 
   # Get 10 most recent posts
-  #recent_posts="${rev_all[@]:0:10}"
   recent_posts=("${rev_all[@]:0:10}")
 }
 
@@ -121,7 +120,7 @@ create_gophermap () {
 }
 
 create_gemindex () {
-  #Add header to gophermap
+  #Add header to gemindex
   gemindex="${gemini_root}/gemlog.gmi"
   cat "${gemini_header}" > "${gemindex}"
   echo "Creating gemindex: ${gemindex}"
