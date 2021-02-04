@@ -55,17 +55,17 @@ common () {
 #Uses pandoc (>2.11.4 recommended)
 markdown2gopher () {
   #Strip of .md and create a .txt file
-  mkdir -p ${outdir}
+  mkdir -p "${outdir}"
   output="${outdir}/$(basename -s .md "${filename}").txt"
   #Create temp file
   output_tmp="${output}.tmp"
   output_head="${output}.head"
 
   #Clean up any lingering files
-  if [ -f ${output_tmp} ]; then
+  if [ -f "${output_tmp}" ]; then
     rm -fr "${output_tmp}"
   fi
-  if [ -f ${output_head} ]; then
+  if [ -f "${output_head}" ]; then
     rm -fr "${output_head}"
   fi
 
@@ -86,7 +86,7 @@ markdown2gopher () {
 #Uses md2gemini: https://github.com/makeworld-the-better-one/md2gemini
 markdown2gemini () {
   #Convert post using md2gemini
-  mkdir -p ${outdir}
+  mkdir -p "${outdir}"
   md2gemini -w -d "${outdir}" -f -l paragraph -s -b "${gemini_baseurl}" "./${clean_file}"
   rm -fr "${clean_file}"
 }
@@ -99,7 +99,8 @@ count_posts () {
   done
 
   # Get 10 most recent posts
-  recent_posts="${rev_all[@]:0:10}"
+  #recent_posts="${rev_all[@]:0:10}"
+  recent_posts=("${rev_all[@]:0:10}")
 }
 
 create_gophermap () {
@@ -109,10 +110,10 @@ create_gophermap () {
   echo "Creating gophermap: ${gophermap}"
 
   # Add recent post links to gophermap
-  for post in ${recent_posts}; do
+  for post in "${recent_posts[@]}"; do
     title=$(head -n 4 "${post}" | grep -i "title:" | awk -F: '{print $2}' | xargs)
     link=$(echo "${post}" | awk -F/ '{print $NF}')
-    printf "0$title\t./$link\n" >> "${gophermap}"
+    printf '0%s\t./%s\n' "${title}" "${link}" >> "${gophermap}"
   done
 
   #Append footer with html link
@@ -126,10 +127,10 @@ create_gemindex () {
   echo "Creating gemindex: ${gemindex}"
 
   # Add recent post links to gemindex
-  for post in ${recent_posts}; do
+  for post in "${recent_posts[@]}"; do
     date=$(basename "${post}" | awk -F- '{print $1"-"$2"-"$3}')
     title=$(basename -s .gmi "${post}" | sed -e "s/${date}-\(.*\)/\1/" | sed -e "s/-/ /g")
-    linktext=$(basename ${post})
+    linktext=$(basename "${post}")
     link="${gemini_baseurl}/_posts/${linktext}"
     #=> gemini://rawtext.club/~ecliptik/posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi 2021-01-31-Making-a-Gopherhole-and-Phlog
     echo "=> ${link} ${date} ${title}" >> "${gemindex}"
@@ -156,7 +157,7 @@ while getopts "${optstring}" arg; do
 done
 
 #Get all markdown posts
-posts=(${posts_root}/*.md)
+posts=("${posts_root}"/*.md)
 
 case ${posttype} in
   gopher)
