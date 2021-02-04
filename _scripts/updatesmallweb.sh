@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#Convert all markdown posts under ../_posts for gopher and gemini
-#Create a gophermap and gem index of the most recent 10 posts
+#Converts all markdown posts under ../_posts for gopher and gemini
+#Creates a gophermap and/or gmi with links to the 10 most recent posts
 #Influence from: https://johngodlee.github.io/2019/11/20/gopher.html
 
 #!/bin/bash
@@ -26,8 +26,8 @@ posts_root="../_posts"
 
 ###Gopher
 gopher_root="../_gopher"
-gopher_layouts="${gopher_root}/_layouts"
 gopher_posts="${gopher_root}/_posts"
+gopher_layouts="${gopher_root}/_layouts"
 gopher_header="${gopher_layouts}/phlog_header"
 gopher_footer="${gopher_layouts}/phlog_footer"
 
