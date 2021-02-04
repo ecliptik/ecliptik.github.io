@@ -19,7 +19,7 @@ only armv8 64-bit Docker images will work.
   [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!]:
     https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/
 
-[RPI Cluster]{:width=“50%” }
+[RPI Cluster]
 
   [RPI Cluster]: /assets/images/posts/k8s-rpi-cluster.jpg
 

@@ -9,7 +9,6 @@ Originally from Setup Kubernetes on a Raspberry Pi Cluster easily the official w
 => https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/ 4: https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/k8s-rpi-cluster.jpg RPI Cluster [IMG]
-{:width="50%" }
 
 ## Installing and Configuring HypriotOS
 
