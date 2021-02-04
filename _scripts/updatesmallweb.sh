@@ -85,6 +85,7 @@ markdown2gemini () {
 
 count_posts () {
   # Reverse order of posts array
+  unset rev_all
   for (( i=${#smposts[@]}-1; i>=0; i-- )); do
     rev_all[${#rev_all[@]}]=${smposts[i]}
   done
