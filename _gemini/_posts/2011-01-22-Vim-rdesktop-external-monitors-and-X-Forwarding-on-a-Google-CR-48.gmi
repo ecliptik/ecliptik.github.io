@@ -110,4 +110,4 @@ alias ssh-host='ssh -Y USER@HOSTNAME'
 
 Now you have a much more flexible environment to add your own aliases, functions, and binaries.
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

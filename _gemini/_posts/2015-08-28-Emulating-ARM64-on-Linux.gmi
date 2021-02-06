@@ -220,4 +220,4 @@ Limitations of the qemu-system-aarch64 emulator on x86 include only being able t
 - https://gmplib.org/~tege/qemu.html
 ```
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

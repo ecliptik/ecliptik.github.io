@@ -287,4 +287,4 @@ ARM Docker Image Repositories
 * arm32v7[36] - Works on RPI 3 with HypriotOS[37] 32-bit
 * arm64v8[38] - Currently no 64-bit version of HypriotOS, but will work on Packet.net Type 2A Instances[39]
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

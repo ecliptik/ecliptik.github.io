@@ -148,7 +148,7 @@ gem_posts () {
     date=$(basename "${post}" | awk -F- '{print $1"-"$2"-"$3}')
     title=$(basename -s .gmi "${post}" | sed -e "s/${date}-\(.*\)/\1/" | sed -e "s/-/ /g")
     linktext=$(basename "${post}")
-    link="../_posts/${linktext}"
+    link="${gemini_baseurl}/_posts/${linktext}"
 
     #Skip linking the post if it's the index
     if [[ "${title}" = "index" ]]; then
@@ -174,7 +174,7 @@ create_gemindex () {
   echo "" >> "${gemindex}"
   gem_posts
   echo "" >> "${gemindex}"
-  echo "=> ../_posts/index.gmi Gemlog Archive"  >> "${gemindex}"
+  echo "=> ${gemini_baseurl}/_posts/index.gmi Gemlog Archive"  >> "${gemindex}"
   echo "" >> "${gemindex}"
   cat "${gemini_footer}" >> "${gemindex}"
 

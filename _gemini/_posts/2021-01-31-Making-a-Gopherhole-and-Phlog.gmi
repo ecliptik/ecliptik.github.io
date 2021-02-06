@@ -309,4 +309,4 @@ While writing these tools I initially was creating them on my laptop, putting th
 
 While gopher didn't win against the web in the early 90's, it's sense of simplicity really shines in todays modern and complex Internet. I've already found a lot of interesting content while browsing gopherspace that I wouldn't find on the WWW and there is much more a sense of community, similar to what the web was like in the early days before modern social networking.
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

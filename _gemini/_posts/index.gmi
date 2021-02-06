@@ -11,17 +11,17 @@
 
 # Gemlog Archive
 
-=> ../_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi 2021-01-31 Making a Gopherhole and Phlog
-=> ../_posts/2021-01-26-One-Week-With-Mastodon.gmi 2021-01-26 One Week With Mastodon
-=> ../_posts/2017-10-02-Cross-Building-and-Running-Multi-Arch-Docker-Images.gmi 2017-10-02 Cross Building and Running Multi Arch Docker Images
-=> ../_posts/2017-09-12-ACI-Connector-for-k8s-on-a-Raspberry-Pi-Cluster.gmi 2017-09-12 ACI Connector for k8s on a Raspberry Pi Cluster
-=> ../_posts/2017-09-11-Raspberry-Pi-Kubernetes-Cluster.gmi 2017-09-11 Raspberry Pi Kubernetes Cluster
-=> ../_posts/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi 2015-09-08 Automating Container Updates With Watchtower
-=> ../_posts/2015-08-29-Containerizing-a-Perl-Script.gmi 2015-08-29 Containerizing a Perl Script
-=> ../_posts/2015-08-28-Emulating-ARM64-on-Linux.gmi 2015-08-28 Emulating ARM64 on Linux
-=> ../_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi 2015-08-21 Decompiling Interactive Fiction
-=> ../_posts/2015-08-20-Building-a-website-with-Github-and-Jekyll.gmi 2015-08-20 Building a website with Github and Jekyll
-=> ../_posts/2011-01-22-Vim-rdesktop-external-monitors-and-X-Forwarding-on-a-Google-CR-48.gmi 2011-01-22 Vim rdesktop external monitors and X Forwarding on a Google CR 48
+=> gemini://rawtext.club/~ecliptik/_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi 2021-01-31 Making a Gopherhole and Phlog
+=> gemini://rawtext.club/~ecliptik/_posts/2021-01-26-One-Week-With-Mastodon.gmi 2021-01-26 One Week With Mastodon
+=> gemini://rawtext.club/~ecliptik/_posts/2017-10-02-Cross-Building-and-Running-Multi-Arch-Docker-Images.gmi 2017-10-02 Cross Building and Running Multi Arch Docker Images
+=> gemini://rawtext.club/~ecliptik/_posts/2017-09-12-ACI-Connector-for-k8s-on-a-Raspberry-Pi-Cluster.gmi 2017-09-12 ACI Connector for k8s on a Raspberry Pi Cluster
+=> gemini://rawtext.club/~ecliptik/_posts/2017-09-11-Raspberry-Pi-Kubernetes-Cluster.gmi 2017-09-11 Raspberry Pi Kubernetes Cluster
+=> gemini://rawtext.club/~ecliptik/_posts/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi 2015-09-08 Automating Container Updates With Watchtower
+=> gemini://rawtext.club/~ecliptik/_posts/2015-08-29-Containerizing-a-Perl-Script.gmi 2015-08-29 Containerizing a Perl Script
+=> gemini://rawtext.club/~ecliptik/_posts/2015-08-28-Emulating-ARM64-on-Linux.gmi 2015-08-28 Emulating ARM64 on Linux
+=> gemini://rawtext.club/~ecliptik/_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi 2015-08-21 Decompiling Interactive Fiction
+=> gemini://rawtext.club/~ecliptik/_posts/2015-08-20-Building-a-website-with-Github-and-Jekyll.gmi 2015-08-20 Building a website with Github and Jekyll
+=> gemini://rawtext.club/~ecliptik/_posts/2011-01-22-Vim-rdesktop-external-monitors-and-X-Forwarding-on-a-Google-CR-48.gmi 2011-01-22 Vim rdesktop external monitors and X Forwarding on a Google CR 48
 
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

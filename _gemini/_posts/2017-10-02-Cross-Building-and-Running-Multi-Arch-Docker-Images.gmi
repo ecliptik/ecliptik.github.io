@@ -218,4 +218,4 @@ Before, repositories would either maintain seperate images (eg https://hub.docke
 * https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/[27][28]
 * https://wiki.debian.org/RaspberryPi/qemu-user-static[29][30]
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

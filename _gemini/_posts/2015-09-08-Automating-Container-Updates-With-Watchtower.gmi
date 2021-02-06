@@ -84,4 +84,4 @@ There are a variety of Docker orchestration tools that can handle this (Compose[
 => https://docs.docker.com/swarm/ 11: https://docs.docker.com/swarm/
 => http://rancher.com/ 12: http://rancher.com/
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

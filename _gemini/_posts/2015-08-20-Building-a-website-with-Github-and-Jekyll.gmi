@@ -38,4 +38,4 @@ Configuration file: /app/_config.yml
       Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.116449572 seconds.
 ```
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

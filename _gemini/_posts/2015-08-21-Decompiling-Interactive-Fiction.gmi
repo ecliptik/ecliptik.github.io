@@ -80,4 +80,4 @@ It also appears the Z-code Tools are not packaged in Debian[11], and this may be
 
 => http://www.debian.org 11: http://www.debian.org
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home

@@ -279,4 +279,4 @@ ps-perl             latest              938c3dde86d7        29 minutes ago      
 => https://intercityup.com/blog/downsizing-docker-containers.html 23: https://intercityup.com/blog/downsizing-docker-containers.html
 => http://search.cpan.org/~durist/Proc-ProcessTable-0.39/ProcessTable.pm 24: http://search.cpan.org/~durist/Proc-ProcessTable-0.39/ProcessTable.pm
 ____________________________________________________________________
-=> / Home
+=> gemini://rawtext.club/~ecliptik Home
