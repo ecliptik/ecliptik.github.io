@@ -1,8 +1,8 @@
----
+___________________________________________
 title: Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48
 tags: vim google cr-48 linux blogger
----
-2011-01-22
+date: 2011-01-22
+___________________________________________
 
 While there are my other impressive hacks going around for the CR-48,
 minecraft, ubuntu, I needed a few utilities that were more pragmatic.

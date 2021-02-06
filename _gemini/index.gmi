@@ -1,0 +1,23 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+Welcome to my Gemini capsule, hosted on rawtext.club. This capsule will contain a mirror of my blog at ecliptik.com as well as more original content to Gemini to keep it more unique than my WWW site and Gopherhole.
+
+## Sitemap
+
+=> about.gmi About
+=> gemlog.gmi Gemlog
+
+## Links
+---------------------------------------------------------------------
+=> https://www.ecliptik.com             ecliptik.com
+=> gopher://rawtext.club:70/1~ecliptik  Gopherhole
+=> gemini://rawtext.club/               rawtext.club

@@ -1,3 +1,17 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+### 2017-09-11 |  #docker #arm #kubernetes #raspberrypi
+# Raspberry Pi Kubernetes Cluster
+
 Notes from setting up a three node Raspberry Pi 3 Model B[1] Kubernetes[2] cluster using HypriotOS 64-bit[3].
 
 => https://www.raspberrypi.org/products/raspberry-pi-3-model-b/ 1: https://www.raspberrypi.org/products/raspberry-pi-3-model-b/
@@ -8,7 +22,7 @@ Originally from Setup Kubernetes on a Raspberry Pi Cluster easily the official w
 
 => https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/ 4: https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/
 
-=> gemini://rawtext.club/~ecliptik/assets/images/posts/k8s-rpi-cluster.jpg RPI Cluster [IMG]
+=> /assets/images/posts/k8s-rpi-cluster.jpg RPI Cluster [IMG]
 
 ## Installing and Configuring HypriotOS
 
@@ -167,3 +181,5 @@ $ curl 10.244.2.2 | head -n 5
 <title>Welcome to nginx!</title>
 <style>
 ```
+____________________________________________________________________
+=> / Home

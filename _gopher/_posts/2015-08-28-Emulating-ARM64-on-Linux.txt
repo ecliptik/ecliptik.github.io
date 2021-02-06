@@ -1,8 +1,8 @@
----
+___________________________________________
 title: Emulating ARM64 on Linux
 tags: operatingsystems arm ubuntu
----
-2015-08-28
+date: 2015-08-28
+___________________________________________
 
 Over the last few years I’ve championed the ultra-low-power and
 high-density of a 64-bit ARM platform in the datacenter. The promise

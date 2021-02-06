@@ -1,3 +1,17 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+### 2021-01-31 |  #gopher #100daystooffload
+# Making a Gopherhole and Phlog
+
 ## But Why?
 
 The obvious questions is why make a Gopherhole (what gopher[1] sites are called) when all the action is on the World Wide Web[2] over `html` and `http`? Didn't those protocols win the Internet two decades ago? I didn't really think much about Gopher until I started reading more about the newer Gemini[3] protocol on my foray into Mastodon[4] last week and figuratively went "down" the Gopherhole.
@@ -95,7 +109,7 @@ MAP   [4]  rawtext.club
 
 Viewed in Lagrange,
 
-=> gemini://rawtext.club/~ecliptik/assets/images/posts/gopher-lagrange-01.png Gopherhole in Lagrange Browser [IMG]
+=> /assets/images/posts/gopher-lagrange-01.png Gopherhole in Lagrange Browser [IMG]
 
 ## Phlog
 
@@ -220,7 +234,7 @@ rm -fr ${output}.tmp
 
 These plaintext posts rendered much nicer and I was happy with how they turned out.
 
-=> gemini://rawtext.club/~ecliptik/assets/images/posts/gopher-phlog-post-01.png Phlog post in Bombadillo [IMG]
+=> /assets/images/posts/gopher-phlog-post-01.png Phlog post in Bombadillo [IMG]
 
 One final step was automatically generating a Phlog index of posts. The post Making a Gopherhole[21] that I used when making my own Gopherhole had a script on taking the last 10 posts and generating a gophermap of them. I took this script and modified it some to include some things like a basic layout template.
 
@@ -294,3 +308,5 @@ While writing these tools I initially was creating them on my laptop, putting th
 ## Conclusions
 
 While gopher didn't win against the web in the early 90's, it's sense of simplicity really shines in todays modern and complex Internet. I've already found a lot of interesting content while browsing gopherspace that I wouldn't find on the WWW and there is much more a sense of community, similar to what the web was like in the early days before modern social networking.
+____________________________________________________________________
+=> / Home

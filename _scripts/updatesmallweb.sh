@@ -45,10 +45,15 @@ common () {
   clean_file="./$(basename "${filename}")"
 
   #Extract date
-  date=$(echo "${clean_file}" | sed -e "s%./%%g" | awk -F- '{print $1"-"$2"-"$3}')
 
   #Cleanup images so they're bare markdown
   sed -e "s/{:width=.*)$//g" "${filename}" | sed -e "s/\[\!/\!/g" > "${clean_file}"
+
+  #Get title, category, tags, date
+  post_title=$(grep "title:" -m1 "${clean_file}" | awk -F: '{print $2}')
+  post_category=$(grep "category:" -m1 "${clean_file}" | awk -F: '{print $2}')
+  post_tags=$(grep "tags:" -m1 "${clean_file}" | awk -F: '{print $2}')
+  post_date=$(echo "${clean_file}" | sed -e "s%./%%g" | awk -F- '{print $1"-"$2"-"$3}')
 }
 
 #Function to convert md post to gopher plaintext and 70 columns
@@ -61,20 +66,16 @@ markdown2gopher () {
   output_tmp="${output}.tmp"
   output_head="${output}.head"
 
-  #Clean up any lingering files
-  if [ -f "${output_tmp}" ]; then
-    rm -fr "${output_tmp}"
-  fi
-  if [ -f "${output_head}" ]; then
-    rm -fr "${output_head}"
-  fi
-
   #Use pandoc to convert from markdown to plaintext
   pandoc --from markdown --to plain --reference-links --reference-location=block --columns=70 -o "${output_tmp}" "${clean_file}"
 
   #Use the top of the original Markdown file to create a basic header
-  head -6 "${filename}" | grep -v "layout" | grep -v "category" > "${output_head}"
-  echo "${date}" >> "${output_head}"
+
+  echo "___________________________________________" > "${output_head}"
+  echo "title:${post_title}" >> "${output_head}"
+  echo "tags:${post_tags}" >> "${output_head}"
+  echo "date: ${post_date}" >> "${output_head}"
+  echo "___________________________________________" >> "${output_head}"
   echo "" >> "${output_head}"
   cat "${output_head}" "${output_tmp}" > "${output}"
 
@@ -87,8 +88,29 @@ markdown2gopher () {
 markdown2gemini () {
   #Convert post using md2gemini
   mkdir -p "${outdir}"
-  md2gemini -w -d "${outdir}" -f -l paragraph -s -b "${gemini_baseurl}" "./${clean_file}"
+  output="$(basename -s .md "${filename}").gmi"
+  output_tmp="${output}.tmp"
+  md2gemini -w -d "${outdir}" -f -l paragraph -s "${clean_file}"
+
+  #Generate list of tags for post
+  for tag in ${post_tags}; do
+    tags="${tags} #${tag}"
+  done
+
+  #Build post with header and footer
+  cat "${gemini_header}" > "${output_tmp}"
+  echo "### ${post_date} | ${tags}" >> "${output_tmp}"
+  echo "#${post_title}" >>  "${output_tmp}"
+
+  echo "" >> "${output_tmp}"
+  cat "${outdir}/${output}" >> "${output_tmp}"
+  echo "" >> "${output_tmp}"
+  cat "${gemini_footer}" >> "${output_tmp}"
+
+  #Copy updated post to final location
+  mv "${output_tmp}" "${outdir}/${output}"
   rm -fr "${clean_file}"
+  unset tags
 }
 
 count_posts () {
@@ -119,23 +141,52 @@ create_gophermap () {
   cat "${gopher_footer}" >> "${gophermap}"
 }
 
-create_gemindex () {
-  #Add header to gemindex
-  gemindex="${gemini_root}/gemlog.gmi"
-  cat "${gemini_header}" > "${gemindex}"
-  echo "Creating gemindex: ${gemindex}"
-
-  # Add recent post links to gemindex
-  for post in "${recent_posts[@]}"; do
+#Function to create a list of posts from a directory stored in an array
+gem_posts () {
+  #Loop through posts array
+  for post in "${gemposts[@]}"; do
     date=$(basename "${post}" | awk -F- '{print $1"-"$2"-"$3}')
     title=$(basename -s .gmi "${post}" | sed -e "s/${date}-\(.*\)/\1/" | sed -e "s/-/ /g")
     linktext=$(basename "${post}")
-    link="${gemini_baseurl}/_posts/${linktext}"
-    #=> gemini://rawtext.club/~ecliptik/posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi 2021-01-31-Making-a-Gopherhole-and-Phlog
-    echo "=> ${link} ${date} ${title}" >> "${gemindex}"
-  done
+    link="/_posts/${linktext}"
 
-  #Append footer with html link
+    #Skip linking the post if it's the index
+    if [[ "${title}" = "index" ]]; then
+      :
+    else
+      #=> gemini://rawtext.club/~ecliptik/posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi 2021-01-31-Making-a-Gopherhole-and-Phlog
+      echo "=> ${link} ${date} ${title}" >> "${gemindex}"
+    fi
+  done
+}
+
+#Create gem index files for latest posts and archive
+create_gemindex () {
+  echo "Creating gemindex: ${gemindex}"
+
+  # Create gemlog recent posts
+  gemposts=(${recent_posts[@]})
+  gemindex="${gemini_root}/gemlog.gmi"
+  echo "Creating gemindex: ${gemindex}"
+  cat "${gemini_header}" > "${gemindex}"
+  echo "# Gemlog" >> "${gemindex}"
+  echo "## Latest Posts" >> "${gemindex}"
+  echo "" >> "${gemindex}"
+  gem_posts
+  echo "" >> "${gemindex}"
+  echo "=> /_posts/index.gmi Gemlog Archive"  >> "${gemindex}"
+  echo "" >> "${gemindex}"
+  cat "${gemini_footer}" >> "${gemindex}"
+
+  # Create archive gem index
+  gemposts=(${rev_all[@]})
+  gemindex="${gemini_root}/_posts/index.gmi"
+  echo "Creating gemindex: ${gemindex}"
+  cat "${gemini_header}" > "${gemindex}"
+  echo "# Gemlog Archive" >> "${gemindex}"
+  echo "" >> "${gemindex}"
+  gem_posts
+  echo "" >> "${gemindex}"
   cat "${gemini_footer}" >> "${gemindex}"
 }
 

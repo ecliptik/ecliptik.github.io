@@ -1,3 +1,17 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+### 2015-09-08 |  #docker #containers #watchtower
+# Automating Container Updates With Watchtower
+
 You have your services containerized, you've just deployed them to your fleet of 1000 container hosts and everything is running smoothly. Then you realize that you missed a crucial command in the Dockerfile[1], and well, re-building the container image and pushing to the repository is easy, but what about the 100's of containers out there running the old version?
 
 => https://docs.docker.com/reference/builder/ 1: https://docs.docker.com/reference/builder/
@@ -13,7 +27,7 @@ That's where Watchtower[6] comes in.
 
 => https://labs.ctl.io/watchtower-automatic-updates-for-docker-containers/ 6: https://labs.ctl.io/watchtower-automatic-updates-for-docker-containers/
 
-=> gemini://rawtext.club/~ecliptik/assets/images/posts/watchtower.jpg Watchtower [IMG]
+=> /assets/images/posts/watchtower.jpg Watchtower [IMG]
 
 ## Simple Case Study
 
@@ -69,3 +83,5 @@ There are a variety of Docker orchestration tools that can handle this (Compose[
 => https://docs.docker.com/compose/ 10: https://docs.docker.com/compose/
 => https://docs.docker.com/swarm/ 11: https://docs.docker.com/swarm/
 => http://rancher.com/ 12: http://rancher.com/
+____________________________________________________________________
+=> / Home

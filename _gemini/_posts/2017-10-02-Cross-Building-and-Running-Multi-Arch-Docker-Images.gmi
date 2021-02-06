@@ -1,3 +1,17 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+### 2017-10-02 |  #docker #arm #raspberrypi
+# Cross Building and Running Multi-Arch Docker Images
+
 When running a Raspberry Pi cluster[1], sometimes there's just not enough power to build native armhf Docker images in a reasonable amount of time.
 
 => http://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/ 1: http://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/
@@ -203,3 +217,5 @@ Before, repositories would either maintain seperate images (eg https://hub.docke
 
 * https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/[27][28]
 * https://wiki.debian.org/RaspberryPi/qemu-user-static[29][30]
+____________________________________________________________________
+=> / Home

@@ -1,8 +1,8 @@
----
+___________________________________________
 title: Decompiling Interactive Fiction
 tags: zmachine interactivefiction zork
----
-2015-08-21
+date: 2015-08-21
+___________________________________________
 
 A couple of weeks ago a friend of mine pointed me to the web-based
 interactive fiction piece called Aisle. As I played it, I immediately

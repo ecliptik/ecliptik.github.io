@@ -1,3 +1,17 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+### 2015-08-20 |  #docker #jekyll #github
+# Building a website with Github and Jekyll
+
 After a long time of www.ecliptik.com[1] being offline I finally brought it back online with Github Pages[2]. I really like the concept of having a static site using Markdown files and a template to quickly bring online a modern looking blog without the hassle of configuring a content management system, web server, or database.
 
 => http://www.ecliptik.com 1: http://www.ecliptik.com
@@ -23,3 +37,5 @@ Configuration file: /app/_config.yml
       Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.108220049 seconds.
       Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.116449572 seconds.
 ```
+____________________________________________________________________
+=> / Home

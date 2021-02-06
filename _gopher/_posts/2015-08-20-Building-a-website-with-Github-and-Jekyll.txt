@@ -1,8 +1,8 @@
----
+___________________________________________
 title: Building a website with Github and Jekyll
 tags: docker jekyll github
----
-2015-08-20
+date: 2015-08-20
+___________________________________________
 
 After a long time of www.ecliptik.com being offline I finally brought
 it back online with Github Pages. I really like the concept of having

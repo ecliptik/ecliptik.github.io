@@ -1,8 +1,8 @@
----
+___________________________________________
 title: ACI Connector for k8s on a Raspberry Pi Cluster
 tags: docker azure arm kubernetes raspberrypi
----
-2017-09-12
+date: 2017-09-12
+___________________________________________
 
 Running the Azure Container Instances Connector for Kubernetes on a
 Raspberry Pi Cluster.

@@ -1,3 +1,17 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+### 2011-01-22 |  #vim #google #cr-48 #linux #blogger
+# Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48
+
 While there are my other impressive hacks going around for the CR-48, minecraft[1], ubuntu[2], I needed a few utilities that were more pragmatic. The following assumes that your CR-48 is in developer mode[3] and you have a basic understanding of bash, scp, and compiling source code under GNU/Linux.
 
 => https://www.minecraftforum.net/forums/minecraft-java-edition/discussion/120216-minecraft-on-the-cr-48-google-chrome-laptop 1: https://www.minecraftforum.net/forums/minecraft-java-edition/discussion/120216-minecraft-on-the-cr-48-google-chrome-laptop
@@ -95,3 +109,5 @@ alias ssh-host='ssh -Y USER@HOSTNAME'
 ```
 
 Now you have a much more flexible environment to add your own aliases, functions, and binaries.
+____________________________________________________________________
+=> / Home

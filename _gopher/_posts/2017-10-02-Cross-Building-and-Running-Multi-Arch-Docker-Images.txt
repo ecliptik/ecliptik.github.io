@@ -1,8 +1,8 @@
----
+___________________________________________
 title: Cross Building and Running Multi-Arch Docker Images
 tags: docker arm raspberrypi
----
-2017-10-02
+date: 2017-10-02
+___________________________________________
 
 When running a Raspberry Pi cluster, sometimes there’s just not enough
 power to build native armhf Docker images in a reasonable amount of

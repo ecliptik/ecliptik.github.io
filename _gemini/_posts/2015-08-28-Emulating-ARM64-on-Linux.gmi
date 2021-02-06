@@ -1,3 +1,17 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+### 2015-08-28 |  #operatingsystems #arm #ubuntu
+# Emulating ARM64 on Linux
+
 Over the last few years I've championed[1] the ultra-low-power and high-density of a 64-bit ARM platform[2] in the datacenter. The promise of thousands of cores all sipping power and taking up less room than the equivalent Intel architecture to me is both exciting and pragmatic as a large systems IT engineer.
 
 => https://www.google.com/search?q=micheal+waltz+arm64 1: https://www.google.com/search?q=micheal+waltz+arm64
@@ -205,3 +219,5 @@ Limitations of the qemu-system-aarch64 emulator on x86 include only being able t
 - http://www.bennee.com/~alex/blog/2014/05/09/running-linux-in-qemus-aarch64-system-emulation-mode/
 - https://gmplib.org/~tege/qemu.html
 ```
+____________________________________________________________________
+=> / Home
