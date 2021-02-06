@@ -11,4 +11,4 @@
 
 # azure
 
-=> ../_gemini/_tags/2017-09-12-ACI-Connector-for-k8s-on-a-Raspberry-Pi-Cluster.gmi  ACI Connector for k8s on a Raspberry Pi Cluster
+=> gemini://rawtext.club/~ecliptik/_posts/2017-09-12-ACI-Connector-for-k8s-on-a-Raspberry-Pi-Cluster.gmi  ACI Connector for k8s on a Raspberry Pi Cluster

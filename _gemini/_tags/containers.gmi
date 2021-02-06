@@ -11,5 +11,5 @@
 
 # containers
 
-=> ../_gemini/_tags/2015-08-29-Containerizing-a-Perl-Script.gmi  Containerizing a Perl Script
-=> ../_gemini/_tags/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi  Automating Container Updates With Watchtower
+=> gemini://rawtext.club/~ecliptik/_posts/2015-08-29-Containerizing-a-Perl-Script.gmi  Containerizing a Perl Script
+=> gemini://rawtext.club/~ecliptik/_posts/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi  Automating Container Updates With Watchtower

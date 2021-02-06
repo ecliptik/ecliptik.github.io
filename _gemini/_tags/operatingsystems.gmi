@@ -11,4 +11,4 @@
 
 # operatingsystems
 
-=> ../_gemini/_tags/2015-08-28-Emulating-ARM64-on-Linux.gmi  Emulating ARM64 on Linux
+=> gemini://rawtext.club/~ecliptik/_posts/2015-08-28-Emulating-ARM64-on-Linux.gmi  Emulating ARM64 on Linux

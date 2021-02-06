@@ -11,4 +11,4 @@
 
 # linux
 
-=> ../_gemini/_tags/2011-01-22-Vim-rdesktop-external-monitors-and-X-Forwarding-on-a-Google-CR-48.gmi  Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48
+=> gemini://rawtext.club/~ecliptik/_posts/2011-01-22-Vim-rdesktop-external-monitors-and-X-Forwarding-on-a-Google-CR-48.gmi  Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48

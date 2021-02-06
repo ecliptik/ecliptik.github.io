@@ -11,4 +11,4 @@
 
 # interactivefiction
 
-=> ../_gemini/_tags/2015-08-21-Decompiling-Interactive-Fiction.gmi  Decompiling Interactive Fiction
+=> gemini://rawtext.club/~ecliptik/_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi  Decompiling Interactive Fiction

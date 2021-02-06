@@ -11,4 +11,4 @@
 
 # mastodon
 
-=> ../_gemini/_tags/2021-01-26-One-Week-With-Mastodon.gmi  One Week With Mastodon
+=> gemini://rawtext.club/~ecliptik/_posts/2021-01-26-One-Week-With-Mastodon.gmi  One Week With Mastodon

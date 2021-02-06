@@ -11,4 +11,4 @@
 
 # perl
 
-=> ../_gemini/_tags/2015-08-29-Containerizing-a-Perl-Script.gmi  Containerizing a Perl Script
+=> gemini://rawtext.club/~ecliptik/_posts/2015-08-29-Containerizing-a-Perl-Script.gmi  Containerizing a Perl Script

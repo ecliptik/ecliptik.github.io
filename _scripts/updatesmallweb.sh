@@ -40,6 +40,12 @@ gemini_layouts="${gemini_root}/_layouts"
 gemini_header="${gemini_layouts}/gem_header"
 gemini_footer="${gemini_layouts}/gem_footer"
 
+#Re-genrate tag pages every run
+if [ -d "${gemini_tags}" ]; then
+  rm -fr "${gemini_tags}"
+  mkdir -p "${gemini_tags}"
+fi
+
 #Function to cleanup file before conversion; stripping html, fixing elements, etc
 common () {
   echo "Converting post ${filename} to ${posttype}"
@@ -122,7 +128,7 @@ markdown2gemini () {
     if grep "${post_title}" "${post_tag_page}" >/dev/null; then
       :
     else
-      echo "=> ${gemini_tags}/${output} ${post_title}" >> "${post_tag_page}"
+      echo "=> ${gemini_baseurl}/_posts/${output} ${post_title}" >> "${post_tag_page}"
     fi
     #Add tag link to bottom of gemlog post
     echo "=> ${gemini_baseurl}/_tags/${tag}.gmi ${tag}" >> "${output_tmp}"

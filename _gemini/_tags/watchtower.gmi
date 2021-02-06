@@ -11,4 +11,4 @@
 
 # watchtower
 
-=> ../_gemini/_tags/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi  Automating Container Updates With Watchtower
+=> gemini://rawtext.club/~ecliptik/_posts/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi  Automating Container Updates With Watchtower
