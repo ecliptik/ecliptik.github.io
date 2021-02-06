@@ -23,6 +23,8 @@
 => gemini://rawtext.club/~ecliptik/_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi 2015-08-21 Decompiling Interactive Fiction
 
 => gemini://rawtext.club/~ecliptik/_posts/index.gmi Gemlog Archive
+=> gemini://rawtext.club/~ecliptik/_posts/feed.xml Gemfeed
 
 ____________________________________________________________________
+
 => gemini://rawtext.club/~ecliptik Home

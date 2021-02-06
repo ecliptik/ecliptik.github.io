@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>gemini://rawtext.club/~ecliptik/_posts/</id>
+  <title>Gemlog Archive</title>
+  <updated>2021-01-31T00:00:00+00:00</updated>
+  <author>
+    <name>ecliptik</name>
+    <email>gemini@accounts.ecliptik.com</email>
+  </author>
+  <link href="gemini://rawtext.club/~ecliptik/_posts/feed.xml" rel="self"/>
+  <link href="gemini://rawtext.club/~ecliptik/_posts/" rel="alternate"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2015-08-20-Building-a-website-with-Github-and-Jekyll.gmi</id>
+    <title>Building a website with Github and Jekyll</title>
+    <updated>2015-08-20T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2015-08-20-Building-a-website-with-Github-and-Jekyll.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi</id>
+    <title>Decompiling Interactive Fiction</title>
+    <updated>2015-08-21T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2015-08-28-Emulating-ARM64-on-Linux.gmi</id>
+    <title>Emulating ARM64 on Linux</title>
+    <updated>2015-08-28T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2015-08-28-Emulating-ARM64-on-Linux.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2015-08-29-Containerizing-a-Perl-Script.gmi</id>
+    <title>Containerizing a Perl Script</title>
+    <updated>2015-08-29T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2015-08-29-Containerizing-a-Perl-Script.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi</id>
+    <title>Automating Container Updates With Watchtower</title>
+    <updated>2015-09-08T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2017-09-11-Raspberry-Pi-Kubernetes-Cluster.gmi</id>
+    <title>Raspberry Pi Kubernetes Cluster</title>
+    <updated>2017-09-11T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2017-09-11-Raspberry-Pi-Kubernetes-Cluster.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2017-09-12-ACI-Connector-for-k8s-on-a-Raspberry-Pi-Cluster.gmi</id>
+    <title>ACI Connector for k8s on a Raspberry Pi Cluster</title>
+    <updated>2017-09-12T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2017-09-12-ACI-Connector-for-k8s-on-a-Raspberry-Pi-Cluster.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2017-10-02-Cross-Building-and-Running-Multi-Arch-Docker-Images.gmi</id>
+    <title>Cross Building and Running Multi-Arch Docker Images</title>
+    <updated>2017-10-02T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2017-10-02-Cross-Building-and-Running-Multi-Arch-Docker-Images.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2021-01-26-One-Week-With-Mastodon.gmi</id>
+    <title>One Week With Mastodon</title>
+    <updated>2021-01-26T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-01-26-One-Week-With-Mastodon.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi</id>
+    <title>Making a Gopherhole and Phlog</title>
+    <updated>2021-01-31T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi" rel="alternate"/>
+  </entry>
+</feed>

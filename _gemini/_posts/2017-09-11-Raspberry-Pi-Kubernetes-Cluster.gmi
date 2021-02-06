@@ -9,8 +9,8 @@
 =====================================================================
 ```
 
-### 2017-09-11 |  #docker #arm #kubernetes #raspberrypi
 # Raspberry Pi Kubernetes Cluster
+### 2017-09-11 |  #docker #arm #kubernetes #raspberrypi
 
 Notes from setting up a three node Raspberry Pi 3 Model B[1] Kubernetes[2] cluster using HypriotOS 64-bit[3].
 
@@ -182,4 +182,5 @@ $ curl 10.244.2.2 | head -n 5
 <style>
 ```
 ____________________________________________________________________
+
 => gemini://rawtext.club/~ecliptik Home

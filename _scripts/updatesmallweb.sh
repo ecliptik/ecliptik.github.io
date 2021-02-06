@@ -99,8 +99,8 @@ markdown2gemini () {
 
   #Build post with header and footer
   cat "${gemini_header}" > "${output_tmp}"
-  echo "### ${post_date} | ${tags}" >> "${output_tmp}"
   echo "#${post_title}" >>  "${output_tmp}"
+  echo "### ${post_date} | ${tags}" >> "${output_tmp}"
 
   echo "" >> "${output_tmp}"
   cat "${outdir}/${output}" >> "${output_tmp}"
@@ -175,6 +175,7 @@ create_gemindex () {
   gem_posts
   echo "" >> "${gemindex}"
   echo "=> ${gemini_baseurl}/_posts/index.gmi Gemlog Archive"  >> "${gemindex}"
+  echo "=> ${gemini_baseurl}/_posts/feed.xml Gemfeed" >> "${gemindex}"
   echo "" >> "${gemindex}"
   cat "${gemini_footer}" >> "${gemindex}"
 
@@ -188,6 +189,16 @@ create_gemindex () {
   gem_posts
   echo "" >> "${gemindex}"
   cat "${gemini_footer}" >> "${gemindex}"
+}
+
+create_gemfeed () {
+  author="ecliptik"
+  email="gemini@accounts.ecliptik.com"
+  feedout="feed.xml"
+
+  #Run gemfeed to generate a feed file
+  #Requires https://tildegit.org/solderpunk/gemfeed
+  gemfeed.py -a ${author} -b ${gemini_baseurl}/_posts/ -d ${gemini_posts} -e ${email} -o ${feedout}
 }
 
 # Define list of arguments expected in the input
@@ -229,6 +240,7 @@ case ${posttype} in
     smposts=("${gemini_posts}"/*.gmi)
     count_posts
     create_gemindex
+    create_gemfeed
     ;;
   all)
     posttype="gopher"
@@ -250,6 +262,7 @@ case ${posttype} in
     smposts=("${gemini_posts}"/*.gmi)
     count_posts
     create_gemindex
+    create_gemfeed
     ;;
   *)
     echo "Unsupported posttype ${posttype}!"
