@@ -10,7 +10,7 @@
 ```
 
 # Cross Building and Running Multi-Arch Docker Images
-### 2017-10-02 |  #docker #arm #raspberrypi
+### 2017-10-02 | #raspberrypi #arm #docker 
 
 When running a Raspberry Pi cluster[1], sometimes there's just not enough power to build native armhf Docker images in a reasonable amount of time.
 
@@ -217,6 +217,12 @@ Before, repositories would either maintain seperate images (eg https://hub.docke
 
 * https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/[27][28]
 * https://wiki.debian.org/RaspberryPi/qemu-user-static[29][30]
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/docker.gmi docker
+=> gemini://rawtext.club/~ecliptik/_tags/arm.gmi arm
+=> gemini://rawtext.club/~ecliptik/_tags/raspberrypi.gmi raspberrypi
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

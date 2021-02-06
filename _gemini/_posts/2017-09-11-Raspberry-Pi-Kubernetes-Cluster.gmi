@@ -10,7 +10,7 @@
 ```
 
 # Raspberry Pi Kubernetes Cluster
-### 2017-09-11 |  #docker #arm #kubernetes #raspberrypi
+### 2017-09-11 | #raspberrypi #kubernetes #arm #docker 
 
 Notes from setting up a three node Raspberry Pi 3 Model B[1] Kubernetes[2] cluster using HypriotOS 64-bit[3].
 
@@ -181,6 +181,13 @@ $ curl 10.244.2.2 | head -n 5
 <title>Welcome to nginx!</title>
 <style>
 ```
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/docker.gmi docker
+=> gemini://rawtext.club/~ecliptik/_tags/arm.gmi arm
+=> gemini://rawtext.club/~ecliptik/_tags/kubernetes.gmi kubernetes
+=> gemini://rawtext.club/~ecliptik/_tags/raspberrypi.gmi raspberrypi
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

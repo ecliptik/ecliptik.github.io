@@ -95,9 +95,21 @@ markdown2gemini () {
   output_tmp="${output}.tmp"
   md2gemini -w -d "${outdir}" -f -l paragraph -s "${clean_file}"
 
+  #Build post with header and footer
+  cat "${gemini_header}" > "${output_tmp}"
+  echo "#${post_title}" >>  "${output_tmp}"
+  echo "### ${post_date} | %TAGS%" >> "${output_tmp}"
+
+  echo "" >> "${output_tmp}"
+  cat "${outdir}/${output}" >> "${output_tmp}"
+  echo "" >> "${output_tmp}"
+  echo "" >> "${output_tmp}"
+  echo "### Tags" >> "${output_tmp}"
+  echo "" >> "${output_tmp}"
+
   #Generate list of tag pages for post
   for tag in ${post_tags}; do
-    tags="${tags} #${tag}"
+    tags="#${tag} ${tags}"
     post_tag_page="${gemini_tags}/${tag}.gmi"
     #Create tag page if new, otherwise append to it
     if [ ! -f ${post_tag_page} ]; then
@@ -112,17 +124,13 @@ markdown2gemini () {
     else
       echo "=> ${gemini_tags}/${output} ${post_title}" >> "${post_tag_page}"
     fi
+    #Add tag link to bottom of gemlog post
+    echo "=> ${gemini_baseurl}/_tags/${tag}.gmi ${tag}" >> "${output_tmp}"
   done
 
-  #Build post with header and footer
-  cat "${gemini_header}" > "${output_tmp}"
-  echo "#${post_title}" >>  "${output_tmp}"
-  echo "### ${post_date} | ${tags}" >> "${output_tmp}"
-
-  echo "" >> "${output_tmp}"
-  cat "${outdir}/${output}" >> "${output_tmp}"
-  echo "" >> "${output_tmp}"
   cat "${gemini_footer}" >> "${output_tmp}"
+  #Replace %TAGS% token with accumulated tags
+  sed -i -e "s/%TAGS%/${tags}/g" "${output_tmp}"
 
   #Copy updated post to final location
   mv "${output_tmp}" "${outdir}/${output}"
@@ -198,9 +206,11 @@ create_gemindex () {
   # Create archive gem index
   gemposts=(${rev_all[@]})
   gemindex="${gemini_root}/_posts/index.gmi"
+  gem_tag_index="${gemini_root}/_tags/index.gmi"
   echo "Creating archive index: ${gemindex}"
   cat "${gemini_header}" > "${gemindex}"
   echo "# Gemlog Archive" >> "${gemindex}"
+  echo "# Gemlog Tags" >> "${gem_tag_index}"
   echo "" >> "${gemindex}"
   gem_posts
   echo "" >> "${gemindex}"

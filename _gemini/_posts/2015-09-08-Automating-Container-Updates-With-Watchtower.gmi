@@ -10,7 +10,7 @@
 ```
 
 # Automating Container Updates With Watchtower
-### 2015-09-08 |  #docker #containers #watchtower
+### 2015-09-08 | #watchtower #containers #docker 
 
 You have your services containerized, you've just deployed them to your fleet of 1000 container hosts and everything is running smoothly. Then you realize that you missed a crucial command in the Dockerfile[1], and well, re-building the container image and pushing to the repository is easy, but what about the 100's of containers out there running the old version?
 
@@ -83,6 +83,12 @@ There are a variety of Docker orchestration tools that can handle this (Compose[
 => https://docs.docker.com/compose/ 10: https://docs.docker.com/compose/
 => https://docs.docker.com/swarm/ 11: https://docs.docker.com/swarm/
 => http://rancher.com/ 12: http://rancher.com/
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/docker.gmi docker
+=> gemini://rawtext.club/~ecliptik/_tags/containers.gmi containers
+=> gemini://rawtext.club/~ecliptik/_tags/watchtower.gmi watchtower
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

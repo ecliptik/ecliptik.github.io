@@ -10,7 +10,7 @@
 ```
 
 # ACI Connector for k8s on a Raspberry Pi Cluster
-### 2017-09-12 |  #docker #azure #arm #kubernetes #raspberrypi
+### 2017-09-12 | #raspberrypi #kubernetes #arm #azure #docker 
 
 Running the Azure Container Instances Connector for Kubernetes[1] on a Raspberry Pi Cluster.
 
@@ -286,6 +286,14 @@ ARM Docker Image Repositories
 * arm32v6[34] - Works on RPI 3 with HypriotOS[35] 32-bit
 * arm32v7[36] - Works on RPI 3 with HypriotOS[37] 32-bit
 * arm64v8[38] - Currently no 64-bit version of HypriotOS, but will work on Packet.net Type 2A Instances[39]
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/docker.gmi docker
+=> gemini://rawtext.club/~ecliptik/_tags/azure.gmi azure
+=> gemini://rawtext.club/~ecliptik/_tags/arm.gmi arm
+=> gemini://rawtext.club/~ecliptik/_tags/kubernetes.gmi kubernetes
+=> gemini://rawtext.club/~ecliptik/_tags/raspberrypi.gmi raspberrypi
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

@@ -10,7 +10,7 @@
 ```
 
 # Emulating ARM64 on Linux
-### 2015-08-28 |  #operatingsystems #arm #ubuntu
+### 2015-08-28 | #ubuntu #arm #operatingsystems 
 
 Over the last few years I've championed[1] the ultra-low-power and high-density of a 64-bit ARM platform[2] in the datacenter. The promise of thousands of cores all sipping power and taking up less room than the equivalent Intel architecture to me is both exciting and pragmatic as a large systems IT engineer.
 
@@ -219,6 +219,12 @@ Limitations of the qemu-system-aarch64 emulator on x86 include only being able t
 - http://www.bennee.com/~alex/blog/2014/05/09/running-linux-in-qemus-aarch64-system-emulation-mode/
 - https://gmplib.org/~tege/qemu.html
 ```
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/operatingsystems.gmi operatingsystems
+=> gemini://rawtext.club/~ecliptik/_tags/arm.gmi arm
+=> gemini://rawtext.club/~ecliptik/_tags/ubuntu.gmi ubuntu
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

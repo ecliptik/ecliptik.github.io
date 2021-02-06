@@ -10,7 +10,7 @@
 ```
 
 # Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48
-### 2011-01-22 |  #vim #google #cr-48 #linux #blogger
+### 2011-01-22 | #blogger #linux #cr-48 #google #vim 
 
 While there are my other impressive hacks going around for the CR-48, minecraft[1], ubuntu[2], I needed a few utilities that were more pragmatic. The following assumes that your CR-48 is in developer mode[3] and you have a basic understanding of bash, scp, and compiling source code under GNU/Linux.
 
@@ -109,6 +109,14 @@ alias ssh-host='ssh -Y USER@HOSTNAME'
 ```
 
 Now you have a much more flexible environment to add your own aliases, functions, and binaries.
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/vim.gmi vim
+=> gemini://rawtext.club/~ecliptik/_tags/google.gmi google
+=> gemini://rawtext.club/~ecliptik/_tags/cr-48.gmi cr-48
+=> gemini://rawtext.club/~ecliptik/_tags/linux.gmi linux
+=> gemini://rawtext.club/~ecliptik/_tags/blogger.gmi blogger
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

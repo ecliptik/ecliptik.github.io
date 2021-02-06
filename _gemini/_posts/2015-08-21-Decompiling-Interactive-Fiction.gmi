@@ -10,7 +10,7 @@
 ```
 
 # Decompiling Interactive Fiction
-### 2015-08-21 |  #zmachine #interactivefiction #zork
+### 2015-08-21 | #zork #interactivefiction #zmachine 
 
 A couple of weeks ago a friend of mine pointed me to the web-based interactive fiction piece called Aisle[1]. As I played it, I immediately started wondering how I could get a text blob of all the possible paths instead of trying to figure out all the actions required to input into the interpreter.
 
@@ -79,6 +79,12 @@ Interactive fiction is just more than a big blob of text. Since the early days o
 It also appears the Z-code Tools are not packaged in Debian[11], and this may be a fun project to do sometime.
 
 => http://www.debian.org 11: http://www.debian.org
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/zmachine.gmi zmachine
+=> gemini://rawtext.club/~ecliptik/_tags/interactivefiction.gmi interactivefiction
+=> gemini://rawtext.club/~ecliptik/_tags/zork.gmi zork
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

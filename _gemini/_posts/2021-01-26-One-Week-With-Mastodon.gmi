@@ -10,7 +10,7 @@
 ```
 
 # One Week With Mastodon
-### 2021-01-26 |  #mastodon #fediverse #100daystooffload
+### 2021-01-26 | #100daystooffload #fediverse #mastodon 
 
 One week ago I posted my first toot[1] on Mastodon[2] and I want to document my first weeks experience since it was much more eventful than I was expecting.
 
@@ -77,6 +77,12 @@ Much more happened than and I was expecting when I first thought about joining M
 => https://fediverse.party 19: https://fediverse.party
 
 The one critique I have of using Mastodon is interacting with other federated instances. When following users on other instances, the standard flow is to pop-up a seperate window and having to copy/paste your account in order to complete the action. I would expect since you're signed into an instance already that it would somehow automaticaly fill this in or just be more seamless overall. This may just be the way it works since they are federated, but it feels clunkier than it should.
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/mastodon.gmi mastodon
+=> gemini://rawtext.club/~ecliptik/_tags/fediverse.gmi fediverse
+=> gemini://rawtext.club/~ecliptik/_tags/100daystooffload.gmi 100daystooffload
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

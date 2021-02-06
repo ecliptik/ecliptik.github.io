@@ -10,7 +10,7 @@
 ```
 
 # Building a website with Github and Jekyll
-### 2015-08-20 |  #docker #jekyll #github
+### 2015-08-20 | #github #jekyll #docker 
 
 After a long time of www.ecliptik.com[1] being offline I finally brought it back online with Github Pages[2]. I really like the concept of having a static site using Markdown files and a template to quickly bring online a modern looking blog without the hassle of configuring a content management system, web server, or database.
 
@@ -37,6 +37,12 @@ Configuration file: /app/_config.yml
       Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.108220049 seconds.
       Regenerating: 1 file(s) changed at 2015-08-22 05:19:34 ...done in 0.116449572 seconds.
 ```
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/docker.gmi docker
+=> gemini://rawtext.club/~ecliptik/_tags/jekyll.gmi jekyll
+=> gemini://rawtext.club/~ecliptik/_tags/github.gmi github
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home
