@@ -35,6 +35,7 @@ gopher_footer="${gopher_layouts}/phlog_footer"
 gemini_baseurl="gemini://rawtext.club/~ecliptik"
 gemini_root="../_gemini"
 gemini_posts="${gemini_root}/_posts"
+gemini_tags="${gemini_root}/_tags"
 gemini_layouts="${gemini_root}/_layouts"
 gemini_header="${gemini_layouts}/gem_header"
 gemini_footer="${gemini_layouts}/gem_footer"
@@ -54,6 +55,8 @@ common () {
   post_category=$(grep "category:" -m1 "${clean_file}" | awk -F: '{print $2}')
   post_tags=$(grep "tags:" -m1 "${clean_file}" | awk -F: '{print $2}')
   post_date=$(echo "${clean_file}" | sed -e "s%./%%g" | awk -F- '{print $1"-"$2"-"$3}')
+  cumulative_tags="${alltags} ${post_tags}"
+  alltags=$(echo "${cumulative_tags}" | sort -u)
 }
 
 #Function to convert md post to gopher plaintext and 70 columns
@@ -92,9 +95,23 @@ markdown2gemini () {
   output_tmp="${output}.tmp"
   md2gemini -w -d "${outdir}" -f -l paragraph -s "${clean_file}"
 
-  #Generate list of tags for post
+  #Generate list of tag pages for post
   for tag in ${post_tags}; do
     tags="${tags} #${tag}"
+    post_tag_page="${gemini_tags}/${tag}.gmi"
+    #Create tag page if new, otherwise append to it
+    if [ ! -f ${post_tag_page} ]; then
+      echo "Creating tag page ${post_tag_page}"
+      cat "${gemini_header}" > "${post_tag_page}"
+      echo "# ${tag}" >> "${post_tag_page}"
+      echo "" >> "${post_tag_page}"
+    fi
+    #Add page to tag page, skip if it's already been added
+    if grep "${post_title}" "${post_tag_page}" >/dev/null; then
+      :
+    else
+      echo "=> ${gemini_tags}/${output} ${post_title}" >> "${post_tag_page}"
+    fi
   done
 
   #Build post with header and footer
@@ -142,6 +159,7 @@ create_gophermap () {
 }
 
 #Function to create a list of posts from a directory stored in an array
+#used for archive page to inclue all posts
 gem_posts () {
   #Loop through posts array
   for post in "${gemposts[@]}"; do
@@ -162,12 +180,10 @@ gem_posts () {
 
 #Create gem index files for latest posts and archive
 create_gemindex () {
-  echo "Creating gemindex: ${gemindex}"
-
   # Create gemlog recent posts
   gemposts=(${recent_posts[@]})
   gemindex="${gemini_root}/gemlog.gmi"
-  echo "Creating gemindex: ${gemindex}"
+  echo "Creating gemlog index: ${gemindex}"
   cat "${gemini_header}" > "${gemindex}"
   echo "# Gemlog" >> "${gemindex}"
   echo "## Latest Posts" >> "${gemindex}"
@@ -182,7 +198,7 @@ create_gemindex () {
   # Create archive gem index
   gemposts=(${rev_all[@]})
   gemindex="${gemini_root}/_posts/index.gmi"
-  echo "Creating gemindex: ${gemindex}"
+  echo "Creating archive index: ${gemindex}"
   cat "${gemini_header}" > "${gemindex}"
   echo "# Gemlog Archive" >> "${gemindex}"
   echo "" >> "${gemindex}"
@@ -199,6 +215,28 @@ create_gemfeed () {
   #Run gemfeed to generate a feed file
   #Requires https://tildegit.org/solderpunk/gemfeed
   gemfeed.py -a ${author} -b ${gemini_baseurl}/_posts/ -d ${gemini_posts} -e ${email} -o ${feedout}
+}
+
+create_tagindex () {
+  tag_index="${gemini_tags}/index.gmi"
+  echo "Creating tag index page: ${tag_index}"
+  cat "${gemini_header}" > "${tag_index}"
+  echo "# Tags" >> "${tag_index}"
+  echo "" >> "${tag_index}"
+  tagpages=(${gemini_tags}/*.gmi)
+  for tagpage in "${tagpages[@]}" ; do
+    #Skip adding the index.gmi since it's not a tag
+    if [[ "${tagpage}" = "index.gmi" ]]; then
+      :
+    else
+      tag_title="$(basename ${gemini_tags}/${tagpage} .gmi)"
+      link="${gemini_baseurl}/_tags/$(basename ${tagpage})"
+      echo "Adding tag link ${link}"
+      tag_title="$(basename ${gemini_tags}/${tagpage} .gmi)"
+      echo "=> ${link} ${tag_title}" >> "${tag_index}"
+    fi
+  done
+  cat "${gemini_footer}" >> "${tag_index}"
 }
 
 # Define list of arguments expected in the input
@@ -240,6 +278,7 @@ case ${posttype} in
     smposts=("${gemini_posts}"/*.gmi)
     count_posts
     create_gemindex
+    create_tagindex
     create_gemfeed
     ;;
   all)
@@ -262,6 +301,7 @@ case ${posttype} in
     smposts=("${gemini_posts}"/*.gmi)
     count_posts
     create_gemindex
+    create_tagindex
     create_gemfeed
     ;;
   *)
