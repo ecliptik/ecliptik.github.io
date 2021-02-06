@@ -199,6 +199,7 @@ create_gemindex () {
   gem_posts
   echo "" >> "${gemindex}"
   echo "=> ${gemini_baseurl}/_posts/index.gmi Gemlog Archive"  >> "${gemindex}"
+  echo "=> ${gemini_baseurl}/_tags/index.gmi Gemlog Tags"  >> "${gemindex}"
   echo "=> ${gemini_baseurl}/_posts/feed.xml Gemfeed" >> "${gemindex}"
   echo "" >> "${gemindex}"
   cat "${gemini_footer}" >> "${gemindex}"
@@ -209,8 +210,14 @@ create_gemindex () {
   gem_tag_index="${gemini_root}/_tags/index.gmi"
   echo "Creating archive index: ${gemindex}"
   cat "${gemini_header}" > "${gemindex}"
+  echo "" >> "${gemindex}"
   echo "# Gemlog Archive" >> "${gemindex}"
-  echo "# Gemlog Tags" >> "${gem_tag_index}"
+  echo "" >> "${gemindex}"
+  echo "## Tags" >> "${gemindex}"
+  echo "" >> "${gemindex}"
+  echo "=> ${gemini_baseurl}/_tags/index.gmi Gemlog Tags"  >> "${gemindex}"
+  echo "" >> "${gemindex}"
+  echo "## Posts" >> "${gemindex}"
   echo "" >> "${gemindex}"
   gem_posts
   echo "" >> "${gemindex}"
