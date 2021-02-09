@@ -9,11 +9,8 @@ tags: gopher 100daystooffload
 
 The obvious questions is why make a Gopherhole (what [gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) sites are called) when all the action is on the [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web) over `html` and `http`? Didn't those protocols win the Internet two decades ago? I didn't really think much about Gopher until I started reading more about the newer [Gemini](https://gemini.circumlunar.space) protocol on my foray [into Mastodon](https://www.ecliptik.com/One-Week-With-Mastodon/) last week and figuratively went "down" the Gopherhole.
 
-<figure>
-  <a href="/assets/images/posts/gopher-slides.png"><img src="/assets/images/posts/gopher-slides.png" alt="Slides from 1992 Gopher presentation*"/></a>
-  <figcaption>Slides from 1992 Gopher presentation</figcaption>
-</figure>
-
+![Slides from 1992 Gopher presentation](/assets/images/posts/gopher-slides.png)
+<figure><figcaption>Slides from 1992 Gopher presentation</figcaption></figure>
 
 I was suprised to find not only a flourishing community, but was drawn to the simplicity of the protocol and creating for it. No more thinking about CSS oddities, having to learn whole web stacks with the latest-and-greatest toolsets. Most of what Gopher is now is the same as it was in the early 90s and it's something you can easily start learning about and doing without sinking a lot of time and effort just to get started. It reminds of learning Latin, even though it's a dead language, it's still useful and it will never change. It also has the advantages of being almost entirely text based and there's no tracking, cookies, or any of the risks and privacy concerns associated with the modern web.
 
@@ -67,8 +64,6 @@ The most difficulty I had was getting the link identifiers and tabs in the corre
 
 Adding these files made the site live at [gopher://rawtext.club:70/1~ecliptik](gopher://rawtext.club:70/~ecliptik). If you don't have a gopher browser installed it's viewable through a [gopher proxy](https://gopher.floodgap.com/gopher/gw?a=gopher%3A%2F%2Frawtext.club%3A70%2F1%7Eecliptik) from [Floodgap](https://www.floodgap.com).
 
-Viewed in Bombadillo,
-
 ```
            Welcome to ecliptik's Gopherhole
            
@@ -82,10 +77,10 @@ MAP   [4]  rawtext.club
            ___________________________________________________________________
                               Gophered by Gophernicus/3.1 on Arch/5.10 x86_64
 ```
+<figure><figcaption>Viewed in Bombadillo</figcaption></figure>
 
-Viewed in Lagrange,
-
-[![Gopherhole in Lagrange Browser](/assets/images/posts/gopher-lagrange-01.png){:width="100%" }](/assets/images/posts/gopher-lagrange-01.png)
+![Gopherhole in Lagrange Browser](/assets/images/posts/gopher-lagrange-01.png)
+<figure><figcaption>Gopherhole in Lagrange Browser</figcaption></figure>
 
 ## Phlog
 
@@ -205,7 +200,8 @@ rm -fr ${output}.tmp
 
 These plaintext posts rendered much nicer and I was happy with how they turned out.
 
-[![Phlog post in Bombadillo](/assets/images/posts/gopher-phlog-post-01.png){:width="100%" }](/assets/images/posts/gopher-phlog-post-01.png)
+![Phlog post in Bombadillo](/assets/images/posts/gopher-phlog-post-01.png)
+<figure><figcaption>Phlog post in Bombadillo</figcaption></figure>
 
 One final step was automatically generating a Phlog index of posts. The post [Making a Gopherhole](https://johngodlee.github.io/2019/11/20/gopher.html) that I used when making my own Gopherhole had a script on taking the last 10 posts and generating a gophermap of them. I took this script and modified it some to include some things like a basic layout template.
 

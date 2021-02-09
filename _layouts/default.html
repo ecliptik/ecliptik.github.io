@@ -4,47 +4,34 @@
   <title>{%- if page.title %}{{ page.title }} - {%- endif %} {{ site.title }} - {{ site.description }}</title>
   {%- include meta.html -%}
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
-  <link href="/assets/css/style.css" rel="stylesheet" />
-  <link href="/assets/css/colors-light.css" rel="stylesheet" />
-
+  <link href="/assets/css/simple.css" rel="stylesheet" />
 </head>
 
 <body>
-
-  <header id="header">
-    <h1><a href="/"><i class="icon-cloud"></i>{{ site.title }}</a></h1>
-    <code>{{ site.description }}</code>
+  <header>
+    <h1><i class="icon-cloud"></i> {{ site.title }}</h1>
+    <h5>{{ site.description }}</h5>
   </header>
+  <main>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="https://keybase.io/{{ site.links.keybase }}">Keybase</a></li>
+      <li><a rel="me" href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a></li>
+      <li><a href="https://github.com/{{ site.links.github }}">Github</a></li>
+      <li><a href="https://www.linkedin.com/in/{{ site.links.linkedin }}">Linkedin</a></li>
+      <li><a href="gemini://rawtext.club/~ecliptik/">Gemini</a></li>
+      <li><a href="gopher://rawtext.club:70/1~ecliptik">Gopher</a></li>
+    </ul>
+  </nav>
+  <article>
+    {{ content }}
+  <article>
+  </main>
 
-  <div id="page">
-
-    <div id="sidebar">
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="https://keybase.io/{{ site.links.keybase }}">Keybase</a></li>
-          <li><a rel="me" href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a></li>
-          <li><a href="https://github.com/{{ site.links.github }}">Github</a></li>
-          <li><a href="https://www.linkedin.com/in/{{ site.links.linkedin }}">Linkedin</a></li>
-          <li><a href="gemini://rawtext.club/~ecliptik/">Gemini</a></li>
-          <li><a href="gopher://rawtext.club:70/1~ecliptik">Gopher</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div id="content">
-      {{ content }}
-    </div>
-
-  </div>
-
-  <footer id="footer">
+  <footer>
     <p class="copyright">Copyright &copy; {{ site.time | date: '%Y' }} {{ site.title }} [<a href="mailto:{{ site.links.email }}">Email</a>|<a href="/feed.xml">RSS</a>]. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme <a href="https://github.com/mattvh/solar-theme-jekyll">solar-theme-jekyll</a></p>
   </footer>
 
