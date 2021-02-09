@@ -1,8 +1,5 @@
 FROM ruby:2.7
-LABEL maintainer="Micheal Waltz <ecliptik@gmail.com>"
-
-#Listen on port 4000
-EXPOSE 4000
+LABEL maintainer="Micheal Waltz <dockerfile@ecliptik.com>"
 
 #Set our workdir
 WORKDIR /app
@@ -14,7 +11,8 @@ COPY Gemfile.lock .
 RUN apt-get update && apt-get install -y \
           build-essential \
           ca-certificates
-RUN bundle install --system
+RUN bundle config set system 'true'
+RUN bundle install
 
 #Run jekyll
 ENTRYPOINT ["bundle"]

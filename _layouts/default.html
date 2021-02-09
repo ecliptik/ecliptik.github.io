@@ -10,25 +10,21 @@
 <body>
   <header>
     <h1><i class="icon-cloud"></i> {{ site.title }}</h1>
-    <h5>{{ site.description }}</h5>
+    <h2>{{ site.description }}</h2>
+  <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://keybase.io/{{ site.links.keybase }}">Keybase</a>
+      <a rel="me" href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a>
+      <a href="https://github.com/{{ site.links.github }}">Github</a>
+      <a href="https://www.linkedin.com/in/{{ site.links.linkedin }}">Linkedin</a>
+      <a href="gemini://rawtext.club/~ecliptik/">Gemini</a>
+      <a href="gopher://rawtext.club:70/1~ecliptik">Gopher</a>
+  </nav>
   </header>
   <main>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="https://keybase.io/{{ site.links.keybase }}">Keybase</a></li>
-      <li><a rel="me" href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a></li>
-      <li><a href="https://github.com/{{ site.links.github }}">Github</a></li>
-      <li><a href="https://www.linkedin.com/in/{{ site.links.linkedin }}">Linkedin</a></li>
-      <li><a href="gemini://rawtext.club/~ecliptik/">Gemini</a></li>
-      <li><a href="gopher://rawtext.club:70/1~ecliptik">Gopher</a></li>
-    </ul>
-  </nav>
-  <article>
     {{ content }}
-  <article>
   </main>
 
   <footer>
