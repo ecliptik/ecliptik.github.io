@@ -237,7 +237,7 @@ create_gemfeed () {
 
   #Run gemfeed to generate a feed file
   #Requires https://tildegit.org/solderpunk/gemfeed
-  gemfeed.py -a ${author} -b ${gemini_baseurl}/_posts/ -d ${gemini_posts} -e ${email} -o ${feedout}
+  gemfeed -a ${author} -b ${gemini_baseurl}/_posts/ -d ${gemini_posts} -e ${email} -o ${feedout}
 }
 
 create_tagindex () {

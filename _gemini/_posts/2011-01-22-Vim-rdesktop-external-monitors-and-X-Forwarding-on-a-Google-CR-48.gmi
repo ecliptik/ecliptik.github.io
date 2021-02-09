@@ -18,7 +18,7 @@ While there are my other impressive hacks going around for the CR-48, minecraft[
 => https://sites.google.com/a/chromium.org/dev/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information/how-to-boot-ubuntu-on-a-cr-48 2: https://sites.google.com/a/chromium.org/dev/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information/how-to-boot-ubuntu-on-a-cr-48
 => https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information 3: https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information
 
-# Vim
+## Vim
 
 When I first went into the developer shell I saw approximately 1000 different binaries to run, but not one of them was a text editor. Eventually I stumbled upon qemacs, but we're just on a CR-48 not the middle ages. It was time to figure out how to get vim up and running.
 
@@ -47,7 +47,7 @@ Try and execute it, but you'll get a *Permission Denied* error because by defaul
 
 Now the binary will run and you have a basic vi editor.
 
-# rdesktop
+## rdesktop
 
 Rdesktop is much easier to put on the CR-48 since all of the libraries are available. From a 32-bit Debian/Ubuntu host, or by downloading the rdesktop i686 package[5] from packages.debian.org, copy the rdesktop binary to the `/home/chronos/user/bin' directory. If it's mounted with`exec' then it will just run. Pass it whatever options you like, and it will open a new GUI window on the CR-48, completely independent of the Chrome UI and any shells.
 
@@ -59,7 +59,7 @@ chronos@localhost ~ $ ~/bin/rdesktop -u USERNAME -g 1280x800 -K -z -r clipboard:
 
 Copy/paste works well, although the arrow keys may not function properly due to the keymap not getting set correctly. This may be due to a libiconv issue and I'll need to spend some more time figuring it out.
 
-# External Monitors
+## External Monitors
 
 While the CR-48 works just fine with it's VGA output without much tweaking, you'll either need to sign in/out or reboot the laptop for it to display to an external monitor. In dev mode xrandr is available making it easy to switch between display resolutions.
 
@@ -76,7 +76,7 @@ Turn off the external display and reset the CR-48 display back to the default 12
 chronos@localhost ~ $ xrandr --output LVDS1 --mode 1280x800 --output VGA1 --off
 ```
 
-# X Forwarding
+## X Forwarding
 
 The simplest piece to enable is X-forwarding from a remote X client. Connect over ssh with the `-Y` option and run any X applications:
 
@@ -84,7 +84,7 @@ The simplest piece to enable is X-forwarding from a remote X client. Connect ove
 chronos@localhost ~ $ ssh -Y USER@HOSTNAME
 ```
 
-# Bringing It All Together
+## Bringing It All Together
 
 Now that all the binaries are in place let's set it up so they work across reboots.
 
