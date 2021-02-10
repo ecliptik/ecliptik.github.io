@@ -28,7 +28,7 @@ With having content ready to go, hosting is the next challenge. Bringing up your
 
 ## Creating a Toolset
 
-Manually converting markdown posts, using `scp` to copy them to RTC, and putting together some basic `index.gmi` and `blog.gmi` files, and I had a live [gemini capsule](gemini://rawtext.club/~ecliptik/) and running. This was nice, but I wanted to publish posts on this blog to both Gopherspace and Geminispace together and needed something that would have some additional features,
+Manually converting markdown posts, using `scp` to copy them to RTC, and putting together some basic `index.gmi` and `blog.gmi` files, and I had a live [Gemini capsule](gemini://rawtext.club/~ecliptik/) and running. This was nice, but I wanted to publish posts on this blog to both Gopherspace and Geminispace together and needed something that would have some additional features,
 
 * Convert Jekyll markdown to Gopher and Gemtext
 * Create a 10 most recent posts page and an archive page of all posts
@@ -36,7 +36,7 @@ Manually converting markdown posts, using `scp` to copy them to RTC, and putting
 * Basic header/footer support
 * Build a [gemfeed](https://tildegit.org/solderpunk/gemfeed) to syndicate in Geminispace
 
-Iterating on the [tools I wrote for gopher](https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/) by including using `md2gemini` to convert to `Gemtext` got me partially there, but was still missing some more features. After more iterations, I had [updatesmallweb.sh](https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh) that converts Jekyll posts to gopher and gemini. Now whenever I publish a post on Jekyll, I can run this script to convert the post to Gopher and Gemini. Doing `git push` to github, then `git pull` on RTC and everything is up-to-date.
+Iterating on the [tools I wrote for Gopher](https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/) by including using `md2gemini` to convert to `Gemtext` got me partially there, but was still missing some more features. After more iterations, I had [updatesmallweb.sh](https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh) that converts Jekyll posts to Gopher and Gemini. Now whenever I publish a post on Jekyll, I can run this script to convert the post to Gopher and Gemini. Doing `git push` to github, then `git pull` on RTC and everything is up-to-date.
 
 Here's the script in action building the gopherhole and capsule,
 
@@ -143,7 +143,7 @@ Wrote Atom feed to ../_gemini/_posts/feed.xml.
 
 ## What's Next
 
-Now that I have a better understanding of how Gopher and Gemini work, and have some tooling to make things seamless between gopher/gemini/web my plans are to improve `updatesmallweb.sh` so it's almost a static site generator. Some of the documentation and examples needs updating as well, so others can use it, and already [gemini://gemini.lottalinuxlinks.com](gemini://gemini.lottalinuxlinks.com) has.
+Now that I have a better understanding of how Gopher and Gemini work, and have some tooling to make things seamless between `http://`,`gopher://`,`gemini://`, my plans are to improve `updatesmallweb.sh` so it's almost a static site generator. Some of the documentation and examples needs updating as well, so others can use it, and already [gemini://gemini.lottalinuxlinks.com](gemini://gemini.lottalinuxlinks.com) has.
 
 Gemini is one of those things that you either really like or don't quite understand it. I'm in the former group, as it reminds me of what the Internet was before it turned into what it is today. The phrase "Eternal August" is one that comes to mind, as it's specification is not meant to really be improved upon and should remain the same for the foreseeable future. This allows creativity to flourish in a restricted environment, like the Demo Scene or modern homebrew Gameboy Games.
 
