@@ -81,7 +81,7 @@ body {
 /* Make the main element a nice central block */
 main {
   margin: 1rem auto 0;
-  max-width: 70%;
+  max-width: 55rem;
   padding: 0 .5rem;
 }
 

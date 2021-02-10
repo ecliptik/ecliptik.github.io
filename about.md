@@ -5,9 +5,15 @@ permalink: /about/
 tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre
 ---
 
-## GPG
-- Public Key: [5F70 F2AC BD58 F580 DF15  3D1F 4FA2 70F5 CD36 71F9](https://keybase.io/ecliptik/pgp_keys.asc?fingerprint=5f70f2acbd58f580df153d1f4fa270f5cd3671f9)
-- [keybase.io/ecliptik](https://keybase.io/ecliptik)
+Experienced DevOps and Cloud Engineer with 20+ years experience working in [Education Institutions](https://www.ucsd.edu), [Fortune 500](https://www.qualcomm.com) , and [startups](https://www.demandbase.com).
+
+## Interests
+
+- [Free and Open Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software)
+- [Small Internet](https://thedorkweb.substack.com/p/gopher-gemini-and-the-smol-internet)
+- Cloud technologies
+- Custom keyboards
+- Retro videogames and computers
 
 ## Certifications
 - [Google Cloud Professional Cloud Architect](https://www.credential.net/7d6a6c1c-5355-4324-9165-f12bb06c37c2)
