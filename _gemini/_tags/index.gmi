@@ -19,6 +19,7 @@
 => gemini://rawtext.club/~ecliptik/_tags/cr-48.gmi cr-48
 => gemini://rawtext.club/~ecliptik/_tags/docker.gmi docker
 => gemini://rawtext.club/~ecliptik/_tags/fediverse.gmi fediverse
+=> gemini://rawtext.club/~ecliptik/_tags/gemini.gmi gemini
 => gemini://rawtext.club/~ecliptik/_tags/github.gmi github
 => gemini://rawtext.club/~ecliptik/_tags/google.gmi google
 => gemini://rawtext.club/~ecliptik/_tags/gopher.gmi gopher
@@ -31,6 +32,7 @@
 => gemini://rawtext.club/~ecliptik/_tags/operatingsystems.gmi operatingsystems
 => gemini://rawtext.club/~ecliptik/_tags/perl.gmi perl
 => gemini://rawtext.club/~ecliptik/_tags/raspberrypi.gmi raspberrypi
+=> gemini://rawtext.club/~ecliptik/_tags/smallweb.gmi smallweb
 => gemini://rawtext.club/~ecliptik/_tags/ubuntu.gmi ubuntu
 => gemini://rawtext.club/~ecliptik/_tags/vim.gmi vim
 => gemini://rawtext.club/~ecliptik/_tags/watchtower.gmi watchtower

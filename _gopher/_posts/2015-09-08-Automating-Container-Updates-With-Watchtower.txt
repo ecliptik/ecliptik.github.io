@@ -6,39 +6,38 @@ ___________________________________________
 
 You have your services containerized, you’ve just deployed them to
 your fleet of 1000 container hosts and everything is running smoothly.
-Then you realize that you missed a crucial command in the
-[Dockerfile][], and well, re-building the container image and pushing
-to the repository is easy, but what about the 100’s of containers out
-there running the old version?
+Then you realize that you missed a crucial command in the Dockerfile,
+and well, re-building the container image and pushing to the
+repository is easy, but what about the 100’s of containers out there
+running the old version?
 
   [Dockerfile]: https://docs.docker.com/reference/builder/
 
-There are a variety of tools to use in this situation, [Ansible][],
-[Chef][], ssh and cronjobs, [Jenkins][], [Docker][] itself, but
-stringing them all together and finding the right combination is
-tedious, time-consuming, and fragile. What you need it something to
-watch your running containers, check the Docker Registry for an
-updated container image, and then re-deploy the container with the
-exact same Docker run parameters.
+There are a variety of tools to use in this situation, Ansible, Chef,
+ssh and cronjobs, Jenkins, Docker itself, but stringing them all
+together and finding the right combination is tedious, time-consuming,
+and fragile. What you need it something to watch your running
+containers, check the Docker Registry for an updated container image,
+and then re-deploy the container with the exact same Docker run
+parameters.
 
   [Ansible]: https://ansible.com
   [Chef]: https://www.chef.io/chef/
   [Jenkins]: https://jenkins-ci.org/
   [Docker]: https://www.docker.com/
 
-That’s where [Watchtower][] comes in.
+That’s where Watchtower comes in.
 
   [Watchtower]: https://labs.ctl.io/watchtower-automatic-updates-for-docker-containers/
 
-[[Watchtower][1]]
+[Watchtower]
 
   [1]: /assets/images/posts/watchtower.jpg
 
-
 Simple Case Study
 
-For a simple case study, two containers, one running [nginx][] and the
-other running [mongodb][] are configured. While the bulk of the
+For a simple case study, two containers, one running nginx and the
+other running mongodb are configured. While the bulk of the
 configuration is complete, occasionally a container image update is
 needed. Right now these containers are running on a handful of
 systems, and re-deploying with an Ansible playbook is a good option
@@ -80,15 +79,14 @@ the Docker Registry,
     time="2015-09-08T23:15:11Z" level=info msg="Checking containers for updated images"
 
 If the nginx container image is updated and pushed to the registyr,
-Watchtower will notice the update, [stop the container gracefully][],
-and restart the container using the updated image,
+Watchtower will notice the update, stop the container gracefully, and
+restart the container using the updated image,
 
   [stop the container gracefully]: https://labs.ctl.io/gracefully-stopping-docker-containers/
 
     time="2015-09-08T23:36:11Z" level=info msg="Found new nginx;latest image (84b9c9eec0387b6fd3f41325acddde84f2fd2c1efea9b7c398826b71eeba8822)"
     time="2015-09-08T23:36:12Z" level=info msg="Stopping /nginx (351486f71db2b658a176a594fc7408b0859a7998bdcd03d204c9654a81279c13) with SIGTERM"
     time="2015-09-08T23:36:27Z" level=info msg="Starting /nginx"
-
 
 Conclusion
 
@@ -99,8 +97,8 @@ first-run issue, where Watchtower only has the ability to watch
 running containers up updates and not starting them initially.
 
 There are a variety of Docker orchestration tools that can handle this
-([Compose][], [Swarm][], [Rancher][]) and maybe in the future
-Watchtower itself will gain a first-run feature.
+(Compose, Swarm, Rancher) and maybe in the future Watchtower itself
+will gain a first-run feature.
 
   [Compose]: https://docs.docker.com/compose/
   [Swarm]: https://docs.docker.com/swarm/

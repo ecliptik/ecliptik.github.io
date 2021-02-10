@@ -12,6 +12,7 @@
 # Gemlog
 ## Latest Posts
 
+=> gemini://rawtext.club/~ecliptik/_posts/2021-02-09-Launching-a-Gemini-Capsule.gmi 2021-02-09 Launching a Gemini Capsule
 => gemini://rawtext.club/~ecliptik/_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi 2021-01-31 Making a Gopherhole and Phlog
 => gemini://rawtext.club/~ecliptik/_posts/2021-01-26-One-Week-With-Mastodon.gmi 2021-01-26 One Week With Mastodon
 => gemini://rawtext.club/~ecliptik/_posts/2017-10-02-Cross-Building-and-Running-Multi-Arch-Docker-Images.gmi 2017-10-02 Cross Building and Running Multi Arch Docker Images
@@ -20,7 +21,6 @@
 => gemini://rawtext.club/~ecliptik/_posts/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi 2015-09-08 Automating Container Updates With Watchtower
 => gemini://rawtext.club/~ecliptik/_posts/2015-08-29-Containerizing-a-Perl-Script.gmi 2015-08-29 Containerizing a Perl Script
 => gemini://rawtext.club/~ecliptik/_posts/2015-08-28-Emulating-ARM64-on-Linux.gmi 2015-08-28 Emulating ARM64 on Linux
-=> gemini://rawtext.club/~ecliptik/_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi 2015-08-21 Decompiling Interactive Fiction
 
 => gemini://rawtext.club/~ecliptik/_posts/index.gmi Gemlog Archive
 => gemini://rawtext.club/~ecliptik/_tags/index.gmi Gemlog Tags

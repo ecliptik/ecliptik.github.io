@@ -4,16 +4,16 @@ tags: docker arm raspberrypi
 date: 2017-10-02
 ___________________________________________
 
-When running a [Raspberry Pi cluster][], sometimes there’s just not
-enough power to build native armhf Docker images in a reasonable
-amount of time.
+When running a Raspberry Pi cluster, sometimes there’s just not enough
+power to build native armhf Docker images in a reasonable amount of
+time.
 
   [Raspberry Pi cluster]: http://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/
 
-While the recent announcement of [Docker Hub Official Multi-platform
-support][] makes it easier to run official multi-arch images, building
-a multi-arch image still requires a cross-build environment to speed
-up builds on lower powered hardware or when you don’t have the native
+While the recent announcement of Docker Hub Official Multi-platform
+support makes it easier to run official multi-arch images, building a
+multi-arch image still requires a cross-build environment to speed up
+builds on lower powered hardware or when you don’t have the native
 platform.
 
   [Docker Hub Official Multi-platform support]: https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/
@@ -25,20 +25,19 @@ platform.
 There are three methods of cross-building and running multi-arch
 Docker images each with different considerations,
 
--   [Docker for Mac][]
--   [Multiarch on Linux][]
--   [QEMU on Linux][]
+-   Docker for Mac
+-   Multiarch on Linux
+-   QEMU on Linux
 
   [Docker for Mac]: #docker-for-mac
   [Multiarch on Linux]: #multiarch-on-linux
   [QEMU on Linux]: #qemu-on-linux
 
-
 Docker for Mac
 
-Since the original beta, [Docker for Mac][1] has had [binfmt_misc][]
-support [built-in][], which allows it to execute arm containers on x86
-without any additional configuration.
+Since the original beta, Docker for Mac has had binfmt_misc support
+built-in, which allows it to execute arm containers on x86 without any
+additional configuration.
 
   [1]: https://www.docker.com/docker-mac
   [binfmt_misc]: https://en.wikipedia.org/wiki/Binfmt_misc
@@ -65,7 +64,7 @@ changing it’s FROM to point to a base multi-arch image. Depending on
 the image, it may fail if non-architecture binaries run, such as the
 Dockerfile using wget to download and run a non-native binary.
 
-For example to re-build the [NodeJS Debian Image][] for arm32v7.
+For example to re-build the NodeJS Debian Image for arm32v7.
 
   [NodeJS Debian Image]: https://github.com/nodejs/docker-node/blob/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/stretch/Dockerfile
 
@@ -80,16 +79,15 @@ This is the easiest and quickest way to build an run any 32-bit or
 are limited by the hardware macOS will run on, this isn’t an option
 for large multi-cpu cloud instance types that run Linux.
 
-
 Multiarch on Linux
 
 Most major Linux distributions have a way of setting up binfmt_misc
 using qemu and other cross-architecture tools. These can be quite
 complicated to setup and rely on distribution specific knowledge. The
-[Multiarch Project][] makes setting up binfmt_misc much easier by
-wrapping the whole process in a Docker image itself called
-[qemu-user-static][]. This will install and setup the qemu-*-static
-configurations for all architectures excluding the native hardware.
+Multiarch Project makes setting up binfmt_misc much easier by wrapping
+the whole process in a Docker image itself called qemu-user-static.
+This will install and setup the qemu-*-static configurations for all
+architectures excluding the native hardware.
 
   [Multiarch Project]: https://github.com/multiarch
   [qemu-user-static]: https://github.com/multiarch/qemu-user-static
@@ -97,8 +95,8 @@ configurations for all architectures excluding the native hardware.
   Installing qemu-user-static using a container requires privileged
   mode since it will register binaries in the host systems /proc space
 
-To setup qemu-user-static, follow the [README][], which basically
-consists of,
+To setup qemu-user-static, follow the README, which basically consists
+of,
 
   [README]: https://github.com/multiarch/qemu-user-static/blob/master/README.md
 
@@ -121,12 +119,12 @@ a Multiarch image,
     Linux 62670af32738 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) aarch64 Linux
 
 Building an image is similiar to Docker For Mac, take an existing
-Dockerfile and replace it’s FROM with a corresponding [Multiarch
-Docker Hub image][].
+Dockerfile and replace it’s FROM with a corresponding Multiarch Docker
+Hub image.
 
   [Multiarch Docker Hub image]: https://hub.docker.com/u/multiarch/
 
-For example to re-build the [NodeJS Alpine Image][] for aarch64,
+For example to re-build the NodeJS Alpine Image for aarch64,
 
   [NodeJS Alpine Image]: https://raw.githubusercontent.com/nodejs/docker-node/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/8.6/alpine/Dockerfile
 
@@ -151,14 +149,12 @@ Known repos that have qemu enabled images,
 -   https://hub.docker.com/u/multiarch/
 -   https://hub.docker.com/u/resin/
 
-
 QEMU on Linux
 
-Both Debian and Ubuntu include the [qemu-user-static][2] package that
-includes statically built emulation binaries for [QEMU][]. Installing
-the package on a host x86 architecture and bind mounting a
-qemu-*-static binary will allow the image to run a foreign
-architecture.
+Both Debian and Ubuntu include the qemu-user-static package that
+includes statically built emulation binaries for QEMU. Installing the
+package on a host x86 architecture and bind mounting a qemu-*-static
+binary will allow the image to run a foreign architecture.
 
   [2]: https://packages.debian.org/sid/qemu-user-static
   [QEMU]: https://wiki.qemu.org/Main_Page
@@ -174,8 +170,8 @@ appropriate Docker image.
 
 QEMU Examples
 
-Run a [arm32v7/debian][] image, bind mount the
-/usr/bin/qemu-arm-static binary into the container,
+Run a arm32v7/debian image, bind mount the /usr/bin/qemu-arm-static
+binary into the container,
 
   [arm32v7/debian]: https://hub.docker.com/r/arm32v7/debian/
 
@@ -191,8 +187,8 @@ Run a [arm32v7/debian][] image, bind mount the
     root@7d91bbe1e01b:/# uname -a
     Linux 7d91bbe1e01b 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) armv7l GNU/Linux
 
-Run a [s390x/debian][] image, bind mount the
-/usr/bin/qemu-s390x-static binary into the container,
+Run a s390x/debian image, bind mount the /usr/bin/qemu-s390x-static
+binary into the container,
 
   [s390x/debian]: https://hub.docker.com/r/s390x/debian/
 
@@ -220,25 +216,24 @@ A disadvantage of this method is it’s only useful for running a
 container, not building a new image since that would require the FROM
 image to include the qemu-*-static binary and it’s not possible to
 bind mount the binary when using docker build. For detailed
-information on cross-building images see the [Docker Libary Official
-Images][] documentation.
+information on cross-building images see the Docker Libary Official
+Images documentation.
 
   [Docker Libary Official Images]: https://github.com/docker-library/official-images
 
 Known official Docker multi-arch images,
 
--   [arm32v6][]
--   [arm32v7][]
--   [arm64v8][]
--   [s390x][]
--   [ppc64le][]
+-   arm32v6
+-   arm32v7
+-   arm64v8
+-   s390x
+-   ppc64le
 
   [arm32v6]: https://hub.docker.com/u/arm32v6/
   [arm32v7]: https://hub.docker.com/u/arm32v7/
   [arm64v8]: https://hub.docker.com/u/arm64v8/
   [s390x]: https://hub.docker.com/r/s390x/
   [ppc64le]: https://hub.docker.com/u/ppc64le/
-
 
 Final Considerations
 
@@ -256,7 +251,6 @@ architectures (eg multiarch/debian-debootstrap:arm64-jessie). Now most
 of this is abstracted away and running
 docker run -it --rm debian /bin/bash on x86, armhf, or s390x will
 automatically know what to do without additional configuration.
-
 
 References
 
