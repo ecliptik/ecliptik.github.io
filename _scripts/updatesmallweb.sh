@@ -99,7 +99,7 @@ markdown2gemini () {
   mkdir -p "${outdir}"
   output="$(basename -s .md "${filename}").gmi"
   output_tmp="${output}.tmp"
-  md2gemini -w -d "${outdir}" -f -l paragraph -s "${clean_file}"
+  md2gemini -w -d "${outdir}" -b ${gemini_baseurl} -f -l paragraph -s "${clean_file}"
 
   #Build post with header and footer
   cat "${gemini_header}" > "${output_tmp}"

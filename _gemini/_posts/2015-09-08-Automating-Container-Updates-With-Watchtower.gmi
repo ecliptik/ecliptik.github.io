@@ -27,7 +27,7 @@ That's where Watchtower[6] comes in.
 
 => https://labs.ctl.io/watchtower-automatic-updates-for-docker-containers/ 6: https://labs.ctl.io/watchtower-automatic-updates-for-docker-containers/
 
-=> /assets/images/posts/watchtower.jpg Watchtower [IMG]
+=> gemini://rawtext.club/~ecliptik/assets/images/posts/watchtower.jpg Watchtower [IMG]
 
 ## Simple Case Study
 
