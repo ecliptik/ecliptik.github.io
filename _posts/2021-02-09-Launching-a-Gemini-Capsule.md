@@ -7,7 +7,7 @@ tags: gemini smallweb 100daystooffload
 
 ## Gemawhat?
 
-Even since I started [using Mastodon](https://www.ecliptik.com/One-Week-With-Mastodon/) a couple of weeks ago, [Project Gemini](https://gemini.circumlunar.space) is one of the most exciting new technologies I've come across in the last few years.
+Even since I started [using Mastodon](https://www.ecliptik.com/One-Week-With-Mastodon/) a couple of weeks ago, [Project Gemini](https://gemini.circumlunar.space) is one of the most exciting new technologies I've discovered in my [local feed](https://fosstodon.org/web/timelines/public/local).
 
 I won't go into full detail on what Gemini is, but similar to [why I made a Gopherhole](https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/), Gemini is a newer Internet protocol that strips away the bloat of the modern web to a core set of concepts, generality, and maximum power-to-weight-ratio.
 

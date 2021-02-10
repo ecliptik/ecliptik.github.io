@@ -14,14 +14,15 @@
 
 ## Gemawhat?
 
-Even since I started using Mastodon[1] a couple of weeks ago, Project Gemini[2] is one of the most exciting new technologies I've come across in the last few years.
+Even since I started using Mastodon[1] a couple of weeks ago, Project Gemini[2] is one of the most exciting new technologies I've discovered in my local feed[3].
 
 => https://www.ecliptik.com/One-Week-With-Mastodon/ 1: https://www.ecliptik.com/One-Week-With-Mastodon/
 => https://gemini.circumlunar.space 2: https://gemini.circumlunar.space
+=> https://fosstodon.org/web/timelines/public/local 3: https://fosstodon.org/web/timelines/public/local
 
-I won't go into full detail on what Gemini is, but similar to why I made a Gopherhole[3], Gemini is a newer Internet protocol that strips away the bloat of the modern web to a core set of concepts, generality, and maximum power-to-weight-ratio.
+I won't go into full detail on what Gemini is, but similar to why I made a Gopherhole[4], Gemini is a newer Internet protocol that strips away the bloat of the modern web to a core set of concepts, generality, and maximum power-to-weight-ratio.
 
-=> https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/ 3: https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/
+=> https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/ 4: https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/
 
 > Gemini is a new, collaboratively designed internet protocol, which explores the space in between gopher and the web, striving to address (perceived) limitations of one while avoiding the (undeniable) pitfalls of the other.
 While setting up a Gopherhole was fun and a throwback to an era long gone, Gemini has modern features but still sticks to simplicity,
@@ -33,34 +34,34 @@ While setting up a Gopherhole was fun and a throwback to an era long gone, Gemin
 
 ## Creating a Capsule
 
-Creating a Gemini Capsule was a much lower barrier than it seems, since it's `Gemtext` is very similar to Markdown and can almost convert 1:1 (with the exception of in-line links). So posts written in Markdown for a static blog (like Jekyll[4]) can easily work in Gemini. The tool md2gemini[5] makes this even more seamless by converting Markdown specific things to Gemtext.
+Creating a Gemini Capsule was a much lower barrier than it seems, since it's `Gemtext` is very similar to Markdown and can almost convert 1:1 (with the exception of in-line links). So posts written in Markdown for a static blog (like Jekyll[5]) can easily work in Gemini. The tool md2gemini[6] makes this even more seamless by converting Markdown specific things to Gemtext.
 
-=> https://www.jekyllnow.com 4: https://www.jekyllnow.com
-=> https://github.com/makeworld-the-better-one/md2gemini 5: https://github.com/makeworld-the-better-one/md2gemini
+=> https://www.jekyllnow.com 5: https://www.jekyllnow.com
+=> https://github.com/makeworld-the-better-one/md2gemini 6: https://github.com/makeworld-the-better-one/md2gemini
 
-With having content ready to go, hosting is the next challenge. Bringing up your own Gemini server is easy enough, with a large number of Gemini servers[6] available. I just went with using my Pubnix account at rawtext.club[7] which provides a `public_gemini` option. This is also where my gopherhole[8] is hosted.
+With having content ready to go, hosting is the next challenge. Bringing up your own Gemini server is easy enough, with a large number of Gemini servers[7] available. I just went with using my Pubnix account at rawtext.club[8] which provides a `public_gemini` option. This is also where my gopherhole[9] is hosted.
 
-=> https://github.com/kr1sp1n/awesome-gemini#servers 6: https://github.com/kr1sp1n/awesome-gemini#servers
-=> https://rawtext.club 7: https://rawtext.club
-=> gopher://rawtext.club:70/1~ecliptik 8: gopher://rawtext.club:70/1~ecliptik
+=> https://github.com/kr1sp1n/awesome-gemini#servers 7: https://github.com/kr1sp1n/awesome-gemini#servers
+=> https://rawtext.club 8: https://rawtext.club
+=> gopher://rawtext.club:70/1~ecliptik 9: gopher://rawtext.club:70/1~ecliptik
 
 ## Creating a Toolset
 
-Manually converting markdown posts, using `scp` to copy them to RTC, and putting together some basic `index.gmi` and `blog.gmi` files, and I had a live Gemini capsule[9] and running. This was nice, but I wanted to publish posts on this blog to both Gopherspace and Geminispace together and needed something that would have some additional features,
+Manually converting markdown posts, using `scp` to copy them to RTC, and putting together some basic `index.gmi` and `blog.gmi` files, and I had a live Gemini capsule[10] and running. This was nice, but I wanted to publish posts on this blog to both Gopherspace and Geminispace together and needed something that would have some additional features,
 
-=> gemini://rawtext.club/~ecliptik/ 9: gemini://rawtext.club/~ecliptik/
+=> gemini://rawtext.club/~ecliptik/ 10: gemini://rawtext.club/~ecliptik/
 
 * Convert Jekyll markdown to Gopher and Gemtext
 * Create a 10 most recent posts page and an archive page of all posts
 * Add tags to posts, group posts by tags, and have all tags listed on the archive page
 * Basic header/footer support
-* Build a gemfeed[10] to syndicate in Geminispace
+* Build a gemfeed[11] to syndicate in Geminispace
 
-Iterating on the tools I wrote for Gopher[11] by including using `md2gemini` to convert to `Gemtext` got me partially there, but was still missing some more features. After more iterations, I had updatesmallweb.sh[12] that converts Jekyll posts to Gopher and Gemini. Now whenever I publish a post on Jekyll, I can run this script to convert the post to Gopher and Gemini. Doing `git push` to github, then `git pull` on RTC and everything is up-to-date.
+Iterating on the tools I wrote for Gopher[12] by including using `md2gemini` to convert to `Gemtext` got me partially there, but was still missing some more features. After more iterations, I had updatesmallweb.sh[13] that converts Jekyll posts to Gopher and Gemini. Now whenever I publish a post on Jekyll, I can run this script to convert the post to Gopher and Gemini. Doing `git push` to github, then `git pull` on RTC and everything is up-to-date.
 
-=> https://tildegit.org/solderpunk/gemfeed 10: https://tildegit.org/solderpunk/gemfeed
-=> https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/ 11: https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/
-=> https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh 12: https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh
+=> https://tildegit.org/solderpunk/gemfeed 11: https://tildegit.org/solderpunk/gemfeed
+=> https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/ 12: https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/
+=> https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh 13: https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh
 
 Here's the script in action building the gopherhole and capsule,
 
@@ -167,15 +168,15 @@ Wrote Atom feed to ../_gemini/_posts/feed.xml.
 
 ## What's Next
 
-Now that I have a better understanding of how Gopher and Gemini work, and have some tooling to make things seamless between `http://`,`gopher://`,`gemini://`, my plans are to improve `updatesmallweb.sh` so it's almost a static site generator. Some of the documentation and examples needs updating as well, so others can use it, and already gemini://gemini.lottalinuxlinks.com[13] has.
+Now that I have a better understanding of how Gopher and Gemini work, and have some tooling to make things seamless between `http://`,`gopher://`,`gemini://`, my plans are to improve `updatesmallweb.sh` so it's almost a static site generator. Some of the documentation and examples needs updating as well, so others can use it, and already gemini://gemini.lottalinuxlinks.com[14] has.
 
-=> gemini://gemini.lottalinuxlinks.com 13: gemini://gemini.lottalinuxlinks.com
+=> gemini://gemini.lottalinuxlinks.com 14: gemini://gemini.lottalinuxlinks.com
 
 Gemini is one of those things that you either really like or don't quite understand it. I'm in the former group, as it reminds me of what the Internet was before it turned into what it is today. The phrase "Eternal August" is one that comes to mind, as it's specification is not meant to really be improved upon and should remain the same for the foreseeable future. This allows creativity to flourish in a restricted environment, like the Demo Scene or modern homebrew Gameboy Games.
 
-For more on exploring Geminispace, see awesome-gemini[14].
+For more on exploring Geminispace, see awesome-gemini[15].
 
-=> https://github.com/kr1sp1n/awesome-gemini 14: https://github.com/kr1sp1n/awesome-gemini
+=> https://github.com/kr1sp1n/awesome-gemini 15: https://github.com/kr1sp1n/awesome-gemini
 
 ### Tags
 

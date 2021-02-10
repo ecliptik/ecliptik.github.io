@@ -7,11 +7,12 @@ ___________________________________________
 Gemawhat?
 
 Even since I started using Mastodon a couple of weeks ago, Project
-Gemini is one of the most exciting new technologies I’ve come across
-in the last few years.
+Gemini is one of the most exciting new technologies I’ve discovered in
+my local feed.
 
   [using Mastodon]: https://www.ecliptik.com/One-Week-With-Mastodon/
   [Project Gemini]: https://gemini.circumlunar.space
+  [local feed]: https://fosstodon.org/web/timelines/public/local
 
 I won’t go into full detail on what Gemini is, but similar to why I
 made a Gopherhole, Gemini is a newer Internet protocol that strips
