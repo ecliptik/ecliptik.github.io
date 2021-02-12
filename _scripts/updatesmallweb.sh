@@ -163,7 +163,7 @@ create_gophermap () {
 
   # Add recent post links to gophermap
   for post in "${recent_posts[@]}"; do
-    title=$(head -n 4 "${post}" | grep -i "title:" | awk -F: '{print $2}' | xargs)
+    title=$(head -n 10 "${post}" | grep -i "title:" | awk -F: '{print $2}' | xargs)
     link=$(echo "${post}" | awk -F/ '{print $NF}')
     printf '0%s\t./%s\n' "${title}" "${link}" >> "${gophermap}"
   done

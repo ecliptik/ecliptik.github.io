@@ -3,6 +3,12 @@ layout: post
 title: Launching a Gemini Capsule
 category: gemini
 tags: gemini smallweb 100daystooffload
+
+comments:
+  show:  true
+  fediHost:  fosstodon.org
+  fediusername:  ecliptik
+  fediid:  105705673465664725
 ---
 
 ## Gemawhat?

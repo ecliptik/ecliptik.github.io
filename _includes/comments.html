@@ -1,0 +1,64 @@
+<!-- load comments from fediverse (mastodon, pleroma,...)
+"comments" is the name of the variable in front-matter -->
+
+{% if page.comments.show %}
+<comments>
+  <h2>Comments</h2>
+  <p><a href="https://{{ page.comments.fediHost }}/interact/{{ page.comments.fediid }}?type=reply"><button>Reply with Mastodon</button></a></p>
+  <p id="mastodon-comments-list"><button id="load-comment">Load comments</button></p>
+  <noscript><p>Enable JavaScript to view comments.</p></noscript>
+  <script src="/assets/js/purify.min.js"></script>
+  <script type="text/javascript">
+    function escapeHtml(unsafe) {
+      return unsafe
+           .replace(/&/g, "&amp;")
+           .replace(/</g, "&lt;")
+           .replace(/>/g, "&gt;")
+           .replace(/"/g, "&quot;")
+           .replace(/'/g, "&#039;");
+   }
+
+    document.getElementById("load-comment").addEventListener("click", function() {
+      document.getElementById("load-comment").innerHTML = "Loading";
+      fetch('https://{{ page.comments.fediHost }}/api/v1/statuses/{{ page.comments.fediid }}/context')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          if(data['descendants'] &&
+             Array.isArray(data['descendants']) &&
+            data['descendants'].length > 0) {
+              document.getElementById('mastodon-comments-list').innerHTML = "";
+              data['descendants'].forEach(function(reply) {
+                reply.account.display_name = escapeHtml(reply.account.display_name);
+                reply.account.instance = reply.account.url.split("/")[2];
+                reply.account.emojis.forEach(emoji => {
+                  reply.account.display_name = reply.account.display_name.replace(`:${emoji.shortcode}:`,
+                    `<img src="${escapeHtml(emoji.static_url)}" alt="Emoji ${emoji.shortcode}" height="16" width="16" />`);
+                });
+                mastodonComment =
+`
+<table>
+ <tr>
+   <th rowspan="2" style="vertical-align:top;"><img src="${escapeHtml(reply.account.avatar_static)}" height=48 width=48 alt="${escapeHtml(reply.account.acct)}"></th>
+   <th><a href="${reply.account.url}" rel="nofollow">${reply.account.display_name}@${escapeHtml(reply.account.acct)}@${escapeHtml(reply.account.instance)}</a></th>
+   <th style="text-align:right !important;width:.5rem !important"><a href="${reply.uri}" rel="nofollow">${reply.created_at.substr(0, 10)}</a></th>
+ </tr>
+ <tr>
+   <td colspan="3">${reply.content}</td>
+ </tr>
+</table>
+`;
+                document.getElementById('mastodon-comments-list').appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+              });
+          } else {
+            document.getElementById('mastodon-comments-list').innerHTML = "<p>Sen comentarios / No comments</p>";
+          }
+        });
+      });
+  </script>
+</comments>
+
+
+{% endif %}
+<!--  end of comments section -->
