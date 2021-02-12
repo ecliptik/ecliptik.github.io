@@ -3,6 +3,12 @@ layout: post
 title: Making a Gopherhole and Phlog
 category: gopher
 tags: gopher 100daystooffload
+
+comments:
+  show:  true
+  fediHost:  fosstodon.org
+  fediusername:  ecliptik
+  fediid:  105652970406443377
 ---
 
 ## But Why?
