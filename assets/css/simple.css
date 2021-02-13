@@ -282,10 +282,11 @@ h6 {
 a,
 a:visited {
   color: var(--accent);
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a button,

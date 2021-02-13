@@ -1,5 +1,4 @@
-<!-- load comments from fediverse (mastodon, pleroma,...)
-"comments" is the name of the variable in front-matter -->
+<!-- load comments from fediverse (mastodon, pleroma,...) -->
 
 {% if page.comments.show %}
 <comments>
@@ -41,7 +40,7 @@
 <table>
  <tr>
    <th rowspan="2" style="vertical-align:top;"><img src="${escapeHtml(reply.account.avatar_static)}" height=48 width=48 alt="${escapeHtml(reply.account.acct)}"></th>
-   <th><a href="${reply.account.url}" rel="nofollow">${reply.account.display_name}@${escapeHtml(reply.account.acct)}@${escapeHtml(reply.account.instance)}</a></th>
+   <th>${reply.account.display_name} <a href="${reply.account.url}" rel="nofollow">@${escapeHtml(reply.account.acct)}@${escapeHtml(reply.account.instance)}</a></th>
    <th style="text-align:right !important;width:.5rem !important"><a href="${reply.uri}" rel="nofollow">${reply.created_at.substr(0, 10)}</a></th>
  </tr>
  <tr>
