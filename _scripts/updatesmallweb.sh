@@ -232,12 +232,13 @@ create_gemindex () {
 
 create_gemfeed () {
   author="ecliptik"
+  feed_title="Ecliptik's Gemlog"
   email="gemini@accounts.ecliptik.com"
   feedout="feed.xml"
 
   #Run gemfeed to generate a feed file
   #Requires https://tildegit.org/solderpunk/gemfeed
-  gemfeed -a ${author} -b ${gemini_baseurl}/_posts/ -d ${gemini_posts} -e ${email} -o ${feedout}
+  gemfeed -a ${author} -b ${gemini_baseurl}/_posts/ -d ${gemini_posts} -e ${email} -t "${feed_title}" -o ${feedout}
 }
 
 create_tagindex () {
