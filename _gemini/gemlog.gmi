@@ -9,7 +9,7 @@
 =====================================================================
 ```
 
-# Gemlog
+# Ecliptik's Gemlog
 ## Latest Posts
 
 => gemini://rawtext.club/~ecliptik/_posts/2021-02-09-Launching-a-Gemini-Capsule.gmi 2021-02-09 Launching a Gemini Capsule

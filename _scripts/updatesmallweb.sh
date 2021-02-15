@@ -199,7 +199,7 @@ create_gemindex () {
   gemindex="${gemini_root}/gemlog.gmi"
   echo "Creating gemlog index: ${gemindex}"
   cat "${gemini_header}" > "${gemindex}"
-  echo "# Gemlog" >> "${gemindex}"
+  echo "# Ecliptik's Gemlog" >> "${gemindex}"
   echo "## Latest Posts" >> "${gemindex}"
   echo "" >> "${gemindex}"
   gem_posts
@@ -217,7 +217,7 @@ create_gemindex () {
   echo "Creating archive index: ${gemindex}"
   cat "${gemini_header}" > "${gemindex}"
   echo "" >> "${gemindex}"
-  echo "# Gemlog Archive" >> "${gemindex}"
+  echo "# Ecliptik's Gemlog Archive" >> "${gemindex}"
   echo "" >> "${gemindex}"
   echo "## Tags" >> "${gemindex}"
   echo "" >> "${gemindex}"
