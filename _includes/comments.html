@@ -51,7 +51,7 @@
                 document.getElementById('mastodon-comments-list').appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
               });
           } else {
-            document.getElementById('mastodon-comments-list').innerHTML = "<p>Sen comentarios / No comments</p>";
+            document.getElementById('mastodon-comments-list').innerHTML = "<p>No comments</p>";
           }
         });
       });
