@@ -1,6 +1,6 @@
 ___________________________________________
 title: Custom Keyboards, Sully and Pok3r
-tags: keyboards technology qmk hardware
+tags: keyboards technology qmk hardware 100daystooffload
 date: 2021-02-15
 ___________________________________________
 

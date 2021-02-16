@@ -10,7 +10,7 @@
 ```
 
 # Custom Keyboards, Sully and Pok3r
-### 2021-02-15 | #hardware #qmk #technology #keyboards 
+### 2021-02-15 | #100daystooffload #hardware #qmk #technology #keyboards 
 
 Working in the tech industry and having geeky hobbies; I've always taken my tools, both hardware and software, seriously. For some reason I never thought about the keyboard itself though, and was content with using the bundled membrane boards. A few years ago though this all changed which I discovered the deep rabbit hole that is both utilitarian and vain world of custom keyboards.
 
@@ -133,6 +133,7 @@ Granted it's borderline Ship of Thesus[11], with the only original parts the alu
 => gemini://rawtext.club/~ecliptik/_tags/technology.gmi technology
 => gemini://rawtext.club/~ecliptik/_tags/qmk.gmi qmk
 => gemini://rawtext.club/~ecliptik/_tags/hardware.gmi hardware
+=> gemini://rawtext.club/~ecliptik/_tags/100daystooffload.gmi 100daystooffload
 ____________________________________________________________________
 
 => gemini://rawtext.club/~ecliptik Home

@@ -14,3 +14,4 @@
 => gemini://rawtext.club/~ecliptik/_posts/2021-01-26-One-Week-With-Mastodon.gmi  One Week With Mastodon
 => gemini://rawtext.club/~ecliptik/_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi  Making a Gopherhole and Phlog
 => gemini://rawtext.club/~ecliptik/_posts/2021-02-09-Launching-a-Gemini-Capsule.gmi  Launching a Gemini Capsule
+=> gemini://rawtext.club/~ecliptik/_posts/2021-02-15-Custom-Keyboards-Sully-and-Pok3r.gmi  Custom Keyboards, Sully and Pok3r
