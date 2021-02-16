@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>gemini://rawtext.club/~ecliptik/_posts/</id>
   <title>Ecliptik's Gemlog</title>
-  <updated>2021-02-09T00:00:00+00:00</updated>
+  <updated>2021-02-15T00:00:00+00:00</updated>
   <author>
     <name>ecliptik</name>
     <email>gemini@accounts.ecliptik.com</email>
@@ -10,12 +10,6 @@
   <link href="gemini://rawtext.club/~ecliptik/_posts/feed.xml" rel="self"/>
   <link href="gemini://rawtext.club/~ecliptik/_posts/" rel="alternate"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>gemini://rawtext.club/~ecliptik/_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi</id>
-    <title>Decompiling Interactive Fiction</title>
-    <updated>2015-08-21T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2015-08-21-Decompiling-Interactive-Fiction.gmi" rel="alternate"/>
-  </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2015-08-28-Emulating-ARM64-on-Linux.gmi</id>
     <title>Emulating ARM64 on Linux</title>
@@ -69,5 +63,11 @@
     <title>Launching a Gemini Capsule</title>
     <updated>2021-02-09T00:00:00+00:00</updated>
     <link href="gemini://rawtext.club/~ecliptik/_posts/2021-02-09-Launching-a-Gemini-Capsule.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2021-02-15-Custom-Keyboards-Sully-and-Pok3r.gmi</id>
+    <title>Custom Keyboards, Sully and Pok3r</title>
+    <updated>2021-02-15T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-02-15-Custom-Keyboards-Sully-and-Pok3r.gmi" rel="alternate"/>
   </entry>
 </feed>
