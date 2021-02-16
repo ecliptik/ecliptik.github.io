@@ -22,7 +22,7 @@ After spending some time on [r/MechanicalKeyboards](https://www.reddit.com/r/Mec
 ![Sully](/assets/images/posts/sully.jpg)
 <figure><figcaption>Sully</figcaption></figure>
 
-Sully was a fantastic board and I used it up until 2019 when I discovered even small form factors like 60%. It's still used in our house, but mostly as a kids toy, demostrating just how well-built it is.
+Sully was a fantastic board and I used it up until 2019 when I discovered even smaller form factors like 60%. It's still used in our house, but mostly as a kids toy, demostrating just how well-built it is.
 
 ## Vortex Pok3r
 
