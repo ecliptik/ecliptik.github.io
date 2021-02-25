@@ -22,7 +22,7 @@ Recently I got a Pocket C.H.I.P.[1] with the idea of making it mini terminal on 
 
 I wanted to updated it to at least Debian 10, and found a working guide[3] which follows the basic Debian upgrade process as well as some fixes for common issues like Xorg configs and updating wifi settings.
 
-=> maba.dk/index.php/demo/pocketchip/ 3: maba.dk/index.php/demo/pocketchip/
+=> https://gist.github.com/luzhuomi/526fbcc30f3522f09eacf20d0f776fa5 3: https://gist.github.com/luzhuomi/526fbcc30f3522f09eacf20d0f776fa5
 
 Unfortunately this broke a few other things that weren't listed in the guide, like the FN keys no longer working on the built-in keyboard and pico8 failing to start. I spent some time tackling these issues and now have a fully working Debian 10 Pocket C.H.I.P. with pico8 and a functioning keyboard.
 

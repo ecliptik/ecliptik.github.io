@@ -17,7 +17,7 @@ Recently I got a [Pocket C.H.I.P.](https://shop.pocketchip.co/) with the idea of
 ![Pocket C.H.I.P.](/assets/images/posts/pocket-chip.png)
 <figure><figcaption>Pocket C.H.I.P.</figcaption></figure>
 
-I wanted to updated it to at least Debian 10, and found a [working guide](maba.dk/index.php/demo/pocketchip/) which follows the basic Debian upgrade process as well as some fixes for common issues like Xorg configs and updating wifi settings.
+I wanted to updated it to at least Debian 10, and found a [working guide](https://gist.github.com/luzhuomi/526fbcc30f3522f09eacf20d0f776fa5) which follows the basic Debian upgrade process as well as some fixes for common issues like Xorg configs and updating wifi settings.
 
 Unfortunately this broke a few other things that weren't listed in the guide, like the FN keys no longer working on the built-in keyboard and pico8 failing to start. I spent some time tackling these issues and now have a fully working Debian 10 Pocket C.H.I.P. with pico8 and a functioning keyboard.
 

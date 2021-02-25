@@ -25,7 +25,7 @@ guide][] which follows the basic Debian upgrade process as well as
 some fixes for common issues like Xorg configs and updating wifi
 settings.
 
-  [working guide]: maba.dk/index.php/demo/pocketchip/
+  [working guide]: https://gist.github.com/luzhuomi/526fbcc30f3522f09eacf20d0f776fa5
 
 Unfortunately this broke a few other things that weren’t listed in the
 guide, like the FN keys no longer working on the built-in keyboard and
