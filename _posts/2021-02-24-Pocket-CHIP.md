@@ -167,12 +167,27 @@ sudo systemctl restart lightdm
 ![Fluxbox on PocketCHIP](/assets/images/posts/fluxbox-chip.png)
 <figure><figcaption>Fluxbox on PocketChip</figcaption></figure>
 
-While this works there are two issues I'm still figuring out,
 
-- Right mouse button doesn't work, and can't bring up Fluxbox menu
-- `~/.Xmodmap` isn't sourced for some reason andd FN keys don't work
+### Right Click
+Right click is heavily used on Fluxbox but doesn't work out-of-the-box with the Pocket C.H.I.P., and setting a button override in Xmodmap or mouse keys in Xorg doesn't work (it even seems to break the FN keys). To enable right click by holding down on the touch screen build and setup [evdev-right-click-emulation](https://github.com/PeterCxy/evdev-right-click-emulation).
 
-I've tested setting up one of the keys as a right mouse button by adding it to `~/.Xmodmap`, but it's not working, probably due to Xmodmap not getting sourced even though it's set in `~/.fluxbox/startup`. When I figure out what the issue is I'll update with the fix.
+```bash
+# Clone the repoistory
+git clone https://github.com/PeterCxy/evdev-right-click-emulation
+
+# Install required dependencies to build
+sudo apt-get install -y libevdev-dev libevdev2
+
+# Build evdev-rce
+make all
+
+# Move evdev-rce to a system path and chown the owner group
+sudo mv out/evdev-rce /usr/local/bin
+sudo chown root:staff /usr/local/bin/evdev-rce
+
+# Have evdev-rce start on boot
+echo "/usr/local/bin/evdev-rce &" | sudo tee -a /etc/rc.local
+```
 
 ## Conclusion
 
