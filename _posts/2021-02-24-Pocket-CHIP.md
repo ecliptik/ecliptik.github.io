@@ -110,7 +110,7 @@ Running Pico8 from the Pocket C.H.I.P. launcher will now work.
 
 ## Changing the Window Manager
 
-By defautl the C.H.I.P. will run the `pocket-wm`, which is a modified version of [dwm](https://dwm.suckless.org/).
+By default the C.H.I.P. will run the `pocket-wm`, which is a modified version of [dwm](https://dwm.suckless.org/).
 
 ```bash
 chip@chip:/usr/share/xsessions$ pocket-wm -v
