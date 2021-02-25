@@ -4,18 +4,18 @@ tags: docker jekyll github
 date: 2015-08-20
 ___________________________________________
 
-After a long time of www.ecliptik.com being offline I finally brought
-it back online with Github Pages. I really like the concept of having
-a static site using Markdown files and a template to quickly bring
-online a modern looking blog without the hassle of configuring a
-content management system, web server, or database.
+After a long time of [www.ecliptik.com][] being offline I finally
+brought it back online with [Github Pages][]. I really like the
+concept of having a static site using Markdown files and a template to
+quickly bring online a modern looking blog without the hassle of
+configuring a content management system, web server, or database.
 
   [www.ecliptik.com]: http://www.ecliptik.com
   [Github Pages]: https://pages.github.com/
 
-While building the site, I created a Dockerfile to make viewing the
-site locally before pushing to Github. The container image
-ecliptik/jekyll built from this Dockerfile is also on Docker Hub.
+While building the site, I created a [Dockerfile][] to make viewing
+the site locally before pushing to Github. The container image
+[ecliptik/jekyll][] built from this Dockerfile is also on Docker Hub.
 
   [Dockerfile]: https://github.com/ecliptik/ecliptik.github.io/blob/master/Dockerfile
   [ecliptik/jekyll]: https://hub.docker.com/r/ecliptik/jekyll/
