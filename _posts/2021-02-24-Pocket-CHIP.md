@@ -3,6 +3,13 @@ layout: post
 title: Pocket C.H.I.P.
 category: hack
 tags: debian chip hack 100daystooffload
+
+comments:
+  show:  true
+  fediHost:  fosstodon.org
+  fediusername:  ecliptik
+  fediid:  105789701988446339
+
 ---
 
 Recently I got a [Pocket C.H.I.P.](https://shop.pocketchip.co/) with the idea of making it mini terminal on my desk, displaying things like weather, new email, new mastodon toots, etc. It comes pre-loaded with some basic software: terminal, [pico8](https://www.lexaloffle.com/pico-8.php), and a few other utilities. Because it was released in 2017 and the demise of the original Next Thing the software on it is out-of-date, running Debian 8 and an older version of pico8.
