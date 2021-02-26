@@ -93,7 +93,7 @@ To fix this, download the older Raspian Stretch image[5] and mount it locally
 sudo mount -v -o offset=48234496 -t ext4 2017-09-07-raspbian-stretch.img /mnt
 ```
 
-Create the directory `/usr/local/share/libcurlhack` and copy the files `/mnt/usr/lib/arm-linux-gnueabihf/{libcrypto.so.1.0.2,libcurl.so.4,libssl.so.1.0.2} from the Raspbian Stretch image to the C.H.I.P.
+Create the directory `/usr/local/share/libcurlhack` and copy the files `/mnt/usr/lib/arm-linux-gnueabihf/{libcrypto.so.1.0.2,libcurl.so.4,libssl.so.1.0.2}` from the Raspbian Stretch image to the C.H.I.P.
 
 When finished the C.H.I.P. `/usr/local/share/libcurlhack/` will look like this,
 
