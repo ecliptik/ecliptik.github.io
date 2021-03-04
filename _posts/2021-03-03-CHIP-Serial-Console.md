@@ -8,7 +8,7 @@ comments:
   show:  true
   fediHost:  fosstodon.org
   fediusername:  ecliptik
-  fediid:  
+  fediid:  105830175973621499
 
 ---
 
