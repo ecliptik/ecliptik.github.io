@@ -12,3 +12,4 @@
 # hack
 
 => gemini://rawtext.club/~ecliptik/_posts/2021-02-24-Pocket-CHIP.gmi  Pocket C.H.I.P.
+=> gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi  CHIP Serial Console

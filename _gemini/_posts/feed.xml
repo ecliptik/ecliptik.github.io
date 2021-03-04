@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>gemini://rawtext.club/~ecliptik/_posts/</id>
   <title>Ecliptik's Gemlog</title>
-  <updated>2021-02-24T00:00:00+00:00</updated>
+  <updated>2021-03-03T00:00:00+00:00</updated>
   <author>
     <name>ecliptik</name>
     <email>gemini@accounts.ecliptik.com</email>
@@ -10,12 +10,6 @@
   <link href="gemini://rawtext.club/~ecliptik/_posts/feed.xml" rel="self"/>
   <link href="gemini://rawtext.club/~ecliptik/_posts/" rel="alternate"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>gemini://rawtext.club/~ecliptik/_posts/2015-08-29-Containerizing-a-Perl-Script.gmi</id>
-    <title>Containerizing a Perl Script</title>
-    <updated>2015-08-29T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2015-08-29-Containerizing-a-Perl-Script.gmi" rel="alternate"/>
-  </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2015-09-08-Automating-Container-Updates-With-Watchtower.gmi</id>
     <title>Automating Container Updates With Watchtower</title>
@@ -69,5 +63,11 @@
     <title>Pocket C.H.I.P.</title>
     <updated>2021-02-24T00:00:00+00:00</updated>
     <link href="gemini://rawtext.club/~ecliptik/_posts/2021-02-24-Pocket-CHIP.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi</id>
+    <title>CHIP Serial Console</title>
+    <updated>2021-03-03T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi" rel="alternate"/>
   </entry>
 </feed>

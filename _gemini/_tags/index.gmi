@@ -34,6 +34,7 @@
 => gemini://rawtext.club/~ecliptik/_tags/kubernetes.gmi kubernetes
 => gemini://rawtext.club/~ecliptik/_tags/linux.gmi linux
 => gemini://rawtext.club/~ecliptik/_tags/mastodon.gmi mastodon
+=> gemini://rawtext.club/~ecliptik/_tags/openbsd.gmi openbsd
 => gemini://rawtext.club/~ecliptik/_tags/operatingsystems.gmi operatingsystems
 => gemini://rawtext.club/~ecliptik/_tags/perl.gmi perl
 => gemini://rawtext.club/~ecliptik/_tags/qmk.gmi qmk

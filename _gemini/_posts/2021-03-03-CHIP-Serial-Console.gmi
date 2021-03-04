@@ -1,0 +1,73 @@
+```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```
+
+# CHIP Serial Console
+### 2021-03-03 | #raspberrypi #hack #100daystooffload #openbsd #chip 
+
+Since getting a Pocket C.H.I.P[1], I'm looking for more ways to use it outside the original configuration, and came across a Hackernoon post on using a CHIP as a serial console[2].
+
+=> https://www.ecliptik.com/Pocket-CHIP/ 1: https://www.ecliptik.com/Pocket-CHIP/
+=> https://medium.com/hackernoon/turn-your-pocketchip-into-a-badass-on-the-go-hardware-hackers-terminal-84b1edc939f 2: https://medium.com/hackernoon/turn-your-pocketchip-into-a-badass-on-the-go-hardware-hackers-terminal-84b1edc939f
+
+I also wanted to install OpenBSD onto a RaspberryPi 3[3] - unlike most RaspberryPi installs where a sdcard image is flashed and boots up - OpenBSD requires following the full installation procedure[4] on the console. Sure you could hook up it up to HDMI and a USB keyboard, but what's the fun in that? So I took the oppurtunity to do both.
+
+=> https://brainsnapped.com/2020/10/22/openbsd-on-the-raspberry-pi-3-model-b/ 3: https://brainsnapped.com/2020/10/22/openbsd-on-the-raspberry-pi-3-model-b/
+=> https://www.openbsd.org/faq/faq4.html 4: https://www.openbsd.org/faq/faq4.html
+
+## Hardware
+
+Following the Hackernoon post, and using the RPI GPIO documentation[5], I soldered some lead pins onto the CHIPs `5V`, `GND`, `TXD` and `RXD` breakout at the top, made some basic GPIO wires and hooked it all up. Using the `5V` has the added benefit of powering the RaspberryPi from the CHIP battery, which in makes both of them portable.
+
+=> https://www.raspberrypi.org/documentation/usage/gpio/ 5: https://www.raspberrypi.org/documentation/usage/gpio/
+
+=> gemini://rawtext.club/~ecliptik/assets/images/posts/pocket-chip-serial.png C.H.I.P. Serial Console [IMG]
+
+
+## Software
+
+To connect via serial console, first release `/dev/ttyS0` from systemd,
+
+```bash
+sudo systemctl stop serial-getty@ttyS0
+```
+
+Many articles suggest using minicom[6] as a serial console, but I prefer screen[7], and used it for years when working in datacenters.
+
+=> https://salsa.debian.org/minicom-team/minicom 6: https://salsa.debian.org/minicom-team/minicom
+=> https://www.gnu.org/software/screen/ 7: https://www.gnu.org/software/screen/
+
+The OpenBSD console uses a baud rate of `115100` and transmission of eight bits per byte `cs8`. Connecting requires `sudo`, even if your `chip` user is in the `tty` group due to some udev/systemd permissions wonkiness.
+
+```bash
+sudo screen /dev/ttyS0 115200,cs8
+```
+
+
+
+The serial console works well, although occasionally there is missing data, but after remembering how to use the OpenBSD disk partitioner - OpenBSD 6.8 was running on a RaspberryPi 3. Once the installation is complete, if DHCP was setup during install, connecting to it over ssh is trivial and no longer requires the serial console.
+
+## Conclusion
+
+While as much fun as this is, it's not nearly as useful as it could have been years ago when troubleshooting misbehaving Sun Netra[8] or Sun Fire[9] systems. For now though it's a good hack, useful in the right circumstances, and just looks cool.
+
+=> https://shrubbery.net/~heas/sun-feh-2_1/Systems/Netra_t1_105/spec.html 8: https://shrubbery.net/~heas/sun-feh-2_1/Systems/Netra_t1_105/spec.html
+=> https://shrubbery.net/~heas/sun-feh-2_1/Systems/SunFire280R/SunFire280R.html 9: https://shrubbery.net/~heas/sun-feh-2_1/Systems/SunFire280R/SunFire280R.html
+
+### Tags
+
+=> gemini://rawtext.club/~ecliptik/_tags/chip.gmi chip
+=> gemini://rawtext.club/~ecliptik/_tags/openbsd.gmi openbsd
+=> gemini://rawtext.club/~ecliptik/_tags/100daystooffload.gmi 100daystooffload
+=> gemini://rawtext.club/~ecliptik/_tags/hack.gmi hack
+=> gemini://rawtext.club/~ecliptik/_tags/raspberrypi.gmi raspberrypi
+____________________________________________________________________
+
+=> gemini://rawtext.club/~ecliptik Home
