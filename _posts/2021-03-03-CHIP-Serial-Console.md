@@ -38,9 +38,6 @@ The OpenBSD console uses a baud rate of `115100` and transmission of eight bits 
 sudo screen /dev/ttyS0 115200,cs8
 ```
 
-<script id="asciicast-z1PtTyJIotvXQlLKK23MxjMh8" src="https://asciinema.org/a/z1PtTyJIotvXQlLKK23MxjMh8.js" async data-autoplay=1 data-loop=1 data-theme="tango" data-speed=".5"></script>
-<figure><figcaption>Serial Console on RaspberryPi 3 Running OpenBSD</figcaption></figure>
-
 The serial console works well, although occasionally there is missing data, but after remembering how to use the OpenBSD disk partitioner - OpenBSD 6.8 was running on a RaspberryPi 3. Once the installation is complete, if DHCP was setup during install, connecting to it over ssh is trivial and no longer requires the serial console.
 
 ## Conclusion
