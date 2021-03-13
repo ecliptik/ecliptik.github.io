@@ -18,6 +18,7 @@
 
 ## Posts
 
+=> gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi 2021-03-12 Running dnscrypt proxy on OpenBSD
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi 2021-03-03 CHIP Serial Console
 => gemini://rawtext.club/~ecliptik/_posts/2021-02-24-Pocket-CHIP.gmi 2021-02-24 Pocket CHIP
 => gemini://rawtext.club/~ecliptik/_posts/2021-02-15-Custom-Keyboards-Sully-and-Pok3r.gmi 2021-02-15 Custom Keyboards Sully and Pok3r

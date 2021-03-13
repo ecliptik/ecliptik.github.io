@@ -19,6 +19,7 @@
 => gemini://rawtext.club/~ecliptik/_tags/containers.gmi containers
 => gemini://rawtext.club/~ecliptik/_tags/cr-48.gmi cr-48
 => gemini://rawtext.club/~ecliptik/_tags/debian.gmi debian
+=> gemini://rawtext.club/~ecliptik/_tags/dns.gmi dns
 => gemini://rawtext.club/~ecliptik/_tags/docker.gmi docker
 => gemini://rawtext.club/~ecliptik/_tags/fediverse.gmi fediverse
 => gemini://rawtext.club/~ecliptik/_tags/gemini.gmi gemini

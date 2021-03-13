@@ -1,0 +1,512 @@
+___________________________________________
+title: Running dnscrypt-proxy on OpenBSD
+tags: openbsd raspberrypi hack dns 100daystooffload
+date: 2021-03-12
+___________________________________________
+
+A couple of weeks ago I took a spare RaspberryPi 3 leftover from my
+[old k3s cluster][] and installed [OpenBSD][] on it using my [Pocket
+C.H.I.P.][]. While getting it installed was fun, I wanted to do more
+with it and use it on a more regular basis to continue learning about
+OpenBSD in general.
+
+  [old k3s cluster]: https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/
+  [OpenBSD]: https://www.openbsd.org/
+  [Pocket C.H.I.P.]: https://www.ecliptik.com/CHIP-Serial-Console/
+
+[[OpenBSD on RaspberryPi][]]
+
+  [OpenBSD on RaspberryPi]: /assets/images/posts/openbsd-rpi/openbsd-rpi.png
+
+OpenBSD 4.9 Sticker on RaspberryPi 3
+I’ve had a [Pi-hole][] running on an older Raspberry Pi B with Debian
+for a few years, but wanted a few additional features, notably using
+[DNSCRYPT][] to encrypt DNS traffic so our ISP wouldn’t be able to use
+it for anything and/or using [DNS-over-HTTPS][]. I originally was
+going to setup Pi-hole on the new OpenBSD Pi, but quickly found out
+that Pi-hole doesn’t work on OpenBSD.
+
+  [Pi-hole]: https://pi-hole.net/
+  [DNSCRYPT]: https://www.dnscrypt.org/
+  [DNS-over-HTTPS]: https://en.wikipedia.org/wiki/DNS_over_HTTPS
+
+A quick search, turned up an excellent [Pi-hole on OpenBSD][] guide,
+which cleverly uses the [vmm hypervisor][] to run a Linux VM and
+install Pi-hole there. This however was also a dead-end since the
+guide was assuming an x86 install and not arm64. Unfortunately it
+seems that the OpenBSD arm64 port doesn’t have vmm so installing a VM
+wouldn’t work, and probably wasn’t a great idea for performance
+anyway.
+
+  [Pi-hole on OpenBSD]: https://bghost.xyz/post/pihole_on_openbsd/
+  [vmm hypervisor]: https://www.openbsd.org/faq/faq16.html
+
+The guide did include a reference to using [dnscrypt-proxy][], which
+is available as a package for OpenBSD arm64. Reading through the
+features it can do almost everything Pi-hole can and more,
+
+  [dnscrypt-proxy]: https://github.com/DNSCrypt/dnscrypt-proxy
+
+-   Local DNS caching
+-   Filtering for Ads and Malware
+-   DNSCRYPT
+-   DNS-over-HTTPS
+-   Anonymized DNS
+
+The only thing that was missing was the nicer GUI interface of
+Pi-hole, but I rarely used that anyway after initially setting it up
+and was more eye-candy that utilitarian. I decided to setup
+dnscrypt-proxy to mimic the blocking capabilities of the Pi-hole and
+enabled some more of the advanced features.
+
+
+Installing dnscrypt-proxy on OpenBSD
+
+Because dnscryupt-proxy is in the OpenBSD package repo, installation
+was a simple as,
+
+    $ doas pkg_add dnscrypt-proxy
+    quirks-3.442 signed on 2021-03-09T20:09:44Z
+    dnscrypt-proxy-2.0.44: ok
+
+This installs version 2.0.44 which is slightly older than upstream,
+which is 2.0.45. Looking in [openbsd snapshots][], 2.0.45 is packaged
+in preparation for OpenBSD 6.9 and can install without issue on 6.8.
+
+  [openbsd snapshots]: https://cdn.openbsd.org/pub/OpenBSD/snapshots/packages/aarch64/
+
+    $ wget https://cdn.openbsd.org/pub/OpenBSD/snapshots/packages/aarch64/dnscrypt-proxy-2.0.45.tgz
+    $ doas pkg_add dnscrypt-proxy-2.0.45.tgz
+
+
+Configuring dnscrypt-proxy on OpenBSD
+
+The default configuration is in /etc/dnscrypt-proxy.toml, and will
+need to be updated before starting dnscrypt-proxy since it will give
+one of these errors,
+
+    [FATAL] Unable to clone file descriptor: [bad file descriptor]
+
+or
+
+    [FATAL] Duplicated file descriptors are above base
+
+It also contains deprecated references to blacklist and whitelist
+which will needs replacing. A known good configuration to start with
+is here:
+https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml.
+
+Cloudflare DNS-over-HTTPS
+
+I am using the [Cloudflare 1.1.1.1][] DNS revolvers since they provide
+DNS-over-HTTPS and their response times are extremely fast. My ISP and
+network is also setup for IPv6, and that is configured to allow IPv6
+clients and lookups. For fallback DNS, [Quad9][] is used since it’s
+separate from Cloudflare and has a relatively decent privacy and
+security features.
+
+  [Cloudflare 1.1.1.1]: https://1.1.1.1/
+  [Quad9]: https://www.quad9.net/
+
+    #Use cloudflare DNS
+    server_names = ['cloudflare', 'cloudflare-ipv6']
+
+    #Listen on local and LAN addresses for DNS
+    listen_addresses = ['127.0.0.1:53', '[::1]:53', '192.168.7.221:53', '[fd82:738a:110d:1:2259:a6b:cd78:733b]:53']
+    max_clients = 250
+    user_name = '_dnscrypt-proxy'
+
+    #Enable ipv4 and ipv6
+    ipv4_servers = true
+    ipv6_servers = true
+
+    #Include resolvers with the following configuration
+    dnscrypt_servers = true
+    doh_servers = true
+    require_dnssec = true
+    require_nolog = true
+    require_nofilter = true
+
+    #Allow TCP and UDP
+    force_tcp = false
+    timeout = 2500
+    keepalive = 30
+
+    #Logging
+    log_level = 2
+    use_syslog = true
+
+    #Certs
+    cert_refresh_delay = 240
+    dnscrypt_ephemeral_keys = true
+    tls_disable_session_tickets = true
+
+    #Fallback to a non CloudFlare DNS if things aren't happy
+    fallback_resolver = '9.9.9.9:53'
+    ignore_system_dns = false
+
+Sources
+
+To reference revolvers and relays, [sources][] are used to find
+publicly resources. These are setup by default in dnscrypt-proxy, but
+I’ve added a few changes like caching them to /var/dnscrypt-proxy and
+point to the latest v3.
+
+  [sources]: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Configuration-Sources
+
+    #Sources for resolvers and relays
+    [sources]
+      [sources.'public-resolvers']
+      urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md', 'https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md']
+      minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+      cache_file = '/var/dnscrypt-proxy/public-resolvers.md'
+      refresh_delay = 72
+
+      [sources.'relays']
+      urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/relays.md', 'https://download.dnscrypt.info/resolvers-list/v3/relays.md', 'https://ipv6.download.dnscr
+    ypt.info/resolvers-list/v3/relays.md', 'https://download.dnscrypt.net/resolvers-list/v3/relays.md']
+      minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+      cache_file = '/var/dnscrypt-proxy/relays.md'
+      refresh_delay = 72
+      prefix = ''
+
+Block and Allow Lists
+
+Another powerful features of dnscrypt-proxy are [filters][], which can
+take on the role Pi-hole was doing with having a list of domains to
+block for ads, malware, and other reasons. To generate these lists,
+the [generate-domains-blocklist.py][] is used.
+
+  [filters]: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters
+  [generate-domains-blocklist.py]: https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/utils/generate-domains-blocklist/generate-domains-blocklist.py
+
+I took the blocklists that Pi-hole was using, and created a
+domains-blocklist.conf configuration to match, which gives it the same
+blocking sources as the Pi-hole was.
+
+    # Local additions
+    file:domains-blocklist-local-additions.txt
+
+    # Peter Lowe's Ad and tracking server list
+    https://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml
+
+    # Ads filter list by Disconnect
+    https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
+
+    # Basic tracking list by Disconnect
+    https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+
+    # Sysctl list (ads)
+    http://sysctl.org/cameleon/hosts
+
+    # BarbBlock list (spurious and invalid DMCA takedowns)
+    https://paulgb.github.io/BarbBlock/blacklists/domain-list.txt
+
+    # NoTracking's list - blocking ads, trackers and other online garbage
+    https://raw.githubusercontent.com/notracking/hosts-blocklists/master/dnscrypt-proxy/dnscrypt-proxy.blacklist.txt
+
+    # Geoffrey Frogeye's block list of first-party trackers - https://hostfiles.frogeye.fr/
+    https://hostfiles.frogeye.fr/firstparty-trackers.txt
+
+    # Steven Black hosts file
+    https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
+    # Pihole Lists
+    https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
+    https://raw.githubusercontent.com/nickspaargaren/pihole-google/master/categories/androidparsed
+    https://raw.githubusercontent.com/nickspaargaren/pihole-google/master/categories/analyticsparsed
+    https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt
+
+This file also references domains-blocklist-local-additions.txt, which
+is setup to protect against [DNS rebinding protection][],
+
+  [DNS rebinding protection]: https://en.wikipedia.org/wiki/DNS_rebinding#Protection
+
+    # Localhost rebinding protection
+    0.0.0.0
+    127.0.0.*
+
+    # RFC1918 rebinding protection
+    10.*
+    172.16.*
+    172.17.*
+    172.18.*
+    172.19.*
+    172.20.*
+    172.21.*
+    172.22.*
+    172.23.*
+    172.24.*
+    172.25.*
+    172.26.*
+    172.27.*
+    172.28.*
+    172.29.*
+    172.30.*
+    172.31.*
+    192.168.*
+
+The generate-domains-blocklist.py script will also require the files
+domains-allowlist.txt and domains-time-restricted.txt, which I just
+created as empty files to allow the blocklist creation to proceed
+
+    $ touch domains-time-restricted.txt
+    $ touch domains-allowlist.txt
+
+Generating the blocklist can be done manually or as a cronjob,
+
+    $ python3 generate-domains-blocklist.py -o blocklist.txt
+
+Since I use [Plex][], work for a Account Based Marketing company, and
+Google reCaptcha is usually in blocklists, I created an allowlist.txt
+as well,
+
+  [Plex]: https://www.plex.tv/
+
+    plex.direct
+    demandbase.com
+    recaptcha.google.com
+    gc.zgo.a
+
+Putting this all together into the /etc/dnscrypt-proxy.toml blocking
+configuration,
+
+    #Blocking configuration
+    [blocked_names]
+      ## Path to the file of blocking rules (absolute, or relative to the same directory as the executable file)
+      blocked_names_file = '/home/micheal/dnscrypt-proxy/blocklist.txt'
+
+      log_file = '/var/tmp/blocked.log'
+      log_format = 'tsv'
+
+    #Allow configuration
+    [allowed_names]
+      ## Path to the file of blocking rules (absolute, or relative to the same directory as the executable file)
+      allowed_names_file = '/home/micheal/dnscrypt-proxy/allowlist.txt'
+
+Anonymized DNS
+
+One of the features I liked about dnscrypt-proxy is it offers is
+[Anonymized DNS][], which I setup to test out.
+
+  [Anonymized DNS]: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Anonymized-DNS
+
+    #Anonymized DNS relays
+    [anonymized_dns]
+    routes = [
+        { server_name='zackptg5-us-il-ipv4', via=['anon-cs-usca', 'anon-cs-usga'] },
+        { server_name='freetsa.org-ipv6', via=['anon-zackptg5-us-il-ipv6', 'anon-acsacsar-ams-ipv6'] }
+    ]
+
+While this did work well, unfortunately the DNS query times were
+consistently 200ms+, which can appear as lag when browsing things.
+Since DNS-over-HTTPS is encrypted and filtering is setup, this was
+more of a nice-to-have instead of a requirements, so I ended up
+commenting it out. If/when Cloudflare provides DNSCRYPT I may re-visit
+it and see if response times have improved.
+
+Local DNS-over-HTTPS
+
+Another feature that Pi-hole didn’t support was DNS-over-HTTPS both
+for resolving and for serving requests locally. This is something
+built-in to dnscrypt-proxy with [Local DoH][] that [Firefox support
+for DoH][] can then use. By default Firefox will use Cloudflare DoH
+directly and was previously bypassing the Pi-hole, not getting the
+filtering features the rest of the network was. Now it can use the
+same filtering and continue to use DoH.
+
+  [Local DoH]: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Local-DoH
+  [Firefox support for DoH]: https://support.mozilla.org/en-US/kb/firefox-dns-over-https
+
+To setup DoH on dnscrypt-proxy, a self-signed certificate is required,
+
+    openssl req -x509 -nodes -newkey rsa:2048 -days 5000 -sha256 -keyout localhost.pem -out localhost.pem
+
+This certificate is then used to listen on IPv4 and IPv6 addresses for
+DoH on port 3000,
+
+    #DNS over HTTPS configuration
+    [local_doh]
+      listen_addresses = ['127.0.0.1:3000', '[::1]:3000', '192.168.7.221:3000', '[fd82:738a:110d:1:2259:a6b:cd78:733b]:3000']
+      path = "/dns-query"
+      cert_file = "/home/micheal/dnscrypt-proxy/localhost.pem"
+      cert_key_file = "/home/micheal/dnscrypt-proxy/localhost.pem"
+
+Firefox is then configured to use dnscrypt-proxy, for example over
+IPv6, https://fd82:738a:110d:1:2259:a6b:cd78:733b:3000/dns-query.
+
+Enabling dnscrypt-proxy
+
+Now that the configuration is all setup and dnscrypt-proxy is
+installed on OpenBSD, enable the service and start it,
+
+    $ doas rcctl enable dnscrypt_proxy
+    $ doas rcctl start dnscrypt_proxy
+
+This should start and /var/log/messages will show it starting,
+
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: dnscrypt-proxy 2.0.45
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Network connectivity detected
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Dropping privileges
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Network connectivity detected
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to 127.0.0.1:53 [UDP]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to 127.0.0.1:53 [TCP]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to [::1]:53 [UDP]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to [::1]:53 [TCP]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to 192.168.7.221:53 [UDP]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to 192.168.7.221:53 [TCP]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to [fd82:738a:110d:1:2259:a6b:cd78:733b]:53 [UDP]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to [fd82:738a:110d:1:2259:a6b:cd78:733b]:53 [TCP]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to https://127.0.0.1:3000/dns-query [DoH]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to https://[::1]:3000/dns-query [DoH]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to https://192.168.7.221:3000/dns-query [DoH]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Now listening to https://[fd82:738a:110d:1:2259:a6b:cd78:733b]:3000/dns-query [DoH]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Source [public-resolvers] loaded
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Source [relays] loaded
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Loading the set of whitelisting rules from [/home/micheal/dnscrypt-proxy/allowlist.txt]
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Firefox workaround initialized
+    Mar 12 11:15:59 majora dnscrypt-proxy[1888]: Loading the set of blocking rules from [/home/micheal/dnscrypt-proxy/blocklist.txt]
+    Mar 12 11:16:04 majora dnscrypt-proxy[1888]: [cloudflare-ipv6] OK (DoH) - rtt: 14ms
+    Mar 12 11:16:04 majora dnscrypt-proxy[1888]: [cloudflare] OK (DoH) - rtt: 83ms
+    Mar 12 11:16:04 majora dnscrypt-proxy[1888]: Sorted latencies:
+    Mar 12 11:16:04 majora dnscrypt-proxy[1888]: -    14ms cloudflare-ipv6
+    Mar 12 11:16:04 majora dnscrypt-proxy[1888]: -    83ms cloudflare
+    Mar 12 11:16:04 majora dnscrypt-proxy[1888]: Server with the lowest initial latency: cloudflare-ipv6 (rtt: 14ms)
+
+Logging
+
+Initially to test things are working well, setup the query logs to
+write to /var/tmp/query.log,
+
+    #Query logging, commented out unless for troubleshooting
+    [query_log]
+      file = '/var/tmp/query.log'
+      format = 'tsv'
+
+As requests come in they will show up here. Blocked requests will also
+show up in /var/tmp/blocked.log.
+
+Depending on the number of devices making DNS requests, the query.log
+can get quite large it’s recommended to keep it enabled when initially
+testing something, and turning it off when not in use. Leaving
+blocked.log on is a good idea to help know what to add to a
+allowlist.txt in case something is blocked that you want to allow.
+
+Since a Raspberry Pi is most likely using an MicroSD card and by
+default OpenBSD will mount /tmp as a filesystem, it’s a good idea to
+to set /tmp as a memory filesystem to avoid excessive writes to the SD
+Card.
+
+OpenBSD has the [mfs][] filesytem that can be used to mount a
+filesystem in-memory to help avoid this,
+
+  [mfs]: https://man.openbsd.org/mount_mfs.8
+
+  mount_mfs is used to build a file system in virtual memory and then
+  mount it on a specified node.
+
+Setup /tmp as mfs, first by unmounting it. This may require killing
+sndio processes and using the console instead of ssh as it will give a
+resource busy error when trying to unmount /tmp.
+
+    $ doas umount /tmp
+    $ chmod 1777 /tmp
+
+In /etc/fstab, comment out the old /tmp mount and add the mfs mount,
+
+    #1400ced5c75f17ee.d /tmp ffs rw,nodev,nosuid 1 2
+    swap /tmp mfs rw,nodev,nosuid,-s=256M 0 0
+
+Reboot, and /tmp will now show up as a mfs type,
+
+    $ mount | grep /tmp
+    mfs:73353 on /tmp type mfs (asynchronous, local, nodev, nosuid, size=524288 512-blocks)
+
+
+Full Configuration
+
+Here is the full configuration of /etc/dnscrypt-proxy combined from
+all the snippets above,
+
+    #Use cloudflare DNS
+    server_names = ['cloudflare', 'cloudflare-ipv6']
+
+    #Listen on local and LAN addresses for DNS
+    listen_addresses = ['127.0.0.1:53', '[::1]:53', '192.168.7.221:53', '[fd82:738a:110d:1:2259:a6b:cd78:733b]:53']
+    max_clients = 250
+    user_name = '_dnscrypt-proxy'
+
+    #Enable ipv4 and ipv6
+    ipv4_servers = true
+    ipv6_servers = true
+
+    #Include resolvers with the following configuration
+    dnscrypt_servers = true
+    doh_servers = true
+    require_dnssec = true
+    require_nolog = true
+    require_nofilter = true
+
+    #Allow TCP and UDP
+    force_tcp = false
+    timeout = 2500
+    keepalive = 30
+
+    #Logging
+    log_level = 2
+    use_syslog = true
+
+    #Certs
+    cert_refresh_delay = 240
+    dnscrypt_ephemeral_keys = true
+    tls_disable_session_tickets = true
+
+    #Fallback to a non CloudFlare DNS if things arne't happy
+    fallback_resolver = '9.9.9.9:53'
+    ignore_system_dns = false
+
+    #[query_log]
+    #  file = '/var/tmp/query.log'
+    #  format = 'tsv'
+
+    #Sources for resolvers and relays
+    [sources]
+      [sources.'public-resolvers']
+      urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md', 'https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md']
+      minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+      cache_file = '/var/dnscrypt-proxy/public-resolvers.md'
+      refresh_delay = 72
+
+      [sources.'relays']
+      urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/relays.md', 'https://download.dnscrypt.info/resolvers-list/v3/relays.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/relays.md', 'https://download.dnscrypt.net/resolvers-list/v3/relays.md']
+      minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+      cache_file = '/var/dnscrypt-proxy/relays.md'
+      refresh_delay = 72
+      prefix = ''
+
+    #Blocking configuration
+    [blocked_names]
+      ## Path to the file of blocking rules (absolute, or relative to the same directory as the executable file)
+      blocked_names_file = '/home/micheal/dnscrypt-proxy/blocklist.txt'
+
+      log_file = '/var/tmp/blocked.log'
+      log_format = 'tsv'
+
+    #Allow configuration
+    [allowed_names]
+      ## Path to the file of blocking rules (absolute, or relative to the same directory as the executable file)
+      allowed_names_file = '/home/micheal/dnscrypt-proxy/allowlist.txt'
+
+    #Anonymized DNS relays
+    #[anonymized_dns]
+    #routes = [
+    #    { server_name='zackptg5-us-il-ipv4', via=['anon-cs-usca', 'anon-cs-usga'] },
+    #    { server_name='freetsa.org-ipv6', via=['anon-zackptg5-us-il-ipv6', 'anon-acsacsar-ams-ipv6'] }
+    #]
+
+    #DNS over HTTPS configuration
+    [local_doh]
+      listen_addresses = ['127.0.0.1:3000', '[::1]:3000', '192.168.7.221:3000', '[fd82:738a:110d:1:2259:a6b:cd78:733b]:3000']
+      path = "/dns-query"
+      cert_file = "/home/micheal/dnscrypt-proxy/localhost.pem"
+      cert_key_file = "/home/micheal/dnscrypt-proxy/localhost.pem"

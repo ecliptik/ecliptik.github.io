@@ -58,7 +58,6 @@ wonkiness.
 
     sudo screen /dev/ttyS0 115200,cs8
 
-Serial Console on RaspberryPi 3 Running OpenBSD
 The serial console works well, although occasionally there is missing
 data, but after remembering how to use the OpenBSD disk partitioner -
 OpenBSD 6.8 was running on a RaspberryPi 3. Once the installation is
