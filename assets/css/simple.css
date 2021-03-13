@@ -135,20 +135,20 @@ main h2 {
   margin-top: calc(var(--line-height) * 1rem) !important;
   margin: 0;
   color: var(--accent-light) !important;
-  font-size: 1.7rem;
+  font-size: 1.75rem;
 }
 
 main h3 {
   margin-top: calc(var(--line-height) * 1rem) !important;
   margin: 0;
   color: var(--accent-light) !important;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 main h4 {
   color: var(--text-light) !important;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 main h5 {
