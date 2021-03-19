@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>gemini://rawtext.club/~ecliptik/_posts/</id>
   <title>Ecliptik's Gemlog</title>
-  <updated>2021-03-12T00:00:00+00:00</updated>
+  <updated>2021-03-19T00:00:00+00:00</updated>
   <author>
     <name>ecliptik</name>
     <email>gemini@accounts.ecliptik.com</email>
@@ -10,12 +10,6 @@
   <link href="gemini://rawtext.club/~ecliptik/_posts/feed.xml" rel="self"/>
   <link href="gemini://rawtext.club/~ecliptik/_posts/" rel="alternate"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>gemini://rawtext.club/~ecliptik/_posts/2017-09-11-Raspberry-Pi-Kubernetes-Cluster.gmi</id>
-    <title>Raspberry Pi Kubernetes Cluster</title>
-    <updated>2017-09-11T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2017-09-11-Raspberry-Pi-Kubernetes-Cluster.gmi" rel="alternate"/>
-  </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2017-09-12-ACI-Connector-for-k8s-on-a-Raspberry-Pi-Cluster.gmi</id>
     <title>ACI Connector for k8s on a Raspberry Pi Cluster</title>
@@ -69,5 +63,11 @@
     <title>Running dnscrypt-proxy on OpenBSD</title>
     <updated>2021-03-12T00:00:00+00:00</updated>
     <link href="gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi</id>
+    <title>Vaporwave in Pocket C.H.I.P. Framebuffer</title>
+    <updated>2021-03-19T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi" rel="alternate"/>
   </entry>
 </feed>
