@@ -19,7 +19,7 @@ In the ever expanding ways to hack [my Pocket C.H.I.P.](https://www.ecliptik.com
 
 ## Required Software
 
-The C.H.I.P. is fully upgraded to Debian Buster, and there were some oddities with getting `dpkg` sorted out, so the package installs may not work exactly as defined here but are a general guide. It's also [booting into the console framebuffer](http://www.chip-community.org/index.php/Setting_up_text_mode_on_PocketCHIP_4.3) and not `X`, so there's not desktop environment or window manager running.
+The C.H.I.P. is fully upgraded to Debian Buster, and there were some oddities with getting `dpkg` sorted out, so the package installs may not work exactly as defined here but are a general guide. It's also [booting into the console framebuffer](http://www.chip-community.org/index.php/Setting_up_text_mode_on_PocketCHIP_4.3) and not `X`, so there's no desktop environment or window manager running.
 
 The following tools are used,
 
@@ -44,7 +44,7 @@ $ sudo chmod a+rx /usr/local/bin/youtube-dl
 
 ## Downloading Videos
 
-Using `youtube-dl`, download a Vaporwave video. The Pocket C.H.I.P. is very particular about the screen resolution and codec of the video. Anything larger than the C.H.I.P. screen (480×272) will give an error, and some codecs won't play. I found that following format combination works best for video playback.
+Using `youtube-dl`, download a Vaporwave video. The Pocket C.H.I.P. is very particular about the screen resolution and codec of the video. Anything larger than the C.H.I.P. screen (480×272) will give an error, and some codecs won't play. I found the following format combination works best for video playback.
 
 - resolution: `320x240@240p`
 - container: `mp4`
@@ -112,4 +112,8 @@ If sound is too loud or quiet, ssh into the C.H.I.P. and use `alsamixer` to adju
 
 Keyboard controls for mplayer will work on the C.H.I.P. keyboard, with `q` to quit and arrow keys to browse the video.
 
-Overall resource usage isn't bad, about 25% CPU when playing the video back with just a slight audio glitch now and then.
+## Notes
+
+Overall resource usage isn't bad, about 25% CPU when playing the video back with just a slight audio glitch now and then. If CPU gets stressed, audio and playback will glitch even more. There are ways to tune mplayer to perform better on lower end systems like the C.H.I.P., but I won't go into detail here as there are many guides out there.
+
+Depending on the video, the `mp4` output format may not work and give a `ERROR:   Stream #1:0 -> #0:1 (copy)` when trying to merge video+audio, using `mkv` for the output format is a workaround.
