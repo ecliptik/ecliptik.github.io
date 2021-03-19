@@ -12,7 +12,7 @@
 # Vaporwave in Pocket C.H.I.P. Framebuffer
 ### 2021-03-19 | #100daystooffload #hack #chip 
 
-In the ever expanding ways to hack my Pocket C.H.I.P.[1], and my recent discovery of Vaporwave[2], I couldn't help but combine the two and have a looping music video device on my desktop. Note this is not running in `X`, but in the console framebuffer, which gives it a more ＡＥＳＴＨＥＴＩＣＳ.
+In the ever expanding ways to hack my Pocket C.H.I.P.[1], and my recent discovery of Vaporwave[2], I couldn't help but combine the two and have a looping music video device on my desktop. Note this is not running in `X`, but in the console framebuffer, which gives it more ＡＥＳＴＨＥＴＩＣＳ.
 
 => https://www.ecliptik.com/Pocket-CHIP/ 1: https://www.ecliptik.com/Pocket-CHIP/
 => https://en.wikipedia.org/wiki/Vaporwave 2: https://en.wikipedia.org/wiki/Vaporwave
