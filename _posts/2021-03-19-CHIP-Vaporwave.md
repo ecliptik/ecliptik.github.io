@@ -12,7 +12,7 @@ comments:
 
 ---
 
-In the ever expanding ways to hack [my Pocket C.H.I.P.](https://www.ecliptik.com/Pocket-CHIP/), and my recent discovery of [Vaporwave](https://en.wikipedia.org/wiki/Vaporwave), I couldn't help but combine the two and have a looping music video device on my desktop. Note this is not running in `X`, but in the console framebuffer, which gives it a more surrealist aesthetic.
+In the ever expanding ways to hack [my Pocket C.H.I.P.](https://www.ecliptik.com/Pocket-CHIP/), and my recent discovery of [Vaporwave](https://en.wikipedia.org/wiki/Vaporwave), I couldn't help but combine the two and have a looping music video device on my desktop. Note this is not running in `X`, but in the console framebuffer, which gives it a more ＡＥＳＴＨＥＴＩＣＳ.
 
 ![Vaporwave in Pocket C.H.I.P](/assets/images/posts/chip_vaporwave/chip-vaporwave.png)
 <figure><figcaption>NEON PALM MALL in C.H.I.P. Framebuffer</figcaption></figure>

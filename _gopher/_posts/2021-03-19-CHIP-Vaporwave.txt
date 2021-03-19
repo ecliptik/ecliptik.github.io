@@ -8,7 +8,7 @@ In the ever expanding ways to hack [my Pocket C.H.I.P.][], and my
 recent discovery of [Vaporwave][], I couldn’t help but combine the two
 and have a looping music video device on my desktop. Note this is not
 running in X, but in the console framebuffer, which gives it a more
-surrealist aesthetic.
+ＡＥＳＴＨＥＴＩＣＳ.
 
   [my Pocket C.H.I.P.]: https://www.ecliptik.com/Pocket-CHIP/
   [Vaporwave]: https://en.wikipedia.org/wiki/Vaporwave
