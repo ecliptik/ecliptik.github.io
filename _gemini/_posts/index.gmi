@@ -18,6 +18,7 @@
 
 ## Posts
 
+=> gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi 2021-04-04 Pocket CHIP Terminal Dashboard
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi 2021-03-19 CHIP Vaporwave
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi 2021-03-12 Running dnscrypt proxy on OpenBSD
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi 2021-03-03 CHIP Serial Console
