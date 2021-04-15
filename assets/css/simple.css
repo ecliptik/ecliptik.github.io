@@ -82,8 +82,7 @@ body {
 /* Make the main element a nice central block */
 main {
   margin: 1rem auto 0;
-  max-width: 55rem;
-  padding: 0 .5rem;
+  padding: 1.5rem 15rem;
   flex: 1;
 }
 
@@ -99,7 +98,10 @@ header {
   header {
     padding: 1rem;
   }
-
+  main {
+    padding: 0rem;
+    max-width: 100%;
+  }
   nav {
     text-align: center;
   }
