@@ -34,7 +34,7 @@ A few post-install things I did to secure the host more,
 
 Since the RPI doesn't have a real-time clock, setting up NTP is crucial for accurate time, which if not set can cause all sorts of issues with TLS and other commands.
 
-```
+```shell
 # Enabe ntpd
 host$ echo 'ntpd_enable="YES"' | doas tee -a /etc/rc.conf
 
@@ -53,21 +53,21 @@ The [Jails guide](https://docs.freebsd.org/en/books/handbook/jails/) is straight
 
 Following the instructions first add the second loopback interface,
 
-```
+```shell
 host$ echo 'cloned_interfaces="lo1"' | doas tee -a /etc/rc.conf
 host$ doas service netif cloneup
 ```
 
 Then install ezjail and a few other packages we'll need later on,
 
-```
+```shell
 host$ doas pkg install ezjail ca_root_nss openssl
 host$ echo 'ezjail_enable="YES"' | doas tee -a /etc/rc.conf
 ```
 
 Create a new jail named `thesours`, using the new second loopback and a new LAN IP on the interface `em0`,
 
-```
+```shell
 host$ doas ezjail-admin create thesours 'lo1|127.0.1.1,em0|192.168.7.223'
 ```
 
@@ -75,7 +75,7 @@ This installs a FreeBSD 13 (default version is the host version) jail filesystem
 
 Once complete, list the new jail,
 
-```
+```shell
 host$ doas ezjail-admin list
 STA JID  IP              Hostname                       Root Directory
 --- ---- --------------- ------------------------------ ------------------------
@@ -87,7 +87,7 @@ DR  1    127.0.1.1       thesours                       /usr/jails/thesours
 
 Now that there's a running jail, connect to it's console to start setting it up.
 
-```
+```shell
 doas ezjail-admin console thesours
 ```
 
@@ -95,7 +95,7 @@ Many of the directories are shared with the basejail and are immutable, but addi
 
 Add a new non-root user using `adduser`, install `doas` and set up this user for root privileges. Enabling `sshd` also allows ssh sessions into the jail,
 
-```
+```shell
 jail$ echo 'sshd_enable="YES"' | doas tee -a /etc/rc.conf
 ```
 
@@ -107,13 +107,13 @@ Now that the jail is setup, the next step is installing and configuring the Gemi
 
 Molly Brown requires `go`, which was built in the host and not the jail in order to keep jail packages to a minimum.
 
-```
+```shell
 host$ doas pkg install go
 ```
 
 Build Molly Brown,
 
-```
+```shell
 host$ mkdir ~/go
 host$ export GOPATH=~/go
 host$ go get tildegit.org/solderpunk/molly-brown
@@ -121,13 +121,13 @@ host$ go get tildegit.org/solderpunk/molly-brown
 
 Copy the resulting `~/go/bin/molly-brown` binary to the jail,
 
-```
+```shell
 host$ doas cp molly-brown /usr/jails/thesours/usr/local/sbin/
 ```
 
 Also create the TLS certs that molly brown will require later, and copy them to the jail,
 
-```
+```shell
 host$ doas mkdir -p /usr/jails/thesours/etc/ssl/gemini/
 host$ cd /usr/jails/thesours/etc/ssl/gemini/
 host$ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 1826 -nodes -subj '/CN=thesours.ecliptik.com'
@@ -143,7 +143,7 @@ Go back into the jail and setup a few configurations for Molly Brown with the fo
 
 Create the required paths, create/copy files and set the proper permissions for `daemon`,
 
-```
+```shell
 jail$ doas mkdir -p /var/log/molly /var/gemini/
 jail$ doas chown -R daemon:daemon /var/log/molly /usr/jails/thesours/etc/ssl/gemini /var/gemini/
 ```
@@ -152,7 +152,7 @@ jail$ doas chown -R daemon:daemon /var/log/molly /usr/jails/thesours/etc/ssl/gem
 
 Create  configuration in `/etc/molly.conf`,
 
-```
+```shell
 ## Molly basic settings
 Port = 1965
 Hostname = "thesours.ecliptik.com"
@@ -170,7 +170,7 @@ ErrorLog = "/var/log/molly/error.log"
 
 Create `etc/rc.d/molly` to manage the service and have it start when the jail does. It will run as the `daemon` user to improve security.
 
-```
+```shell
 #!/bin/sh
 #
 # $FreeBSD$
@@ -222,13 +222,13 @@ run_rc_command "$1"
 
 Enable the service,
 
-```
+```shell
 jail$ echo 'molly_enable="YES"' | doas tee -a /etc/rc.conf
 ```
 
 Add a default `/var/gemini/index.gmi` file with some basic gemtext and start the `molly` service,
 
-```
+```shell
 jail$ doas service molly start
 ```
 
