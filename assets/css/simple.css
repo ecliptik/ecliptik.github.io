@@ -142,19 +142,21 @@ main h2 {
 
 main h3 {
   margin-top: calc(var(--line-height) * 1rem) !important;
-  margin: 0;
+  margin-top: 0;
   color: var(--accent-light) !important;
   font-size: 1.5rem;
 }
 
 main h4 {
   color: var(--text-light) !important;
+  margin-top: calc(var(--line-height) * 1rem) !important;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 main h5 {
   color: var(--text-light) !important;
+  margin-top: calc(var(--line-height) * 1rem) !important;
   margin: 0;
 }
 
