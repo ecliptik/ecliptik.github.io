@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>gemini://rawtext.club/~ecliptik/_posts/</id>
   <title>Ecliptik's Gemlog</title>
-  <updated>2021-04-04T00:00:00+00:00</updated>
+  <updated>2021-04-25T00:00:00+00:00</updated>
   <author>
     <name>ecliptik</name>
     <email>gemini@accounts.ecliptik.com</email>
@@ -10,12 +10,6 @@
   <link href="gemini://rawtext.club/~ecliptik/_posts/feed.xml" rel="self"/>
   <link href="gemini://rawtext.club/~ecliptik/_posts/" rel="alternate"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>gemini://rawtext.club/~ecliptik/_posts/2017-10-02-Cross-Building-and-Running-Multi-Arch-Docker-Images.gmi</id>
-    <title>Cross Building and Running Multi-Arch Docker Images</title>
-    <updated>2017-10-02T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2017-10-02-Cross-Building-and-Running-Multi-Arch-Docker-Images.gmi" rel="alternate"/>
-  </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-01-26-One-Week-With-Mastodon.gmi</id>
     <title>One Week With Mastodon</title>
@@ -69,5 +63,11 @@
     <title>Pocket CHIP Terminal Dashboard</title>
     <updated>2021-04-04T00:00:00+00:00</updated>
     <link href="gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi</id>
+    <title>Gemini Capsule in a FreeBSD Jail</title>
+    <updated>2021-04-25T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi" rel="alternate"/>
   </entry>
 </feed>

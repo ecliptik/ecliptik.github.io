@@ -22,6 +22,7 @@
 => gemini://rawtext.club/~ecliptik/_tags/dns.gmi dns
 => gemini://rawtext.club/~ecliptik/_tags/docker.gmi docker
 => gemini://rawtext.club/~ecliptik/_tags/fediverse.gmi fediverse
+=> gemini://rawtext.club/~ecliptik/_tags/freebsd.gmi freebsd
 => gemini://rawtext.club/~ecliptik/_tags/gemini.gmi gemini
 => gemini://rawtext.club/~ecliptik/_tags/github.gmi github
 => gemini://rawtext.club/~ecliptik/_tags/google.gmi google

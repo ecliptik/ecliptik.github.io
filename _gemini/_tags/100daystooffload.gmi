@@ -20,3 +20,4 @@
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi  Running dnscrypt-proxy on OpenBSD
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi  Vaporwave in Pocket C.H.I.P. Framebuffer
 => gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi  Pocket CHIP Terminal Dashboard
+=> gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi  Gemini Capsule in a FreeBSD Jail

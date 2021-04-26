@@ -18,6 +18,7 @@
 
 ## Posts
 
+=> gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi 2021-04-25 Gemini Capsule in a FreeBSD Jail
 => gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi 2021-04-04 Pocket CHIP Terminal Dashboard
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi 2021-03-19 CHIP Vaporwave
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi 2021-03-12 Running dnscrypt proxy on OpenBSD

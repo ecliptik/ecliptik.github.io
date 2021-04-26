@@ -12,6 +12,7 @@
 # Ecliptik's Gemlog
 ## Latest Posts
 
+=> gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi 2021-04-25 Gemini Capsule in a FreeBSD Jail
 => gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi 2021-04-04 Pocket CHIP Terminal Dashboard
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi 2021-03-19 CHIP Vaporwave
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi 2021-03-12 Running dnscrypt proxy on OpenBSD
@@ -20,7 +21,6 @@
 => gemini://rawtext.club/~ecliptik/_posts/2021-02-15-Custom-Keyboards-Sully-and-Pok3r.gmi 2021-02-15 Custom Keyboards Sully and Pok3r
 => gemini://rawtext.club/~ecliptik/_posts/2021-02-09-Launching-a-Gemini-Capsule.gmi 2021-02-09 Launching a Gemini Capsule
 => gemini://rawtext.club/~ecliptik/_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi 2021-01-31 Making a Gopherhole and Phlog
-=> gemini://rawtext.club/~ecliptik/_posts/2021-01-26-One-Week-With-Mastodon.gmi 2021-01-26 One Week With Mastodon
 
 => gemini://rawtext.club/~ecliptik/_posts/index.gmi Gemlog Archive
 => gemini://rawtext.club/~ecliptik/_tags/index.gmi Gemlog Tags
