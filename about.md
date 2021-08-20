@@ -5,7 +5,7 @@ permalink: /about/
 tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre
 ---
 
-Experienced DevOps and Cloud Engineer with 20+ years experience working in [Education Institutions](https://www.ucsd.edu), [Fortune 500](https://www.qualcomm.com) , and [startups](https://www.demandbase.com).
+Experienced DevOps and Technical Account Manager with 20+ years experience working in [Education Institutions](https://www.ucsd.edu), [Fortune 500](https://www.qualcomm.com), [startups](https://www.demandbase.com), and [Cloud Computing Services](https://aws.amazon.com).
 
 ## Interests
 
@@ -17,6 +17,7 @@ Experienced DevOps and Cloud Engineer with 20+ years experience working in [Educ
 
 ## Certifications
 - [Google Cloud Professional Cloud Architect](https://www.credential.net/7d6a6c1c-5355-4324-9165-f12bb06c37c2)
+- [Certified Kubernetes Administrator](https://www.credly.com/badges/07c2cb01-c0a6-4d7c-9dcb-246b728e43b2)
 
 ## Skills
 
