@@ -4,7 +4,6 @@ tags: gopher 100daystooffload
 date: 2021-01-31
 ___________________________________________
 
-
 But Why?
 
 The obvious questions is why make a Gopherhole (what [gopher][] sites
@@ -40,7 +39,6 @@ For a much more in-depth look on modern Gopher, I recommend reading
 [Burrowing A Gopher Hole][].
 
   [Burrowing A Gopher Hole]: https://tedium.co/2017/06/22/modern-day-gopher-history/
-
 
 Start Burrowing
 
@@ -158,8 +156,6 @@ Viewed in Bombadillo
   [Gopherhole in Lagrange Browser]: /assets/images/posts/gopher-lagrange-01.png
 
 Gopherhole in Lagrange Browser
-
-
 Phlog
 
 After getting the basic site up I wanted to update it frequently with
@@ -380,7 +376,6 @@ pull on RTC and my phlog will be updated along with the WWW site.
 These tools and usage are describe more in their [README.md][]
 
   [README.md]: https://github.com/ecliptik/ecliptik.github.io/blob/master/_gopher/README.md
-
 
 Conclusions
 

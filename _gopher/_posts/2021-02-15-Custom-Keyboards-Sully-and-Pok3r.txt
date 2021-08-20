@@ -11,7 +11,6 @@ using the bundled membrane boards. A few years ago though this all
 changed which I discovered the deep rabbit hole that is both
 utilitarian and vain world of custom keyboards.
 
-
 Sully
 
 Back in 2013 I convinced my boss that I needed a high-end mechanical
@@ -30,14 +29,12 @@ calling it “Sully”.
 
 [[Sully][]]
 
-  [Sully]: /assets/images/posts/sully.jpg
 
 Sully
 Sully was a fantastic board and I used it up until 2019 when I
 discovered even smaller form factors like 60%. It’s still used in our
 house, but mostly as a kids toy, demostrating just how well-built it
 is.
-
 
 Vortex Pok3r
 
@@ -75,8 +72,6 @@ single layer.
     FN+R_Control
 
 Sample of how to program the stock pok3r firmware
-
-
 Pok3r Revived
 
 Eventually I started getting annoyed with the default keycaps, which
@@ -134,7 +129,6 @@ two different switches.
 
 [[Pandas][]]
 
-  [Pandas]: /assets/images/keyboards/pandas.png
 
 YOK Polar Panda(left) Holy Panda(center) Halo True(right)
 The idea of building my own switches really resonated with me since it
@@ -149,7 +143,6 @@ with a distinctive blue housing and a salmon stem.
 
 [[Building Holy Pandas][]]
 
-  [Building Holy Pandas]: /assets/images/keyboards/IMG_4665.png
 
 Building Holy Pandas
 Lubing is also a thing when it comes to building custom switches, and
@@ -166,7 +159,6 @@ investment.
 
 [[PCB Foam Sandwich][]]
 
-  [PCB Foam Sandwich]: /assets/images/keyboards/IMG_4706.png
 
 PCB Foam Sandwich
 I opted for foam from [MKUltra][], which I originally thought would go
@@ -196,7 +188,6 @@ damaging them by using a solder sucker or wick.
 
 [[Replacing pok3r PCB][]]
 
-  [Replacing pok3r PCB]: /assets/images/keyboards/IMG_6453.png
 
 Replacing old pok3r PCB (red) with new YD60MQ PCB (black)
 The PCB was replaced about a year after the board was first built,
@@ -207,12 +198,10 @@ boards.
 
   [custom keymap]: https://github.com/ecliptik/qmk_firmware/blob/ecliptik/keyboards/yd60mq/keymaps/ecliptik/keymap.c
 
-
 Final Product
 
 [[pok3r Final Form][]]
 
-  [pok3r Final Form]: /assets/images/keyboards/pok3r.jpg
 
 pok3r Final Form
 With all these features checked off the list, the pok3r is is my daily

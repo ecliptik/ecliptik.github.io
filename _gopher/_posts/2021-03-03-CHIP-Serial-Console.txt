@@ -20,7 +20,6 @@ but what’s the fun in that? So I took the oppurtunity to do both.
   [install OpenBSD onto a RaspberryPi 3]: https://brainsnapped.com/2020/10/22/openbsd-on-the-raspberry-pi-3-model-b/
   [full installation procedure]: https://www.openbsd.org/faq/faq4.html
 
-
 Hardware
 
 Following the Hackernoon post, and using the [RPI GPIO
@@ -37,8 +36,6 @@ portable.
   [C.H.I.P. Serial Console]: /assets/images/posts/pocket-chip-serial.png
 
 C.H.I.P. Serial Console
-
-
 Software
 
 To connect via serial console, first release /dev/ttyS0 from systemd,
@@ -63,7 +60,6 @@ data, but after remembering how to use the OpenBSD disk partitioner -
 OpenBSD 6.8 was running on a RaspberryPi 3. Once the installation is
 complete, if DHCP was setup during install, connecting to it over ssh
 is trivial and no longer requires the serial console.
-
 
 Conclusion
 

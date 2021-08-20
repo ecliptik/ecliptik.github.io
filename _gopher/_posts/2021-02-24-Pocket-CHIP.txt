@@ -17,7 +17,6 @@ of pico8.
 
 [[Pocket C.H.I.P.][1]]
 
-  [1]: /assets/images/posts/pocket-chip.png
 
 Pocket C.H.I.P.
 I wanted to updated it to at least Debian 10, and found a [working
@@ -32,7 +31,6 @@ guide, like the FN keys no longer working on the built-in keyboard and
 pico8 failing to start. I spent some time tackling these issues and
 now have a fully working Debian 10 Pocket C.H.I.P. with pico8 and a
 functioning keyboard.
-
 
 Fixing FN Keys
 
@@ -80,7 +78,6 @@ For reference /home/chip/.Xmodmap is,
     keycode 114 = Right NoSymbol End
     keycode 116 = Down NoSymbol Next
 
-
 Updating Pico8
 
 Downloaded latest Pico8 for the C.H.I.P. from [lexaloffle.com][] and
@@ -124,7 +121,6 @@ path in LD_LIBRARY_PATH,
     /usr/lib/pico8/pico8
 
 Running Pico8 from the Pocket C.H.I.P. launcher will now work.
-
 
 Changing the Window Manager
 
@@ -219,7 +215,6 @@ setup [evdev-right-click-emulation][].
 
     # Have evdev-rce start on boot
     echo "/usr/local/bin/evdev-rce &" | sudo tee -a /etc/rc.local
-
 
 Conclusion
 

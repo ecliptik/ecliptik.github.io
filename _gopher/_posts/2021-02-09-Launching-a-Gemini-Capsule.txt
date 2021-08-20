@@ -4,7 +4,6 @@ tags: gemini smallweb 100daystooffload
 date: 2021-02-09
 ___________________________________________
 
-
 Gemawhat?
 
 Even since I started [using Mastodon][] a couple of weeks ago,
@@ -35,7 +34,6 @@ gone, Gemini has modern features but still sticks to simplicity,
 -   MIME type support
 -   Support for multiple protocols; gemini://, gopher://, http://
 
-
 Creating a Capsule
 
 Creating a Gemini Capsule was a much lower barrier than it seems,
@@ -57,7 +55,6 @@ option. This is also where [my gopherhole][] is hosted.
   [large number of Gemini servers]: https://github.com/kr1sp1n/awesome-gemini#servers
   [rawtext.club]: https://rawtext.club
   [my gopherhole]: gopher://rawtext.club:70/1~ecliptik
-
 
 Creating a Toolset
 
@@ -194,8 +191,6 @@ Here’s the script in action building the gopherhole and capsule,
   [Gemlog in Lagrange]: /assets/images/posts/gemlog-in-lagrange.png
 
 Gemlog in Lagrange
-
-
 What’s Next
 
 Now that I have a better understanding of how Gopher and Gemini work,

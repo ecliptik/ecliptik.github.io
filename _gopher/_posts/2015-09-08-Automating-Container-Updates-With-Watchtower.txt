@@ -34,7 +34,6 @@ That’s where [Watchtower][] comes in.
 
   [1]: /assets/images/posts/watchtower.jpg
 
-
 Simple Case Study
 
 For a simple case study, two containers, one running [nginx][] and the
@@ -88,7 +87,6 @@ and restart the container using the updated image,
     time="2015-09-08T23:36:11Z" level=info msg="Found new nginx;latest image (84b9c9eec0387b6fd3f41325acddde84f2fd2c1efea9b7c398826b71eeba8822)"
     time="2015-09-08T23:36:12Z" level=info msg="Stopping /nginx (351486f71db2b658a176a594fc7408b0859a7998bdcd03d204c9654a81279c13) with SIGTERM"
     time="2015-09-08T23:36:27Z" level=info msg="Starting /nginx"
-
 
 Conclusion
 

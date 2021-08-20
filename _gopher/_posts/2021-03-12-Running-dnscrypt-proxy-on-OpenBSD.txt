@@ -59,10 +59,9 @@ and was more eye-candy that utilitarian. I decided to setup
 dnscrypt-proxy to mimic the blocking capabilities of the Pi-hole and
 enabled some more of the advanced features.
 
-
 Installing dnscrypt-proxy on OpenBSD
 
-Because dnscryupt-proxy is in the OpenBSD package repo, installation
+Because dnscrypt-proxy is in the OpenBSD package repo, installation
 was a simple as,
 
     $ doas pkg_add dnscrypt-proxy
@@ -77,7 +76,6 @@ in preparation for OpenBSD 6.9 and can install without issue on 6.8.
 
     $ wget https://cdn.openbsd.org/pub/OpenBSD/snapshots/packages/aarch64/dnscrypt-proxy-2.0.45.tgz
     $ doas pkg_add dnscrypt-proxy-2.0.45.tgz
-
 
 Configuring dnscrypt-proxy on OpenBSD
 
@@ -421,7 +419,6 @@ Reboot, and /tmp will now show up as a mfs type,
 
     $ mount | grep /tmp
     mfs:73353 on /tmp type mfs (asynchronous, local, nodev, nosuid, size=524288 512-blocks)
-
 
 Full Configuration
 

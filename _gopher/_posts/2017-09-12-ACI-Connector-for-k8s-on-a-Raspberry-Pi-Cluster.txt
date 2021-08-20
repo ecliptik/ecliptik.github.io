@@ -30,7 +30,6 @@ https://thenewstack.io/azure-container-instances-mean-cheaper-agile-container-to
 - https://docs.microsoft.com/en-us/azure/container-instances/ -
 https://azure.microsoft.com/en-us/blog/announcing-azure-container-instances/
 
-
 Creating an aci-connector-k8s ARM Image for Raspberry Pi
 
 The upstream aci-connector-k8s image is x86 only, but since it’s
@@ -166,7 +165,7 @@ Dockefile below to use multi-stage builds for improved image size.
     CMD ["connector.js"]
 
 With an updated Dockerfile in the cloned repo, build the
-aci-connector-k8s image _on_ a Raspberry Pi,
+aci-connector-k8s image on a Raspberry Pi,
 
     docker build -t ecliptik/aci-connector-k8s:alpine-armhf .
     docker push ecliptik/aci-connector-k8s:alpine-armhf
@@ -175,7 +174,6 @@ aci-connector-k8s image _on_ a Raspberry Pi,
   Docker for Mac or Multiarch may result in errors like
   "SyntaxError: Unexpected end of JSON input". The image only seems to
   build on native Raspberry Pi or ARM hardware.
-
 
 Running the ACI Connector
 
@@ -210,12 +208,11 @@ Under spec in the examples/aci-connector.yaml add the RBAC role,
     serviceAccountName: aci-connector-sa
 
 Finally after the connector is setup to use the armhf image and RBAC,
-follow the rest of the _Quickstart_ guide in the aci-connector-k8s
+follow the rest of the Quickstart guide in the aci-connector-k8s
 [README][] to set up everything else required to run the connector
 (Azure keys, deployment of service, etc).
 
   [README]: https://github.com/Azure/aci-connector-k8s/blob/master/README.md
-
 
 Working Example
 
@@ -284,7 +281,6 @@ Verify pod deployed and is running in ACI,
      NAME                             READY     STATUS    RESTARTS   AGE       IP               NODE
      aci-connector-1696751608-tcjcq   1/1       Running   0          24m       10.244.2.4       tael
      nginx                            1/1       Running   0          10s       104.42.235.280   aci-connector
-
 
 General Docker on ARM Links
 

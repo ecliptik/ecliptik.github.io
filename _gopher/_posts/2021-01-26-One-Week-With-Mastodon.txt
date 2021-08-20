@@ -11,7 +11,6 @@ than I was expecting.
   [my first toot]: https://fosstodon.org/@ecliptik/105585397423041642
   [Mastodon]: https://joinmastodon.org
 
-
 Choosing an Instance
 
 One of the first things you do when signing up for Mastodon is [choose
@@ -27,7 +26,6 @@ fits my style of computing and online interests.
   [choose an instance]: https://joinmastodon.org/communities
   [Fosstodon]: https://hub.fosstodon.org/about/
   [Free and Open Source Software]: https://en.wikipedia.org/wiki/Free_and_open-source_software
-
 
 Trying Things Out
 
@@ -46,7 +44,6 @@ few things out there just to test out the interface and gain
 confidence in using the service.
 
   [local feed]: https://fosstodon.org/web/timelines/public/local
-
 
 Gemini and Gopherspace
 
@@ -67,7 +64,6 @@ local BBS in the 90s.
   [Gopherspace]: https://en.wikipedia.org/wiki/Gopher_%28protocol%29
   [Fidonet]: https://en.wikipedia.org/wiki/FidoNet
 
-
 512KB Club
 
 The next trending hashtag I saw was #512kbclub, which is a challenge
@@ -87,7 +83,6 @@ territory.
   [toot]: https://fosstodon.org/web/statuses/105600821471040740
   [Goat Counter]: https://www.goatcounter.com
 
-
 100DaysToOffload
 
 Another trending hastag was #100daystooffload, a challenge to [write
@@ -97,7 +92,6 @@ since it gives a goal to strive for and even if no one reads them it
 will provide personal growth experience.
 
   [write 100 personal blog posts in one year]: https://100daystooffload.com
-
 
 Bitwarden
 
@@ -110,7 +104,6 @@ which was a much easier process than I expected.
 
   [Bitwarden]: https://bitwarden.com
 
-
 ScreenShotSunday
 
 It turns out on Sundays a thing to do on Fosstodon is post screenshots
@@ -121,7 +114,6 @@ leading to my highest “engagement”.
 
   [screenshots through the years]: https://www.ecliptik.com/Screenshots-Over-the-Years/
   [RedHat Linux 6.1 in 2000]: https://fosstodon.org/@ecliptik/105611942604393139
-
 
 Summary
 

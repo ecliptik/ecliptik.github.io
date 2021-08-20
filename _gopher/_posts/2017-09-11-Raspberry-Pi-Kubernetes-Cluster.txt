@@ -16,13 +16,12 @@ official way!][] with some additions to fix things I ran into when
 following the guide. This guide uses a 64-bit version of HypriotOS and
 only armv8 64-bit Docker images will work.
 
-  [Setup Kubernetes on a Raspberry Pi Cluster easily the official
-  way!]: https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/
+  [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!]:
+    https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/
 
 [[RPI Cluster][]]
 
   [RPI Cluster]: /assets/images/posts/k8s-rpi-cluster.jpg
-
 
 Installing and Configuring HypriotOS
 
@@ -42,7 +41,6 @@ To begin, boot the Raspberry Pi to Hypriot, login and update system,
 
     sudo apt update
     sudo apt upgrade -y
-
 
 Installing Kubernetes
 
@@ -96,7 +94,6 @@ Install flannel using arm64 images,
 
     curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed "s/amd64/arm64/g" | kubectl create -f -
 
-
 Setup Worker Nodes
 
 On each worker node run the kubeadm join command that was output after
@@ -105,7 +102,6 @@ successfully running kubeadm init on the master node.
 Join the node to the cluster,
 
     sudo kubeadm join --token=$TOKEN
-
 
 Verifying
 
@@ -132,7 +128,6 @@ Show Pod Status,
     kube-system   kube-proxy-r78jd               1/1       Running   0          14m
     kube-system   kube-proxy-tfdjr               1/1       Running   0          8m
     kube-system   kube-scheduler-navi            1/1       Running   0          15
-
 
 Run A Test Pod
 

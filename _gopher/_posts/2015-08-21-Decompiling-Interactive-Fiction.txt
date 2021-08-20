@@ -12,7 +12,6 @@ required to input into the interpreter.
 
   [Aisle]: http://iplayif.com/?story=http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js
 
-
 Finding the Source
 
 I took a look at the source and discovered Aisle was using a tool
@@ -53,7 +52,6 @@ P-Machine).
   [history]: http://inform7.com/if/interpreters/
   [UCSD Pascal]: https://en.wikipedia.org/wiki/UCSD_Pascal
 
-
 Decoding Z-Machine
 
 Now that the raw source was available, the next step was actually
@@ -64,14 +62,14 @@ browser.
 
   [Frotz]: http://frotz.sourceforge.net/
 
-Some addition searches didn’t really uncover much on how to
-_de-compile_ a Z-Machine file. Nothing in the Debian repos, and some
-additional man pages for Frotz didn’t lead to much.
+Some addition searches didn’t really uncover much on how to de-compile
+a Z-Machine file. Nothing in the Debian repos, and some additional man
+pages for Frotz didn’t lead to much.
 
 Finally I found [Z-Code Tools][]. There was no compiled binaries for
 Linux, and if there were, they probably don’t work anymore on a newer
 version of Linux. I downloaded the source and a make later made the
-binaries magically appear. The freshly compiled TXD tool finally
+binaries magically appear. The freshly compiled txd tool finally
 yielded the results I wanted:
 
   [Z-Code Tools]: http://inform-fiction.org/zmachine/zcode.html
@@ -88,7 +86,6 @@ interested in taking a look.
 There are many other tools included in ztools that can provide
 additional information, such as listing a dictionary of available
 actions and commands.
-
 
 Final Thoughts
 

@@ -14,7 +14,6 @@ source code under GNU/Linux.
   [ubuntu]: https://sites.google.com/a/chromium.org/dev/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information/how-to-boot-ubuntu-on-a-cr-48
   [developer mode]: https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information
 
-
 Vim
 
 When I first went into the developer shell I saw approximately 1000
@@ -47,7 +46,7 @@ This will make a static binary called vi' in thesrc’ directory. On the
 CR-48 in /home/chronos/user' make a directory calledbin’ and scp the
 `vi’ binary to it.
 
-Try and execute it, but you’ll get a _Permission Denied_ error because
+Try and execute it, but you’ll get a Permission Denied error because
 by default the
 /home/chronos/user' directory is mounted with thenoexec’ option. Fix
 this by remounting it with `exec.’
@@ -55,7 +54,6 @@ this by remounting it with `exec.’
         chronos@localhost ~ $ sudo mount -i -o remount,exec /home/chronos/user
 
 Now the binary will run and you have a basic vi editor.
-
 
 rdesktop
 
@@ -77,7 +75,6 @@ properly due to the keymap not getting set correctly. This may be due
 to a libiconv issue and I’ll need to spend some more time figuring it
 out.
 
-
 External Monitors
 
 While the CR-48 works just fine with it’s VGA output without much
@@ -95,14 +92,12 @@ default 1280x800:
 
     chronos@localhost ~ $ xrandr --output LVDS1 --mode 1280x800 --output VGA1 --off
 
-
 X Forwarding
 
 The simplest piece to enable is X-forwarding from a remote X client.
 Connect over ssh with the -Y option and run any X applications:
 
     chronos@localhost ~ $ ssh -Y USER@HOSTNAME
-
 
 Bringing It All Together
 

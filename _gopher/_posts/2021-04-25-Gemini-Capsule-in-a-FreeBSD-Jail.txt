@@ -26,7 +26,6 @@ same time.
 
   [Gemini]: https://gemini.circumlunar.space
 
-
 Installing FreeBSD on a RaspberryPi
 
 Installing FreeBSD on a RaspberryPi is relatively easy, [downloading
@@ -46,7 +45,6 @@ A few post-install things I did to secure the host more,
 
   [doas]: https://man.openbsd.org/doas
 
-
 Setting up NTP
 
 Since the RPI doesn’t have a real-time clock, setting up NTP is
@@ -61,7 +59,6 @@ issues with TLS and other commands.
 
     # Start ntpd
     host$ doas service ntpd onestart
-
 
 Setting up the Jail
 

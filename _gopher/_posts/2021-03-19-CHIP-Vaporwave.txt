@@ -18,8 +18,6 @@ running in X, but in the console framebuffer, which gives it more
   [Vaporwave in Pocket C.H.I.P]: /assets/images/posts/chip_vaporwave/chip-vaporwave.png
 
 NEON PALM MALL in C.H.I.P. Framebuffer
-
-
 Required Software
 
 The C.H.I.P. is fully upgraded to Debian Buster, and there were some
@@ -52,7 +50,6 @@ Install youtube-dl,
 
     $ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
     $ sudo chmod a+rx /usr/local/bin/youtube-dl
-
 
 Downloading Videos
 
@@ -112,7 +109,6 @@ and merge into an mp4 container,
     Deleting original file NEON PALM MALL (Vaporwave Mix + Video)-FZUfiW3W1KY.f133.mp4 (pass -k to keep)
     Deleting original file NEON PALM MALL (Vaporwave Mix + Video)-FZUfiW3W1KY.f140.m4a (pass -k to keep)
 
-
 Playback
 
 By default the console will blank after a period of time, turn that
@@ -130,7 +126,6 @@ to adjust the volume.
 
 Keyboard controls for mplayer will work on the C.H.I.P. keyboard, with
 q to quit and arrow keys to browse the video.
-
 
 Notes
 

@@ -46,7 +46,7 @@ The only thing that was missing was the nicer GUI interface of Pi-hole, but I ra
 
 ## Installing dnscrypt-proxy on OpenBSD
 
-Because `dnscryupt-proxy` is in the OpenBSD package repo, installation was a simple as,
+Because `dnscrypt-proxy` is in the OpenBSD package repo, installation was a simple as,
 
 ```bash
 $ doas pkg_add dnscrypt-proxy

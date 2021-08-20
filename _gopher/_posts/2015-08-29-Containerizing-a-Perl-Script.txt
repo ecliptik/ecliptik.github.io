@@ -13,7 +13,6 @@ look at it again. What to do?
 
   [CPAN]: http://www.cpan.org/
 
-
 Executable Containers
 
 Most articles on containers focus on running a service, exposing ports
@@ -27,7 +26,6 @@ emphermal container, disappearing when the command is complete.
 
   [Docker]: https://www.docker.com
   [ENTRYPOINT]: https://docs.docker.com/reference/builder/#entrypoint
-
 
 Dockerfile
 
@@ -97,7 +95,6 @@ Here is the [Dockerfile][] in full,
 
     # Set Entrypoint
     ENTRYPOINT [ "/app/ps.pl" ]
-
 
 Dockerfile Breakdown
 
@@ -182,7 +179,6 @@ Set ENTRYPOINT to the [ps.pl][] script,
     # Set entrypoint
     ENTRYPOINT [ "/app/ps.pl" ]
 
-
 Running the Containerized Perl Script
 
 Now that the Dockerfile is complete, build a container image with the
@@ -238,7 +234,6 @@ exits,,
     environ:  ARRAY(0x55fb472dd500)
     tracer:  0
 
-
 Command Line Arguments
 
 Command line arguments will also pass into the container when run
@@ -256,7 +251,6 @@ using the [CMD][] to pass to ENTRYPOINT,
     🚀➜ docker run -it --rm ps-perl -v
     Version: 1.0
 
-
 Conclusions
 
 By using the -slim variant of Debian for the base image and
@@ -271,7 +265,6 @@ libc and glibc differences][].
 
     🚀➜ docker images
     ps-perl             latest              938c3dde86d7        29 minutes ago      134MB
-
 
 Additional References
 

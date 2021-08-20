@@ -32,8 +32,6 @@ the following information,
   [Pocket C.H.I.P Terminal Dashboard]: /assets/images/posts/chip_terminal/IMG_6909.png
 
 Pocket C.H.I.P. Terminal Dashboard
-
-
 Setup
 
 [Tmux][] is the heart of the setup, with each applet in it’s own

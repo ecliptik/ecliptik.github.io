@@ -86,7 +86,7 @@ markdown2gopher () {
   echo "date: ${post_date}" >> "${output_head}"
   echo "___________________________________________" >> "${output_head}"
   echo "" >> "${output_head}"
-  cat "${output_head}" "${output_tmp}" > "${output}"
+  cat "${output_head}" "${output_tmp}" | grep -v '"fig:"'> "${output}"
 
   #Cleanup temp head files
   rm -fr "${output_head}" "${output_tmp}" "${clean_file}"
