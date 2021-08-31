@@ -18,10 +18,7 @@ Experienced DevOps Engineer and Technical Account Manager with 20+ years experie
 ## Certifications
 - [Google Cloud Professional Cloud Architect](https://www.credential.net/7d6a6c1c-5355-4324-9165-f12bb06c37c2)
 - [Certified Kubernetes Administrator](https://www.credly.com/badges/07c2cb01-c0a6-4d7c-9dcb-246b728e43b2)
-<<<<<<< HEAD
 - [AWS Certified Solutions Architect – Associate](https://www.credly.com/badges/29cb8214-7882-45c3-9715-8fe216d43ade)
-=======
->>>>>>> 6774df59cc6fa783a4c1801ecb6b949cc9225543
 
 ## Skills
 
