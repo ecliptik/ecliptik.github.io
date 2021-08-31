@@ -5,7 +5,7 @@ permalink: /about/
 tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre
 ---
 
-Experienced DevOps Engineer and Technical Account Manager with 20+ years experience working in [Education Institutions](https://www.ucsd.edu), [Fortune 500](https://www.qualcomm.com), [startups](https://www.demandbase.com), and [Cloud Computing Services](https://aws.amazon.com).
+Experienced DevOps Engineer and Technical Account Manager with 20+ years experience working in [Educational Institutions](https://www.ucsd.edu), [Fortune 500](https://www.qualcomm.com), [Startups](https://www.demandbase.com), and [Cloud Computing](https://aws.amazon.com).
 
 ## Interests
 
