@@ -11,7 +11,8 @@ Email is my preferred method of communication, but am also active on [Fosstodon]
 
 - Email: [{{ site.links.email }}](mailto:{{ site.links.email }})
 - LinkedIn: [{{ site.links.linkedin }}](https://www.linkedin.com/in/{{ site.links.linkedin }}/)
-- Fediverse: [@{{ site.links.mastodon }}@fosstodon.org](https://fosstodon.org/@{{ site.links.mastodon }})
+- Mastodon: [@{{ site.links.mastodon }}@fosstodon.org](https://fosstodon.org/@{{ site.links.mastodon }})
+- GPG/Keyoxide: [{{ site.links.keyoxide }}](https://keyoxide.org/hkp/{{ site.links.keyoxide }})
 - Keybase: [{{ site.links.keybase }}](https://keybase.io/{{ site.links.keybase }})
 - IRC: [ecliptik@oftc.net](https://www.oftc.net)
 - Matrix: [@ecliptik:matrix.org](https://matrix.org)
