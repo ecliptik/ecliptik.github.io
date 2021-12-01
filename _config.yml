@@ -62,6 +62,9 @@ plugins:
   - jekyll-gist
   - jekyll-feed
 
+# Include well-known directory
+include: [".well-known"]
+
 # Exclude these files from your production _site
 exclude:
     - Gemfile
