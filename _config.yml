@@ -62,6 +62,7 @@ plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-gist
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Include well-known directory
 include: [".well-known"]
