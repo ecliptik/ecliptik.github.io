@@ -15,12 +15,11 @@ tags: blog
 {% for temptag in sortedtemptags %}
   {% assign tagitems = temptag | split: '#' %}
   {% capture tagname %}{{ tagitems[1] }}{%- endcapture %}
-  <a href="/tag/{{ tagname }}"><nobr>{{ tagname }}</nobr></a>
+  <a style="font-size: .75em" href="/tag/{{ tagname }}"><nobr>{{ tagname }}</nobr></a>
   {% endfor %}
 
-<hr>
-
 <h2>Posts</h2>
+{% include search-form.html %}
 <table>
 {% for post in site.posts %}
   <tr>

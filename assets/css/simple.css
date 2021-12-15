@@ -81,8 +81,8 @@ body {
 
 /* Make the main element a nice central block */
 main {
-  margin: 1rem auto 0;
-  padding: 1.5rem 15rem;
+  margin: 0rem auto 0;
+  padding: 0rem 15rem;
   flex: 1;
 }
 
@@ -127,21 +127,21 @@ header h2 {
 
 /*Header for posts*/
 main h1 {
-  margin-top: calc(var(--line-height) * 1rem) !important;
+  margin-top: calc(var(--line-height) * .5rem) !important;
   margin: 0;
   color: var(--accent-light) !important;
   font-size: 2rem;
 }
 
 main h2 {
-  margin-top: calc(var(--line-height) * 1rem) !important;
+  margin-top: calc(var(--line-height) * .5rem) !important;
   margin: 0;
   color: var(--accent-light) !important;
   font-size: 1.75rem;
 }
 
 main h3 {
-  margin-top: calc(var(--line-height) * 1rem) !important;
+  margin-top: calc(var(--line-height) * .5rem) !important;
   margin-top: 0;
   color: var(--accent-light) !important;
   font-size: 1.5rem;
@@ -149,14 +149,14 @@ main h3 {
 
 main h4 {
   color: var(--text-light) !important;
-  margin-top: calc(var(--line-height) * 1rem) !important;
+  margin-top: calc(var(--line-height) * .5rem) !important;
   margin: 0;
   font-size: 1.25rem;
 }
 
 main h5 {
   color: var(--text-light) !important;
-  margin-top: calc(var(--line-height) * 1rem) !important;
+  margin-top: calc(var(--line-height) * .5rem) !important;
   margin: 0;
 }
 
@@ -397,6 +397,7 @@ table caption {
 ol,
 ul {
 	padding-left: 3rem;
+	margin-top: .1rem;
 }
 
 /* Format forms */
