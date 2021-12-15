@@ -125,6 +125,21 @@ header h2 {
   font-size: 1rem;
 }
 
+
+/*Search*/
+ul#results-container {
+  padding: .25rem;
+  list-style-type: none;
+}
+
+#results-container li {
+  margin-bottom: .25rem;
+}
+
+span.post-meta {
+  font-size: 1rem;
+}
+
 /*Header for posts*/
 main h1 {
   margin-top: calc(var(--line-height) * .5rem) !important;
