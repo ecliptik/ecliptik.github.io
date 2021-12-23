@@ -21,3 +21,5 @@ E-mail is my preferred method of communication, but I am also regularly post on 
 - [Debian Salsa](https://salsa.debian.org/ecliptik)
 - [Gemini](gemini://rawtext.club/~ecliptik/)
 - [Gopher](gopher://rawtext.club:70/1~ecliptik)
+- [Handshake](https://blog.ecliptik)
+- [IPFS](ipns://ipfs.ecliptik.com)
