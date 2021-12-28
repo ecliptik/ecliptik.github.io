@@ -16,7 +16,6 @@ A couple of weeks ago a friend of mine pointed me to the web-based interactive f
 
 => http://iplayif.com/?story=http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js 1: http://iplayif.com/?story=http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js
 
-
 ## Finding the Source
 
 I took a look at the source and discovered Aisle was using a tool called Parchment[2], which is designed for interactive web fiction. Looking at the javascript source of Aisle, it is basically a [http://parchment.toolness.com/if-archive/games/zcode/Aisle.z5.js](base64 text blob) in a javascript function passed to Parchment.

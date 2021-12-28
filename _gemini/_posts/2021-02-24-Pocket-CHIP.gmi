@@ -19,7 +19,6 @@ Recently I got a Pocket C.H.I.P.[1] with the idea of making it mini terminal on 
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/pocket-chip.png Pocket C.H.I.P. [IMG]
 
-
 I wanted to updated it to at least Debian 10, and found a working guide[3] which follows the basic Debian upgrade process as well as some fixes for common issues like Xorg configs and updating wifi settings.
 
 => https://gist.github.com/luzhuomi/526fbcc30f3522f09eacf20d0f776fa5 3: https://gist.github.com/luzhuomi/526fbcc30f3522f09eacf20d0f776fa5
@@ -183,7 +182,6 @@ sudo systemctl restart lightdm
 ```
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/fluxbox-chip.png Fluxbox on PocketCHIP [IMG]
-
 
 ### Right Click
 

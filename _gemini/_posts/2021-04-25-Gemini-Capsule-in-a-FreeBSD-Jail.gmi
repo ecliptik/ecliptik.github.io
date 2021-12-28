@@ -40,11 +40,11 @@ A few post-install things I did to secure the host more,
 * Remove the `freebsd` user with `doas rmuser freebsd`
 * Set strong root password
 
+=> https://man.openbsd.org/doas 7: https://man.openbsd.org/doas
+
 ## Setting up NTP
 
 Since the RPI doesn't have a real-time clock, setting up NTP is crucial for accurate time, which if not set can cause all sorts of issues with TLS and other commands.
-
-=> https://man.openbsd.org/doas 7: https://man.openbsd.org/doas
 
 ```shell
 # Enabe ntpd

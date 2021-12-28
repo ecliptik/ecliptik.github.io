@@ -152,7 +152,7 @@ count_posts () {
   done
 
   # Get 10 most recent posts
-  recent_posts=("${rev_all[@]:0:10}")
+  recent_posts=("${rev_all[@]:0:11}")
 }
 
 create_gophermap () {

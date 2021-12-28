@@ -24,9 +24,11 @@
 => gemini://rawtext.club/~ecliptik/_tags/fediverse.gmi fediverse
 => gemini://rawtext.club/~ecliptik/_tags/freebsd.gmi freebsd
 => gemini://rawtext.club/~ecliptik/_tags/gemini.gmi gemini
+=> gemini://rawtext.club/~ecliptik/_tags/git.gmi git
 => gemini://rawtext.club/~ecliptik/_tags/github.gmi github
 => gemini://rawtext.club/~ecliptik/_tags/google.gmi google
 => gemini://rawtext.club/~ecliptik/_tags/gopher.gmi gopher
+=> gemini://rawtext.club/~ecliptik/_tags/gpg.gmi gpg
 => gemini://rawtext.club/~ecliptik/_tags/hack.gmi hack
 => gemini://rawtext.club/~ecliptik/_tags/hardware.gmi hardware
 => gemini://rawtext.club/~ecliptik/_tags/index.gmi index
@@ -42,8 +44,10 @@
 => gemini://rawtext.club/~ecliptik/_tags/qmk.gmi qmk
 => gemini://rawtext.club/~ecliptik/_tags/raspberrypi.gmi raspberrypi
 => gemini://rawtext.club/~ecliptik/_tags/smallweb.gmi smallweb
+=> gemini://rawtext.club/~ecliptik/_tags/ssh.gmi ssh
 => gemini://rawtext.club/~ecliptik/_tags/technology.gmi technology
 => gemini://rawtext.club/~ecliptik/_tags/ubuntu.gmi ubuntu
+=> gemini://rawtext.club/~ecliptik/_tags/unix.gmi unix
 => gemini://rawtext.club/~ecliptik/_tags/vim.gmi vim
 => gemini://rawtext.club/~ecliptik/_tags/watchtower.gmi watchtower
 => gemini://rawtext.club/~ecliptik/_tags/zmachine.gmi zmachine

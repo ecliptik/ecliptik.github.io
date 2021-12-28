@@ -25,6 +25,7 @@ I won't go into full detail on what Gemini is, but similar to why I made a Gophe
 => https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/ 4: https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/
 
 > Gemini is a new, collaboratively designed internet protocol, which explores the space in between gopher and the web, striving to address (perceived) limitations of one while avoiding the (undeniable) pitfalls of the other.
+
 While setting up a Gopherhole was fun and a throwback to an era long gone, Gemini has modern features but still sticks to simplicity,
 
 * Encryption by default
@@ -164,7 +165,6 @@ Wrote Atom feed to ../_gemini/_posts/feed.xml.
 ```
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/gemlog-in-lagrange.png Gemlog in Lagrange [IMG]
-
 
 ## What's Next
 
