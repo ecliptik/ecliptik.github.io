@@ -15,13 +15,15 @@ Assuming system is running MacOS install [gpg](https://gnupg.org/) and pinentry 
 brew install gnupg pinentry-mac
 ```
 
-`~/.gnupg/gpg-agent.conf`
+
+Edit `~/.gnupg/gpg-agent.conf` and make sure that ${HOME} is the full path to your users home dir, eg `/Users/$USER`, this must match what's setup in the `~/.ssh/config` `RemoteForward` section later,
 
 ```
 default-cache-ttl 600
 max-cache-ttl 7200
 enable-ssh-support
 pinentry-program /usr/local/bin/pinentry-mac
+extra-socket ${HOME}/.gnupg/S.gpg-agent.extra
 ```
 
 `~/.gnupg/gpg.conf` (where `$GPG_KEY` is the fingerprint of the GPG key to use)
