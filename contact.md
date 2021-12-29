@@ -2,7 +2,7 @@
 layout: default
 title: Contact
 permalink: /contact/
-tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre
+tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre ipfs handshake
 ---
 
 E-mail is my preferred method of communication, but I am also regularly post on [Fosstodon](https://fosstodon.org/) and am frequently available on [Matrix](https://matrix.org).
@@ -21,6 +21,5 @@ E-mail is my preferred method of communication, but I am also regularly post on 
 - [Debian Salsa](https://salsa.debian.org/ecliptik)
 - [Gemini](gemini://rawtext.club/~ecliptik/)
 - [Gopher](gopher://rawtext.club:70/1~ecliptik)
-- [Handshake](https://blog.ecliptik)
-- [IPFS](ipns://ipfs.ecliptik.com)
-- [ENS](https://ecliptik.eth)
+- [IPFS](ipns://ecliptik.eth)
+- [Handshake](https://ecliptik.hns.to)
