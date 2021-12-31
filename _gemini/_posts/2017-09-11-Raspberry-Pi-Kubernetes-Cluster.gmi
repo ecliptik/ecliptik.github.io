@@ -32,9 +32,9 @@ Flash HypriotOS 64-bit[5] to SD card. By using HypriotOS we can avoid a lot of t
 
 > You can skip the following steps for updating, setting up the k8s repo, and installing the k8s package using `--userdata` with the flash[6] tool. See this example[7].
 > 
+> 
 => https://github.com/hypriot/flash 6: https://github.com/hypriot/flash
 => https://github.com/ecliptik/rpi/blob/master/hypriot/user-data.yml 7: https://github.com/ecliptik/rpi/blob/master/hypriot/user-data.yml
-
 To begin, boot the Raspberry Pi to Hypriot, login and update system,
 
 ```console
@@ -62,7 +62,6 @@ As root, init the cluster with the network CIDR for Flannel,
 
 > 
 => https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#v180 As of this writing this will install and configure Kubernetes 1.8
-
 ```console
 kubeadm init --pod-network-cidr 10.244.0.0/16
 ```
@@ -88,8 +87,8 @@ Install flannel using arm64 images,
 
 > With older versions of flannel, additinoal iptables rules were required, this was fixed in v0.9.1[11] (thanks for the tip Frank!)
 > 
+> 
 => https://github.com/coreos/flannel/pull/872 11: https://github.com/coreos/flannel/pull/872
-
 ```console
 curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed "s/amd64/arm64/g" | kubectl create -f -
 ```
@@ -142,8 +141,8 @@ Using Docker Hub Official Multi-Platform Images[12] makes running official Docke
 
 > Official images based off Alpine Linux currently do not work - see Issue #304[13] for more information.
 > 
+> 
 => https://github.com/gliderlabs/docker-alpine/issues/304 13: https://github.com/gliderlabs/docker-alpine/issues/304
-
 In this example, we'll run the official nginx image[14] and have it listen on port 80.
 
 => https://hub.docker.com/_/nginx/ 14: https://hub.docker.com/_/nginx/
@@ -174,7 +173,6 @@ nginx        10.244.1.2:80,10.244.1.3:80,10.244.2.2:80   23s
 Run curl against an endpoint IP to test,
 
 > `curl` should work against all endpoint IPs on all nodes
-
 ```console
 $ curl 10.244.2.2 | head -n 5
 <DOCTYPE html>

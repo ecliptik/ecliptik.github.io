@@ -21,7 +21,6 @@ While the recent announcement of Docker Hub Official Multi-platform support[2] m
 => https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/ 2: https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/
 
 > Cross-building is defined as building a foreign architecture image different from the hosts architecture, such as building a armhf image on a x86 machine.
-
 There are three methods of cross-building and running multi-arch Docker images each with different considerations,
 
 * Docker for Mac
@@ -76,7 +75,6 @@ Most major Linux distributions have a way of setting up `binfmt_misc` using qemu
 => https://github.com/multiarch/qemu-user-static 8: https://github.com/multiarch/qemu-user-static
 
 > Installing `qemu-user-static` using a container requires privileged mode since it will register binaries in the host systems `/proc` space
-
 To setup `qemu-user-static`, follow the README[9], which basically consists of,
 
 => https://github.com/multiarch/qemu-user-static/blob/master/README.md 9: https://github.com/multiarch/qemu-user-static/blob/master/README.md
@@ -127,15 +125,14 @@ Known repos that have `qemu` enabled images,
 * https://hub.docker.com/u/multiarch/[12][13]
 * https://hub.docker.com/u/resin/[14][15]
 
-=> https://hub.docker.com/u/multiarch/ 12: https://hub.docker.com/u/multiarch/
-=> https://hub.docker.com/u/multiarch/ 13: https://hub.docker.com/u/multiarch/
-=> https://hub.docker.com/u/resin/ 14: https://hub.docker.com/u/resin/
-=> https://hub.docker.com/u/resin/ 15: https://hub.docker.com/u/resin/
-
 ## QEMU on Linux
 
 Both Debian and Ubuntu include the qemu-user-static[16] package that includes statically built emulation binaries for QEMU[17]. Installing the package on a host x86 architecture and bind mounting a `qemu-*-static` binary will allow the image to run a foreign architecture.
 
+=> https://hub.docker.com/u/multiarch/ 12: https://hub.docker.com/u/multiarch/
+=> https://hub.docker.com/u/multiarch/ 13: https://hub.docker.com/u/multiarch/
+=> https://hub.docker.com/u/resin/ 14: https://hub.docker.com/u/resin/
+=> https://hub.docker.com/u/resin/ 15: https://hub.docker.com/u/resin/
 => https://packages.debian.org/sid/qemu-user-static 16: https://packages.debian.org/sid/qemu-user-static
 => https://wiki.qemu.org/Main_Page 17: https://wiki.qemu.org/Main_Page
 
@@ -202,15 +199,15 @@ Known official Docker multi-arch images,
 * s390x[24]
 * ppc64le[25]
 
+## Final Considerations
+
+Cross-building Docker images is different than the recent Docker Hub Multi-arch support announcement in September 2017. That announcement is a feature of Docker Hub where a repository can have a single image name and include multiple architectures in a manifest. This means that when running Docker on any supported hardware with a multi-arch enabled image, Docker will know to use the proper image for the architecture
+
 => https://hub.docker.com/u/arm32v6/ 21: https://hub.docker.com/u/arm32v6/
 => https://hub.docker.com/u/arm32v7/ 22: https://hub.docker.com/u/arm32v7/
 => https://hub.docker.com/u/arm64v8/ 23: https://hub.docker.com/u/arm64v8/
 => https://hub.docker.com/r/s390x/ 24: https://hub.docker.com/r/s390x/
 => https://hub.docker.com/u/ppc64le/ 25: https://hub.docker.com/u/ppc64le/
-
-## Final Considerations
-
-Cross-building Docker images is different than the recent Docker Hub Multi-arch support announcement in September 2017. That announcement is a feature of Docker Hub where a repository can have a single image name and include multiple architectures in a manifest. This means that when running Docker on any supported hardware with a multi-arch enabled image, Docker will know to use the proper image for the architecture
 
 Before, repositories would either maintain seperate images (eg https://hub.docker.com/u/arm64v8/[26]) or tag images with specific architectures (eg multiarch/debian-debootstrap:arm64-jessie). Now most of this is abstracted away and running `docker run -it --rm debian /bin/bash` on x86, armhf, or s390x will automatically know what to do without additional configuration.
 
@@ -220,11 +217,6 @@ Before, repositories would either maintain seperate images (eg https://hub.docke
 
 * https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/[27][28]
 * https://wiki.debian.org/RaspberryPi/qemu-user-static[29][30]
-
-=> https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/ 27: https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/
-=> https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/ 28: https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/
-=> https://wiki.debian.org/RaspberryPi/qemu-user-static 29: https://wiki.debian.org/RaspberryPi/qemu-user-static
-=> https://wiki.debian.org/RaspberryPi/qemu-user-static 30: https://wiki.debian.org/RaspberryPi/qemu-user-static
 
 ### Tags
 

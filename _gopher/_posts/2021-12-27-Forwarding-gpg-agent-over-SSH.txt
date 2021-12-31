@@ -19,12 +19,15 @@ password prompt tool) using [Homebrew][],
 
     brew install gnupg pinentry-mac
 
-~/.gnupg/gpg-agent.conf
+Edit ~/.gnupg/gpg-agent.conf and make sure that
+${HOME} is the full path to your users home dir, eg `/Users/$USER, this must match what's setup in RemoteForward
+later,
 
     default-cache-ttl 600
     max-cache-ttl 7200
     enable-ssh-support
     pinentry-program /usr/local/bin/pinentry-mac
+    extra-socket $HOME/.gnupg/S.gpg-agent.extra
 
 ~/.gnupg/gpg.conf (where $GPG_KEY is the fingerprint of the GPG key to
 use)
@@ -36,15 +39,12 @@ use)
     no-emit-version
 
 Edit ~/.ssh/config and setup a RemoteForward, this is important since
-the forward is required in order for the two gpg-agents to communicate
-over a socket. Make sure the $UID and $USER on the remote and local
-system are set accordingly, as these will differ depending on the OS
-and login.
+the forward is required in order to communicate over a socket. Make
+sure the $UID and $USER on the remote and local system are set
+accordingly, as these will differ depending on the OS and login.
 
-Also double check the socket names, as sometimes they it can be
-something like S.gpg-agent.extra but other times S.gpg-agent-extra,
-note the differences with . and - and always double check as these are
-easy to miss and will cause agent forwarding to not work.
+Also double check the socket names that they match up from
+~/.gnupg/gpg-agent.conf and ~/.ssh/config.
 
 ~/.ssh/config
 

@@ -23,6 +23,7 @@ The obvious questions is why make a Gopherhole (what gopher[1] sites are called)
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/gopher-slides.png Slides from 1992 Gopher presentation [IMG]
 
+
 I was suprised to find not only a flourishing community, but was drawn to the simplicity of the protocol and creating for it. No more thinking about CSS oddities, having to learn whole web stacks with the latest-and-greatest toolsets. Most of what Gopher is now is the same as it was in the early 90s and it's something you can easily start learning about and doing without sinking a lot of time and effort just to get started. It reminds of learning Latin, even though it's a dead language, it's still useful and it will never change. It also has the advantages of being almost entirely text based and there's no tracking, cookies, or any of the risks and privacy concerns associated with the modern web.
 
 For a much more in-depth look on modern Gopher, I recommend reading Burrowing A Gopher Hole[5].
@@ -42,7 +43,6 @@ While browsing Gemini capsules (the term for Gemini sites), I came across the Pu
 => https://rawtext.club 9: https://rawtext.club
 
 > RTC is a non-profit, do-it-yourself social network that uses a smaller, simpler, user-built toolkit. We are proudly the polar opposite of the big, exploitative, corporate-owned social media mega-sites. Not cool. Not easy. Not big. rawtext.club is what you make it. The point is that you can do a LOT using very minimal resources by stringing together command line tricks on a Linux system.
-
 I pondered joining for a few days to make sure I would stick with the commitment and didn't want to join and then lose interest a few weeks later. Even though RTC is a "slow" social network, I wanted to actively particpate in the community and not just be passive and looking for a free handout. Eventually I sent an invite request and was extended a membership. The first few days I spent checking out RTC from the cli; creating a prescense and reading the man pages for the local tools (which are excellent).
 
 Finally I started adding things in `~ecliptik/public_gopher` and got to work on making a gohperhole. Creating a gopherhole has been well covered by others in other blog posts, which I heavily referenced when making the site,
@@ -107,7 +107,9 @@ MAP   [4]  rawtext.club
                               Gophered by Gophernicus/3.1 on Arch/5.10 x86_64
 ```
 
+
 => gemini://rawtext.club/~ecliptik/assets/images/posts/gopher-lagrange-01.png Gopherhole in Lagrange Browser [IMG]
+
 
 ## Phlog
 
@@ -233,6 +235,7 @@ rm -fr ${output}.tmp
 These plaintext posts rendered much nicer and I was happy with how they turned out.
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/gopher-phlog-post-01.png Phlog post in Bombadillo [IMG]
+
 
 One final step was automatically generating a Phlog index of posts. The post Making a Gopherhole[21] that I used when making my own Gopherhole had a script on taking the last 10 posts and generating a gophermap of them. I took this script and modified it some to include some things like a basic layout template.
 

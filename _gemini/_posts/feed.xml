@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>gemini://rawtext.club/~ecliptik/_posts/</id>
   <title>Ecliptik's Gemlog</title>
-  <updated>2021-12-27T00:00:00+00:00</updated>
+  <updated>2021-12-30T00:00:00+00:00</updated>
   <author>
     <name>ecliptik</name>
     <email>gemini@accounts.ecliptik.com</email>
@@ -10,12 +10,6 @@
   <link href="gemini://rawtext.club/~ecliptik/_posts/feed.xml" rel="self"/>
   <link href="gemini://rawtext.club/~ecliptik/_posts/" rel="alternate"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>gemini://rawtext.club/~ecliptik/_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi</id>
-    <title>Making a Gopherhole and Phlog</title>
-    <updated>2021-01-31T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-01-31-Making-a-Gopherhole-and-Phlog.gmi" rel="alternate"/>
-  </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-02-09-Launching-a-Gemini-Capsule.gmi</id>
     <title>Launching a Gemini Capsule</title>
@@ -69,5 +63,11 @@
     <title>Forwarding gpg-agent Over SSH</title>
     <updated>2021-12-27T00:00:00+00:00</updated>
     <link href="gemini://rawtext.club/~ecliptik/_posts/2021-12-27-Forwarding-gpg-agent-over-SSH.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2021-12-30-This-Websites-Is-Now-Available-on-IPFS,-ENS,-and-Handshake.gmi</id>
+    <title>This Websites Is Now Available on IPFS, ENS, and Handshake</title>
+    <updated>2021-12-30T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-12-30-This-Websites-Is-Now-Available-on-IPFS,-ENS,-and-Handshake.gmi" rel="alternate"/>
   </entry>
 </feed>

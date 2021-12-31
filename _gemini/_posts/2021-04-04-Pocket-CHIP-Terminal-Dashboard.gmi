@@ -33,6 +33,7 @@ When I first got my Pocket C.H.I.P.[1] one of the first thoughts I had was to us
 => https://github.com/xorg62/tty-clock 8: https://github.com/xorg62/tty-clock
 => https://github.com/ecliptik/walt-grover 9: https://github.com/ecliptik/walt-grover
 
+
 ## Setup
 
 Tmux[10] is the heart of the setup, with each applet in it's own terminal pane and then borders turned off so it looks like a single seamless screen. Running in tmux has the added benefit of detaching the dashboard, like when you want to watch some vaporwave on the framebuffer[11] or sharing the screen from ssh for remote control.
