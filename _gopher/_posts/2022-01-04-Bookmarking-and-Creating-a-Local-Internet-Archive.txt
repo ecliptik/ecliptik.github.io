@@ -4,11 +4,6 @@ tags: hack bookmarks archiving
 date: 2022-01-04
 ___________________________________________
 
-mg
-
-layout: post title: Bookmarking and Creating a Local Internet Archive
-category: technology tags: hack bookmarks archiving —
-
 While I’m a heavy user of RSS with [Newsblur][], I’ve never had a
 coherent bookmarking solution. Last week I finally setup a proper
 bookmark manager, and as a bonus, archived bookmarked pages locally in

@@ -1,4 +1,3 @@
-mg
 ---
 layout: post
 title: Bookmarking and Creating a Local Internet Archive
