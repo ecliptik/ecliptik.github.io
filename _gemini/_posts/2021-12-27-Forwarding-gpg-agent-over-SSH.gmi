@@ -66,6 +66,7 @@ Host $REMOTE_IP
 Update `/etc/ssh/sshd_config` (or wherever it is depending on your OS) configuration to include `StreamLocalBindUnlink yes` and restart `sshd`This option will,
 
 > Specifies whether to remove an existing Unix-domain socket file for local or remote port forwarding before creating a new one.  If the socket file already exists and StreamLocalBindUnlink is not enabled, ssh will be unable to forward the port to the Unix-domain socket file. This option is only used for port forwarding to a Unix-domain socket file.
+
 ## Troubleshooting gpg-agent
 
 Sometimes `StreamLocalBindUnlink yes` doesn't work and the client agent needs restarted and sockets removed from the remote system,
@@ -87,6 +88,8 @@ ssh back into the remote system and gpg-agent forwarding should work again.
 ## References
 
 * Remote gpg-agent Via ssh Forwarding[4]
+
+=> https://web.archive.org/web/20190423113837/https://www.isi.edu/~calvin/gpgagent.htm 4: https://web.archive.org/web/20190423113837/https://www.isi.edu/~calvin/gpgagent.htm
 
 ### Tags
 

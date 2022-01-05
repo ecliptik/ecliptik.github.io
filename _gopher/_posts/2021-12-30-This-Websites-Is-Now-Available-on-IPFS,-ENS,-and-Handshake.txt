@@ -28,10 +28,10 @@ address, and setting the metadata.
   [gas fees]: https://cryptocurrencysimple.com/all-you-must-know-about-what-are-eth-gas-fees/
 
 The final results of setting up the ENS domain are here
-[ecliptik.eth][] and it resolves to at [https://ecliptik.eth][] on
-IPFS. This name also includes additional features like setting my
-[Avatar image to an NFT I own][] (which is one I created myself and
-put on [opensea.io][] for free).
+[ecliptik.eth][] and it resolves to [https://ecliptik.eth][] on IPFS.
+This name also includes additional features like setting my [Avatar
+image to an NFT I own][] (which is one I created myself and put on
+[opensea.io][] for free).
 
   [ecliptik.eth]: https://app.ens.domains/name/ecliptik.eth/details
   [https://ecliptik.eth]: https://ecliptik.eth.limo

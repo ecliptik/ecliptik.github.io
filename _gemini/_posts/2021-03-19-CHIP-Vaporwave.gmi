@@ -19,7 +19,6 @@ In the ever expanding ways to hack my Pocket C.H.I.P.[1], and my recent discover
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/chip_vaporwave/chip-vaporwave.png Vaporwave in Pocket C.H.I.P [IMG]
 
-
 ## Required Software
 
 The C.H.I.P. is fully upgraded to Debian Buster, and there were some oddities with getting `dpkg` sorted out, so the package installs may not work exactly as defined here but are a general guide. It's also booting into the console framebuffer[3] and not `X`, so there's no desktop environment or window manager running.

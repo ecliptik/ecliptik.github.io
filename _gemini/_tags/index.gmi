@@ -12,9 +12,11 @@
 # Tags
 
 => gemini://rawtext.club/~ecliptik/_tags/100daystooffload.gmi 100daystooffload
+=> gemini://rawtext.club/~ecliptik/_tags/archiving.gmi archiving
 => gemini://rawtext.club/~ecliptik/_tags/arm.gmi arm
 => gemini://rawtext.club/~ecliptik/_tags/azure.gmi azure
 => gemini://rawtext.club/~ecliptik/_tags/blogger.gmi blogger
+=> gemini://rawtext.club/~ecliptik/_tags/bookmarks.gmi bookmarks
 => gemini://rawtext.club/~ecliptik/_tags/chip.gmi chip
 => gemini://rawtext.club/~ecliptik/_tags/containers.gmi containers
 => gemini://rawtext.club/~ecliptik/_tags/cr-48.gmi cr-48

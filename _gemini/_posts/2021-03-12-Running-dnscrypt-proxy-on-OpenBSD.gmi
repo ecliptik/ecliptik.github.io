@@ -20,7 +20,6 @@ A couple of weeks ago I took a spare RaspberryPi 3 leftover from my old k3s clus
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/openbsd-rpi/openbsd-rpi.png OpenBSD on RaspberryPi [IMG]
 
-
 I've had a Pi-hole[4] running on an older Raspberry Pi B with Debian for a few years, but wanted a few additional features, notably using DNSCRYPT[5] to encrypt DNS traffic so our ISP wouldn't be able to use it for anything and/or using DNS-over-HTTPS[6]. I originally was going to setup Pi-hole on the new OpenBSD Pi, but quickly found out that Pi-hole doesn't work on OpenBSD.
 
 => https://pi-hole.net/ 4: https://pi-hole.net/
@@ -373,6 +372,7 @@ OpenBSD has the mfs[23] filesytem that can be used to mount a filesystem in-memo
 => https://man.openbsd.org/mount_mfs.8 23: https://man.openbsd.org/mount_mfs.8
 
 > mount_mfs is used to build a file system in virtual memory and then mount it on a specified node.
+
 Setup `/tmp` as `mfs`, first by unmounting it. This may require killing `sndio` processes and using the console instead of ssh as it will give a `resource busy` error when trying to unmount `/tmp`.
 
 ```bash
