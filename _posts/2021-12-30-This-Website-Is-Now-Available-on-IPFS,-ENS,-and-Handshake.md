@@ -1,6 +1,6 @@
 ---
 layout: post
-title: This Websites Is Now Available on IPFS, ENS, and Handshake
+title: This Website Is Now Available on IPFS, ENS, and Handshake
 category: technology
 tags: ipfs distributed
 ---
