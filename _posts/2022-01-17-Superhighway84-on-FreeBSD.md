@@ -3,6 +3,13 @@ layout: post
 title: Superhighway84 on FreeBSD
 category: bsd
 tags: freebsd smolweb ipfs
+
+comments:
+  show:  true
+  fediHost:  fosstodon.org
+  fediusername:  ecliptik
+  fediid:  107641186539897218
+
 ---
 
 A couple of weeks ago I saw [Superhighway84](https://マリウス.com/superhighway84/) on [HackerNews](https://news.ycombinator.com/item?id=28453165) and started to check it out, but didn't get very far. I finally spent some time to get it up and running on [FreeBSD](https://www.freebsd.org) which works, but requires a few additional steps.
