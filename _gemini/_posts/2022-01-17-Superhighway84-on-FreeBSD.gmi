@@ -15,7 +15,7 @@
 A couple of weeks ago I saw Superhighway84[1] on HackerNews[2] and started to check it out, but didn't get very far. I finally spent some time to get it up and running on FreeBSD[3] which works, but requires a few additional steps.
 
 => https://%E3%83%9E%E3%83%AA%E3%82%A6%E3%82%B9.com/superhighway84/ 1: https://%E3%83%9E%E3%83%AA%E3%82%A6%E3%82%B9.com/superhighway84/
-=> https://news.ycombinator.com/item?id=28453165 2: https://news.ycombinator.com/item?id=28453165
+=> https://news.ycombinator.com/item?id=29698412 2: https://news.ycombinator.com/item?id=29698412
 => https://www.freebsd.org 3: https://www.freebsd.org
 
 I wanted to get Superhighway84 on a spare RaspberryPi 3 running FreeBSD 13, primarily used for a Gemini Capsule in FreeBSD[4], since it doesn't have much traffic and is mostly idle.

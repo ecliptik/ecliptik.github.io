@@ -10,7 +10,7 @@ time to get it up and running on [FreeBSD][] which works, but requires
 a few additional steps.
 
   [Superhighway84]: https://マリウス.com/superhighway84/
-  [HackerNews]: https://news.ycombinator.com/item?id=28453165
+  [HackerNews]: https://news.ycombinator.com/item?id=29698412
   [FreeBSD]: https://www.freebsd.org
 
 I wanted to get Superhighway84 on a spare RaspberryPi 3 running
