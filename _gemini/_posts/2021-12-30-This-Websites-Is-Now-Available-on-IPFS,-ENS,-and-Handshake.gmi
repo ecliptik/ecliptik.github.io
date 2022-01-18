@@ -16,13 +16,13 @@ In the past few months there has been a lot of chatter about `web3` and what it 
 
 ## Setting up an ENS Domain
 
-I first thought about NFTs when I discovered you can buy ENS Domains[1] and then set them up like a standard DNS name with the additional benefit of using them as an identity. I went through the ENS purchase - setting up Coinbase Wallet[2] - and buying the domain with some ETH. My overall impression was is there's a lot of fees. Registering the domain and other actions are relatively inexpensive, but the gas fees[3] are much higher and take up the bulk of the transaction cost. Skipping over all the details, it cost about 400$ to fully setup `eciptik.eth` - registering, reverse lookup to my wallet address, and setting the metadata.
+I first thought about NFTs when I discovered you can buy ENS Domains[1] and then set them up like a standard DNS name with the additional benefit of using them as an identity. I went through the ENS purchase - setting up Coinbase Wallet[2] - and buying the domain with some ETH. My overall impression was is there's a lot of fees. Registering the domain and other actions are relatively inexpensive, but the gas fees[3] are much higher and take up the bulk of the transaction cost. Skipping over all the details, it cost about 400$ to fully setup `ecliptik.eth` - registering, reverse lookup to my wallet address, and setting the metadata.
 
 => https://ens.domains 1: https://ens.domains
 => https://www.coinbase.com/wallet 2: https://www.coinbase.com/wallet
 => https://cryptocurrencysimple.com/all-you-must-know-about-what-are-eth-gas-fees/ 3: https://cryptocurrencysimple.com/all-you-must-know-about-what-are-eth-gas-fees/
 
-The final results of setting up the ENS domain are here ecliptik.eth[4] and it resolves to https://ecliptik.eth[5][6] on IPFS. This name also includes additional features like setting my Avatar image to an NFT I own[7] (which is one I created myself and put on opensea.io[8] for free).
+The results of setting up the ENS domain are here, ecliptik.eth[4] and it resolves to https://ecliptik.eth[5][6] on IPFS. This name also includes additional features like setting my Avatar image to an NFT I own[7] (which is one I created myself and put on opensea.io[8] for free).
 
 => https://app.ens.domains/name/ecliptik.eth/details 4: https://app.ens.domains/name/ecliptik.eth/details
 => https://ecliptik.eth 5: https://ecliptik.eth

@@ -48,6 +48,7 @@
 => gemini://rawtext.club/~ecliptik/_tags/qmk.gmi qmk
 => gemini://rawtext.club/~ecliptik/_tags/raspberrypi.gmi raspberrypi
 => gemini://rawtext.club/~ecliptik/_tags/smallweb.gmi smallweb
+=> gemini://rawtext.club/~ecliptik/_tags/smolweb.gmi smolweb
 => gemini://rawtext.club/~ecliptik/_tags/ssh.gmi ssh
 => gemini://rawtext.club/~ecliptik/_tags/technology.gmi technology
 => gemini://rawtext.club/~ecliptik/_tags/ubuntu.gmi ubuntu

@@ -69,12 +69,11 @@ This script gets all bookmarked URLs and tags from `Export.html` and creates a `
 
 `import.json`:
 
-```shell
+```json
 [
 { "url": "https://www.friendlyskies.net/notebook/giving-haiku-os-beta-3-a-try", "tags": "haiku,os" },
 { "url": "https://github.com/dwmkerr/hacker-laws", "tags": "patterns" },
 ...
-{ "url": "https://www.thedailybeast.com/when-james-joyce-wrote-the-dead-he-wrote-the-best-most-depressing-christmas-story-ever", "tags": "joyce,books" },
 { "url": "https://www.benoakley.co.uk/tartan-asia-extreme", "tags": "korean,japanese,film,movies" },
 { "url": "https://drodio.com/creating-your-own-remote-workspace-for-under-5k/", "tags": "wfh,shed,backyard" }
 ]

@@ -20,18 +20,18 @@ with some ETH. My overall impression was is there’s a lot of fees.
 Registering the domain and other actions are relatively inexpensive,
 but the [gas fees][] are much higher and take up the bulk of the
 transaction cost. Skipping over all the details, it cost about 400$ to
-fully setup eciptik.eth - registering, reverse lookup to my wallet
+fully setup ecliptik.eth - registering, reverse lookup to my wallet
 address, and setting the metadata.
 
   [ENS Domains]: https://ens.domains
   [Coinbase Wallet]: https://www.coinbase.com/wallet
   [gas fees]: https://cryptocurrencysimple.com/all-you-must-know-about-what-are-eth-gas-fees/
 
-The final results of setting up the ENS domain are here
-[ecliptik.eth][] and it resolves to [https://ecliptik.eth][] on IPFS.
-This name also includes additional features like setting my [Avatar
-image to an NFT I own][] (which is one I created myself and put on
-[opensea.io][] for free).
+The results of setting up the ENS domain are here, [ecliptik.eth][]
+and it resolves to [https://ecliptik.eth][] on IPFS. This name also
+includes additional features like setting my [Avatar image to an NFT I
+own][] (which is one I created myself and put on [opensea.io][] for
+free).
 
   [ecliptik.eth]: https://app.ens.domains/name/ecliptik.eth/details
   [https://ecliptik.eth]: https://ecliptik.eth.limo

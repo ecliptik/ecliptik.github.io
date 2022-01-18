@@ -12,3 +12,4 @@
 # ipfs
 
 => gemini://rawtext.club/~ecliptik/_posts/2021-12-30-This-Websites-Is-Now-Available-on-IPFS,-ENS,-and-Handshake.gmi  This Websites Is Now Available on IPFS, ENS, and Handshake
+=> gemini://rawtext.club/~ecliptik/_posts/2022-01-17-Superhighway84-on-FreeBSD.gmi  Superhighway84 on FreeBSD
