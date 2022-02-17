@@ -20,9 +20,9 @@
       <header class="terminal-logo">
         <div class="logo terminal-prompt">
           {%if page.url == "/" %}
-          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a>:<font color="#2aa198">~</font> 🚀<font color="dc322f">➜</font>
+          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a>:<font color="#2aa198">~</font>🚀<font color="dc322f">➜</font>
           {% else %}
-          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a></font>:<font color="#2aa198">{{ page.url }}</font> 🚀<font color="dc322f">➜</font>
+          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a></font>:<font color="#2aa198">{{ page.url }}</font>🚀<font color="dc322f">➜</font>
           {% endif %}
         </div>
       </header>
@@ -39,7 +39,7 @@
   <div class="container">
     {{ content }}
     <div class="footer">
-      &copy; {{ site.time | date: '%Y' }} {{ site.title }} [<a href="mailto:{{ site.links.email }}">Email</a>|<a rel="me" href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a>|<a href="/feed.xml">RSS</a>]
+      &copy; {{ site.time | date: '%Y' }} {{ site.author }} [<a href="mailto:{{ site.links.email }}">Email</a>|<a rel="me" href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a>|<a href="/feed.xml">RSS</a>]
     </div>
   </div>
 {%- include analytics.html -%}
