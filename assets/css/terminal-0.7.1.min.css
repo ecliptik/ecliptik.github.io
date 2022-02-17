@@ -17,13 +17,13 @@
 }
 
 ::-moz-selection {
-    background: var(--pygments-one);
-    color: var(--accent)
+    background: var(--text);
+    color: var(--bg)
 }
 
 ::selection {
-    background: var(--pygments-one);
-    color: var(--accent)
+    background: var(--text);
+    color: var(--bg)
 }
 
 body {
@@ -77,34 +77,30 @@ blockquote, code, em, strong {
     position: relative;
     display: inline-block;
     display: table-cell;
-    padding: calc(var(--global-space) * 2) 0 calc(var(--global-space) * 2);
     margin: 0;
     overflow: hidden;
     font-weight: 600
 }
 
-h1::after {
-    content: "====================================================================================================";
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    display: var(--display-h1-decoration)
-}
-
 .logo+*, h1+* {
     margin-top: 0
 }
+.logo a {
+  color: var(--pygments-three);
+}
+.logo a:hover {
+  background-color: var(--pygments-three);
+  color: var(--bg);
+}
 
-h2 {
+h4 {
+  padding-bottom: 2em;
+}
+
+h2, h3, h5, h6 {
     position: relative;
     margin-bottom: var(--global-line-height);
     margin-top: var(--global-line-height);
-    font-weight: 600;
-}
-
-h3, h4, h5, h6 {
-    position: relative;
-    font-weight: normal;
 }
 
 blockquote {
@@ -116,7 +112,7 @@ blockquote {
 
 blockquote p {
     margin-bottom: 10px;
-} 
+}
 
 blockquote::after {
     content: ">\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>";
@@ -125,7 +121,7 @@ blockquote::after {
     top: 0;
     left: 0;
     line-height: var(--global-line-height);
-    color: #9ca2ab
+    color: var(--text);
 }
 
 code {
@@ -133,7 +129,7 @@ code {
     overflow-x: hidden !important;
     font-family: var(--mono-font-stack);
     background-color: var(--accent-bg);
-    color: var(--accent-light);
+    color: var(--pygments-five);
 }
 
 code::after, code::before {
@@ -333,7 +329,7 @@ ol.terminal-toc li a {
     display: block;
     width: 100%;
     border: none;
-    color: var(--pygments-two)
+    color: var(--pygments-six)
 }
 
 .terminal-menu li a.active {
@@ -341,8 +337,8 @@ ol.terminal-toc li a {
 }
 
 .terminal-menu li a:hover {
-    background: 0 0;
-    color: inherit
+    background-color: var(--accent);
+    color: var(--bg);
 }
 
 ol.terminal-toc li::before {
@@ -370,7 +366,7 @@ hr {
 
 p {
     margin: 0 0 var(--global-line-height);
-    color: var(--global-font-color)
+    color: var(--text);
 }
 
 .container {
@@ -465,9 +461,9 @@ table caption {
     margin: 0 0 1em 0
 }
 
-table tbody td:first-child {
-    font-weight: 700;
-    color: var(var(--pygments-two))
+tr:nth-child(even) {
+  /* Set every other cell slightly darker. Improves readability. */
+  background: var(--accent-bg);
 }
 
 .form {
@@ -774,7 +770,8 @@ input:-webkit-autofill, input:-webkit-autofill:focus textarea:-webkit-autofill, 
 @media only screen and (min-width:30em) {
     .terminal-nav {
         flex-direction: row;
-        align-items: center
+        align-items: center;
+        margin-bottom: 2em;
     }
     .terminal-menu ul {
         flex-direction: row;
@@ -849,7 +846,7 @@ figure {
 }
 
 figure>figcaption {
-    color: var(--pygments-five);
+    color: var(--pygments-seven);
     text-align: center
 }
 
@@ -902,6 +899,4 @@ figure>figcaption {
 }
 
 .hljs-strong {
-    font-weight: 700
-}
-
+    font-weight: 400
