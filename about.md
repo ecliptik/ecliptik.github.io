@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About
+title: about
 permalink: /about/
 tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre
 ---

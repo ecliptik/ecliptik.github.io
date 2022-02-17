@@ -1,7 +1,7 @@
 ---
 layout: default
 permalink: /
-title: micheal@ecliptik.com
+title: ~
 tags: cloud kubernetes containers docker blog devops sre professional sre
 ---
 

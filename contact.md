@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contact
+title: contact
 permalink: /contact/
 tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre ipfs handshake
 ---
