@@ -4,29 +4,39 @@
   <title>{%- if page.title %}{{ page.title }} - {%- endif %} {{ site.title }} - {{ site.description }}</title>
   {%- include meta.html -%}
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
-  <link href="/assets/css/simple.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/terminal-0.7.1.min.css" />
+    <link rel="stylesheet" href="/assets/css/animate-3.7.2.min.css" />
+    <link rel="stylesheet" href="/assets/css/console.css" />
 </head>
 
-<body>
-  <header>
-    <h1><i class="icon-cloud"></i> {{ site.title }}</h1>
-    <h2>{{ site.description }}</h2>
-  <nav>
-      <a href="/">Home</a>
-      <a href="/blog/">Blog</a>
-      <a href="https://garden.ecliptik.com">Garden</a>
-      <a href="/about/">About</a>
-      <a href="/contact/">Contact</a>
-  </nav>
-  </header>
-  <main>
+<body class="terminal">
+  <div class="container">
+    <div class="terminal-nav">
+      <header class="terminal-logo">
+        <div class="logo terminal-prompt">
+          {%if page.url == "/" %}
+            ecliptik.com:~ 🚀➜
+          {% else %}
+            ecliptik.com:~{{ page.url }} 🚀➜
+          {% endif %}
+        </div>
+      </header>
+      <nav class="terminal-menu">
+       <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+         <li><a href="/">Home</a></li>
+         <li><a href="/blog/">Blog</a></li>
+         <li><a href="/about/">About</a></li>
+         <li><a href="/contact/">Contact</a></li>
+       </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="container">
     {{ content }}
-  </main>
-
-  <footer>
-    <p>Copyright &copy; {{ site.time | date: '%Y' }} {{ site.title }} [<a href="mailto:{{ site.links.email }}">Email</a>|<a rel="me" href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a>|<a href="/feed.xml">RSS</a>]. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme solarized <a href="https://simplecss.org">simple.css</a></p>
-  </footer>
-
+    <div class="footer">
+      Copyright &copy; {{ site.time | date: '%Y' }} {{ site.title }} [<a href="mailto:{{ site.links.email }}">Email</a>|<a rel="me" href="https://fosstodon.org/@{{ site.links.mastodon }}">Mastodon</a>|<a href="/feed.xml">RSS</a>]
+    </div>
+  </div>
 {%- include analytics.html -%}
 </body>
 </html>
