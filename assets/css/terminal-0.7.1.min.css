@@ -130,6 +130,7 @@ code {
     font-family: var(--mono-font-stack);
     background-color: var(--accent-bg);
     color: var(--pygments-five);
+    font-size: revert !important;
 }
 
 code::after, code::before {
