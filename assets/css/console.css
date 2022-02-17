@@ -32,7 +32,7 @@
 
 :root {
     --global-font-size: 1.15rem;
-    --global-font-color: #839496;
+    --text: #839496;
     --mono-font-stack: IBMPlex Mono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     --font-stack: IBMPlex Mono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     --global-line-height: 1.6em;
@@ -63,7 +63,6 @@
 @media only screen and (max-width: 850px) {
     :root {
         --global-font-size: 1rem;
-        --global-font-color: #444;
         --global-line-height: 1.6em;
         --page-width: 70em;
     }
@@ -74,7 +73,6 @@
   :root {
     --bg: #002b36;
     --accent-bg: #073642;
-    --text: #657b83;
     --text-light: #839496;
     --border: #839496;
     --accent: #cb4b16;
@@ -224,7 +222,7 @@ figure {
     margin-top: 50px;
     padding-top: 10px;;
     border-top: 1px solid var(--pygments-two);
-    color: var(--global-font-color);
+    color: var(--text);
 }
 
 .image-grid {
