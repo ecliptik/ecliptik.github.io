@@ -3,6 +3,7 @@ layout: post
 title: Gemini Capsule in a FreeBSD Jail
 category: hack
 tags: freebsd hack gemini 100daystooffload
+toc: true
 
 comments:
   show:  true
@@ -11,6 +12,8 @@ comments:
   fediid:  106130559129256903
 
 ---
+
+## Intro
 
 With the [recent release of FreeBSD 13](https://www.freebsd.org/releases/13.0R/announce/), I wanted to test it out on a spare RaspberryPi 3 that was part of my [old Kubernetes cluster](https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/).
 

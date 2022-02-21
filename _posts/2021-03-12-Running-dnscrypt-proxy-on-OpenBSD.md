@@ -3,6 +3,7 @@ layout: post
 title: Running dnscrypt-proxy on OpenBSD
 category: hack
 tags: openbsd raspberrypi hack dns 100daystooffload
+toc: true
 
 comments:
   show:  true
@@ -11,6 +12,8 @@ comments:
   fediid:  105880046333621858
 
 ---
+
+## Intro
 
 A couple of weeks ago I took a spare RaspberryPi 3 leftover from my [old k3s cluster](https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/) and installed [OpenBSD](https://www.openbsd.org/) on it using my [Pocket C.H.I.P.](https://www.ecliptik.com/CHIP-Serial-Console/). While getting it installed was fun, I wanted to do more with it and use it on a more regular basis to continue learning about OpenBSD in general.
 

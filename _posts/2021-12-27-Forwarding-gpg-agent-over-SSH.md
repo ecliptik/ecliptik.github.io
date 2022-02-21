@@ -2,8 +2,11 @@
 layout: post
 title: Forwarding gpg-agent Over SSH
 category: unix
+toc: true
 tags: ssh linux unix gpg git
 ---
+
+## Intro
 
 Basic notes from setting up [gpg-agent forwarding](https://wiki.gnupg.org/AgentForwarding) between a MacOS and Debian Linux system.
 

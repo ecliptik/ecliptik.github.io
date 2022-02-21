@@ -3,6 +3,7 @@ layout: post
 title: One Week With Mastodon
 category: mastodon
 tags: mastodon fediverse 100daystooffload
+toc: true
 
 comments:
   show:  true
@@ -10,6 +11,8 @@ comments:
   fediusername:  ecliptik
   fediid:  105626739761251196
 ---
+
+## Intro
 
 One week ago I posted [my first toot](https://fosstodon.org/@ecliptik/105585397423041642) on [Mastodon](https://joinmastodon.org) and I want to document my first weeks experience since it was much more eventful than I was expecting.
 
