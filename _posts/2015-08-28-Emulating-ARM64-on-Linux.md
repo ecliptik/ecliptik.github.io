@@ -2,8 +2,11 @@
 layout: post
 title: Emulating ARM64 on Linux
 category: arm
+toc: true
 tags: operatingsystems arm ubuntu
 ---
+
+## Intro
 
 Over the last few years I've [championed](https://www.google.com/search?q=micheal+waltz+arm64) the ultra-low-power and high-density of a [64-bit ARM platform](http://www.arm.com/products/processors/armv8-architecture.ph) in the datacenter. The promise of thousands of cores all sipping power and taking up less room than the equivalent Intel architecture to me is both exciting and pragmatic as a large systems IT engineer.
 

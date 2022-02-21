@@ -334,6 +334,15 @@ figure {
     }
 }
 
+.toc__list:before {
+ content: "## Contents";
+ color: var(--accent-light);
+}
+
+.toc__sublist li {
+ padding-left: 1.25rem;
+}
+
 .highlight{
   color: var(--preformatted);
 }

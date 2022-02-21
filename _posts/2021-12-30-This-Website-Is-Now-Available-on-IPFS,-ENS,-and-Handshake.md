@@ -2,8 +2,11 @@
 layout: post
 title: This Website Is Now Available on IPFS, ENS, and Handshake
 category: technology
+toc: true
 tags: ipfs distributed
 ---
+
+## Intro
 
 In the past few months there has been a lot of chatter about `web3` and what it means and doesn't mean for the future of the web. There's a lot of hype around NFTs, mostly because of the money that is exchanging hands, and instead of outright dismissing it I wanted to dive deeper to understand it better.
 

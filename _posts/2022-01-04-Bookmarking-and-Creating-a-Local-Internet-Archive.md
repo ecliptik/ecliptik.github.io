@@ -2,6 +2,7 @@
 layout: post
 title: Bookmarking and Creating a Local Internet Archive
 category: technology
+toc: true
 tags: hack bookmarks archiving
 ---
 

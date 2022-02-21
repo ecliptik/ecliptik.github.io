@@ -3,6 +3,7 @@ layout: post
 title: Custom Keyboards, Sully and Pok3r
 category: technology
 tags: keyboards technology qmk hardware 100daystooffload
+toc: true
 
 comments:
   show:  true
@@ -10,6 +11,8 @@ comments:
   fediusername:  ecliptik
   fediid:  105740118192056355
 ---
+
+## Intro
 
 Working in the tech industry and having geeky hobbies; I've always taken my tools, both hardware and software, seriously. For some reason I never thought about the keyboard itself though, and was content with using the bundled membrane boards. A few years ago though this all changed which I discovered the deep rabbit hole that is both utilitarian and vain world of custom keyboards.
 

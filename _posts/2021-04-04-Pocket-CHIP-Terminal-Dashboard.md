@@ -3,6 +3,7 @@ layout: post
 title: Pocket CHIP Terminal Dashboard
 category: chip
 tags: chip hack 100daystooffload
+toc: true
 
 comments:
   show:  true
@@ -11,6 +12,8 @@ comments:
   fediid:  106011231236382834
 
 ---
+
+## Intro
 
 When I first got my [Pocket C.H.I.P.](https://www.ecliptik.com/Pocket-CHIP/) one of the first thoughts I had was to use it as sort of a mini-desktop terminal to display things like weather, new mail, etc. After doing some [other tinkering](https://www.ecliptik.com/CHIP-Serial-Console/) with it first, it has been on my desk the last couple of weeks displaying the following information,
 

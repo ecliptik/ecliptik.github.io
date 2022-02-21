@@ -3,6 +3,7 @@ layout: post
 title: Launching a Gemini Capsule
 category: gemini
 tags: gemini smallweb 100daystooffload
+toc: true
 
 comments:
   show:  true

@@ -3,6 +3,7 @@ layout: post
 title: Superhighway84 on FreeBSD
 category: bsd
 tags: freebsd smolweb ipfs
+toc: true
 
 comments:
   show:  true
@@ -11,6 +12,8 @@ comments:
   fediid:  107642122120401193
 
 ---
+
+## Intro
 
 A couple of weeks ago I saw [Superhighway84](https://マリウス.com/superhighway84/) on [HackerNews](https://news.ycombinator.com/item?id=29698412) and started to check it out, but didn't get very far. I finally spent some time to get it up and running on [FreeBSD](https://www.freebsd.org) which works, but requires a few additional steps.
 

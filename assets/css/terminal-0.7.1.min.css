@@ -93,9 +93,9 @@ blockquote, code, em, strong {
   color: var(--bg);
 }
 
-h4 {
-  padding-bottom: 2em;
-}
+#h4 {
+#  padding-bottom: 2em;
+#}
 
 h2, h3, h5, h6 {
     position: relative;
