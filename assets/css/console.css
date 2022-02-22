@@ -339,8 +339,8 @@ figure {
  color: var(--accent-light);
 }
 
-.toc__sublist li {
- padding-left: 1.25rem;
+li.toc__sublist:first-child {
+ margin-top: 1rem !important;
 }
 
 .highlight{
