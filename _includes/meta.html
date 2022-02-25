@@ -2,29 +2,15 @@
   {% include collecttags.html -%}
 {%- endif -%}
 
-  <meta charset="utf-8" />
-  <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
-  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-  <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="{{ site.title }}" />
-  {%- assign sorttags = page.tags | remove: "[" | remove: "]" | remove: '"' | replace: ', ', ' '| uniq | sort | compact %}
-  <meta name="keywords" content="{{ sorttags }}" />
-  <meta name="og:site_name" content="{{ site.title }} - {{ site.description }}" />
-  <meta name="og:url" content="{{ site.url }}{{ page.url }}" />
-  <meta name="twitter:site" content="@{{ site.links.twitter }}" />
-  <meta name="mastodon:site" content="@{{ site.links.mastodon }}@fosstodon" />
-  {%- if page.title %}
-  <meta property="og:title" content="{{ page.title }}" />
-  {%- endif %}
-  {%- if page.excerpt %}
-  {%- assign mungecontent =  page.excerpt| strip_html | strip_newlines | replace: ".", ". " | truncate: 120 %}
-  <meta name="description" content="{{ mungecontent }}" />
-  <meta property="og:description" content="{{ mungecontent }}" />
-  <meta property=”og:type” content=”article” />
-  {%- else %}
-  {%- endif %}
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+<meta charset="utf-8" />
+<meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+<meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+<meta name="robots" content="index, follow" />
+{%- assign sorttags = page.tags | remove: "[" | remove: "]" | remove: '"' | replace: ', ', ' '| uniq | sort | compact %}
+<meta name="keywords" content="{{ sorttags }}" />
+<meta name="twitter:site" content="@{{ site.links.twitter }}" />
+<meta name="mastodon:site" content="@{{ site.links.mastodon }}@fosstodon" />
 
-  {% seo %}
+{% seo %}

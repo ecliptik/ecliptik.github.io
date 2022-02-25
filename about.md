@@ -1,6 +1,7 @@
 ---
 layout: default
 title: about
+description: Summary of Interests, Certifications, and Skills for Micheal Waltz
 permalink: /about/
 tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre
 ---

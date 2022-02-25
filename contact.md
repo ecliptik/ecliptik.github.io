@@ -1,8 +1,9 @@
 ---
 layout: default
 title: contact
+description: Contact methods and other site links for Micheal Waltz
 permalink: /contact/
-tags: cloud aws gcp kubernetes devops terraform linux python bash ruby jenkins github gitlab scrum agile sre ipfs handshake
+tags: contact cloud aws gcp kubernetes devops terraform linux email mastodon linkedin github debian gemini gopher ipfs handshake
 ---
 
 E-mail is my preferred method of communication, but I am also regularly post on [Fosstodon](https://fosstodon.org/) and am frequently available on [Matrix](https://matrix.org).

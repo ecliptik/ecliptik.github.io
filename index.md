@@ -2,7 +2,8 @@
 layout: default
 permalink: /
 title: ~
-tags: cloud kubernetes containers docker blog devops sre professional sre
+description: Professional website of Micheal Waltz including contact information, skills, and blog posts
+tags: cloud aws gcp kubernetes containers docker blog devops sre professional
 ---
 
 This is my tech [blog](/blog), updated occasionally with interesting things I have done at work or off-hours. My professional skills primarily focus on [Cloud Native Computing](https://www.cncf.io/) and modern application deployments with tools like [Kubernetes](https://kubernetes.io/), see [about](/about) for more.
