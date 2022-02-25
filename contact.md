@@ -1,7 +1,7 @@
 ---
 layout: default
 title: contact
-description: Contact methods and other site links for Micheal Waltz
+description: Contact methods and site links for Micheal Waltz
 permalink: /contact/
 tags: contact cloud aws gcp kubernetes devops terraform linux email mastodon linkedin github debian gemini gopher ipfs handshake
 ---
