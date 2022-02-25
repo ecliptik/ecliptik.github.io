@@ -6,8 +6,6 @@ toc: true
 tags: docker arm kubernetes raspberrypi
 ---
 
-## Intro
-
 Notes from setting up a three node [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) [Kubernetes](https://kubernetes.io) cluster using [HypriotOS 64-bit](https://github.com/DieterReuter/image-builder-rpi64/releases).
 
 Originally from [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/) with some additions to fix things I ran into when following the guide. This guide uses a 64-bit version of HypriotOS and only armv8 64-bit Docker images will work.

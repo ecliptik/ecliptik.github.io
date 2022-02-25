@@ -6,8 +6,6 @@ toc: true
 tags: perl docker containers
 ---
 
-## Intro
-
 Almost every IT department has one; a Perl script written decades ago by a long-gone employee that's critical to production. It does it's job well, but no one wants to touch or take responsibility for it. You just want to upgrade your infrastructure and bring it along, but there are so many [CPAN](http://www.cpan.org/) modules and inconsitencies you want never want to look at it again. What to do?
 
 ## Executable Containers

@@ -6,8 +6,6 @@ toc: true
 tags: ssh linux unix gpg git
 ---
 
-## Intro
-
 Basic notes from setting up [gpg-agent forwarding](https://wiki.gnupg.org/AgentForwarding) between a MacOS and Debian Linux system.
 
 ## Client System
@@ -19,7 +17,7 @@ brew install gnupg pinentry-mac
 ```
 
 
-Edit `~/.gnupg/gpg-agent.conf` and make sure that ${HOME} is the full path to your users home dir, eg `/Users/$USER`, this must match what's setup in RemoteForward` later,
+Edit `~/.gnupg/gpg-agent.conf` and make sure that ${HOME} is the full path to your users home dir, eg `/Users/$USER`, this must match what's setup in `RemoteForward` later,
 
 ```
 default-cache-ttl 600
@@ -54,7 +52,7 @@ Host $REMOTE_IP
 
 ## Remote System
 
-Update `/etc/ssh/sshd_config` (or wherever it is depending on your OS) configuration to include `StreamLocalBindUnlink yes` and restart `sshd`This option will,
+Update `/etc/ssh/sshd_config` (or wherever it is depending on your OS) configuration to include `StreamLocalBindUnlink yes` and restart `sshd` This option will,
 
 >Specifies whether to remove an existing Unix-domain socket file for local or remote port forwarding before creating a new one.  If the socket file already exists and StreamLocalBindUnlink is not enabled, ssh will be unable to forward the port to the Unix-domain socket file. This option is only used for port forwarding to a Unix-domain socket file.
 

@@ -6,8 +6,6 @@ toc: true
 tags: docker azure arm kubernetes raspberrypi
 ---
 
-## Intro
-
 Running the [Azure Container Instances Connector for Kubernetes](https://github.com/azure/aci-connector-k8s) on a Raspberry Pi Cluster.
 
 One of the most interesting features of [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) is the [Azure Container Instances Connector for Kubernetes](https://github.com/azure/aci-connector-k8s). This adds an ACI "node" to an existing [Kubernetes](https://kubernetes.io) cluster and allows you to deploy pods to it. This "node" will run pods in ACI without having to create or manage and additional Azure VMs, just point-and-shoot a pod at it and it will run with no additional setup required.

@@ -6,8 +6,6 @@ toc: true
 tags: docker arm raspberrypi
 ---
 
-## Intro
-
 When running a [Raspberry Pi cluster](http://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/), sometimes there's just not enough power to build native armhf Docker images in a reasonable amount of time.
 
 While the recent announcement of [Docker Hub Official Multi-platform support](https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/) makes it easier to `run` official multi-arch images, building a multi-arch image still requires a cross-build environment to speed up builds on lower powered hardware or when you don't have the native platform.

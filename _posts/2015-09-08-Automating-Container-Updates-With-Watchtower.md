@@ -6,8 +6,6 @@ toc: true
 tags: docker containers watchtower
 ---
 
-## Intro
-
 You have your services containerized, you've just deployed them to your fleet of 1000 container hosts and everything is running smoothly. Then you realize that you missed a crucial command in the [Dockerfile](https://docs.docker.com/reference/builder/), and well, re-building the container image and pushing to the repository is easy, but what about the 100's of containers out there running the old version?
 
 There are a variety of tools to use in this situation, [Ansible](https://ansible.com), [Chef](https://www.chef.io/chef/), ssh and cronjobs, [Jenkins](https://jenkins-ci.org/), [Docker](https://www.docker.com/) itself, but stringing them all together and finding the right combination is tedious, time-consuming, and fragile. What you need it something to watch your running containers, check the Docker Registry for an updated container image, and then re-deploy the container with the exact same Docker run parameters.
