@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Launching a Gemini Capsule
+description: Experience of creating a Gemini capsule for this blog
 category: gemini
 tags: gemini smallweb 100daystooffload
 toc: true

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Forwarding gpg-agent Over SSH
+description: Notes for setting up gpg-agent to work with ssh and yubikeys
 category: unix
 toc: true
 tags: ssh linux unix gpg git

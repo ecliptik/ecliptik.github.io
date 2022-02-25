@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Running dnscrypt-proxy on OpenBSD
+description: Setting up dnscrypt-proxy with OpenBSD running on a RaspberryPi
 category: hack
 tags: openbsd raspberrypi hack dns 100daystooffload
 toc: true

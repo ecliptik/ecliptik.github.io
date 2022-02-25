@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bookmarking and Creating a Local Internet Archive
+description: Setting up Raindrop and Archivebox to create a local Internet Archive
 permalink: /bookmarking-with-raindrop/
 category: technology
 toc: true

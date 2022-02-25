@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Pocket CHIP Terminal Dashboard
+description: Building a mini-desktop terminal with a Pocket C.H.I.P.
 category: chip
 tags: chip hack 100daystooffload
 toc: true

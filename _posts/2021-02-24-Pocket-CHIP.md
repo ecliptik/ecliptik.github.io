@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Pocket C.H.I.P.
+description: Setting up a Pocket C.H.I.P. for everyday use
 category: hack
 tags: debian chip hack 100daystooffload
 toc: true

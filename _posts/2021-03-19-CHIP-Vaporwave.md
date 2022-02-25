@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vaporwave in Pocket C.H.I.P. Framebuffer
+description: Playing vaporwave videos in the framebuffer of a Pocket C.H.I.P.
 category: hack
 tags: chip hack 100daystooffload
 toc: true

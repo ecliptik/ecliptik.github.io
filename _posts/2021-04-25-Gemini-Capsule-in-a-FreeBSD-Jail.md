@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Gemini Capsule in a FreeBSD Jail
+title: Gemini Capsule in a FreeBSD Jail running on a RaspberryPi
+description: Running a Gemini capsule in a FreeBSD jail
 category: hack
 tags: freebsd hack gemini 100daystooffload
 toc: true

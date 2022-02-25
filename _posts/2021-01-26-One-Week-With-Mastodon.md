@@ -1,6 +1,7 @@
 ---
 layout: post
 title: One Week With Mastodon
+description: Experience of using Mastodon for a week
 category: mastodon
 tags: mastodon fediverse 100daystooffload
 toc: true

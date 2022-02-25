@@ -1,6 +1,7 @@
 ---
 layout: post
 title: CHIP Serial Console
+description: Building a portable serial console with a Pocket C.H.I.P.
 category: chip
 tags: chip openbsd 100daystooffload hack raspberrypi
 toc: true

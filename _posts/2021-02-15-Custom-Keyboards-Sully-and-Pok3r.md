@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Custom Keyboards, Sully and Pok3r
+description: Showing off two of my mechanical keyboards
 category: technology
 tags: keyboards technology qmk hardware 100daystooffload
 toc: true

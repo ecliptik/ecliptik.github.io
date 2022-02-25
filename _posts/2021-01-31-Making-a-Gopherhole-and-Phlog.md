@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Making a Gopherhole and Phlog
+description: Experience of setting up a Gopherhole for this blog
 category: gopher
 tags: gopher 100daystooffload
 

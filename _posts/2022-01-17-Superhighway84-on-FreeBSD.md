@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Superhighway84 on FreeBSD
+description: Setting up Superhighway84 on FreeBSD.
 category: bsd
 tags: freebsd smolweb ipfs
 toc: true
