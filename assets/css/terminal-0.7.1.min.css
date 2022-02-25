@@ -176,9 +176,13 @@ pre code {
   margin-bottom: var(--global-line-height) !important;
 }
 
+.terminal-logo {
+  flex-shrink: 0;
+}
+
 .terminal-prompt {
     position: relative;
-    white-space: nowrap
+    white-space: normal
 }
 
 .terminal-prompt::before {
