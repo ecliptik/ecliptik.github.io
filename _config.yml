@@ -6,7 +6,22 @@
 title: micheal@ecliptik.com
 
 # Site Author
-author: Micheal Waltz
+author:
+  name: Micheal Waltz
+  url: https://www.ecliptik.com
+
+
+image:
+  path: /assets/images/pi-small.jpg
+  heigh: 100
+  width: 75
+  alt: pi-small.jpg
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/pi-small.jpg
 
 # Short bio or description (displayed in the header)
 description: Professional Website of Micheal Waltz

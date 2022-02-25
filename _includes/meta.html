@@ -11,6 +11,7 @@
 {%- assign sorttags = page.tags | remove: "[" | remove: "]" | remove: '"' | replace: ', ', ' '| uniq | sort | compact %}
 <meta name="keywords" content="{{ sorttags }}" />
 <meta name="twitter:site" content="@{{ site.links.twitter }}" />
+<meta name="twitter:description" content="{{ page.description }}" />
 <meta name="mastodon:site" content="@{{ site.links.mastodon }}@fosstodon" />
 
 {% seo %}
