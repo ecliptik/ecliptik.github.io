@@ -1,6 +1,7 @@
 ---
 layout: post
 title: This Website Is Now Available on IPFS, ENS, and Handshake
+permalink: /setting-up-ipfs-ens-and-handshake/
 category: technology
 toc: true
 tags: ipfs distributed

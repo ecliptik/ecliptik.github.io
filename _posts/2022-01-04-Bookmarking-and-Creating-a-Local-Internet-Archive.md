@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bookmarking and Creating a Local Internet Archive
+permalink: /bookmarking-with-raindrop/
 category: technology
 toc: true
 tags: hack bookmarks archiving
