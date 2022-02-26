@@ -15,4 +15,21 @@
 <meta name="mastodon:site" content="@{{ site.links.mastodon }}@fosstodon" />
 <meta name="google-site-verification" content="AQsWi26iUacMwox0Ft3U1bz1XwDxxbuCP4KwHmYh930" />
 
+<script type="application/ld+json">
+  [{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "~",
+        "item": "/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ page.url}}"
+      }]
+    }]
+</script>
+
 {% seo %}
