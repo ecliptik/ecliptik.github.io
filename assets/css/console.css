@@ -334,15 +334,6 @@ figure {
     }
 }
 
-.toc__list:before {
- content: "## Contents";
- color: var(--accent-light);
-}
-
-li.toc__sublist:first-child {
- margin-top: 1rem !important;
-}
-
 .highlight{
   color: var(--preformatted);
 }
