@@ -14,6 +14,8 @@ comments:
 
 ---
 
+## Intro
+
 With the [recent release of FreeBSD 13](https://www.freebsd.org/releases/13.0R/announce/), I wanted to test it out on a spare RaspberryPi 3 that was part of my [old Kubernetes cluster](https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/).
 
 In particular, [FreeBSD Jails](https://docs.freebsd.org/en/books/handbook/jails/) have always interested me, although I've never used them in practice. Over the years I've managed [operating system virtualization](https://en.wikipedia.org/wiki/OS-level_virtualization) through Solaris Zones and Docker containers, and Jails seem like and good middle ground between the two - easier to manage than zones and closer to the OS than Docker.

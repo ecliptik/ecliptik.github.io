@@ -6,6 +6,8 @@ toc: true
 tags: operatingsystems arm ubuntu
 ---
 
+## Intro
+
 Over the last few years I've [championed](https://www.google.com/search?q=micheal+waltz+arm64) the ultra-low-power and high-density of a [64-bit ARM platform](http://www.arm.com/products/processors/armv8-architecture.ph) in the datacenter. The promise of thousands of cores all sipping power and taking up less room than the equivalent Intel architecture to me is both exciting and pragmatic as a large systems IT engineer.
 
 Combining with the simplicity of a [microservices architecture](http://microservices.io/) with the advantages of [immutable infrastructure](http://chadfowler.com/blog/2013/06/23/immutable-deployments/) running across a sea-of-[containers](https://www.docker.com) and you have an extremely agile development and operations platform.

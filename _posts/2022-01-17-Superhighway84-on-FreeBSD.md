@@ -14,6 +14,8 @@ comments:
 
 ---
 
+## Intro
+
 A couple of weeks ago I saw [Superhighway84](https://マリウス.com/superhighway84/) on [HackerNews](https://news.ycombinator.com/item?id=29698412) and started to check it out, but didn't get very far. I finally spent some time to get it up and running on [FreeBSD](https://www.freebsd.org) which works, but requires a few additional steps.
 
 I wanted to get Superhighway84 on a spare RaspberryPi 3 running FreeBSD 13, primarily used for a [Gemini Capsule in FreeBSD](https://www.ecliptik.com/Gemini-Capsule-in-a-FreeBSD-Jail/), since it doesn't have much traffic and is mostly idle.

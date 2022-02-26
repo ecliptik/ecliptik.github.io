@@ -13,6 +13,8 @@ comments:
   fediid:  105626739761251196
 ---
 
+## Intro
+
 One week ago I posted [my first toot](https://fosstodon.org/@ecliptik/105585397423041642) on [Mastodon](https://joinmastodon.org) and I want to document my first weeks experience since it was much more eventful than I was expecting.
 
 ## Choosing an Instance

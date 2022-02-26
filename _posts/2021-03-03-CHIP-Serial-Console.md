@@ -14,6 +14,8 @@ comments:
 
 ---
 
+## Intro
+
 Since [getting a Pocket C.H.I.P](https://www.ecliptik.com/Pocket-CHIP/), I'm looking for more ways to use it outside the original configuration, and came across a Hackernoon post on using a [CHIP as a serial console](https://medium.com/hackernoon/turn-your-pocketchip-into-a-badass-on-the-go-hardware-hackers-terminal-84b1edc939f).
 
 I also wanted to [install OpenBSD onto a RaspberryPi 3](https://brainsnapped.com/2020/10/22/openbsd-on-the-raspberry-pi-3-model-b/) - unlike most RaspberryPi installs where a sdcard image is flashed and boots up - OpenBSD requires following the [full installation procedure](https://www.openbsd.org/faq/faq4.html) on the console. Sure you could hook up it up to HDMI and a USB keyboard, but what's the fun in that? So I took the oppurtunity to do both.

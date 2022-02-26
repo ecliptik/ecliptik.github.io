@@ -8,6 +8,8 @@ toc: true
 tags: hack bookmarks archiving
 ---
 
+## Intro
+
 While I'm a heavy user of RSS with [Newsblur](https://www.newsblur.com), I've never had a coherent bookmarking solution. Last week I finally setup a proper bookmark manager, and as a bonus, archived bookmarked pages locally in my own personal [Internet Archive](https://archive.org).
 
 ## Bookmarking With Raindrop.io
