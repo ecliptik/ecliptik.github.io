@@ -15,6 +15,8 @@
 <meta name="mastodon:site" content="@{{ site.links.mastodon }}@fosstodon" />
 <meta name="google-site-verification" content="AQsWi26iUacMwox0Ft3U1bz1XwDxxbuCP4KwHmYh930" />
 
+{%if page.url == "/" %}
+{% else %}
 <script type="application/ld+json">
   [{
       "@context": "https://schema.org",
@@ -31,5 +33,6 @@
       }]
     }]
 </script>
+{% endif %}
 
 {% seo %}
