@@ -63,7 +63,7 @@ Eventually I started getting annoyed with the default keycaps, which were a thin
 
 ### /dev/tty
 
-The first item on the list was easy enough to do, just scour keyboard stores and find a keycap set. I went through various postings, storefronts, and group buys, eventually landing on [/dev/tty by matt3o](https://matt3o.com/about-mt3-profile-and-devtty-set/). These were particularly attractive because of their story; inspired by [IBM Beamspring terminals](https://web.archive.org/web/20211229052318/https://www.cannondigi.com/ibm-beamspring-keyboard/) and the `/dev/tty` name.
+The first item on the list was easy enough to do, just scour keyboard stores and find a keycap set. I went through various postings, storefronts, and group buys, eventually landing on [/dev/tty by matt3o](https://matt3o.com/about-mt3-profile-and-devtty-set/). These were particularly attractive because of their story; inspired by [IBM Beamspring terminals](https://deskthority.net/viewtopic.php?t=8539/) and the `/dev/tty` name.
 
 >MT3 is inspired by old terminal keyboards; TTY was used to refer to "teletype" or "teletypewriter" but it has come to refer to any type of text terminal. As a linux user the temptation to call the set `/dev/tty` was simply too strong to resist.
 
