@@ -1,30 +1,30 @@
 @font-face {
-    font-family: 'IBMPlex Mono';
-    src: url('../font/IBMPlexMono-Regular.ttf') format('truetype');
+    font-family: 'BerkeleyMono';
+    src: url('../font/BerkeleyMono-Regular.woff2') format('woff2');
     font-style: normal;
     font-weight: 400;
     text-rendering: optimizeLegibility;
 }
 
 @font-face {
-    font-family: 'IBMPlex Mono';
-    src: url('../font/IBMPlexMono-Italic.ttf') format('truetype');
+    font-family: 'BerkeleyMono';
+    src: url('../font/BerkeleyMono-Italic.woff2') format('woff2');
     font-style: italic;
     font-weight: 400;
     text-rendering: optimizeLegibility;
 }
 
 @font-face {
-    font-family: 'IBMPlex Mono';
-    src: url('../font/IBMPlexMono-Bold.ttf') format('truetype');
+    font-family: 'BerkeleyMono';
+    src: url('../font/BerkeleyMono-Bold.woff2') format('woff2');
     font-style: normal;
     font-weight: 700;
     text-rendering: optimizeLegibility;
 }
 
 @font-face {
-    font-family: 'IBMPlex Mono';
-    src: url('../font/IBMPlexMono-BoldItalic.ttf') format('truetype');
+    font-family: 'BerkeleyMono';
+    src: url('../font/BerkeleyMono-BoldItalic.woff2') format('woff2');
     font-style: italic;
     font-weight: 700;
     text-rendering: optimizeLegibility;
@@ -33,8 +33,8 @@
 :root {
     --global-font-size: 1.15rem;
     --text: #839496;
-    --mono-font-stack: IBMPlex Mono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    --font-stack: IBMPlex Mono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    --mono-font-stack: BerkeleyMono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    --font-stack: BerkeleyMono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     --global-line-height: 1.6em;
     --page-width: 60em;
     --display-h1-decoration: 1;
