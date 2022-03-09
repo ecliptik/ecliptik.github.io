@@ -33,8 +33,8 @@
 :root {
     --global-font-size: 1.15rem;
     --text: #839496;
-    --mono-font-stack: IBMPlex Mono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    --font-stack: IBMPlex Mono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    --mono-font-stack: BerkeleyMono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    --font-stack: BerkeleyMono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     --global-line-height: 1.6em;
     --page-width: 60em;
     --display-h1-decoration: 1;
