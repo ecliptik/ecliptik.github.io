@@ -98,12 +98,12 @@ I opted for foam from [MKUltra](https://mkultra.click/secret-file-cabinet/60-foa
 
 ### QMK Programming
 
-The last item on the list was improving the programming of the board. I'm planning to write up a more extensive article on [QMK](https://qmk.fm), and the [pok3r can run QMK](https://github.com/pok3r-custom/qmk_pok3r), but requires unlocking the board which is risky and even then will use a fork or QMK and not upstream. While tempted to try this, I found that YMDK makes a drop in replacement [YD60MQ PCB](https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/yd60mq) that you can buy for under 30$. This also gave me an excuse to get a de-soldering iron to quickly de-solder the switches and not risk damaging them by using a solder sucker or wick.
+The last item on the list was improving the programming of the board. I'm planning to write up a more extensive article on [QMK](https://qmk.fm), and the [pok3r can run QMK](https://github.com/pok3r-custom/qmk_pok3r), but requires unlocking the board which is risky and even then will use a fork or QMK and not upstream. While tempted to try this, I found that YMDK makes a drop in replacement [YD60MQ PCB](https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq) that you can buy for under 30$. This also gave me an excuse to get a de-soldering iron to quickly de-solder the switches and not risk damaging them by using a solder sucker or wick.
 
 ![Replacing pok3r PCB](/assets/images/keyboards/IMG_6453.png)
 <figure><figcaption>Replacing old pok3r PCB (red) with new YD60MQ PCB (black)</figcaption></figure>
 
-The PCB was replaced about a year after the board was first built, months after I started using QMK on my other boards (more on those in Part 2). The [custom keymap](https://github.com/ecliptik/qmk_firmware/blob/ecliptik/keyboards/yd60mq/keymaps/ecliptik/keymap.c) flashed on it is similar to the other boards I have, so combos and layers are consistent across all my boards.
+The PCB was replaced about a year after the board was first built, months after I started using QMK on my other boards (more on those in Part 2). The [custom keymap](https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq/keymaps/ecliptik) flashed on it is similar to the other boards I have, so combos and layers are consistent across all my boards.
 
 ## Final Product
 
