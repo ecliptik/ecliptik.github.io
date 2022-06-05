@@ -17,12 +17,12 @@
 }
 
 ::-moz-selection {
-    background: var(--text);
+    background: var(--accent-light);
     color: var(--bg)
 }
 
 ::selection {
-    background: var(--text);
+    background: var(--accent-light);
     color: var(--bg)
 }
 
