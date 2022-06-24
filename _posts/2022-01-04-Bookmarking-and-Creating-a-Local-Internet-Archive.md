@@ -34,7 +34,7 @@ I also setup an [IFTTT](https://ifttt.com) automation so whenever a page is book
 
 ## Archiving Locally with ArchiveBox
 
-While researching bookmarking services, I stumbled across [ArchiveBox](https://archivebox.io), which can create a local [Internet Arhive](https://archive.org) of webpages, media, and other thing from the web. It can also import bookmarks, archiving them locally and sending them to archive.org.
+While researching bookmarking services, I stumbled across [ArchiveBox](https://archivebox.io), which can create a local [Internet Archive](https://archive.org) of webpages, media, and other thing from the web. It can also import bookmarks, archiving them locally and sending them to archive.org.
 
 This got me thinking, the [Backup feature](https://help.raindrop.io/backups) in Raindrop.io saves an `Export.html` to [Dropbox](https://www.dropbox.com/home). I could setup Dropboxy sync on my server and have a cronjob import every hour, syncing all new bookmarks from Raindrop.io into ArchiveBox automatically.
 
