@@ -39,7 +39,8 @@ links:
   gitlab: junocake
   linkedin: michealcwaltz
   twitter: junocake
-  social: ecliptik
+  sociallink: https://pleroma.ecliptik.com/ecliptik
+  social: ecliptik@pleroma.ecliptik.com
   keybase: ecliptik
   keyoxide: 5F70F2ACBD58F580DF153D1F4FA270F5CD3671F9
 

@@ -13,7 +13,7 @@ E-mail is my preferred method of communication, but I am also regularly post on 
 - Email: [{{ site.links.email }}](mailto:{{ site.links.email }})
 - LinkedIn: [{{ site.links.linkedin }}](https://www.linkedin.com/in/{{ site.links.linkedin }}/)
 - Github: [{{ site.links.github }}](https://www.github.com/{{ site.links.github }})
-- Social: [@{{ site.links.social }}@pleroma.ecliptik.com](https://pleroma.ecliptik.com/@{{ site.links.social }})
+- Social: [{{ site.links.social }}]({{ site.links.sociallink }})
 - Matrix: [@ecliptik:matrix.org](https://matrix.org)
 - GPG/Keyoxide: [5F70 F2AC BD58 F580 DF15  3D1F 4FA2 70F5 CD36 71F9](https://keyoxide.org/hkp/{{ site.links.keyoxide }})
 
