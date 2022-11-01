@@ -39,7 +39,7 @@ links:
   gitlab: junocake
   linkedin: michealcwaltz
   twitter: junocake
-  mastodon: ecliptik
+  social: ecliptik
   keybase: ecliptik
   keyoxide: 5F70F2ACBD58F580DF153D1F4FA270F5CD3671F9
 
@@ -80,7 +80,6 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-redirect-from
 
 # Include well-known directory
 include: [".well-known"]

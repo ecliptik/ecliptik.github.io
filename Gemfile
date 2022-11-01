@@ -29,6 +29,3 @@ end
 
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
-
-#Redirect https://github.com/jekyll/jekyll-redirect-from
-gem "jekyll-redirect-from", "~> 	0.16.0"
