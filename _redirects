@@ -1,3 +1,2 @@
 /.well-known/host-meta* https://pleroma.ecliptik.com/.well-known/host-meta:splat 301
-/.well-known/webfinger* https://pleroma.ecliptik.com/.well-known/webfinger:splat 301
 /.well-known/nodeinfo* https://pleroma.ecliptik.com/.well-known/nodeinfo:splat 301
