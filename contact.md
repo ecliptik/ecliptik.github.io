@@ -24,4 +24,3 @@ E-mail is my preferred method of communication, but I am also regularly post on 
 - [Gopher](gopher://rawtext.club:70/1~ecliptik)
 - [IPFS](ipns://ecliptik.eth)
 - [Handshake](https://ecliptik.hns.to)
-- [Tumblr](https://ecliptik.tumblr.com/)
