@@ -12,6 +12,8 @@
 # Running dnscrypt-proxy on OpenBSD
 ### 2021-03-12 | #100daystooffload #dns #hack #raspberrypi #openbsd 
 
+## Intro
+
 A couple of weeks ago I took a spare RaspberryPi 3 leftover from my old k3s cluster[1] and installed OpenBSD[2] on it using my Pocket C.H.I.P.[3]. While getting it installed was fun, I wanted to do more with it and use it on a more regular basis to continue learning about OpenBSD in general.
 
 => https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/ 1: https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/

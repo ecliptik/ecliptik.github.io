@@ -12,6 +12,8 @@
 # Raspberry Pi Kubernetes Cluster
 ### 2017-09-11 | #raspberrypi #kubernetes #arm #docker 
 
+## Intro
+
 Notes from setting up a three node Raspberry Pi 3 Model B[1] Kubernetes[2] cluster using HypriotOS 64-bit[3].
 
 => https://www.raspberrypi.org/products/raspberry-pi-3-model-b/ 1: https://www.raspberrypi.org/products/raspberry-pi-3-model-b/

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>gemini://rawtext.club/~ecliptik/_posts/</id>
   <title>Ecliptik's Gemlog</title>
-  <updated>2022-01-17T00:00:00+00:00</updated>
+  <updated>2023-01-25T00:00:00+00:00</updated>
   <author>
     <name>ecliptik</name>
     <email>gemini@accounts.ecliptik.com</email>
@@ -10,12 +10,6 @@
   <link href="gemini://rawtext.club/~ecliptik/_posts/feed.xml" rel="self"/>
   <link href="gemini://rawtext.club/~ecliptik/_posts/" rel="alternate"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>gemini://rawtext.club/~ecliptik/_posts/2021-02-24-Pocket-CHIP.gmi</id>
-    <title>Pocket C.H.I.P.</title>
-    <updated>2021-02-24T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-02-24-Pocket-CHIP.gmi" rel="alternate"/>
-  </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi</id>
     <title>CHIP Serial Console</title>
@@ -42,7 +36,7 @@
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi</id>
-    <title>Gemini Capsule in a FreeBSD Jail</title>
+    <title>Gemini Capsule in a FreeBSD Jail running on a RaspberryPi</title>
     <updated>2021-04-25T00:00:00+00:00</updated>
     <link href="gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi" rel="alternate"/>
   </entry>
@@ -69,5 +63,11 @@
     <title>Superhighway84 on FreeBSD</title>
     <updated>2022-01-17T00:00:00+00:00</updated>
     <link href="gemini://rawtext.club/~ecliptik/_posts/2022-01-17-Superhighway84-on-FreeBSD.gmi" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2023-01-25-Tailscale-on-the-DevTerm-R-01.gmi</id>
+    <title>Tailscale on the DevTerm R-01</title>
+    <updated>2023-01-25T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2023-01-25-Tailscale-on-the-DevTerm-R-01.gmi" rel="alternate"/>
   </entry>
 </feed>

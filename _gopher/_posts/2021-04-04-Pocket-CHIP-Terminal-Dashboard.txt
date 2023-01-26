@@ -4,6 +4,8 @@ tags: chip hack 100daystooffload
 date: 2021-04-04
 ___________________________________________
 
+Intro
+
 When I first got my [Pocket C.H.I.P.][] one of the first thoughts I
 had was to use it as sort of a mini-desktop terminal to display things
 like weather, new mail, etc. After doing some [other tinkering][] with

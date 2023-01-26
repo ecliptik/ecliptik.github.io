@@ -4,6 +4,8 @@ tags: keyboards technology qmk hardware 100daystooffload
 date: 2021-02-15
 ___________________________________________
 
+Intro
+
 Working in the tech industry and having geeky hobbies; I’ve always
 taken my tools, both hardware and software, seriously. For some reason
 I never thought about the keyboard itself though, and was content with
@@ -97,7 +99,7 @@ matt3o][]. These were particularly attractive because of their story;
 inspired by [IBM Beamspring terminals][] and the /dev/tty name.
 
   [/dev/tty by matt3o]: https://matt3o.com/about-mt3-profile-and-devtty-set/
-  [IBM Beamspring terminals]: https://www.cannondigi.com/ibm-beamspring-keyboard/
+  [IBM Beamspring terminals]: https://deskthority.net/viewtopic.php?t=8539/
 
   MT3 is inspired by old terminal keyboards; TTY was used to refer to
   “teletype” or “teletypewriter” but it has come to refer to any type
@@ -184,7 +186,7 @@ damaging them by using a solder sucker or wick.
 
   [QMK]: https://qmk.fm
   [pok3r can run QMK]: https://github.com/pok3r-custom/qmk_pok3r
-  [YD60MQ PCB]: https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/yd60mq
+  [YD60MQ PCB]: https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq
 
 [[Replacing pok3r PCB][]]
 
@@ -196,7 +198,7 @@ Part 2). The [custom keymap][] flashed on it is similar to the other
 boards I have, so combos and layers are consistent across all my
 boards.
 
-  [custom keymap]: https://github.com/ecliptik/qmk_firmware/blob/ecliptik/keyboards/yd60mq/keymaps/ecliptik/keymap.c
+  [custom keymap]: https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq/keymaps/ecliptik
 
 Final Product
 

@@ -12,6 +12,8 @@
 # One Week With Mastodon
 ### 2021-01-26 | #100daystooffload #fediverse #mastodon 
 
+## Intro
+
 One week ago I posted my first toot[1] on Mastodon[2] and I want to document my first weeks experience since it was much more eventful than I was expecting.
 
 => https://fosstodon.org/@ecliptik/105585397423041642 1: https://fosstodon.org/@ecliptik/105585397423041642

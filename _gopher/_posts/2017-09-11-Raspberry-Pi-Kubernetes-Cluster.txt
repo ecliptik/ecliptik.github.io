@@ -4,6 +4,8 @@ tags: docker arm kubernetes raspberrypi
 date: 2017-09-11
 ___________________________________________
 
+Intro
+
 Notes from setting up a three node [Raspberry Pi 3 Model B][]
 [Kubernetes][] cluster using [HypriotOS 64-bit][].
 

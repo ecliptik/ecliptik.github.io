@@ -12,6 +12,8 @@
 # Building a website with Github and Jekyll
 ### 2015-08-20 | #github #jekyll #docker 
 
+## Intro
+
 After a long time of www.ecliptik.com[1] being offline I finally brought it back online with Github Pages[2]. I really like the concept of having a static site using Markdown files and a template to quickly bring online a modern looking blog without the hassle of configuring a content management system, web server, or database.
 
 => http://www.ecliptik.com 1: http://www.ecliptik.com

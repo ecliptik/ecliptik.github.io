@@ -4,6 +4,8 @@ tags: ssh linux unix gpg git
 date: 2021-12-27
 ___________________________________________
 
+Intro
+
 Basic notes from setting up [gpg-agent forwarding][] between a MacOS
 and Debian Linux system.
 
@@ -20,7 +22,7 @@ password prompt tool) using [Homebrew][],
     brew install gnupg pinentry-mac
 
 Edit ~/.gnupg/gpg-agent.conf and make sure that
-${HOME} is the full path to your users home dir, eg `/Users/$USER, this must match what's setup in RemoteForward
+${HOME} is the full path to your users home dir, eg `/Users/$USER, this must match what's setup inRemoteForward`
 later,
 
     default-cache-ttl 600
@@ -57,8 +59,8 @@ Also double check the socket names that they match up from
 Remote System
 
 Update /etc/ssh/sshd_config (or wherever it is depending on your OS)
-configuration to include StreamLocalBindUnlink yes and restart
-sshdThis option will,
+configuration to include StreamLocalBindUnlink yes and restart sshd
+This option will,
 
   Specifies whether to remove an existing Unix-domain socket file for
   local or remote port forwarding before creating a new one. If the

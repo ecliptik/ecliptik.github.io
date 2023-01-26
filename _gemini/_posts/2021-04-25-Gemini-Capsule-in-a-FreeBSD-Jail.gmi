@@ -9,8 +9,10 @@
 =====================================================================
 ```
 
-# Gemini Capsule in a FreeBSD Jail
+# Gemini Capsule in a FreeBSD Jail running on a RaspberryPi
 ### 2021-04-25 | #100daystooffload #gemini #hack #freebsd 
+
+## Intro
 
 With the recent release of FreeBSD 13[1], I wanted to test it out on a spare RaspberryPi 3 that was part of my old Kubernetes cluster[2].
 

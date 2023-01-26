@@ -12,6 +12,8 @@
 # Emulating ARM64 on Linux
 ### 2015-08-28 | #ubuntu #arm #operatingsystems 
 
+## Intro
+
 Over the last few years I've championed[1] the ultra-low-power and high-density of a 64-bit ARM platform[2] in the datacenter. The promise of thousands of cores all sipping power and taking up less room than the equivalent Intel architecture to me is both exciting and pragmatic as a large systems IT engineer.
 
 => https://www.google.com/search?q=micheal+waltz+arm64 1: https://www.google.com/search?q=micheal+waltz+arm64

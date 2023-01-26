@@ -4,6 +4,8 @@ tags: chip hack 100daystooffload
 date: 2021-03-19
 ___________________________________________
 
+Intro
+
 In the ever expanding ways to hack [my Pocket C.H.I.P.][], and my
 recent discovery of [Vaporwave][], I couldn’t help but combine the two
 and have a looping music video device on my desktop. Note this is not

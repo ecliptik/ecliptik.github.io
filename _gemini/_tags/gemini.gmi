@@ -12,4 +12,4 @@
 # gemini
 
 => gemini://rawtext.club/~ecliptik/_posts/2021-02-09-Launching-a-Gemini-Capsule.gmi  Launching a Gemini Capsule
-=> gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi  Gemini Capsule in a FreeBSD Jail
+=> gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi  Gemini Capsule in a FreeBSD Jail running on a RaspberryPi

@@ -12,6 +12,7 @@
 # Ecliptik's Gemlog
 ## Latest Posts
 
+=> gemini://rawtext.club/~ecliptik/_posts/2023-01-25-Tailscale-on-the-DevTerm-R-01.gmi 2023-01-25 Tailscale on the DevTerm R 01
 => gemini://rawtext.club/~ecliptik/_posts/2022-01-17-Superhighway84-on-FreeBSD.gmi 2022-01-17 Superhighway84 on FreeBSD
 => gemini://rawtext.club/~ecliptik/_posts/2022-01-04-Bookmarking-and-Creating-a-Local-Internet-Archive.gmi 2022-01-04 Bookmarking and Creating a Local Internet Archive
 => gemini://rawtext.club/~ecliptik/_posts/2021-12-30-This-Website-Is-Now-Available-on-IPFS,-ENS,-and-Handshake.gmi 2021-12-30 This Website Is Now Available on IPFS, ENS, and Handshake

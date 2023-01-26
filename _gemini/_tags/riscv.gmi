@@ -9,7 +9,6 @@
 =====================================================================
 ```
 
-# freebsd
+# riscv
 
-=> gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi  Gemini Capsule in a FreeBSD Jail running on a RaspberryPi
-=> gemini://rawtext.club/~ecliptik/_posts/2022-01-17-Superhighway84-on-FreeBSD.gmi  Superhighway84 on FreeBSD
+=> gemini://rawtext.club/~ecliptik/_posts/2023-01-25-Tailscale-on-the-DevTerm-R-01.gmi  Tailscale on the DevTerm R-01

@@ -4,6 +4,8 @@ tags: perl docker containers
 date: 2015-08-29
 ___________________________________________
 
+Intro
+
 Almost every IT department has one; a Perl script written decades ago
 by a long-gone employee that’s critical to production. It does it’s
 job well, but no one wants to touch or take responsibility for it. You

@@ -12,6 +12,8 @@
 # Pocket CHIP Terminal Dashboard
 ### 2021-04-04 | #100daystooffload #hack #chip 
 
+## Intro
+
 When I first got my Pocket C.H.I.P.[1] one of the first thoughts I had was to use it as sort of a mini-desktop terminal to display things like weather, new mail, etc. After doing some other tinkering[2] with it first, it has been on my desk the last couple of weeks displaying the following information,
 
 => https://www.ecliptik.com/Pocket-CHIP/ 1: https://www.ecliptik.com/Pocket-CHIP/

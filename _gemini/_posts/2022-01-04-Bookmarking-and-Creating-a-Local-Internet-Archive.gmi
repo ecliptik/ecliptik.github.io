@@ -12,6 +12,8 @@
 # Bookmarking and Creating a Local Internet Archive
 ### 2022-01-04 | #archiving #bookmarks #hack 
 
+## Intro
+
 While I'm a heavy user of RSS with Newsblur[1], I've never had a coherent bookmarking solution. Last week I finally setup a proper bookmark manager, and as a bonus, archived bookmarked pages locally in my own personal Internet Archive[2].
 
 => https://www.newsblur.com 1: https://www.newsblur.com
@@ -51,7 +53,7 @@ I also setup an IFTTT[12] automation so whenever a page is bookmarked in Raindro
 
 ## Archiving Locally with ArchiveBox
 
-While researching bookmarking services, I stumbled across ArchiveBox[13], which can create a local Internet Arhive[14] of webpages, media, and other thing from the web. It can also import bookmarks, archiving them locally and sending them to archive.org.
+While researching bookmarking services, I stumbled across ArchiveBox[13], which can create a local Internet Archive[14] of webpages, media, and other thing from the web. It can also import bookmarks, archiving them locally and sending them to archive.org.
 
 => https://archivebox.io 13: https://archivebox.io
 => https://archive.org 14: https://archive.org

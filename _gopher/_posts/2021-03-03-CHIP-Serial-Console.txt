@@ -4,6 +4,8 @@ tags: chip openbsd 100daystooffload hack raspberrypi
 date: 2021-03-03
 ___________________________________________
 
+Intro
+
 Since [getting a Pocket C.H.I.P][], I’m looking for more ways to use
 it outside the original configuration, and came across a Hackernoon
 post on using a [CHIP as a serial console][].

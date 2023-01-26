@@ -4,6 +4,8 @@ tags: debian chip hack 100daystooffload
 date: 2021-02-24
 ___________________________________________
 
+Intro
+
 Recently I got a [Pocket C.H.I.P.][] with the idea of making it mini
 terminal on my desk, displaying things like weather, new email, new
 mastodon toots, etc. It comes pre-loaded with some basic software:

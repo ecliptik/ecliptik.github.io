@@ -4,6 +4,8 @@ tags: mastodon fediverse 100daystooffload
 date: 2021-01-26
 ___________________________________________
 
+Intro
+
 One week ago I posted [my first toot][] on [Mastodon][] and I want to
 document my first weeks experience since it was much more eventful
 than I was expecting.

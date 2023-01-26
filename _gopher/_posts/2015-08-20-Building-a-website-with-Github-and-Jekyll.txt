@@ -4,6 +4,8 @@ tags: docker jekyll github
 date: 2015-08-20
 ___________________________________________
 
+Intro
+
 After a long time of [www.ecliptik.com][] being offline I finally
 brought it back online with [Github Pages][]. I really like the
 concept of having a static site using Markdown files and a template to

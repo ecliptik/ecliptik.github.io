@@ -4,6 +4,8 @@ tags: openbsd raspberrypi hack dns 100daystooffload
 date: 2021-03-12
 ___________________________________________
 
+Intro
+
 A couple of weeks ago I took a spare RaspberryPi 3 leftover from my
 [old k3s cluster][] and installed [OpenBSD][] on it using my [Pocket
 C.H.I.P.][]. While getting it installed was fun, I wanted to do more

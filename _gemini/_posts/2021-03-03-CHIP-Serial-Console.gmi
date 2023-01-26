@@ -12,6 +12,8 @@
 # CHIP Serial Console
 ### 2021-03-03 | #raspberrypi #hack #100daystooffload #openbsd #chip 
 
+## Intro
+
 Since getting a Pocket C.H.I.P[1], I'm looking for more ways to use it outside the original configuration, and came across a Hackernoon post on using a CHIP as a serial console[2].
 
 => https://www.ecliptik.com/Pocket-CHIP/ 1: https://www.ecliptik.com/Pocket-CHIP/

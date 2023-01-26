@@ -12,6 +12,8 @@
 # Custom Keyboards, Sully and Pok3r
 ### 2021-02-15 | #100daystooffload #hardware #qmk #technology #keyboards 
 
+## Intro
+
 Working in the tech industry and having geeky hobbies; I've always taken my tools, both hardware and software, seriously. For some reason I never thought about the keyboard itself though, and was content with using the bundled membrane boards. A few years ago though this all changed which I discovered the deep rabbit hole that is both utilitarian and vain world of custom keyboards.
 
 ## Sully
@@ -65,7 +67,7 @@ Eventually I started getting annoyed with the default keycaps, which were a thin
 The first item on the list was easy enough to do, just scour keyboard stores and find a keycap set. I went through various postings, storefronts, and group buys, eventually landing on /dev/tty by matt3o[3]. These were particularly attractive because of their story; inspired by IBM Beamspring terminals[4] and the `/dev/tty` name.
 
 => https://matt3o.com/about-mt3-profile-and-devtty-set/ 3: https://matt3o.com/about-mt3-profile-and-devtty-set/
-=> https://www.cannondigi.com/ibm-beamspring-keyboard/ 4: https://www.cannondigi.com/ibm-beamspring-keyboard/
+=> https://deskthority.net/viewtopic.php?t=8539/ 4: https://deskthority.net/viewtopic.php?t=8539/
 
 > MT3 is inspired by old terminal keyboards; TTY was used to refer to "teletype" or "teletypewriter" but it has come to refer to any type of text terminal. As a linux user the temptation to call the set `/dev/tty` was simply too strong to resist.
 
@@ -105,13 +107,13 @@ The last item on the list was improving the programming of the board. I'm planni
 
 => https://qmk.fm 7: https://qmk.fm
 => https://github.com/pok3r-custom/qmk_pok3r 8: https://github.com/pok3r-custom/qmk_pok3r
-=> https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/yd60mq 9: https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/yd60mq
+=> https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq 9: https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq
 
 => gemini://rawtext.club/~ecliptik/assets/images/keyboards/IMG_6453.png Replacing pok3r PCB [IMG]
 
 The PCB was replaced about a year after the board was first built, months after I started using QMK on my other boards (more on those in Part 2). The custom keymap[10] flashed on it is similar to the other boards I have, so combos and layers are consistent across all my boards.
 
-=> https://github.com/ecliptik/qmk_firmware/blob/ecliptik/keyboards/yd60mq/keymaps/ecliptik/keymap.c 10: https://github.com/ecliptik/qmk_firmware/blob/ecliptik/keyboards/yd60mq/keymaps/ecliptik/keymap.c
+=> https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq/keymaps/ecliptik 10: https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq/keymaps/ecliptik
 
 ## Final Product
 

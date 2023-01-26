@@ -12,6 +12,8 @@
 # Pocket C.H.I.P.
 ### 2021-02-24 | #100daystooffload #hack #chip #debian 
 
+## Intro
+
 Recently I got a Pocket C.H.I.P.[1] with the idea of making it mini terminal on my desk, displaying things like weather, new email, new mastodon toots, etc. It comes pre-loaded with some basic software: terminal, pico8[2], and a few other utilities. Because it was released in 2017 and the demise of the original Next Thing the software on it is out-of-date, running Debian 8 and an older version of pico8.
 
 => https://shop.pocketchip.co/ 1: https://shop.pocketchip.co/

@@ -4,6 +4,8 @@ tags: freebsd smolweb ipfs
 date: 2022-01-17
 ___________________________________________
 
+Intro
+
 A couple of weeks ago I saw [Superhighway84][] on [HackerNews][] and
 started to check it out, but didn’t get very far. I finally spent some
 time to get it up and running on [FreeBSD][] which works, but requires

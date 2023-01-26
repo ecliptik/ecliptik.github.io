@@ -4,6 +4,8 @@ tags: operatingsystems arm ubuntu
 date: 2015-08-28
 ___________________________________________
 
+Intro
+
 Over the last few years I’ve [championed][] the ultra-low-power and
 high-density of a [64-bit ARM platform][] in the datacenter. The
 promise of thousands of cores all sipping power and taking up less

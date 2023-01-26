@@ -4,6 +4,8 @@ tags: hack bookmarks archiving
 date: 2022-01-04
 ___________________________________________
 
+Intro
+
 While I’m a heavy user of RSS with [Newsblur][], I’ve never had a
 coherent bookmarking solution. Last week I finally setup a proper
 bookmark manager, and as a bonus, archived bookmarked pages locally in
@@ -64,12 +66,12 @@ Raindrop.io Mac App
 Archiving Locally with ArchiveBox
 
 While researching bookmarking services, I stumbled across
-[ArchiveBox][], which can create a local [Internet Arhive][] of
+[ArchiveBox][], which can create a local [Internet Archive][] of
 webpages, media, and other thing from the web. It can also import
 bookmarks, archiving them locally and sending them to archive.org.
 
   [ArchiveBox]: https://archivebox.io
-  [Internet Arhive]: https://archive.org
+  [Internet Archive]: https://archive.org
 
 This got me thinking, the [Backup feature][] in Raindrop.io saves an
 Export.html to [Dropbox][]. I could setup Dropboxy sync on my server

@@ -4,6 +4,8 @@ tags: docker containers watchtower
 date: 2015-09-08
 ___________________________________________
 
+Intro
+
 You have your services containerized, you’ve just deployed them to
 your fleet of 1000 container hosts and everything is running smoothly.
 Then you realize that you missed a crucial command in the
