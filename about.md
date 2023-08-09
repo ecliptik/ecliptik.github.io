@@ -26,7 +26,7 @@ Experienced DevOps Engineer and Technical Account Manager with 20+ years experie
 | **Cloud and Infrastructure** | **Operating Systems** |
 | :---| :--- |
 | [Amazon Web Services](https://aws.amazon.com/) | [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) |
-| [Google Cloud Platform](https://cloud.google.com/) | [FreeBSD](https://www.freebsd.org/|
+| [Google Cloud Platform](https://cloud.google.com/) | [FreeBSD](https://www.freebsd.org/)|
 | [Kubernetes](https://kubernetes.io) | [OpenBSD](https://www.openbsd.org/) |
 | [Terraform](https://www.terraform.io/) | [Debian Linux](https://www.debian.org/) |
 | [Kustomize](https://kustomize.io/) | [Ubuntu Linux](https://www.ubuntu.com/) |
