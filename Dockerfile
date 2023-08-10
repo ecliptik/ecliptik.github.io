@@ -1,11 +1,11 @@
-FROM ruby:2.7
+FROM public.ecr.aws/docker/library/ruby:3-slim
 LABEL maintainer="Micheal Waltz <dockerfile@ecliptik.com>"
 
 #Set our workdir
 WORKDIR /app
 
 COPY Gemfile .
-COPY Gemfile.lock .
+#COPY Gemfile.lock .
 
 #Install build packages
 RUN apt-get update && apt-get install -y \
