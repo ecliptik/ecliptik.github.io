@@ -9,9 +9,9 @@ tags: docker azure arm kubernetes raspberrypi
 
 ## Intro
 
-Running the [Azure Container Instances Connector for Kubernetes](https://github.com/azure/aci-connector-k8s) on a Raspberry Pi Cluster.
+Running the [Azure Container Instances Connector for Kubernetes](https://web.archive.org/web/20171104111735/https://github.com/azure/aci-connector-k8s) on a Raspberry Pi Cluster.
 
-One of the most interesting features of [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) is the [Azure Container Instances Connector for Kubernetes](https://github.com/azure/aci-connector-k8s). This adds an ACI "node" to an existing [Kubernetes](https://kubernetes.io) cluster and allows you to deploy pods to it. This "node" will run pods in ACI without having to create or manage and additional Azure VMs, just point-and-shoot a pod at it and it will run with no additional setup required.
+One of the most interesting features of [Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/) is the [Azure Container Instances Connector for Kubernetes](https://web.archive.org/web/20171104111735/https://github.com/azure/aci-connector-k8s). This adds an ACI "node" to an existing [Kubernetes](https://kubernetes.io) cluster and allows you to deploy pods to it. This "node" will run pods in ACI without having to create or manage and additional Azure VMs, just point-and-shoot a pod at it and it will run with no additional setup required.
 
 By using the ACI Connector for Kubernetes on a Raspberry PI, a cluster can run homogenous ARM containers on-prem, but still have the ability to deploy and manage x86 containers to a cloud provider.
 
@@ -27,7 +27,7 @@ The upstream aci-connector-k8s image is x86 only, but since it's written in type
 
 > Note: As of 9/12/2017 [Docker Hub Official Images support multi-platform](https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/) and re-building an image for armhf (or arm64, ppc64le, and s390x) is no longer required if using a supported image (currently Debian based only, Alpine based like below still need to be re-built).
 
-The aci-connector-k8s [Dockerfile](https://github.com/Azure/aci-connector-k8s/blob/master/Dockerfile) uses `node:8.4.0-alpine` as it's base image. While there are some "unofficial" node ARM images, lets create one from a somewhat official repository. This involves finding an armhf Alpine 3.6 image, copying/pasting the [node:8.4-alpine Dockerfile](https://github.com/nodejs/docker-node/blob/17c50cb300581280805a4183524fbf57840f3a7e/8.4/alpine/Dockerfile), replacing the `FROM` with the armhf version of alpine, and building the image.
+The aci-connector-k8s [Dockerfile](https://web.archive.org/web/20211229050703/https://github.com/Azure/aci-connector-k8s/blob/master/Dockerfile) uses `node:8.4.0-alpine` as it's base image. While there are some "unofficial" node ARM images, lets create one from a somewhat official repository. This involves finding an armhf Alpine 3.6 image, copying/pasting the [node:8.4-alpine Dockerfile](https://github.com/nodejs/docker-node/blob/17c50cb300581280805a4183524fbf57840f3a7e/8.4/alpine/Dockerfile), replacing the `FROM` with the armhf version of alpine, and building the image.
 
 There are two ways to build an armhf image,
 
@@ -54,7 +54,7 @@ docker push ecliptik/node:8.4.0-alpine-armhf
 ```
 
 ### Building an aci-connector-k8s ARM Docker Image
-Once a nodejs arm-alpine image is created, clone the [aci-connector-k8s](https://github.com/Azure/aci-connector-k8s) repositoriy, and update the `Dockerfile` to use the `ecliptik/node:8.4.0-alpine-armhf` image. Additionaly, use the `Dockefile` below to use multi-stage builds for improved image size.
+Once a nodejs arm-alpine image is created, clone the [aci-connector-k8s](https://web.archive.org/web/20171104111735/https://github.com/azure/aci-connector-k8s) repositoriy, and update the `Dockerfile` to use the `ecliptik/node:8.4.0-alpine-armhf` image. Additionaly, use the `Dockefile` below to use multi-stage builds for improved image size.
 
 ```dockerfile
 ### Base Image
