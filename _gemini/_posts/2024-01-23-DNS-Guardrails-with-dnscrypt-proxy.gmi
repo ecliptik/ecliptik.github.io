@@ -16,7 +16,7 @@
 
 Over the holidays we got our two younger children HP laptops for them to do their school work on and to have a proper computer. While the schools Google login effectively adds restrictions to Chrome, I still wanted to have some guardrails on their Internet access as well as ad-blocking.
 
-The first thing I did was replace the Windows S install that came on the laptops with Linux Mint[1] and I've always enjoyed the Cinnamon desktop environment[2] and it has a low enough learning curve that the kids could easily pick it up. After installing a few apps and games (OpenRCT2[3] from the Software Center and setting their own passwords, they were up and running and surfing the world-wide-web.
+The first thing I did was replace the Windows S install that came on the laptops with Linux Mint[1] and I've always enjoyed the Cinnamon desktop environment[2] and it has a low enough learning curve that the kids could easily pick it up. After installing a few apps and games (OpenRCT2[3]) from the Software Center and setting their own passwords, they were up and running and surfing the world-wide-web.
 
 => https://www.linuxmint.com/ 1: https://www.linuxmint.com/
 => https://projects.linuxmint.com/cinnamon/ 2: https://projects.linuxmint.com/cinnamon/

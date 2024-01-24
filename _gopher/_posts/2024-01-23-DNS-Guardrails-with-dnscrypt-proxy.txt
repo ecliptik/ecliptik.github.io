@@ -16,7 +16,7 @@ The first thing I did was replace the Windows S install that came on
 the laptops with Linux Mint and I’ve always enjoyed the Cinnamon
 desktop environment and it has a low enough learning curve that the
 kids could easily pick it up. After installing a few apps and games
-(OpenRCT2 from the Software Center and setting their own passwords,
+(OpenRCT2) from the Software Center and setting their own passwords,
 they were up and running and surfing the world-wide-web.
 
   [Linux Mint]: https://www.linuxmint.com/
