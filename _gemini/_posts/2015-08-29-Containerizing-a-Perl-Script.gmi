@@ -45,10 +45,11 @@ The following Multi-Stage Dockerfile[6] will build a container to run a simple p
 * Set `ps.pl` script as ENTRYPOINT[8]
 * Set `-h` as default argument
 
-Here is the Dockerfile[9] in full,
-
 => https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-ps-pl 7: https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-ps-pl
 => https://docs.docker.com/engine/reference/builder/#entrypoint 8: https://docs.docker.com/engine/reference/builder/#entrypoint
+
+Here is the Dockerfile[9] in full,
+
 => https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-dockerfile 9: https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-dockerfile
 
 ```dockerfile
@@ -275,11 +276,11 @@ ps-perl             latest              938c3dde86d7        29 minutes ago      
 * Downsizing Docker Containers[23]
 * Proc::ProcessTable Example[24]
 
-(Updated 9/11/2020)
-
 => http://robn.io/docker-perl/ 22: http://robn.io/docker-perl/
 => https://intercityup.com/blog/downsizing-docker-containers.html 23: https://intercityup.com/blog/downsizing-docker-containers.html
 => http://search.cpan.org/~durist/Proc-ProcessTable-0.39/ProcessTable.pm 24: http://search.cpan.org/~durist/Proc-ProcessTable-0.39/ProcessTable.pm
+
+(Updated 9/11/2020)
 
 ### Tags
 

@@ -22,6 +22,7 @@ A couple of weeks ago I took a spare RaspberryPi 3 leftover from my old k3s clus
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/openbsd-rpi/openbsd-rpi.png OpenBSD on RaspberryPi [IMG]
 
+
 I've had a Pi-hole[4] running on an older Raspberry Pi B with Debian for a few years, but wanted a few additional features, notably using DNSCRYPT[5] to encrypt DNS traffic so our ISP wouldn't be able to use it for anything and/or using DNS-over-HTTPS[6]. I originally was going to setup Pi-hole on the new OpenBSD Pi, but quickly found out that Pi-hole doesn't work on OpenBSD.
 
 => https://pi-hole.net/ 4: https://pi-hole.net/
@@ -78,17 +79,16 @@ or
 [FATAL] Duplicated file descriptors are above base
 ```
 
-It also contains deprecated references to `blacklist` and `whitelist` which will needs replacing. A known good configuration to start with is here: https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml[11][12].
+It also contains deprecated references to `blacklist` and `whitelist` which will needs replacing. A known good configuration to start with is here: https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml[11].
 
 => https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml 11: https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
-=> https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml 12: https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
 
 ### Cloudflare DNS-over-HTTPS
 
-I am using the Cloudflare 1.1.1.1[13] DNS revolvers since they provide DNS-over-HTTPS and their response times are extremely fast. My ISP and network is also setup for IPv6, and that is configured to allow IPv6 clients and lookups. For fallback DNS, Quad9[14] is used since it's separate from Cloudflare and has a relatively decent privacy and security features.
+I am using the Cloudflare 1.1.1.1[12] DNS revolvers since they provide DNS-over-HTTPS and their response times are extremely fast. My ISP and network is also setup for IPv6, and that is configured to allow IPv6 clients and lookups. For fallback DNS, Quad9[13] is used since it's separate from Cloudflare and has a relatively decent privacy and security features.
 
-=> https://1.1.1.1/ 13: https://1.1.1.1/
-=> https://www.quad9.net/ 14: https://www.quad9.net/
+=> https://1.1.1.1/ 12: https://1.1.1.1/
+=> https://www.quad9.net/ 13: https://www.quad9.net/
 
 ```toml
 #Use cloudflare DNS
@@ -131,9 +131,9 @@ ignore_system_dns = false
 
 ### Sources
 
-To reference revolvers and relays, sources[15] are used to find publicly resources. These are setup by default in dnscrypt-proxy, but I've added a few changes like caching them to `/var/dnscrypt-proxy` and point to the latest `v3`.
+To reference revolvers and relays, sources[14] are used to find publicly resources. These are setup by default in dnscrypt-proxy, but I've added a few changes like caching them to `/var/dnscrypt-proxy` and point to the latest `v3`.
 
-=> https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Configuration-Sources 15: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Configuration-Sources
+=> https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Configuration-Sources 14: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Configuration-Sources
 
 ```toml
 #Sources for resolvers and relays
@@ -155,10 +155,10 @@ ypt.info/resolvers-list/v3/relays.md', 'https://download.dnscrypt.net/resolvers-
 
 ### Block and Allow Lists
 
-Another powerful features of dnscrypt-proxy are filters[16], which can take on the role Pi-hole was doing with having a list of domains to block for ads, malware, and other reasons. To generate these lists, the generate-domains-blocklist.py[17] is used.
+Another powerful features of dnscrypt-proxy are filters[15], which can take on the role Pi-hole was doing with having a list of domains to block for ads, malware, and other reasons. To generate these lists, the generate-domains-blocklist.py[16] is used.
 
-=> https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters 16: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters
-=> https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/utils/generate-domains-blocklist/generate-domains-blocklist.py 17: https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/utils/generate-domains-blocklist/generate-domains-blocklist.py
+=> https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters 15: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters
+=> https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/utils/generate-domains-blocklist/generate-domains-blocklist.py 16: https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/utils/generate-domains-blocklist/generate-domains-blocklist.py
 
 I took the blocklists that Pi-hole was using, and created a `domains-blocklist.conf` configuration to match, which gives it the same blocking sources as the Pi-hole was.
 
@@ -197,9 +197,9 @@ https://raw.githubusercontent.com/nickspaargaren/pihole-google/master/categories
 https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt
 ```
 
-This file also references `domains-blocklist-local-additions.txt`, which is setup to protect against DNS rebinding protection[18],
+This file also references `domains-blocklist-local-additions.txt`, which is setup to protect against DNS rebinding protection[17],
 
-=> https://en.wikipedia.org/wiki/DNS_rebinding#Protection 18: https://en.wikipedia.org/wiki/DNS_rebinding#Protection
+=> https://en.wikipedia.org/wiki/DNS_rebinding#Protection 17: https://en.wikipedia.org/wiki/DNS_rebinding#Protection
 
 ```
 # Localhost rebinding protection
@@ -240,9 +240,9 @@ Generating the blocklist can be done manually or as a cronjob,
 $ python3 generate-domains-blocklist.py -o blocklist.txt
 ```
 
-Since I use Plex[19], work for a Account Based Marketing company, and Google reCaptcha is usually in blocklists, I created an `allowlist.txt` as well,
+Since I use Plex[18], work for a Account Based Marketing company, and Google reCaptcha is usually in blocklists, I created an `allowlist.txt` as well,
 
-=> https://www.plex.tv/ 19: https://www.plex.tv/
+=> https://www.plex.tv/ 18: https://www.plex.tv/
 
 ```
 plex.direct
@@ -270,9 +270,9 @@ Putting this all together into the `/etc/dnscrypt-proxy.toml` blocking configura
 
 ### Anonymized DNS
 
-One of the features I liked about dnscrypt-proxy is it offers is Anonymized DNS[20], which I setup to test out.
+One of the features I liked about dnscrypt-proxy is it offers is Anonymized DNS[19], which I setup to test out.
 
-=> https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Anonymized-DNS 20: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Anonymized-DNS
+=> https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Anonymized-DNS 19: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Anonymized-DNS
 
 ```
 #Anonymized DNS relays
@@ -287,10 +287,10 @@ While this did work well, unfortunately the DNS query times were consistently 20
 
 ### Local DNS-over-HTTPS
 
-Another feature that Pi-hole didn't support was DNS-over-HTTPS both for resolving and for serving requests locally. This is something built-in to dnscrypt-proxy with Local DoH[21] that Firefox support for DoH[22] can then use. By default Firefox will use Cloudflare DoH directly and was previously bypassing the Pi-hole, not getting the filtering features the rest of the network was. Now it can use the same filtering and continue to use DoH.
+Another feature that Pi-hole didn't support was DNS-over-HTTPS both for resolving and for serving requests locally. This is something built-in to dnscrypt-proxy with Local DoH[20] that Firefox support for DoH[21] can then use. By default Firefox will use Cloudflare DoH directly and was previously bypassing the Pi-hole, not getting the filtering features the rest of the network was. Now it can use the same filtering and continue to use DoH.
 
-=> https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Local-DoH 21: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Local-DoH
-=> https://support.mozilla.org/en-US/kb/firefox-dns-over-https 22: https://support.mozilla.org/en-US/kb/firefox-dns-over-https
+=> https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Local-DoH 20: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Local-DoH
+=> https://support.mozilla.org/en-US/kb/firefox-dns-over-https 21: https://support.mozilla.org/en-US/kb/firefox-dns-over-https
 
 To setup DoH on dnscrypt-proxy, a self-signed certificate is required,
 
@@ -369,9 +369,9 @@ Depending on the number of devices making DNS requests, the `query.log` can get 
 
 Since a Raspberry Pi is most likely using an MicroSD card and by default OpenBSD will mount `/tmp` as a filesystem, it's a good idea to to set `/tmp` as a memory filesystem to avoid excessive writes to the SD Card.
 
-OpenBSD has the mfs[23] filesytem that can be used to mount a filesystem in-memory to help avoid this,
+OpenBSD has the mfs[22] filesytem that can be used to mount a filesystem in-memory to help avoid this,
 
-=> https://man.openbsd.org/mount_mfs.8 23: https://man.openbsd.org/mount_mfs.8
+=> https://man.openbsd.org/mount_mfs.8 22: https://man.openbsd.org/mount_mfs.8
 
 > mount_mfs is used to build a file system in virtual memory and then mount it on a specified node.
 

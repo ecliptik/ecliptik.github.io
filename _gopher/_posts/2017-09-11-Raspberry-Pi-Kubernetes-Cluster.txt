@@ -6,35 +6,35 @@ ___________________________________________
 
 Intro
 
-Notes from setting up a three node [Raspberry Pi 3 Model B][]
-[Kubernetes][] cluster using [HypriotOS 64-bit][].
+Notes from setting up a three node Raspberry Pi 3 Model B Kubernetes
+cluster using HypriotOS 64-bit.
 
   [Raspberry Pi 3 Model B]: https://www.raspberrypi.org/products/raspberry-pi-3-model-b/
   [Kubernetes]: https://kubernetes.io
   [HypriotOS 64-bit]: https://github.com/DieterReuter/image-builder-rpi64/releases
 
-Originally from [Setup Kubernetes on a Raspberry Pi Cluster easily the
-official way!][] with some additions to fix things I ran into when
+Originally from Setup Kubernetes on a Raspberry Pi Cluster easily the
+official way! with some additions to fix things I ran into when
 following the guide. This guide uses a 64-bit version of HypriotOS and
 only armv8 64-bit Docker images will work.
 
   [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!]:
     https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/
 
-[[RPI Cluster][]]
+[RPI Cluster]
 
   [RPI Cluster]: /assets/images/posts/k8s-rpi-cluster.jpg
 
 Installing and Configuring HypriotOS
 
-Flash [HypriotOS 64-bit][] to SD card. By using HypriotOS we can avoid
-a lot of the issues that comes with installing Docker on ARM.
+Flash HypriotOS 64-bit to SD card. By using HypriotOS we can avoid a
+lot of the issues that comes with installing Docker on ARM.
 
   [HypriotOS 64-bit]: https://github.com/DieterReuter/image-builder-rpi64/releases
 
   You can skip the following steps for updating, setting up the k8s
-  repo, and installing the k8s package using --userdata with the
-  [flash][] tool. See this [example][].
+  repo, and installing the k8s package using --userdata with the flash
+  tool. See this example.
 
   [flash]: https://github.com/hypriot/flash
   [example]: https://github.com/ecliptik/rpi/blob/master/hypriot/user-data.yml
@@ -46,8 +46,7 @@ To begin, boot the Raspberry Pi to Hypriot, login and update system,
 
 Installing Kubernetes
 
-Install Kubernetes from [official package repositories][] on each
-node,
+Install Kubernetes from official package repositories on each node,
 
   [official package repositories]: https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubelet-and-kubeadm
 
@@ -61,8 +60,7 @@ Setup the Master Node
 
 As root, init the cluster with the network CIDR for Flannel,
 
-  As of this writing this will install and configure [Kubernetes
-  1.8][]
+  As of this writing this will install and configure Kubernetes 1.8
 
   [Kubernetes 1.8]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#v180
 
@@ -79,9 +77,9 @@ non-root,
 
 Setup Flannel CNI
 
-By default Kubernetes does not configure a [Container Network
-Interface][] and needs to have one installed. [Flannel][] has an arm64
-version available and works reasonably well on the Raspberry Pi 3 and
+By default Kubernetes does not configure a Container Network Interface
+and needs to have one installed. Flannel has an arm64 version
+available and works reasonably well on the Raspberry Pi 3 and
 HypriotOS.
 
   [Container Network Interface]: https://cncf.io/projects/
@@ -90,7 +88,7 @@ HypriotOS.
 Install flannel using arm64 images,
 
   With older versions of flannel, additinoal iptables rules were
-  required, this was fixed in [v0.9.1][] (thanks for the tip Frank!)
+  required, this was fixed in v0.9.1 (thanks for the tip Frank!)
 
   [v0.9.1]: https://github.com/coreos/flannel/pull/872
 
@@ -133,21 +131,21 @@ Show Pod Status,
 
 Run A Test Pod
 
-Using [Docker Hub Official Multi-Platform Images][] makes running
-official Docker hub images on arm64 hardware much easier. Since Docker
-Hub now understands architecture manifest, no specific architecture
-tags are required and any official images will work on a Raspberry Pi
-k8s cluster without a specific tag.
+Using Docker Hub Official Multi-Platform Images makes running official
+Docker hub images on arm64 hardware much easier. Since Docker Hub now
+understands architecture manifest, no specific architecture tags are
+required and any official images will work on a Raspberry Pi k8s
+cluster without a specific tag.
 
   [Docker Hub Official Multi-Platform Images]: https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/
 
   Official images based off Alpine Linux currently do not work - see
-  [Issue #304][] for more information.
+  Issue #304 for more information.
 
   [Issue #304]: https://github.com/gliderlabs/docker-alpine/issues/304
 
-In this example, we’ll run the [official nginx image][] and have it
-listen on port 80.
+In this example, we’ll run the official nginx image and have it listen
+on port 80.
 
   [official nginx image]: https://hub.docker.com/_/nginx/
 

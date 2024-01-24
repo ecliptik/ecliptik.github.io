@@ -6,25 +6,24 @@ ___________________________________________
 
 Intro
 
-Recently I got a [Pocket C.H.I.P.][] with the idea of making it mini
+Recently I got a Pocket C.H.I.P. with the idea of making it mini
 terminal on my desk, displaying things like weather, new email, new
 mastodon toots, etc. It comes pre-loaded with some basic software:
-terminal, [pico8][], and a few other utilities. Because it was
-released in 2017 and the demise of the original Next Thing the
-software on it is out-of-date, running Debian 8 and an older version
-of pico8.
+terminal, pico8, and a few other utilities. Because it was released in
+2017 and the demise of the original Next Thing the software on it is
+out-of-date, running Debian 8 and an older version of pico8.
 
   [Pocket C.H.I.P.]: https://shop.pocketchip.co/
   [pico8]: https://www.lexaloffle.com/pico-8.php
 
-[[Pocket C.H.I.P.][1]]
+[Pocket C.H.I.P.]
 
+  [1]: /assets/images/posts/pocket-chip.png
 
 Pocket C.H.I.P.
-I wanted to updated it to at least Debian 10, and found a [working
-guide][] which follows the basic Debian upgrade process as well as
-some fixes for common issues like Xorg configs and updating wifi
-settings.
+I wanted to updated it to at least Debian 10, and found a working
+guide which follows the basic Debian upgrade process as well as some
+fixes for common issues like Xorg configs and updating wifi settings.
 
   [working guide]: https://gist.github.com/luzhuomi/526fbcc30f3522f09eacf20d0f776fa5
 
@@ -82,7 +81,7 @@ For reference /home/chip/.Xmodmap is,
 
 Updating Pico8
 
-Downloaded latest Pico8 for the C.H.I.P. from [lexaloffle.com][] and
+Downloaded latest Pico8 for the C.H.I.P. from lexaloffle.com and
 follow the instructions on installing it.
 
   [lexaloffle.com]: https://www.lexaloffle.com/bbs/?tid=34009
@@ -92,7 +91,7 @@ error about not finding CURL_OPENSSL_3.
 
     ./pico8: /usr/lib/arm-linux-gnueabihf/libcurl.so.4: version `CURL_OPENSSL_3' not found (required by ./pico8)
 
-To fix this, download the older [Raspian Stretch image][] and mount it
+To fix this, download the older Raspian Stretch image and mount it
 locally
 
   [Raspian Stretch image]: https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-09-08/
@@ -127,14 +126,14 @@ Running Pico8 from the Pocket C.H.I.P. launcher will now work.
 Changing the Window Manager
 
 By default the C.H.I.P. will run the pocket-wm, which is a modified
-version of [dwm][].
+version of dwm.
 
   [dwm]: https://dwm.suckless.org/
 
     chip@chip:/usr/share/xsessions$ pocket-wm -v
     dwm-6.0, © 2006-2011 dwm engineers, see LICENSE for details
 
-This in turn runs [dmenu][] and to launch the “home” screen with the
+This in turn runs dmenu and to launch the “home” screen with the
 applications Iceweasel, pico8, urxvt, and aeabi.
 
   [dmenu]: https://tools.suckless.org/dmenu/
@@ -151,11 +150,11 @@ more time on reading up on dwm and dmenu_run to know what I’m looking
 at.
 
 To run a different window manager or session we’ll need to configure
-[Lightdm][] to use something other than pocket-wm.
+Lightdm to use something other than pocket-wm.
 
   [Lightdm]: https://github.com/canonical/lightdm
 
-For example to run [Fluxbox][], install it using apt,
+For example to run Fluxbox, install it using apt,
 
   [Fluxbox]: http://fluxbox.org/
 
@@ -187,7 +186,7 @@ manager.
 
     sudo systemctl restart lightdm
 
-[[Fluxbox on PocketCHIP][]]
+[Fluxbox on PocketCHIP]
 
   [Fluxbox on PocketCHIP]: /assets/images/posts/fluxbox-chip.png
 
@@ -198,7 +197,7 @@ Right click is heavily used on Fluxbox but doesn’t work out-of-the-box
 with the Pocket C.H.I.P., and setting a button override in Xmodmap or
 mouse keys in Xorg doesn’t work (it even seems to break the FN keys).
 To enable right click by holding down on the touch screen build and
-setup [evdev-right-click-emulation][].
+setup evdev-right-click-emulation.
 
   [evdev-right-click-emulation]: https://github.com/PeterCxy/evdev-right-click-emulation
 

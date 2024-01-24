@@ -12,3 +12,4 @@
 # dns
 
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi  Running dnscrypt-proxy on OpenBSD
+=> gemini://rawtext.club/~ecliptik/_posts/2024-01-23-DNS-Guardrails-with-dnscrypt-proxy.gmi  DNS Guardrails with dnscrypt-proxy

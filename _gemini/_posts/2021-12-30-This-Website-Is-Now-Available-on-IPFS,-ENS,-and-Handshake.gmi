@@ -24,63 +24,58 @@ I first thought about NFTs when I discovered you can buy ENS Domains[1] and then
 => https://www.coinbase.com/wallet 2: https://www.coinbase.com/wallet
 => https://cryptocurrencysimple.com/all-you-must-know-about-what-are-eth-gas-fees/ 3: https://cryptocurrencysimple.com/all-you-must-know-about-what-are-eth-gas-fees/
 
-The results of setting up the ENS domain are here, ecliptik.eth[4] and it resolves to https://ecliptik.eth[5][6] on IPFS. This name also includes additional features like setting my Avatar image to an NFT I own[7] (which is one I created myself and put on opensea.io[8] for free).
+The results of setting up the ENS domain are here, ecliptik.eth[4] and it resolves to https://ecliptik.eth[5] on IPFS. This name also includes additional features like setting my Avatar image to an NFT I own[6] (which is one I created myself and put on opensea.io[7] for free).
 
 => https://app.ens.domains/name/ecliptik.eth/details 4: https://app.ens.domains/name/ecliptik.eth/details
-=> https://ecliptik.eth 5: https://ecliptik.eth
-=> https://ecliptik.eth.limo 6: https://ecliptik.eth.limo
-=> https://medium.com/the-ethereum-name-service/nft-avatar-support-for-ens-profiles-bd4a5553f089 7: https://medium.com/the-ethereum-name-service/nft-avatar-support-for-ens-profiles-bd4a5553f089
-=> https://opensea.io 8: https://opensea.io
+=> https://ecliptik.eth.limo 5: https://ecliptik.eth.limo
+=> https://medium.com/the-ethereum-name-service/nft-avatar-support-for-ens-profiles-bd4a5553f089 6: https://medium.com/the-ethereum-name-service/nft-avatar-support-for-ens-profiles-bd4a5553f089
+=> https://opensea.io 7: https://opensea.io
 
 ## Setting up a Handshake Domain
 
-The next domain setup was Handshake[9] which is a "Decentralized naming and certificate authority" and has an auction process to acquire a Handshake domain. I setup Bob Wallet[10] and went through the airdrop claim[11] to get some HNS. Eventually I ended up using Namebase[12] to handle the auction and management details and after about 14 days (due to the auction process) I was the new owner of the `ecliptik` Handshake domain.
+The next domain setup was Handshake[8] which is a "Decentralized naming and certificate authority" and has an auction process to acquire a Handshake domain. I setup Bob Wallet[9] and went through the airdrop claim[10] to get some HNS. Eventually I ended up using Namebase[11] to handle the auction and management details and after about 14 days (due to the auction process) I was the new owner of the `ecliptik` Handshake domain.
 
-=> https://handshake.org 9: https://handshake.org
-=> https://bobwallet.io 10: https://bobwallet.io
-=> https://github.com/handshake-org/hs-airdrop 11: https://github.com/handshake-org/hs-airdrop
-=> https://www.namebase.io 12: https://www.namebase.io
+=> https://handshake.org 8: https://handshake.org
+=> https://bobwallet.io 9: https://bobwallet.io
+=> https://github.com/handshake-org/hs-airdrop 10: https://github.com/handshake-org/hs-airdrop
+=> https://www.namebase.io 11: https://www.namebase.io
 
 The one interesting thing I noticed is that the `ecliptik` domain was already up for auction when I checked. After some research I found that if you register an ENS domain name and it's not claimed on Handshake, there are bots that will automatically start and auction for it.  Because it was a bot and not someone else trying to buy it, I easily outbid and acquired the name with no counter bids. I also acquired a few other names like `amfora` and `rawtext` since I had some more HNS.
 
-Accessing the HNS domain requires some additional software or using DNS servers that support it, the Namebase article How to Access Handshake Sites[13] has how to set this all up.
+Accessing the HNS domain requires some additional software or using DNS servers that support it, the Namebase article How to Access Handshake Sites[12] has how to set this all up.
 
-=> https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites 13: https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites
+=> https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites 12: https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites
 
-Handshake names are also available using the `hns.to` domain, and mine is accessible at https://ecliptik.hns.to[14][15]
-
-=> https://ecliptik.hns.to 14: https://ecliptik.hns.to
-=> https://ecliptik.hns.to 15: https://ecliptik.hns.to
+=> https://ecliptik.hns.to Handshake names are also available using the `hns.to` domain, and mine is accessible at https://ecliptik.hns.to
 
 ## Mirroring To IPFS
 
-Now that I had the DNS and Handshake domains I had to figure out how to use them. ENS has a lot of documentation on using IPFS[16] to point an ENS domain to, and then it's fully part of the "Distributed Web". After doing some research I found that Fleek.co[17] provides free Web, IPFS, ENS, and Handshake features. I followed their setup guide and now whenever I push to `main` on my Github Pages repo[18], it automatically publishes it to IPFS using InterPlanetary Name System (IPNS[19]) which resolves the name `ecliptik.ens` to the current version of this blog.
+Now that I had the DNS and Handshake domains I had to figure out how to use them. ENS has a lot of documentation on using IPFS[13] to point an ENS domain to, and then it's fully part of the "Distributed Web". After doing some research I found that Fleek.co[14] provides free Web, IPFS, ENS, and Handshake features. I followed their setup guide and now whenever I push to `main` on my Github Pages repo[15], it automatically publishes it to IPFS using InterPlanetary Name System (IPNS[16]) which resolves the name `ecliptik.ens` to the current version of this blog.
 
-=> https://ipfs.io 16: https://ipfs.io
-=> https://fleek.co 17: https://fleek.co
-=> https://github.com/ecliptik/ecliptik.github.io 18: https://github.com/ecliptik/ecliptik.github.io
-=> https://docs.ipfs.io/concepts/ipns/ 19: https://docs.ipfs.io/concepts/ipns/
+=> https://ipfs.io 13: https://ipfs.io
+=> https://fleek.co 14: https://fleek.co
+=> https://github.com/ecliptik/ecliptik.github.io 15: https://github.com/ecliptik/ecliptik.github.io
+=> https://docs.ipfs.io/concepts/ipns/ 16: https://docs.ipfs.io/concepts/ipns/
 
-Now whenever I publish to this blog, it's automatically updated on IPFS and available at ipns://ecliptik.eth[20], and via http at https://ecliptik.eth.limo[21][22].
+Now whenever I publish to this blog, it's automatically updated on IPFS and available at ipns://ecliptik.eth[17], and via http at https://ecliptik.eth.limo[18].
 
-=> ipns://ecliptik.eth 20: ipns://ecliptik.eth
-=> https://ecliptik.eth.limo 21: https://ecliptik.eth.limo
-=> https://ecliptik.eth.limo 22: https://ecliptik.eth.limo
+=> ipns://ecliptik.eth 17: ipns://ecliptik.eth
+=> https://ecliptik.eth.limo 18: https://ecliptik.eth.limo
 
-Accessing ENS and IPFS directly  requires some additional software outside of traditional browsers, but Brave[23] has support both for ENS and IPFS.
+Accessing ENS and IPFS directly  requires some additional software outside of traditional browsers, but Brave[19] has support both for ENS and IPFS.
 
-=> https://brave.com 23: https://brave.com
+=> https://brave.com 19: https://brave.com
 
 ## Wrapping Up
 
-Learning about ENS, Handshake, and IPFS was a lot of fun, and while I highly doubt that `web3` is "the future", these technologies have a lot of offer for the future of the Internet. I am particularly fond of IPFS as it reminds me of Bittorrent[24] but without having to setup a torrent/magnet link and seed. Getting started with IPFS is easy, and hosting your own IPFS node locally is a quick and  free way to participate in the distributed web.
+Learning about ENS, Handshake, and IPFS was a lot of fun, and while I highly doubt that `web3` is "the future", these technologies have a lot of offer for the future of the Internet. I am particularly fond of IPFS as it reminds me of Bittorrent[20] but without having to setup a torrent/magnet link and seed. Getting started with IPFS is easy, and hosting your own IPFS node locally is a quick and  free way to participate in the distributed web.
 
-=> https://www.bittorrent.org 24: https://www.bittorrent.org
+=> https://www.bittorrent.org 20: https://www.bittorrent.org
 
-I really understood the power of IPFS when I saw the different ways you could use it as a Gateway[25], enabling any application that uses http to access content on IPFS. This really shines with git and package repositories, see OpenBSD 6.9 packages using IPFS[26] for a real-world application.
+I really understood the power of IPFS when I saw the different ways you could use it as a Gateway[21], enabling any application that uses http to access content on IPFS. This really shines with git and package repositories, see OpenBSD 6.9 packages using IPFS[22] for a real-world application.
 
-=> https://docs.ipfs.io/concepts/ipfs-gateway/ 25: https://docs.ipfs.io/concepts/ipfs-gateway/
-=> https://dataswamp.org/~solene/2021-05-01-ipfs-openbsd-69.html 26: https://dataswamp.org/~solene/2021-05-01-ipfs-openbsd-69.html
+=> https://docs.ipfs.io/concepts/ipfs-gateway/ 21: https://docs.ipfs.io/concepts/ipfs-gateway/
+=> https://dataswamp.org/~solene/2021-05-01-ipfs-openbsd-69.html 22: https://dataswamp.org/~solene/2021-05-01-ipfs-openbsd-69.html
 
 ### Tags
 

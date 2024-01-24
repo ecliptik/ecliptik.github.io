@@ -6,15 +6,15 @@ ___________________________________________
 
 Intro
 
-Basic notes from setting up [gpg-agent forwarding][] between a MacOS
-and Debian Linux system.
+Basic notes from setting up gpg-agent forwarding between a MacOS and
+Debian Linux system.
 
   [gpg-agent forwarding]: https://wiki.gnupg.org/AgentForwarding
 
 Client System
 
-Assuming system is running MacOS install [gpg][] and pinentry (GPG
-password prompt tool) using [Homebrew][],
+Assuming system is running MacOS install gpg and pinentry (GPG
+password prompt tool) using Homebrew,
 
   [gpg]: https://gnupg.org/
   [Homebrew]: https://brew.sh/
@@ -87,6 +87,6 @@ again.
 
 References
 
--   [Remote gpg-agent Via ssh Forwarding][]
+-   Remote gpg-agent Via ssh Forwarding
 
   [Remote gpg-agent Via ssh Forwarding]: https://web.archive.org/web/20190423113837/https://www.isi.edu/~calvin/gpgagent.htm

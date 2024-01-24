@@ -21,6 +21,7 @@ In the ever expanding ways to hack my Pocket C.H.I.P.[1], and my recent discover
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/chip_vaporwave/chip-vaporwave.png Vaporwave in Pocket C.H.I.P [IMG]
 
+
 ## Required Software
 
 The C.H.I.P. is fully upgraded to Debian Buster, and there were some oddities with getting `dpkg` sorted out, so the package installs may not work exactly as defined here but are a general guide. It's also booting into the console framebuffer[3] and not `X`, so there's no desktop environment or window manager running.
@@ -34,12 +35,12 @@ The following tools are used,
 * youtube-dl[6], download video+audio from youtube
 * ffmpeg[7], combine video+audio from `youtube-dl`
 
-Install packages,
-
 => https://mplayerhq.hu/design7/news.html 4: https://mplayerhq.hu/design7/news.html
 => https://github.com/alsa-project/alsa-utils 5: https://github.com/alsa-project/alsa-utils
 => https://youtube-dl.org/ 6: https://youtube-dl.org/
 => https://ffmpeg.org/ 7: https://ffmpeg.org/
+
+Install packages,
 
 ```bash
 $ sudo apt-get update

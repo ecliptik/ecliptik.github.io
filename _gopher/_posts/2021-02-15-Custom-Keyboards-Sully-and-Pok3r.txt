@@ -23,14 +23,15 @@ that it was a ten-key-less (TKL) and the green switches were clicky
 and stiff, exactly what I wanted in a keyboard since it reminded me of
 the electric typewriters I learned to touch-type on.
 
-After spending some time on [r/MechanicalKeyboards][] I got the itch
-to customize it and bought some blank PBT DSA keys in teal and purple,
+After spending some time on r/MechanicalKeyboards I got the itch to
+customize it and bought some blank PBT DSA keys in teal and purple,
 calling it “Sully”.
 
   [r/MechanicalKeyboards]: https://www.reddit.com/r/MechanicalKeyboards/
 
-[[Sully][]]
+[Sully]
 
+  [Sully]: /assets/images/posts/sully.jpg
 
 Sully
 Sully was a fantastic board and I used it up until 2019 when I
@@ -86,7 +87,7 @@ and making a wish list to customize the board and make it fully mine.
 -   Thick PBT Keycaps
 -   Tactile Switches
 -   Keyboard Foam
--   [QMK Programming Support][]
+-   QMK Programming Support
 
   [QMK Programming Support]: https://qmk.fm
 
@@ -94,9 +95,9 @@ and making a wish list to customize the board and make it fully mine.
 
 The first item on the list was easy enough to do, just scour keyboard
 stores and find a keycap set. I went through various postings,
-storefronts, and group buys, eventually landing on [/dev/tty by
-matt3o][]. These were particularly attractive because of their story;
-inspired by [IBM Beamspring terminals][] and the /dev/tty name.
+storefronts, and group buys, eventually landing on /dev/tty by matt3o.
+These were particularly attractive because of their story; inspired by
+IBM Beamspring terminals and the /dev/tty name.
 
   [/dev/tty by matt3o]: https://matt3o.com/about-mt3-profile-and-devtty-set/
   [IBM Beamspring terminals]: https://deskthority.net/viewtopic.php?t=8539/
@@ -119,9 +120,9 @@ extremely clicky and I wanted something different with MX blues in the
 pok3r, but wanted a change of pace from the last few years. While
 reading through keyboard sites, the phrase “Holy Panda” kept coming up
 and how they were fantastic tactile switches. Eventually I came across
-one of the original post that described the [origins of the Holy
-Panda][] and found that it was an entirely custom switch, made from
-two different switches.
+one of the original post that described the origins of the Holy Panda
+and found that it was an entirely custom switch, made from two
+different switches.
 
   [origins of the Holy Panda]: https://topclack.com/textclack/2018/12/19/holy-panda-switches-new-and-old-by-quakemz
 
@@ -129,8 +130,9 @@ two different switches.
   and the housing of a Invyr Panda. The result is the Holy Panda
   hybrid, one of the snappiest tactile mechanical switches available.
 
-[[Pandas][]]
+[Pandas]
 
+  [Pandas]: /assets/images/keyboards/pandas.png
 
 YOK Polar Panda(left) Holy Panda(center) Halo True(right)
 The idea of building my own switches really resonated with me since it
@@ -143,8 +145,9 @@ Luckily I found some YOK Polar Panda switches in-stock and ordered
 them and some Halo Trues from drop, which created “Polar Holy Pandas”
 with a distinctive blue housing and a salmon stem.
 
-[[Building Holy Pandas][]]
+[Building Holy Pandas]
 
+  [Building Holy Pandas]: /assets/images/keyboards/IMG_4665.png
 
 Building Holy Pandas
 Lubing is also a thing when it comes to building custom switches, and
@@ -159,12 +162,13 @@ the sound profile of a keyboard. So if you’re into how a keyboard
 sounds, and are willing to spend 15$, foaming a board is a good
 investment.
 
-[[PCB Foam Sandwich][]]
+[PCB Foam Sandwich]
 
+  [PCB Foam Sandwich]: /assets/images/keyboards/IMG_4706.png
 
 PCB Foam Sandwich
-I opted for foam from [MKUltra][], which I originally thought would go
-in the bottom of the case. When it arrived I discovered it was plate
+I opted for foam from MKUltra, which I originally thought would go in
+the bottom of the case. When it arrived I discovered it was plate
 foam, which goes between the top plate and the PCB, making a sandwich.
 Even though it wasn’t my original choice, it worked much better since
 now the entire board is a solid piece with exceptional dampening
@@ -176,25 +180,26 @@ it makes a satisfying THUNK with every keypress.
 QMK Programming
 
 The last item on the list was improving the programming of the board.
-I’m planning to write up a more extensive article on [QMK][], and the
-[pok3r can run QMK][], but requires unlocking the board which is risky
-and even then will use a fork or QMK and not upstream. While tempted
-to try this, I found that YMDK makes a drop in replacement [YD60MQ
-PCB][] that you can buy for under 30$. This also gave me an excuse to
-get a de-soldering iron to quickly de-solder the switches and not risk
+I’m planning to write up a more extensive article on QMK, and the
+pok3r can run QMK, but requires unlocking the board which is risky and
+even then will use a fork or QMK and not upstream. While tempted to
+try this, I found that YMDK makes a drop in replacement YD60MQ PCB
+that you can buy for under 30$. This also gave me an excuse to get a
+de-soldering iron to quickly de-solder the switches and not risk
 damaging them by using a solder sucker or wick.
 
   [QMK]: https://qmk.fm
   [pok3r can run QMK]: https://github.com/pok3r-custom/qmk_pok3r
   [YD60MQ PCB]: https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq
 
-[[Replacing pok3r PCB][]]
+[Replacing pok3r PCB]
 
+  [Replacing pok3r PCB]: /assets/images/keyboards/IMG_6453.png
 
 Replacing old pok3r PCB (red) with new YD60MQ PCB (black)
 The PCB was replaced about a year after the board was first built,
 months after I started using QMK on my other boards (more on those in
-Part 2). The [custom keymap][] flashed on it is similar to the other
+Part 2). The custom keymap flashed on it is similar to the other
 boards I have, so combos and layers are consistent across all my
 boards.
 
@@ -202,8 +207,9 @@ boards.
 
 Final Product
 
-[[pok3r Final Form][]]
+[pok3r Final Form]
 
+  [pok3r Final Form]: /assets/images/keyboards/pok3r.jpg
 
 pok3r Final Form
 With all these features checked off the list, the pok3r is is my daily
@@ -213,8 +219,8 @@ investment. Having the full power of QMK in the board greatly expands
 it’s capabilities and gives me full ownership and pride in both the
 hardware and software aspects of it.
 
-Granted it’s borderline [Ship of Thesus][], with the only original
-parts the aluminum case and stabilizers, but that makes it a fully
-custom board that no one else has or could come close to replicating.
+Granted it’s borderline Ship of Thesus, with the only original parts
+the aluminum case and stabilizers, but that makes it a fully custom
+board that no one else has or could come close to replicating.
 
   [Ship of Thesus]: https://en.wikipedia.org/wiki/Ship_of_Theseus

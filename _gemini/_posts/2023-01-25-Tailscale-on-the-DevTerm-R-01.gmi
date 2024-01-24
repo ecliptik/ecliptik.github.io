@@ -21,6 +21,7 @@ Recently I assembled a ClockworkPi DevTerm R-01[1], a cyberdeck-like terminal wi
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/devtermtailscale/devterm-r01.png DevTermR01 [IMG]
 
+
 After trying out a few things like DOSBox[3], Surf[4], and ScummVM[5], I found the Allwinner D1[6] RISC-V chip wasn't powerful enough to do much other than some basic window management, Interactive Fiction[7], and browsing `gopher://` with Bombadillo[8]. However I still wanted to use it as a terminal to access other systems, which lead me to attempting to install Tailscale[9] to leverage the mesh VPN and other features.
 
 => https://www.dosbox.com/ 3: https://www.dosbox.com/
@@ -77,10 +78,9 @@ git clone https://github.com/cuu/last_linux-5.4.git
 
 ### Setting Up Build Toolchain
 
-Download the ClockworkPi toolchain from https://github.com/cuu/toolchain-thead-glibc[14][15], which is a README pointing to a Mega link. While it's a bit concerning coming from Mega, since it's a tarball and running in a VM it's not that risky. There's also a section on installing the official RISC-V toolchain which is another option, but requires additional building.
+Download the ClockworkPi toolchain from https://github.com/cuu/toolchain-thead-glibc[14], which is a README pointing to a Mega link. While it's a bit concerning coming from Mega, since it's a tarball and running in a VM it's not that risky. There's also a section on installing the official RISC-V toolchain which is another option, but requires additional building.
 
 => https://github.com/cuu/toolchain-thead-glibc 14: https://github.com/cuu/toolchain-thead-glibc
-=> https://github.com/cuu/toolchain-thead-glibc 15: https://github.com/cuu/toolchain-thead-glibc
 
 Untar in home directory,
 

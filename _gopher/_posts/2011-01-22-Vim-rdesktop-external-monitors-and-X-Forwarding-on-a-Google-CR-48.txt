@@ -5,10 +5,10 @@ date: 2011-01-22
 ___________________________________________
 
 While there are my other impressive hacks going around for the CR-48,
-[minecraft][], [ubuntu][], I needed a few utilities that were more
-pragmatic. The following assumes that your CR-48 is in [developer
-mode][] and you have a basic understanding of bash, scp, and compiling
-source code under GNU/Linux.
+minecraft, ubuntu, I needed a few utilities that were more pragmatic.
+The following assumes that your CR-48 is in developer mode and you
+have a basic understanding of bash, scp, and compiling source code
+under GNU/Linux.
 
   [minecraft]: https://www.minecraftforum.net/forums/minecraft-java-edition/discussion/120216-minecraft-on-the-cr-48-google-chrome-laptop
   [ubuntu]: https://sites.google.com/a/chromium.org/dev/chromium-os/developer-information-for-chrome-os-devices/cr-48-chrome-notebook-developer-information/how-to-boot-ubuntu-on-a-cr-48
@@ -29,7 +29,7 @@ weren’t available on the CR-48 (most notably libselinux.so). So the
 quickest way to get around this was to build a static binary on a
 32-bit Debian host (Ubuntu works as well).
 
-On a 32-bit Debian Squeeze I downloaded latest [VIM source code][] and
+On a 32-bit Debian Squeeze I downloaded latest VIM source code and
 built a static binary with a limited set of features and disabling GUI
 and selinux options:
 
@@ -59,7 +59,7 @@ rdesktop
 
 Rdesktop is much easier to put on the CR-48 since all of the libraries
 are available. From a 32-bit Debian/Ubuntu host, or by downloading the
-[rdesktop i686 package][] from packages.debian.org, copy the rdesktop
+rdesktop i686 package from packages.debian.org, copy the rdesktop
 binary to the
 /home/chronos/user/bin' directory. If it's mounted withexec’ then it
 will just run. Pass it whatever options you like, and it will open a

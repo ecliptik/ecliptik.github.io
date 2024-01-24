@@ -6,20 +6,20 @@ ___________________________________________
 
 Intro
 
-When I first got my [Pocket C.H.I.P.][] one of the first thoughts I
-had was to use it as sort of a mini-desktop terminal to display things
-like weather, new mail, etc. After doing some [other tinkering][] with
-it first, it has been on my desk the last couple of weeks displaying
-the following information,
+When I first got my Pocket C.H.I.P. one of the first thoughts I had
+was to use it as sort of a mini-desktop terminal to display things
+like weather, new mail, etc. After doing some other tinkering with it
+first, it has been on my desk the last couple of weeks displaying the
+following information,
 
   [Pocket C.H.I.P.]: https://www.ecliptik.com/Pocket-CHIP/
   [other tinkering]: https://www.ecliptik.com/CHIP-Serial-Console/
 
--   Latest local toot in [Fosstodon][] using [Toot][]
--   Top 10 [Hacker News][] posts using [haxor-news][]
--   Current weather from [wttr.in][]
--   Current time with [tty-clock][]
--   Currenly playing track on Spotify using [walt-grover][]
+-   Latest local toot in Fosstodon using Toot
+-   Top 10 Hacker News posts using haxor-news
+-   Current weather from wttr.in
+-   Current time with tty-clock
+-   Currenly playing track on Spotify using walt-grover
 
   [Fosstodon]: https://fosstodon.org/web/timelines/public/local
   [Toot]: https://github.com/ihabunek/toot
@@ -29,18 +29,18 @@ the following information,
   [tty-clock]: https://github.com/xorg62/tty-clock
   [walt-grover]: https://github.com/ecliptik/walt-grover
 
-[[Pocket C.H.I.P Terminal Dashboard][]]
+[Pocket C.H.I.P Terminal Dashboard]
 
   [Pocket C.H.I.P Terminal Dashboard]: /assets/images/posts/chip_terminal/IMG_6909.png
 
 Pocket C.H.I.P. Terminal Dashboard
 Setup
 
-[Tmux][] is the heart of the setup, with each applet in it’s own
-terminal pane and then borders turned off so it looks like a single
-seamless screen. Running in tmux has the added benefit of detaching
-the dashboard, like when you want to watch some [vaporwave on the
-framebuffer][] or sharing the screen from ssh for remote control.
+Tmux is the heart of the setup, with each applet in it’s own terminal
+pane and then borders turned off so it looks like a single seamless
+screen. Running in tmux has the added benefit of detaching the
+dashboard, like when you want to watch some vaporwave on the
+framebuffer or sharing the screen from ssh for remote control.
 
   [Tmux]: https://github.com/tmux/tmux
   [vaporwave on the framebuffer]: https://www.ecliptik.com/CHIP-Vaporwave/
@@ -50,7 +50,7 @@ every 60 seconds or a small shell script. I attempted to use watch for
 everything, but some commands didn’t work well with the ASCII escape
 codes even with the --color option.
 
-It’s using [tmuxinator][] to save the layout and restore the dashboard
+It’s using tmuxinator to save the layout and restore the dashboard
 after a reboot.
 
   [tmuxinator]: https://github.com/tmuxinator/tmuxinator
@@ -73,10 +73,10 @@ Tmuxinator config in ~/.config/tmuxinator/chip.yaml
           - amfora
       - serial:
 
-Additional configuration includes updating the [pocketchip-batt][]
-utility to better display charging and how much battery is remaining
-and putting it and the CHIPs IP address into the right status of the
-tmux toolbar.
+Additional configuration includes updating the pocketchip-batt utility
+to better display charging and how much battery is remaining and
+putting it and the CHIPs IP address into the right status of the tmux
+toolbar.
 
   [pocketchip-batt]: https://github.com/aleh/pocketchip-batt
 

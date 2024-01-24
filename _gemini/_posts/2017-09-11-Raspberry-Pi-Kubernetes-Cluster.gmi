@@ -33,7 +33,7 @@ Flash HypriotOS 64-bit[5] to SD card. By using HypriotOS we can avoid a lot of t
 => https://github.com/DieterReuter/image-builder-rpi64/releases 5: https://github.com/DieterReuter/image-builder-rpi64/releases
 
 > You can skip the following steps for updating, setting up the k8s repo, and installing the k8s package using `--userdata` with the flash[6] tool. See this example[7].
-> 
+
 => https://github.com/hypriot/flash 6: https://github.com/hypriot/flash
 => https://github.com/ecliptik/rpi/blob/master/hypriot/user-data.yml 7: https://github.com/ecliptik/rpi/blob/master/hypriot/user-data.yml
 
@@ -62,7 +62,7 @@ apt install -y kubeadm kubelet
 
 As root, init the cluster with the network CIDR for Flannel,
 
-> 
+
 => https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#v180 As of this writing this will install and configure Kubernetes 1.8
 
 ```console
@@ -89,7 +89,7 @@ By default Kubernetes does not configure a Container Network Interface[9] and ne
 Install flannel using arm64 images,
 
 > With older versions of flannel, additinoal iptables rules were required, this was fixed in v0.9.1[11] (thanks for the tip Frank!)
-> 
+
 => https://github.com/coreos/flannel/pull/872 11: https://github.com/coreos/flannel/pull/872
 
 ```console
@@ -143,7 +143,7 @@ Using Docker Hub Official Multi-Platform Images[12] makes running official Docke
 => https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/ 12: https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/
 
 > Official images based off Alpine Linux currently do not work - see Issue #304[13] for more information.
-> 
+
 => https://github.com/gliderlabs/docker-alpine/issues/304 13: https://github.com/gliderlabs/docker-alpine/issues/304
 
 In this example, we'll run the official nginx image[14] and have it listen on port 80.

@@ -6,21 +6,20 @@ ___________________________________________
 
 Intro
 
-Running the [Azure Container Instances Connector for Kubernetes][] on
-a Raspberry Pi Cluster.
+Running the Azure Container Instances Connector for Kubernetes on a
+Raspberry Pi Cluster.
 
-  [Azure Container Instances Connector for Kubernetes]: https://github.com/azure/aci-connector-k8s
+  [Azure Container Instances Connector for Kubernetes]: https://web.archive.org/web/20171104111735/https://github.com/azure/aci-connector-k8s
 
-One of the most interesting features of [Azure Container Instances][]
-is the [Azure Container Instances Connector for Kubernetes][]. This
-adds an ACI “node” to an existing [Kubernetes][] cluster and allows
-you to deploy pods to it. This “node” will run pods in ACI without
-having to create or manage and additional Azure VMs, just
-point-and-shoot a pod at it and it will run with no additional setup
-required.
+One of the most interesting features of Azure Container Instances is
+the Azure Container Instances Connector for Kubernetes. This adds an
+ACI “node” to an existing Kubernetes cluster and allows you to deploy
+pods to it. This “node” will run pods in ACI without having to create
+or manage and additional Azure VMs, just point-and-shoot a pod at it
+and it will run with no additional setup required.
 
   [Azure Container Instances]: https://docs.microsoft.com/en-us/azure/container-instances/
-  [Azure Container Instances Connector for Kubernetes]: https://github.com/azure/aci-connector-k8s
+  [Azure Container Instances Connector for Kubernetes]: https://web.archive.org/web/20171104111735/https://github.com/azure/aci-connector-k8s
   [Kubernetes]: https://kubernetes.io
 
 By using the ACI Connector for Kubernetes on a Raspberry PI, a cluster
@@ -28,8 +27,8 @@ can run homogenous ARM containers on-prem, but still have the ability
 to deploy and manage x86 containers to a cloud provider.
 
 Read more about Azure Container Instances, -
-https://thenewstack.io/azure-container-instances-mean-cheaper-agile-container-tools-way/
-- https://docs.microsoft.com/en-us/azure/container-instances/ -
+https://thenewstack.io/azure-container-instances-mean-cheaper-agile-container-tools-way/ -
+https://docs.microsoft.com/en-us/azure/container-instances/ -
 https://azure.microsoft.com/en-us/blog/announcing-azure-container-instances/
 
 Creating an aci-connector-k8s ARM Image for Raspberry Pi
@@ -41,22 +40,22 @@ an armhf Docker image.
 
 Building a Nodejs ARM Docker Image
 
-  Note: As of 9/12/2017 [Docker Hub Official Images support
-  multi-platform][] and re-building an image for armhf (or arm64,
+  Note: As of 9/12/2017 Docker Hub Official Images support
+  multi-platform and re-building an image for armhf (or arm64,
   ppc64le, and s390x) is no longer required if using a supported image
   (currently Debian based only, Alpine based like below still need to
   be re-built).
 
   [Docker Hub Official Images support multi-platform]: https://integratedcode.us/2017/09/13/dockerhub-official-images-go-multi-platform/
 
-The aci-connector-k8s [Dockerfile][] uses node:8.4.0-alpine as it’s
-base image. While there are some “unofficial” node ARM images, lets
-create one from a somewhat official repository. This involves finding
-an armhf Alpine 3.6 image, copying/pasting the [node:8.4-alpine
-Dockerfile][], replacing the FROM with the armhf version of alpine,
-and building the image.
+The aci-connector-k8s Dockerfile uses node:8.4.0-alpine as it’s base
+image. While there are some “unofficial” node ARM images, lets create
+one from a somewhat official repository. This involves finding an
+armhf Alpine 3.6 image, copying/pasting the node:8.4-alpine
+Dockerfile, replacing the FROM with the armhf version of alpine, and
+building the image.
 
-  [Dockerfile]: https://github.com/Azure/aci-connector-k8s/blob/master/Dockerfile
+  [Dockerfile]: https://web.archive.org/web/20211229050703/https://github.com/Azure/aci-connector-k8s/blob/master/Dockerfile
   [node:8.4-alpine Dockerfile]: https://github.com/nodejs/docker-node/blob/17c50cb300581280805a4183524fbf57840f3a7e/8.4/alpine/Dockerfile
 
 There are two ways to build an armhf image,
@@ -64,7 +63,7 @@ There are two ways to build an armhf image,
 -   Build on Raspberry Pi
     -   100% native build, less likely to run into bugs
     -   Painfully slow due to Raspberry Pi hardware
--   Cross-build using [Docker for Mac][] or [Multiarch][]
+-   Cross-build using Docker for Mac or Multiarch
     -   Dramatically speed up builds
     -   Could have unforseen issues due to running in an emulated
         environment
@@ -76,26 +75,25 @@ After first attempting option 1, two hours later and losing the
 ability to ssh into the Raspberry Pi, option 2 is a much faster
 approach. Building on a MacBook Pro using the built-in multiarch
 features of Docker for Mac works well, but is still slow even on a 4
-core system. Fortunately Using up a 24-core [Packet.net][] Type 2
+core system. Fortunately Using up a 24-core Packet.net Type 2
 bare-metal instance to cross-compile using Multiarch is easy to do
 too.
 
   [Packet.net]: https://www.packet.net
 
-  Note: The official Docker images for armhf are [arm32v6][] and
-  [arm32v7][]. These will work natively on a Raspberry Pi, Docker for
-  Mac, Multiarch, and a Linux system with qemu-*-static support. For
-  full details on these see [my post on cross-building Docker
-  images][].
+  Note: The official Docker images for armhf are arm32v6 and arm32v7.
+  These will work natively on a Raspberry Pi, Docker for Mac,
+  Multiarch, and a Linux system with qemu-*-static support. For full
+  details on these see my post on cross-building Docker images.
 
   [arm32v6]: https://hub.docker.com/r/arm32v6/
   [arm32v7]: https://hub.docker.com/r/arm32v7/
   [my post on cross-building Docker images]: http://www.ecliptik.com/Cross-Building-and-Running-Multi-Arch-Docker-Images/
 
-A armhf multiarch nodejs [Dockerfile][1] was built on the Packet.net
-Type 2 instance and pushed to Docker hub as
-ecliptik/node:8.4.0-alpine-armhf. This only took a few minutes using
-the Type 2 instance, much faster than Raspberry Pi or Macbook Pro.
+A armhf multiarch nodejs Dockerfile was built on the Packet.net Type 2
+instance and pushed to Docker hub as ecliptik/node:8.4.0-alpine-armhf.
+This only took a few minutes using the Type 2 instance, much faster
+than Raspberry Pi or Macbook Pro.
 
   [1]: https://github.com/ecliptik/dockerfiles/blob/master/node/Dockerfile.alpine.armhf
 
@@ -108,12 +106,12 @@ Example Using Multiarch to re-build a node armhf alpine image,
 
 Building an aci-connector-k8s ARM Docker Image
 
-Once a nodejs arm-alpine image is created, clone the
-[aci-connector-k8s][] repositoriy, and update the Dockerfile to use
-the ecliptik/node:8.4.0-alpine-armhf image. Additionaly, use the
-Dockefile below to use multi-stage builds for improved image size.
+Once a nodejs arm-alpine image is created, clone the aci-connector-k8s
+repositoriy, and update the Dockerfile to use the
+ecliptik/node:8.4.0-alpine-armhf image. Additionaly, use the Dockefile
+below to use multi-stage builds for improved image size.
 
-  [aci-connector-k8s]: https://github.com/Azure/aci-connector-k8s
+  [aci-connector-k8s]: https://web.archive.org/web/20171104111735/https://github.com/azure/aci-connector-k8s
 
     ### Base Image
     # Setup up a base image to use in Build and Runtime images
@@ -180,14 +178,14 @@ aci-connector-k8s image on a Raspberry Pi,
 Running the ACI Connector
 
 Now that we have a armhf image capable of running on a Raspberry Pi,
-we can deploy the pod to a [Raspberry Pi Kubernetes cluster][].
+we can deploy the pod to a Raspberry Pi Kubernetes cluster.
 
   [Raspberry Pi Kubernetes cluster]: http://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/
 
-First clone the [aci-connector-k8s][] repository onto the Raspberry Pi
+First clone the aci-connector-k8s repository onto the Raspberry Pi
 cluster master,
 
-  [aci-connector-k8s]: https://github.com/Azure/aci-connector-k8s
+  [2]: https://github.com/Azure/aci-connector-k8s
 
     git clone https://github.com/Azure/aci-connector-k8s.git
 
@@ -196,8 +194,8 @@ ecliptik/aci-connector-k8s:alpine-armhf image.
 
 Next, if you used kubeadm to create your cluster and RBAC is enabled,
 you’ll need to create a role and set it up for the connector. This is
-discussed in [this Github issue][] that includes creating a RBAC role
-and updating the service to use it.
+discussed in this Github issue that includes creating a RBAC role and
+updating the service to use it.
 
   [this Github issue]: https://github.com/Azure/aci-connector-k8s/issues/26#issuecomment-326809041
 
@@ -211,8 +209,8 @@ Under spec in the examples/aci-connector.yaml add the RBAC role,
 
 Finally after the connector is setup to use the armhf image and RBAC,
 follow the rest of the Quickstart guide in the aci-connector-k8s
-[README][] to set up everything else required to run the connector
-(Azure keys, deployment of service, etc).
+README to set up everything else required to run the connector (Azure
+keys, deployment of service, etc).
 
   [README]: https://github.com/Azure/aci-connector-k8s/blob/master/README.md
 
@@ -294,13 +292,13 @@ resources on running Docker on ARM,
 -   https://blog.hypriot.com/post/first-touch-down-with-docker-for-mac/
 -   https://resin.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/
 
-ARM Docker Image Repositories - [arm32v6][2] - Works on RPI 3 with
-[HypriotOS][] 32-bit - [arm32v7][3] - Works on RPI 3 with
-[HypriotOS][] 32-bit - [arm64v8][] - Currently no 64-bit version of
-HypriotOS, but will work on [Packet.net Type 2A Instances][]
+ARM Docker Image Repositories - arm32v6 - Works on RPI 3 with
+HypriotOS 32-bit - arm32v7 - Works on RPI 3 with HypriotOS 32-bit -
+arm64v8 - Currently no 64-bit version of HypriotOS, but will work on
+Packet.net Type 2A Instances
 
-  [2]: https://hub.docker.com/u/arm32v6/
+  [3]: https://hub.docker.com/u/arm32v6/
   [HypriotOS]: https://blog.hypriot.com/downloads/
-  [3]: https://hub.docker.com/u/arm32v7/
+  [4]: https://hub.docker.com/u/arm32v7/
   [arm64v8]: https://hub.docker.com/u/arm64v8/
   [Packet.net Type 2A Instances]: https://www.packet.net/bare-metal/servers/type-2a/

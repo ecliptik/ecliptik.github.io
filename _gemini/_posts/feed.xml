@@ -2,72 +2,72 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>gemini://rawtext.club/~ecliptik/_posts/</id>
   <title>Ecliptik's Gemlog</title>
-  <updated>2023-01-25T00:00:00+00:00</updated>
+  <updated>2024-01-23T00:00:00+00:00</updated>
   <author>
     <name>ecliptik</name>
     <email>gemini@accounts.ecliptik.com</email>
   </author>
   <link href="gemini://rawtext.club/~ecliptik/_posts/feed.xml" rel="self"/>
   <link href="gemini://rawtext.club/~ecliptik/_posts/" rel="alternate"/>
-  <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
-  <entry>
-    <id>gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi</id>
-    <title>CHIP Serial Console</title>
-    <updated>2021-03-03T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi" rel="alternate"/>
-  </entry>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi</id>
     <title>Running dnscrypt-proxy on OpenBSD</title>
     <updated>2021-03-12T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi"/>
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi</id>
     <title>Vaporwave in Pocket C.H.I.P. Framebuffer</title>
     <updated>2021-03-19T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi"/>
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi</id>
     <title>Pocket CHIP Terminal Dashboard</title>
     <updated>2021-04-04T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi"/>
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi</id>
     <title>Gemini Capsule in a FreeBSD Jail running on a RaspberryPi</title>
     <updated>2021-04-25T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-04-25-Gemini-Capsule-in-a-FreeBSD-Jail.gmi"/>
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-12-27-Forwarding-gpg-agent-over-SSH.gmi</id>
     <title>Forwarding gpg-agent Over SSH</title>
     <updated>2021-12-27T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-12-27-Forwarding-gpg-agent-over-SSH.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-12-27-Forwarding-gpg-agent-over-SSH.gmi"/>
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2021-12-30-This-Website-Is-Now-Available-on-IPFS,-ENS,-and-Handshake.gmi</id>
     <title>This Website Is Now Available on IPFS, ENS, and Handshake</title>
     <updated>2021-12-30T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-12-30-This-Website-Is-Now-Available-on-IPFS,-ENS,-and-Handshake.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2021-12-30-This-Website-Is-Now-Available-on-IPFS,-ENS,-and-Handshake.gmi"/>
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2022-01-04-Bookmarking-and-Creating-a-Local-Internet-Archive.gmi</id>
     <title>Bookmarking and Creating a Local Internet Archive</title>
     <updated>2022-01-04T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2022-01-04-Bookmarking-and-Creating-a-Local-Internet-Archive.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2022-01-04-Bookmarking-and-Creating-a-Local-Internet-Archive.gmi"/>
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2022-01-17-Superhighway84-on-FreeBSD.gmi</id>
     <title>Superhighway84 on FreeBSD</title>
     <updated>2022-01-17T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2022-01-17-Superhighway84-on-FreeBSD.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2022-01-17-Superhighway84-on-FreeBSD.gmi"/>
   </entry>
   <entry>
     <id>gemini://rawtext.club/~ecliptik/_posts/2023-01-25-Tailscale-on-the-DevTerm-R-01.gmi</id>
     <title>Tailscale on the DevTerm R-01</title>
     <updated>2023-01-25T00:00:00+00:00</updated>
-    <link href="gemini://rawtext.club/~ecliptik/_posts/2023-01-25-Tailscale-on-the-DevTerm-R-01.gmi" rel="alternate"/>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2023-01-25-Tailscale-on-the-DevTerm-R-01.gmi"/>
+  </entry>
+  <entry>
+    <id>gemini://rawtext.club/~ecliptik/_posts/2024-01-23-DNS-Guardrails-with-dnscrypt-proxy.gmi</id>
+    <title>DNS Guardrails with dnscrypt-proxy</title>
+    <updated>2024-01-23T00:00:00+00:00</updated>
+    <link href="gemini://rawtext.club/~ecliptik/_posts/2024-01-23-DNS-Guardrails-with-dnscrypt-proxy.gmi"/>
   </entry>
 </feed>

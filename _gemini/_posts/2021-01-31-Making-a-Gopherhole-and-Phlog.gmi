@@ -23,6 +23,7 @@ The obvious questions is why make a Gopherhole (what gopher[1] sites are called)
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/gopher-slides.png Slides from 1992 Gopher presentation [IMG]
 
+
 I was suprised to find not only a flourishing community, but was drawn to the simplicity of the protocol and creating for it. No more thinking about CSS oddities, having to learn whole web stacks with the latest-and-greatest toolsets. Most of what Gopher is now is the same as it was in the early 90s and it's something you can easily start learning about and doing without sinking a lot of time and effort just to get started. It reminds of learning Latin, even though it's a dead language, it's still useful and it will never change. It also has the advantages of being almost entirely text based and there's no tracking, cookies, or any of the risks and privacy concerns associated with the modern web.
 
 For a much more in-depth look on modern Gopher, I recommend reading Burrowing A Gopher Hole[5].
@@ -51,11 +52,12 @@ Finally I started adding things in `~ecliptik/public_gopher` and got to work on 
 * Generating a Gopher site with Hugo[11]
 * Gopher? Gopher.[12]
 
-On RTC, home directories are world readable, so I poked around in some more well-known users `public_gopher` dirs and saw how their gopherholes were setup. I used the gopher browser Bombadillo[13] as my main tool to view Gopherspace, and coincidentally Lagrange[14], the browser I was using to browse Gemini, also supported gopher and would use it occasionally as a GUI view.
-
 => https://johngodlee.github.io/2019/11/20/gopher.html 10: https://johngodlee.github.io/2019/11/20/gopher.html
 => https://jfm.carcosa.net/blog/computing/hugo-gopher/ 11: https://jfm.carcosa.net/blog/computing/hugo-gopher/
 => https://petermolnar.net/article/gopher/ 12: https://petermolnar.net/article/gopher/
+
+On RTC, home directories are world readable, so I poked around in some more well-known users `public_gopher` dirs and saw how their gopherholes were setup. I used the gopher browser Bombadillo[13] as my main tool to view Gopherspace, and coincidentally Lagrange[14], the browser I was using to browse Gemini, also supported gopher and would use it occasionally as a GUI view.
+
 => https://bombadillo.colorfield.space 13: https://bombadillo.colorfield.space
 => https://gmi.skyjake.fi/lagrange/ 14: https://gmi.skyjake.fi/lagrange/
 
@@ -107,7 +109,9 @@ MAP   [4]  rawtext.club
                               Gophered by Gophernicus/3.1 on Arch/5.10 x86_64
 ```
 
+
 => gemini://rawtext.club/~ecliptik/assets/images/posts/gopher-lagrange-01.png Gopherhole in Lagrange Browser [IMG]
+
 
 ## Phlog
 
@@ -233,6 +237,7 @@ rm -fr ${output}.tmp
 These plaintext posts rendered much nicer and I was happy with how they turned out.
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/gopher-phlog-post-01.png Phlog post in Bombadillo [IMG]
+
 
 One final step was automatically generating a Phlog index of posts. The post Making a Gopherhole[21] that I used when making my own Gopherhole had a script on taking the last 10 posts and generating a gophermap of them. I took this script and modified it some to include some things like a basic layout template.
 
