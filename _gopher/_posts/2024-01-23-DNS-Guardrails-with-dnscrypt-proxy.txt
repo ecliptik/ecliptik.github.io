@@ -8,12 +8,12 @@ Intro
 
 Over the holidays we got our two younger children HP laptops for them
 to do their school work on and to have a proper computer. While the
-schools Google login effectively adds restrictions to Chrome, I still
-wanted to have some guardrails on their Internet access as well as
-ad-blocking.
+schools Google Classroom login effectively adds restrictions to
+Chrome, I still wanted to have some guardrails on their Internet
+access as well as ad-blocking.
 
 The first thing I did was replace the Windows S install that came on
-the laptops with Linux Mint and I’ve always enjoyed the Cinnamon
+the laptops with Linux Mint as I’ve always enjoyed the Cinnamon
 desktop environment and it has a low enough learning curve that the
 kids could easily pick it up. After installing a few apps and games
 (OpenRCT2) from the Software Center and setting their own passwords,
@@ -23,7 +23,7 @@ they were up and running and surfing the world-wide-web.
   [Cinnamon desktop environment]: https://projects.linuxmint.com/cinnamon/
   [OpenRCT2]: https://openrct2.org/
 
-Finally I added Tailscale to both laptops to get them onto my tailnet.
+Finally I added Tailscale to both laptops to put them on my tailnet.
 This has benefits of accessing tailnet-only services, easier remote
 access, and leveraging the dnscrypt-proxy on OpenBSD I setup a few
 years ago for DNS.
@@ -35,7 +35,7 @@ years ago for DNS.
 Guardrails
 
 My original DNS config worked well, but I wanted to add some
-guardrails kids,
+guardrails specifically for the kids laptops,
 
 1.  Cloudflare for Families
 2.  Ad Blocking
@@ -49,7 +49,7 @@ guardrails kids,
 First I tried using the existing dnscrypt-proxy to provide a different
 set of DNS resolvers depending on the source IP, but this wasn’t
 possible. Eventually I came up with a seperate DNS infrastructure in a
-container for the laptops to use with,
+container for the laptops to use,
 
   [dnscrypt-proxy]: https://github.com/DNSCrypt/dnscrypt-proxy
 
@@ -176,7 +176,7 @@ dnscrypt-proxy.toml
     [allowed_names]
       allowed_names_file = '/etc/dnscrypt-proxy/domains-allowlist.txt
 
-Cloaking is used to set all requests to YouTube to go
+Cloaking is used so all YouTube requests resolve to
 restrict.youtube.com.
 
   [Cloaking]: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist
@@ -191,9 +191,10 @@ cloaking-rules.txt
 
 Exposing via Tailscale
 
-Since I only want DNS available to devices on my tailnet, there’s a
-tailscale container in the docker-compose.yml that provides networking
-to the dnscrypt-proxy container using network_mode.
+Since I only want DNS available to devices on my tailnet, and not
+publicly available, there’s a tailscale container in the
+docker-compose.yml that provides networking to the dnscrypt-proxy
+container using network_mode.
 
 Set this up by creating an auth key for your tailnet and then putting
 it into a .env file that docker compose will source in and set as the
@@ -222,15 +223,14 @@ container will authenticate to the tailnet and have an Tailscale IP
     nameserver 100.112.129.40
     search tailnet-3831.ts.net
 
-Tailscale will try and revert this however, so to keep the settings
-permanent set /etc/resolv.conf to immutable with
+Tailscale will keep trying to revert this, so to keep the settings
+permanent, /etc/resolv.conf is set to immutable with
 chattr +i /etc/resolv.conf.
 
-Test that DNS is working by looking for more “adult” content on
-youtube and it should give a message similar to “your Google workspace
-administrator has restricted some content”.
+To test DNS is working, looking for more “adult” content on youtube
+will give a message similar to “your Google workspace administrator
+has restricted some content”.
 
-Verify this in the container logs by doing a
-dig m.youtube.com  @100.76.233.91 (where the IP is your Tailscale
-container IP) and check the logs for messages similar to
-127.0.0.1       m.youtube.com   A       CLOAK   0ms     -.
+Verify in container logs with dig m.youtube.com  @100.76.233.91 (where
+the IP is your Tailscale container IP) and check the logs for messages
+similar to 127.0.0.1       m.youtube.com   A       CLOAK   0ms     -.

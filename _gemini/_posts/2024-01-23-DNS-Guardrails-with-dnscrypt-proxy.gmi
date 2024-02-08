@@ -14,15 +14,15 @@
 
 ## Intro
 
-Over the holidays we got our two younger children HP laptops for them to do their school work on and to have a proper computer. While the schools Google login effectively adds restrictions to Chrome, I still wanted to have some guardrails on their Internet access as well as ad-blocking.
+Over the holidays we got our two younger children HP laptops for them to do their school work on and to have a proper computer. While the schools Google Classroom login effectively adds restrictions to Chrome, I still wanted to have some guardrails on their Internet access as well as ad-blocking.
 
-The first thing I did was replace the Windows S install that came on the laptops with Linux Mint[1] and I've always enjoyed the Cinnamon desktop environment[2] and it has a low enough learning curve that the kids could easily pick it up. After installing a few apps and games (OpenRCT2[3]) from the Software Center and setting their own passwords, they were up and running and surfing the world-wide-web.
+The first thing I did was replace the Windows S install that came on the laptops with Linux Mint[1] as I've always enjoyed the Cinnamon desktop environment[2] and it has a low enough learning curve that the kids could easily pick it up. After installing a few apps and games (OpenRCT2[3]) from the Software Center and setting their own passwords, they were up and running and surfing the world-wide-web.
 
 => https://www.linuxmint.com/ 1: https://www.linuxmint.com/
 => https://projects.linuxmint.com/cinnamon/ 2: https://projects.linuxmint.com/cinnamon/
 => https://openrct2.org/ 3: https://openrct2.org/
 
-Finally I added Tailscale[4] to both laptops to get them onto my tailnet[5]. This has benefits of accessing tailnet-only services, easier remote access, and leveraging the dnscrypt-proxy on OpenBSD[6] I setup a few years ago for DNS.
+Finally I added Tailscale[4] to both laptops to put them on my tailnet[5]. This has benefits of accessing tailnet-only services, easier remote access, and leveraging the dnscrypt-proxy on OpenBSD[6] I setup a few years ago for DNS.
 
 => https://tailscale.com/ 4: https://tailscale.com/
 => https://tailscale.com/kb/1136/tailnet 5: https://tailscale.com/kb/1136/tailnet
@@ -30,7 +30,7 @@ Finally I added Tailscale[4] to both laptops to get them onto my tailnet[5]. Thi
 
 ## Guardrails
 
-My original DNS config worked well, but I wanted to add some guardrails kids,
+My original DNS config worked well, but I wanted to add some guardrails specifically for the kids laptops,
 
 1. Cloudflare for Families[7]
 2. Ad Blocking[8]
@@ -42,7 +42,7 @@ My original DNS config worked well, but I wanted to add some guardrails kids,
 => https://support.google.com/a/answer/6212415 9: https://support.google.com/a/answer/6212415
 => https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist 10: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist
 
-First I tried using the existing dnscrypt-proxy[11] to provide a different set of DNS resolvers depending on the source IP, but this wasn't possible. Eventually I came up with a seperate DNS infrastructure in a container for the laptops to use with,
+First I tried using the existing dnscrypt-proxy[11] to provide a different set of DNS resolvers depending on the source IP, but this wasn't possible. Eventually I came up with a seperate DNS infrastructure in a container for the laptops to use,
 
 => https://github.com/DNSCrypt/dnscrypt-proxy 11: https://github.com/DNSCrypt/dnscrypt-proxy
 
@@ -169,7 +169,7 @@ cloaking_rules = '/etc/dnscrypt-proxy/cloaking-rules.txt'
   allowed_names_file = '/etc/dnscrypt-proxy/domains-allowlist.txt
 ```
 
-Cloaking[14] is used to set all requests to YouTube to go `restrict.youtube.com`.
+Cloaking[14] is used so all YouTube requests resolve to `restrict.youtube.com`.
 
 => https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist 14: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist
 
@@ -185,7 +185,7 @@ www.youtube-nocookie.com restrict.youtube.com
 
 ## Exposing via Tailscale
 
-Since I only want DNS available to devices on my tailnet, there's a `tailscale` container in the `docker-compose.yml` that provides networking to the `dnscrypt-proxy` container using `network_mode`.
+Since I only want DNS available to devices on my tailnet, and not publicly available, there's a `tailscale` container in the `docker-compose.yml` that provides networking to the `dnscrypt-proxy` container using `network_mode`.
 
 Set this up by creating an auth key[15] for your tailnet and then putting it into a `.env` file that docker compose will source in and set as the `TS_AUTH_KEY` variable.
 
@@ -210,11 +210,11 @@ nameserver 100.112.129.40
 search tailnet-3831.ts.net
 ```
 
-Tailscale will try and revert this however, so to keep the settings permanent set `/etc/resolv.conf` to immutable with `chattr +i /etc/resolv.conf`.
+Tailscale will keep trying to revert this, so to keep the settings permanent, `/etc/resolv.conf` is set to immutable with `chattr +i /etc/resolv.conf`.
 
-Test that DNS is working by looking for more "adult" content on youtube and it should give a message similar to "your Google workspace administrator has restricted some content".
+To test DNS is working, looking for more "adult" content on youtube will give a message similar to "your Google workspace administrator has restricted some content".
 
-Verify this in the container logs by doing a `dig m.youtube.com @100.76.233.91` (where the IP is your Tailscale container IP) and check the logs for messages similar to `127.0.0.1 m.youtube.com A CLOAK 0ms -`.
+Verify in container logs with `dig m.youtube.com @100.76.233.91` (where the IP is your Tailscale container IP) and check the logs for messages similar to `127.0.0.1 m.youtube.com A CLOAK 0ms -`.
 
 ### Tags
 
