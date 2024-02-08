@@ -5,7 +5,7 @@ LABEL maintainer="Micheal Waltz <dockerfile@ecliptik.com>"
 WORKDIR /app
 
 COPY Gemfile .
-#COPY Gemfile.lock .
+COPY Gemfile.lock .
 
 #Install build packages
 RUN apt-get update && apt-get install -y \
