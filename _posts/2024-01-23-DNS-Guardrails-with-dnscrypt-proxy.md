@@ -11,7 +11,7 @@ Over the holidays we got our two younger children HP laptops for them to do thei
 
 The first thing I did was replace the Windows S install that came on the laptops with [Linux Mint](https://www.linuxmint.com/) as I've always enjoyed the [Cinnamon desktop environment](https://projects.linuxmint.com/cinnamon/) and it has a low enough learning curve that the kids could easily pick it up. After installing a few apps and games ([OpenRCT2](https://openrct2.org/)) from the Software Center and setting their own passwords, they were up and running and surfing the world-wide-web.
 
-Finally I added [Tailscale](https://tailscale.com/) to both laptops to get them onto my [tailnet](https://tailscale.com/kb/1136/tailnet). This has benefits of accessing tailnet-only services, easier remote access, and leveraging the [dnscrypt-proxy on OpenBSD](https://www.ecliptik.com/Running-dnscrypt-proxy-on-OpenBSD/) I setup a few years ago for DNS.
+Finally I added [Tailscale](https://tailscale.com/) to both laptops to put them on my [tailnet](https://tailscale.com/kb/1136/tailnet). This has benefits of accessing tailnet-only services, easier remote access, and leveraging the [dnscrypt-proxy on OpenBSD](https://www.ecliptik.com/Running-dnscrypt-proxy-on-OpenBSD/) I setup a few years ago for DNS.
 
 ## Guardrails
 
@@ -143,7 +143,7 @@ cloaking_rules = '/etc/dnscrypt-proxy/cloaking-rules.txt'
   allowed_names_file = '/etc/dnscrypt-proxy/domains-allowlist.txt
 ```
 
-[Cloaking](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist) is used to set all requests to YouTube to go `restrict.youtube.com`.
+[Cloaking](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist) is used so all YouTube requests resolve to `restrict.youtube.com`.
 
 `cloaking-rules.txt`
 
@@ -157,10 +157,9 @@ www.youtube-nocookie.com restrict.youtube.com
 
 ## Exposing via Tailscale
 
-Since I only want DNS available to devices on my tailnet, there's a `tailscale` container in the `docker-compose.yml` that provides networking to the `dnscrypt-proxy` container using `network_mode`.
+Since I only want DNS available to devices on my tailnet, and not publicly available, there's a `tailscale` container in the `docker-compose.yml` that provides networking to the `dnscrypt-proxy` container using `network_mode`.
 
 Set this up by creating an [auth key](https://tailscale.com/kb/1085/auth-keys) for your tailnet and then putting it into a `.env` file that docker compose will source in and set as the `TS_AUTH_KEY` variable.
-
 
 `.env`
 
@@ -179,8 +178,8 @@ nameserver 100.112.129.40
 search tailnet-3831.ts.net
 ```
 
-Tailscale will try and revert this however, so to keep the settings permanent set `/etc/resolv.conf` to immutable with `chattr +i /etc/resolv.conf`.
+Tailscale will keep trying to revert this, so to keep the settings permanent, `/etc/resolv.conf` is set to immutable with `chattr +i /etc/resolv.conf`.
 
-Test that DNS is working by looking for more "adult" content on youtube and it should give a message similar to "your Google workspace administrator has restricted some content".
+To test DNS is working, looking for more "adult" content on youtube will give a message similar to "your Google workspace administrator has restricted some content".
 
-Verify this in the container logs by doing a `dig m.youtube.com  @100.76.233.91` (where the IP is your Tailscale container IP) and check the logs for messages similar to `127.0.0.1       m.youtube.com   A       CLOAK   0ms     -`.
+Verify in container logs with `dig m.youtube.com  @100.76.233.91` (where the IP is your Tailscale container IP) and check the logs for messages similar to `127.0.0.1       m.youtube.com   A       CLOAK   0ms     -`.
