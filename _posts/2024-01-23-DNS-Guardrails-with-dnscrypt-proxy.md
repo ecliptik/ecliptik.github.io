@@ -15,14 +15,14 @@ Finally I added [Tailscale](https://tailscale.com/) to both laptops to get them 
 
 ## Guardrails
 
-My original DNS config worked well, but I wanted to add some guardrails kids,
+My original DNS config worked well, but I wanted to add some guardrails specifically for the kids laptops,
 
 1. [Cloudflare for Families](https://blog.cloudflare.com/introducing-1-1-1-1-for-families/)
 2. [Ad Blocking](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist)
 3. [YouTube Restricted Mode](https://support.google.com/a/answer/6212415) via [Cloaking](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Public-blocklist)
 4. Accessible only from the Tailscale
 
-First I tried using the existing [dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy) to provide a different set of DNS resolvers depending on the source IP, but this wasn't possible. Eventually I came up with a seperate DNS infrastructure in a container for the laptops to use with,
+First I tried using the existing [dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy) to provide a different set of DNS resolvers depending on the source IP, but this wasn't possible. Eventually I came up with a seperate DNS infrastructure in a container for the laptops to use,
 
 ## Container Stack
 
