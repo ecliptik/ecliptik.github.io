@@ -7,9 +7,9 @@ tags: linux dns containers docker networking tailscale
 
 ## Intro
 
-Over the holidays we got our two younger children HP laptops for them to do their school work on and to have a proper computer. While the schools Google login effectively adds restrictions to Chrome, I still wanted to have some guardrails on their Internet access as well as ad-blocking.
+Over the holidays we got our two younger children HP laptops for them to do their school work on and to have a proper computer. While the schools Google Classroom login effectively adds restrictions to Chrome, I still wanted to have some guardrails on their Internet access as well as ad-blocking.
 
-The first thing I did was replace the Windows S install that came on the laptops with [Linux Mint](https://www.linuxmint.com/) and I've always enjoyed the [Cinnamon desktop environment](https://projects.linuxmint.com/cinnamon/) and it has a low enough learning curve that the kids could easily pick it up. After installing a few apps and games ([OpenRCT2](https://openrct2.org/)) from the Software Center and setting their own passwords, they were up and running and surfing the world-wide-web.
+The first thing I did was replace the Windows S install that came on the laptops with [Linux Mint](https://www.linuxmint.com/) as I've always enjoyed the [Cinnamon desktop environment](https://projects.linuxmint.com/cinnamon/) and it has a low enough learning curve that the kids could easily pick it up. After installing a few apps and games ([OpenRCT2](https://openrct2.org/)) from the Software Center and setting their own passwords, they were up and running and surfing the world-wide-web.
 
 Finally I added [Tailscale](https://tailscale.com/) to both laptops to get them onto my [tailnet](https://tailscale.com/kb/1136/tailnet). This has benefits of accessing tailnet-only services, easier remote access, and leveraging the [dnscrypt-proxy on OpenBSD](https://www.ecliptik.com/Running-dnscrypt-proxy-on-OpenBSD/) I setup a few years ago for DNS.
 
