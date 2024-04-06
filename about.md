@@ -11,7 +11,7 @@ Experienced DevOps Engineer and Technical Account Manager with 20+ years experie
 ## Interests
 
 - [Free and Open Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software)
-- [Small Internet](https://thedorkweb.substack.com/p/gopher-gemini-and-the-smol-internet)
+- [Smol Web](https://web.archive.org/web/20240328161105/https://zserge.com/posts/small-web/)
 - Cloud technologies
 - Custom keyboards
 - Retro videogames and computers
