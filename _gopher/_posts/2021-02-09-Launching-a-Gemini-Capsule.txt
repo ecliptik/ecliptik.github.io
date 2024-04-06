@@ -6,16 +6,16 @@ ___________________________________________
 
 Gemawhat?
 
-Even since I started [using Mastodon][] a couple of weeks ago,
-[Project Gemini][] is one of the most exciting new technologies I’ve
-discovered in my [local feed][].
+Even since I started using Mastodon a couple of weeks ago, Project
+Gemini is one of the most exciting new technologies I’ve discovered in
+my local feed.
 
   [using Mastodon]: https://www.ecliptik.com/One-Week-With-Mastodon/
   [Project Gemini]: https://gemini.circumlunar.space
   [local feed]: https://fosstodon.org/web/timelines/public/local
 
-I won’t go into full detail on what Gemini is, but similar to [why I
-made a Gopherhole][], Gemini is a newer Internet protocol that strips
+I won’t go into full detail on what Gemini is, but similar to why I
+made a Gopherhole, Gemini is a newer Internet protocol that strips
 away the bloat of the modern web to a core set of concepts,
 generality, and maximum power-to-weight-ratio.
 
@@ -39,18 +39,18 @@ Creating a Capsule
 Creating a Gemini Capsule was a much lower barrier than it seems,
 since it’s Gemtext is very similar to Markdown and can almost convert
 1:1 (with the exception of in-line links). So posts written in
-Markdown for a static blog (like [Jekyll][]) can easily work in
-Gemini. The tool [md2gemini][] makes this even more seamless by
-converting Markdown specific things to Gemtext.
+Markdown for a static blog (like Jekyll) can easily work in Gemini.
+The tool md2gemini makes this even more seamless by converting
+Markdown specific things to Gemtext.
 
   [Jekyll]: https://www.jekyllnow.com
   [md2gemini]: https://github.com/makeworld-the-better-one/md2gemini
 
 With having content ready to go, hosting is the next challenge.
-Bringing up your own Gemini server is easy enough, with a [large
-number of Gemini servers][] available. I just went with using my
-Pubnix account at [rawtext.club][] which provides a public_gemini
-option. This is also where [my gopherhole][] is hosted.
+Bringing up your own Gemini server is easy enough, with a large number
+of Gemini servers available. I just went with using my Pubnix account
+at rawtext.club which provides a public_gemini option. This is also
+where my gopherhole is hosted.
 
   [large number of Gemini servers]: https://github.com/kr1sp1n/awesome-gemini#servers
   [rawtext.club]: https://rawtext.club
@@ -60,7 +60,7 @@ Creating a Toolset
 
 Manually converting markdown posts, using scp to copy them to RTC, and
 putting together some basic index.gmi and blog.gmi files, and I had a
-live [Gemini capsule][] and running. This was nice, but I wanted to
+live Gemini capsule and running. This was nice, but I wanted to
 publish posts on this blog to both Gopherspace and Geminispace
 together and needed something that would have some additional
 features,
@@ -73,17 +73,17 @@ features,
 -   Add tags to posts, group posts by tags, and have all tags listed
     on the archive page
 -   Basic header/footer support
--   Build a [gemfeed][] to syndicate in Geminispace
+-   Build a gemfeed to syndicate in Geminispace
 
   [gemfeed]: https://tildegit.org/solderpunk/gemfeed
 
-Iterating on the [tools I wrote for Gopher][] by including using
-md2gemini to convert to Gemtext got me partially there, but was still
-missing some more features. After more iterations, I had
-[updatesmallweb.sh][] that converts Jekyll posts to Gopher and Gemini.
-Now whenever I publish a post on Jekyll, I can run this script to
-convert the post to Gopher and Gemini. Doing git push to github, then
-git pull on RTC and everything is up-to-date.
+Iterating on the tools I wrote for Gopher by including using md2gemini
+to convert to Gemtext got me partially there, but was still missing
+some more features. After more iterations, I had updatesmallweb.sh
+that converts Jekyll posts to Gopher and Gemini. Now whenever I
+publish a post on Jekyll, I can run this script to convert the post to
+Gopher and Gemini. Doing git push to github, then git pull on RTC and
+everything is up-to-date.
 
   [tools I wrote for Gopher]: https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/
   [updatesmallweb.sh]: https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh
@@ -186,7 +186,7 @@ Here’s the script in action building the gopherhole and capsule,
     Adding 2015-08-21-Decompiling-Interactive-Fiction.gmi with title 'Decompiling Interactive Fiction'...
     Wrote Atom feed to ../_gemini/_posts/feed.xml.
 
-[[Gemlog in Lagrange][]]
+[Gemlog in Lagrange]
 
   [Gemlog in Lagrange]: /assets/images/posts/gemlog-in-lagrange.png
 
@@ -198,7 +198,7 @@ and have some tooling to make things seamless between
 http://,gopher://,gemini://, my plans are to improve updatesmallweb.sh
 so it’s almost a static site generator. Some of the documentation and
 examples needs updating as well, so others can use it, and already
-[gemini://gemini.lottalinuxlinks.com][] has.
+gemini://gemini.lottalinuxlinks.com has.
 
   [gemini://gemini.lottalinuxlinks.com]: gemini://gemini.lottalinuxlinks.com
 
@@ -211,6 +211,6 @@ the foreseeable future. This allows creativity to flourish in a
 restricted environment, like the Demo Scene or modern homebrew Gameboy
 Games.
 
-For more on exploring Geminispace, see [awesome-gemini][].
+For more on exploring Geminispace, see awesome-gemini.
 
   [awesome-gemini]: https://github.com/kr1sp1n/awesome-gemini

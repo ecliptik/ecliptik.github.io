@@ -28,6 +28,7 @@ I wanted to get Superhighway84 on a spare RaspberryPi 3 running FreeBSD 13, prim
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/superhighway84/superhighway84.png Superhighway84 [IMG]
 
+
 ## IPFS on FreeBSD
 
 Superhighway84 uses IPFS[5] as it's backend, making it fully decentralized. Reading through the setup docs, an `ipfs init` is required to build the initial `~/.ipfs` filesystem. There is a ipfs-go[6] in FreeBSD ports, but it doesn't seem to work, at least on arm64.

@@ -6,34 +6,34 @@ ___________________________________________
 
 Intro
 
-With the [recent release of FreeBSD 13][], I wanted to test it out on
-a spare RaspberryPi 3 that was part of my [old Kubernetes cluster][].
+With the recent release of FreeBSD 13, I wanted to test it out on a
+spare RaspberryPi 3 that was part of my old Kubernetes cluster.
 
   [recent release of FreeBSD 13]: https://www.freebsd.org/releases/13.0R/announce/
   [old Kubernetes cluster]: https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/
 
-In particular, [FreeBSD Jails][] have always interested me, although
-I’ve never used them in practice. Over the years I’ve managed
-[operating system virtualization][] through Solaris Zones and Docker
-containers, and Jails seem like and good middle ground between the two
-- easier to manage than zones and closer to the OS than Docker.
+In particular, FreeBSD Jails have always interested me, although I’ve
+never used them in practice. Over the years I’ve managed operating
+system virtualization through Solaris Zones and Docker containers, and
+Jails seem like and good middle ground between the two - easier to
+manage than zones and closer to the OS than Docker.
 
   [FreeBSD Jails]: https://docs.freebsd.org/en/books/handbook/jails/
   [operating system virtualization]: https://en.wikipedia.org/wiki/OS-level_virtualization
 
-I also want to run my own [Gemini][] capsule locally to use some of
-the features that my other hosted capsules don’t have (like SCGI/CGI)
-and setting up a capsule in a Jail is a good way to learn both at the
-same time.
+I also want to run my own Gemini capsule locally to use some of the
+features that my other hosted capsules don’t have (like SCGI/CGI) and
+setting up a capsule in a Jail is a good way to learn both at the same
+time.
 
   [Gemini]: https://gemini.circumlunar.space
 
 Installing FreeBSD on a RaspberryPi
 
-Installing FreeBSD on a RaspberryPi is relatively easy, [downloading
-the FreeBSD 13 RPI image][] and booting from the SD card to get
-started. Everything will come up automatically, and you can ssh in
-with the default user:pass of freebsd:freebsd.
+Installing FreeBSD on a RaspberryPi is relatively easy, downloading
+the FreeBSD 13 RPI image and booting from the SD card to get started.
+Everything will come up automatically, and you can ssh in with the
+default user:pass of freebsd:freebsd.
 
   [downloading the FreeBSD 13 RPI image]: https://download.freebsd.org/ftp/releases/arm64/aarch64/ISO-IMAGES/13.0/
 
@@ -41,7 +41,7 @@ A few post-install things I did to secure the host more,
 
 -   Add another non-root user other than freebsd
 -   Disable password logins and require ssh-keys
--   Setup [doas][] for new user
+-   Setup doas for new user
 -   Remove the freebsd user with doas rmuser freebsd
 -   Set strong root password
 
@@ -66,9 +66,9 @@ Setting up the Jail
 
 Creating the Jail
 
-The [Jails guide][] is straightforward, but contains two different
-methods of configuring jails. The built-in jail commands or ezjail. I
-ended up [using ezjail][] which seems more robust and featureful.
+The Jails guide is straightforward, but contains two different methods
+of configuring jails. The built-in jail commands or ezjail. I ended up
+using ezjail which seems more robust and featureful.
 
   [Jails guide]: https://docs.freebsd.org/en/books/handbook/jails/
   [using ezjail]: https://docs.freebsd.org/en/books/handbook/jails/#jails-ezjail
@@ -120,9 +120,8 @@ the jail,
 Setting up a Gemini Capsule
 
 Now that the jail is setup, the next step is installing and
-configuring the Gemini server [Molly Brown][], which has a lot of
-features such as ~ support for user gemini folders and SCGI/CGI
-scripting.
+configuring the Gemini server Molly Brown, which has a lot of features
+such as ~ support for user gemini folders and SCGI/CGI scripting.
 
   [Molly Brown]: https://tildegit.org/solderpunk/molly-brown
 
@@ -245,7 +244,7 @@ start the molly service,
 
 Running Example
 
-The gemini capsule [gemini://thesours.ecliptik.com][] is running Molly
+The gemini capsule gemini://thesours.ecliptik.com is running Molly
 Brown in a FreeBSD jail.
 
   [gemini://thesours.ecliptik.com]: gemini://thesours.ecliptik.com

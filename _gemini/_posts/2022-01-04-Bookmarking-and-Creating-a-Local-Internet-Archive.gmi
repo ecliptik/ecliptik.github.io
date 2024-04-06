@@ -36,8 +36,6 @@ Raindrop.io had all the features I was looking for,
 * Tagging[10]
 * Dropbox sync[11]
 
-Using the apps or browser extensions is seamless, making it easy to save bookmarks no matter what device or browser I'm using. I also imported all of my Firefox bookmarks which required some cleaning up, but gave a good impression of how the tool looks with content. I'm still experimenting with categories and tagging, but overall there's some order to the chaos, and with tags and full text search I can quickly find sites without having to resort to a search engine.
-
 => https://help.raindrop.io/premium-features 6: https://help.raindrop.io/premium-features
 => https://help.raindrop.io/mobile-app 7: https://help.raindrop.io/mobile-app
 => https://help.raindrop.io/backups/#permanent-library 8: https://help.raindrop.io/backups/#permanent-library
@@ -45,11 +43,14 @@ Using the apps or browser extensions is seamless, making it easy to save bookmar
 => https://help.raindrop.io/tags 10: https://help.raindrop.io/tags
 => https://help.raindrop.io/backups#backup-to-dropbox 11: https://help.raindrop.io/backups#backup-to-dropbox
 
+Using the apps or browser extensions is seamless, making it easy to save bookmarks no matter what device or browser I'm using. I also imported all of my Firefox bookmarks which required some cleaning up, but gave a good impression of how the tool looks with content. I'm still experimenting with categories and tagging, but overall there's some order to the chaos, and with tags and full text search I can quickly find sites without having to resort to a search engine.
+
 I also setup an IFTTT[12] automation so whenever a page is bookmarked in Raindrop.io, it will add it to Saved Stories in Newsblur with the tags. While it's not really that useful, it can act as a sort of backup if needed and maybe in the future Newsblur will add some feature that makes it more useful.
 
 => https://ifttt.com 12: https://ifttt.com
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/bookmarking/raindropapp.png Raindrop.io Mac App [IMG]
+
 
 ## Archiving Locally with ArchiveBox
 
@@ -123,6 +124,7 @@ docker-compose -f ~/archivebox/docker-compose.yml run --rm archivebox add --pars
 When imported, only these URLs are archived and the tags are applied properly, creating an complete archived copy of bookmarks saved in Raindrop.io.
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/bookmarking/archivebox.png ArchiveBox [IMG]
+
 
 Since Raindrop.io has preview/live/archive views as well as fulltext search, I probably won't use ArchiveBox frequently, but it's good to have a local backup in multiple formats just-in-case. It also automatically sends the page to archive.org, so it's another guarentee that it is archived somewhere in case the page disappears 10 years from now. By default it will also save a PDF file and text using Mercury[17] and Readability[18] which I may work on setting up to send to my Kindle for offline reading.
 

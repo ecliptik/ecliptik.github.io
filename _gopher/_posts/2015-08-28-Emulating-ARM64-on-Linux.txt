@@ -6,37 +6,37 @@ ___________________________________________
 
 Intro
 
-Over the last few years I’ve [championed][] the ultra-low-power and
-high-density of a [64-bit ARM platform][] in the datacenter. The
-promise of thousands of cores all sipping power and taking up less
-room than the equivalent Intel architecture to me is both exciting and
-pragmatic as a large systems IT engineer.
+Over the last few years I’ve championed the ultra-low-power and
+high-density of a 64-bit ARM platform in the datacenter. The promise
+of thousands of cores all sipping power and taking up less room than
+the equivalent Intel architecture to me is both exciting and pragmatic
+as a large systems IT engineer.
 
   [championed]: https://www.google.com/search?q=micheal+waltz+arm64
   [64-bit ARM platform]: http://www.arm.com/products/processors/armv8-architecture.ph
 
-Combining with the simplicity of a [microservices architecture][] with
-the advantages of [immutable infrastructure][] running across a
-sea-of-[containers][] and you have an extremely agile development and
+Combining with the simplicity of a microservices architecture with the
+advantages of immutable infrastructure running across a
+sea-of-containers and you have an extremely agile development and
 operations platform.
 
   [microservices architecture]: http://microservices.io/
   [immutable infrastructure]: http://chadfowler.com/blog/2013/06/23/immutable-deployments/
   [containers]: https://www.docker.com
 
-Working for a [semiconductor company][] specializing in [ARM
-Architecture][] unfortuantely does not guarentee me access to this
-exciting new tech ([yet][]), but through the wonders of emulation
-bringing up a development environment is just a few commands away.
+Working for a semiconductor company specializing in ARM Architecture
+unfortuantely does not guarentee me access to this exciting new tech
+(yet), but through the wonders of emulation bringing up a development
+environment is just a few commands away.
 
   [semiconductor company]: https://www.qualcomm.com/
   [ARM Architecture]: https://en.wikipedia.org/wiki/ARM_architecture
   [yet]: http://www.extremetech.com/computing/194701-qualcomm-will-enter-arm-server-market-with-major-partners-broad-solutions
 
 The following gist contains the steps on standing up a emulated ARM64
-virtual machine either with [Ubuntu][] or [Debian][Ubuntu] operating
-system. This should be enough for anyone wanting to tinker with an
-ARM64 before getting their hands on real hardware.
+virtual machine either with Ubuntu or Debian operating system. This
+should be enough for anyone wanting to tinker with an ARM64 before
+getting their hands on real hardware.
 
   [Ubuntu]: http://www.ubuntu.com/
 

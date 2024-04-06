@@ -25,8 +25,6 @@ When I first got my Pocket C.H.I.P.[1] one of the first thoughts I had was to us
 * Current time with tty-clock[8]
 * Currenly playing track on Spotify using walt-grover[9]
 
-=> gemini://rawtext.club/~ecliptik/assets/images/posts/chip_terminal/IMG_6909.png Pocket C.H.I.P Terminal Dashboard [IMG]
-
 => https://fosstodon.org/web/timelines/public/local 3: https://fosstodon.org/web/timelines/public/local
 => https://github.com/ihabunek/toot 4: https://github.com/ihabunek/toot
 => https://news.ycombinator.com 5: https://news.ycombinator.com
@@ -34,6 +32,9 @@ When I first got my Pocket C.H.I.P.[1] one of the first thoughts I had was to us
 => https://wttr.in 7: https://wttr.in
 => https://github.com/xorg62/tty-clock 8: https://github.com/xorg62/tty-clock
 => https://github.com/ecliptik/walt-grover 9: https://github.com/ecliptik/walt-grover
+
+=> gemini://rawtext.club/~ecliptik/assets/images/posts/chip_terminal/IMG_6909.png Pocket C.H.I.P Terminal Dashboard [IMG]
+
 
 ## Setup
 

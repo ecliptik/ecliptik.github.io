@@ -6,18 +6,18 @@ ___________________________________________
 
 Intro
 
-A couple of weeks ago I saw [Superhighway84][] on [HackerNews][] and
-started to check it out, but didn’t get very far. I finally spent some
-time to get it up and running on [FreeBSD][] which works, but requires
-a few additional steps.
+A couple of weeks ago I saw Superhighway84 on HackerNews and started
+to check it out, but didn’t get very far. I finally spent some time to
+get it up and running on FreeBSD which works, but requires a few
+additional steps.
 
   [Superhighway84]: https://マリウス.com/superhighway84/
   [HackerNews]: https://news.ycombinator.com/item?id=29698412
   [FreeBSD]: https://www.freebsd.org
 
 I wanted to get Superhighway84 on a spare RaspberryPi 3 running
-FreeBSD 13, primarily used for a [Gemini Capsule in FreeBSD][], since
-it doesn’t have much traffic and is mostly idle.
+FreeBSD 13, primarily used for a Gemini Capsule in FreeBSD, since it
+doesn’t have much traffic and is mostly idle.
 
   [Gemini Capsule in FreeBSD]: https://www.ecliptik.com/Gemini-Capsule-in-a-FreeBSD-Jail/
 
@@ -25,23 +25,23 @@ it doesn’t have much traffic and is mostly idle.
   discussion system, featuring a retro text user interface and powered
   by IPFS and OrbitDB.
 
-[[Superhighway84][1]]
+[Superhighway84]
 
+  [1]: /assets/images/posts/superhighway84/superhighway84.png
 
 Superhighway84 in Solarized Dark terminal
 IPFS on FreeBSD
 
-Superhighway84 uses [IPFS][] as it’s backend, making it fully
+Superhighway84 uses IPFS as it’s backend, making it fully
 decentralized. Reading through the setup docs, an ipfs init is
-required to build the initial ~/.ipfs filesystem. There is a
-[ipfs-go][] in FreeBSD ports, but it doesn’t seem to work, at least on
-arm64.
+required to build the initial ~/.ipfs filesystem. There is a ipfs-go
+in FreeBSD ports, but it doesn’t seem to work, at least on arm64.
 
   [IPFS]: https://ipfs.io
   [ipfs-go]: https://www.freshports.org/sysutils/ipfs-go/
 
-To work around this, building [ipfs-go][2] from source is doable in a
-few steps,
+To work around this, building ipfs-go from source is doable in a few
+steps,
 
   [2]: https://github.com/ipfs/go-ipfs
 
@@ -86,8 +86,8 @@ RaspberryPi
 Building Superhighway84
 
 With IPFS initialized, build Superhighway84 and copy the binary to
-~/bin. There are [binary releases][] for FreeBSD arm64, but compiling
-it from source is relatively easy as well.
+~/bin. There are binary releases for FreeBSD arm64, but compiling it
+from source is relatively easy as well.
 
   [binary releases]: https://github.com/mrusme/superhighway84/releases/tag/v0.0.11
 

@@ -12,6 +12,7 @@
 # Ecliptik's Gemlog
 ## Latest Posts
 
+=> gemini://rawtext.club/~ecliptik/_posts/2024-01-23-DNS-Guardrails-with-dnscrypt-proxy.gmi 2024-01-23 DNS Guardrails with dnscrypt proxy
 => gemini://rawtext.club/~ecliptik/_posts/2023-01-25-Tailscale-on-the-DevTerm-R-01.gmi 2023-01-25 Tailscale on the DevTerm R 01
 => gemini://rawtext.club/~ecliptik/_posts/2022-01-17-Superhighway84-on-FreeBSD.gmi 2022-01-17 Superhighway84 on FreeBSD
 => gemini://rawtext.club/~ecliptik/_posts/2022-01-04-Bookmarking-and-Creating-a-Local-Internet-Archive.gmi 2022-01-04 Bookmarking and Creating a Local Internet Archive
@@ -21,7 +22,6 @@
 => gemini://rawtext.club/~ecliptik/_posts/2021-04-04-Pocket-CHIP-Terminal-Dashboard.gmi 2021-04-04 Pocket CHIP Terminal Dashboard
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-19-CHIP-Vaporwave.gmi 2021-03-19 CHIP Vaporwave
 => gemini://rawtext.club/~ecliptik/_posts/2021-03-12-Running-dnscrypt-proxy-on-OpenBSD.gmi 2021-03-12 Running dnscrypt proxy on OpenBSD
-=> gemini://rawtext.club/~ecliptik/_posts/2021-03-03-CHIP-Serial-Console.gmi 2021-03-03 CHIP Serial Console
 
 => gemini://rawtext.club/~ecliptik/_posts/index.gmi Gemlog Archive
 => gemini://rawtext.club/~ecliptik/_tags/index.gmi Gemlog Tags

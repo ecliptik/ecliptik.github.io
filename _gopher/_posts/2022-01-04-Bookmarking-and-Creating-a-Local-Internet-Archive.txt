@@ -6,21 +6,21 @@ ___________________________________________
 
 Intro
 
-While I’m a heavy user of RSS with [Newsblur][], I’ve never had a
-coherent bookmarking solution. Last week I finally setup a proper
-bookmark manager, and as a bonus, archived bookmarked pages locally in
-my own personal [Internet Archive][].
+While I’m a heavy user of RSS with Newsblur, I’ve never had a coherent
+bookmarking solution. Last week I finally setup a proper bookmark
+manager, and as a bonus, archived bookmarked pages locally in my own
+personal Internet Archive.
 
   [Newsblur]: https://www.newsblur.com
   [Internet Archive]: https://archive.org
 
 Bookmarking With Raindrop.io
 
-A long time ago I was a user of [del.icio.us][], and first looked into
-using [Pinboard][] for bookmarking. While Pinboard had most of the
+A long time ago I was a user of del.icio.us, and first looked into
+using Pinboard for bookmarking. While Pinboard had most of the
 features I wanted - it lacked a native mobile app. I looked into other
-alternatives, and I ended up subscribing to [Raindrop.io][] after
-using it for a few days on a trial basis.
+alternatives, and I ended up subscribing to Raindrop.io after using it
+for a few days on a trial basis.
 
   [del.icio.us]: https://en.wikipedia.org/wiki/Delicious_(website)
   [Pinboard]: https://pinboard.in
@@ -28,12 +28,12 @@ using it for a few days on a trial basis.
 
 Raindrop.io had all the features I was looking for,
 
--   Free and [Paid Subscription][] models
--   [Mobile App][]
--   [Permanent Copies][]
--   [Full text search][]
--   [Tagging][]
--   [Dropbox sync][]
+-   Free and Paid Subscription models
+-   Mobile App
+-   Permanent Copies
+-   Full text search
+-   Tagging
+-   Dropbox sync
 
   [Paid Subscription]: https://help.raindrop.io/premium-features
   [Mobile App]: https://help.raindrop.io/mobile-app
@@ -50,32 +50,32 @@ still experimenting with categories and tagging, but overall there’s
 some order to the chaos, and with tags and full text search I can
 quickly find sites without having to resort to a search engine.
 
-I also setup an [IFTTT][] automation so whenever a page is bookmarked
-in Raindrop.io, it will add it to Saved Stories in Newsblur with the
+I also setup an IFTTT automation so whenever a page is bookmarked in
+Raindrop.io, it will add it to Saved Stories in Newsblur with the
 tags. While it’s not really that useful, it can act as a sort of
 backup if needed and maybe in the future Newsblur will add some
 feature that makes it more useful.
 
   [IFTTT]: https://ifttt.com
 
-[[Raindrop.io Mac App][]]
+[Raindrop.io Mac App]
 
   [Raindrop.io Mac App]: /assets/images/posts/bookmarking/raindropapp.png
 
 Raindrop.io Mac App
 Archiving Locally with ArchiveBox
 
-While researching bookmarking services, I stumbled across
-[ArchiveBox][], which can create a local [Internet Archive][] of
-webpages, media, and other thing from the web. It can also import
-bookmarks, archiving them locally and sending them to archive.org.
+While researching bookmarking services, I stumbled across ArchiveBox,
+which can create a local Internet Archive of webpages, media, and
+other thing from the web. It can also import bookmarks, archiving them
+locally and sending them to archive.org.
 
   [ArchiveBox]: https://archivebox.io
   [Internet Archive]: https://archive.org
 
-This got me thinking, the [Backup feature][] in Raindrop.io saves an
-Export.html to [Dropbox][]. I could setup Dropboxy sync on my server
-and have a cronjob import every hour, syncing all new bookmarks from
+This got me thinking, the Backup feature in Raindrop.io saves an
+Export.html to Dropbox. I could setup Dropboxy sync on my server and
+have a cronjob import every hour, syncing all new bookmarks from
 Raindrop.io into ArchiveBox automatically.
 
   [Backup feature]: https://help.raindrop.io/backups
@@ -147,8 +147,9 @@ When imported, only these URLs are archived and the tags are applied
 properly, creating an complete archived copy of bookmarks saved in
 Raindrop.io.
 
-[[ArchiveBox][1]]
+[ArchiveBox]
 
+  [1]: /assets/images/posts/bookmarking/archivebox.png
 
 ArchiveBox
 Since Raindrop.io has preview/live/archive views as well as fulltext
@@ -157,8 +158,8 @@ have a local backup in multiple formats just-in-case. It also
 automatically sends the page to archive.org, so it’s another guarentee
 that it is archived somewhere in case the page disappears 10 years
 from now. By default it will also save a PDF file and text using
-[Mercury][] and [Readability][] which I may work on setting up to send
-to my Kindle for offline reading.
+Mercury and Readability which I may work on setting up to send to my
+Kindle for offline reading.
 
   [Mercury]: https://github.com/postlight/mercury-parser
   [Readability]: https://github.com/mozilla/readability
@@ -175,10 +176,10 @@ I can rely on in the future as well.
 
 Links
 
--   [Raindrop.io][]
--   [ArchiveBox][]
--   [Web Archiving Community][]
--   [On the Importance of Web Archiving][]
+-   Raindrop.io
+-   ArchiveBox
+-   Web Archiving Community
+-   On the Importance of Web Archiving
 
   [Raindrop.io]: https://raindrop.io
   [ArchiveBox]: https://archivebox.io

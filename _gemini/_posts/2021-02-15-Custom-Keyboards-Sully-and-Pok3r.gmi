@@ -26,6 +26,7 @@ After spending some time on r/MechanicalKeyboards[1] I got the itch to customize
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/sully.jpg Sully [IMG]
 
+
 Sully was a fantastic board and I used it up until 2019 when I discovered even smaller form factors like 60%. It's still used in our house, but mostly as a kids toy, demostrating just how well-built it is.
 
 ## Vortex Pok3r
@@ -50,6 +51,7 @@ FN+K FN+I
 PN
 FN+R_Control
 ```
+
 
 ## Pok3r Revived
 
@@ -83,11 +85,13 @@ Next on the list was replacing the switches with something less clicky and more 
 
 => gemini://rawtext.club/~ecliptik/assets/images/keyboards/pandas.png Pandas [IMG]
 
+
 The idea of building my own switches really resonated with me since it gave me, giving me more ownership of what I was building. Holy Pandas also sound amazing when typing, not clicky or loud, but thunky and tactile. Pairing them with a thicker PBT keycap set made perfect sense as well.
 
 Luckily I found some YOK Polar Panda switches in-stock and ordered them and some Halo Trues from drop, which created "Polar Holy Pandas" with a distinctive blue housing and a salmon stem.
 
 => gemini://rawtext.club/~ecliptik/assets/images/keyboards/IMG_4665.png Building Holy Pandas [IMG]
+
 
 Lubing is also a thing when it comes to building custom switches, and these were lubed with Krytox 205g0, to give them a smoother tactile bump.
 
@@ -96,6 +100,7 @@ Lubing is also a thing when it comes to building custom switches, and these were
 Did you know you can put foam in a keyboard to help dampen the sound? I had no idea this was a thing, but it is, and it completely changes the sound profile of a keyboard. So if you're into how a keyboard sounds, and are willing to spend 15$, foaming a board is a good investment.
 
 => gemini://rawtext.club/~ecliptik/assets/images/keyboards/IMG_4706.png PCB Foam Sandwich [IMG]
+
 
 I opted for foam from MKUltra[6], which I originally thought would go in the bottom of the case. When it arrived I discovered it was plate foam, which goes between the top plate and the PCB, making a sandwich. Even though it wasn't my original choice, it worked much better since now the entire board is a solid piece with exceptional dampening sounds. Combined with the Holy Panda tactile and `/dev/tty` thickness, it makes a satisfying THUNK with every keypress.
 
@@ -111,6 +116,7 @@ The last item on the list was improving the programming of the board. I'm planni
 
 => gemini://rawtext.club/~ecliptik/assets/images/keyboards/IMG_6453.png Replacing pok3r PCB [IMG]
 
+
 The PCB was replaced about a year after the board was first built, months after I started using QMK on my other boards (more on those in Part 2). The custom keymap[10] flashed on it is similar to the other boards I have, so combos and layers are consistent across all my boards.
 
 => https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq/keymaps/ecliptik 10: https://github.com/ecliptik/qmk_firmware/tree/ecliptik/keyboards/ymdk/yd60mq/keymaps/ecliptik
@@ -118,6 +124,7 @@ The PCB was replaced about a year after the board was first built, months after 
 ## Final Product
 
 => gemini://rawtext.club/~ecliptik/assets/images/keyboards/pok3r.jpg pok3r Final Form [IMG]
+
 
 With all these features checked off the list, the pok3r is is my daily driver for work and pleasure. It's a dream to type on with the tactility of the Holy Pandas, and the sound alone is worth the investment. Having the full power of QMK in the board greatly expands it's capabilities and gives me full ownership and pride in both the hardware and software aspects of it.
 

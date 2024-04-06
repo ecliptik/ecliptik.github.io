@@ -6,27 +6,26 @@ ___________________________________________
 
 Intro
 
-Recently I assembled a [ClockworkPi DevTerm R-01][], a cyberdeck-like
-terminal with a [RISC-V][] compute module. While the retro-future
-design of the DevTerm really appealed to me, and I’ve also been
-wanting to work with RISC-V for a while to learn a new architecture
-making the R-01 a perfect esoteric project platform.
+Recently I assembled a ClockworkPi DevTerm R-01, a cyberdeck-like
+terminal with a RISC-V compute module. While the retro-future design
+of the DevTerm really appealed to me, and I’ve also been wanting to
+work with RISC-V for a while to learn a new architecture making the
+R-01 a perfect esoteric project platform.
 
   [ClockworkPi DevTerm R-01]: https://www.clockworkpi.com/product-page/devterm-kit-r01
   [RISC-V]: https://en.wikipedia.org/wiki/RISC-V
 
-[[DevTermR01][]]
+[DevTermR01]
 
   [DevTermR01]: /assets/images/posts/devtermtailscale/devterm-r01.png
 
 ClockworkPi DevTerm R-01
-After trying out a few things like [DOSBox][], [Surf][], and
-[ScummVM][], I found the [Allwinner D1][] RISC-V chip wasn’t powerful
-enough to do much other than some basic window management,
-[Interactive Fiction][], and browsing gopher:// with [Bombadillo][].
-However I still wanted to use it as a terminal to access other
-systems, which lead me to attempting to install [Tailscale][] to
-leverage the mesh VPN and other features.
+After trying out a few things like DOSBox, Surf, and ScummVM, I found
+the Allwinner D1 RISC-V chip wasn’t powerful enough to do much other
+than some basic window management, Interactive Fiction, and browsing
+gopher:// with Bombadillo. However I still wanted to use it as a
+terminal to access other systems, which lead me to attempting to
+install Tailscale to leverage the mesh VPN and other features.
 
   [DOSBox]: https://www.dosbox.com/
   [Surf]: https://git.suckless.org/surf/
@@ -36,9 +35,9 @@ leverage the mesh VPN and other features.
   [Bombadillo]: https://bombadillo.colorfield.space/
   [Tailscale]: https://tailscale.com
 
-Installing tailscale was un-eventful, as it’s had [RISC-V support][]
-for a while, and following the install guide did what was expected.
-The problem is tailscaled fails due to the required tun kernel module
+Installing tailscale was un-eventful, as it’s had RISC-V support for a
+while, and following the install guide did what was expected. The
+problem is tailscaled fails due to the required tun kernel module
 missing in the 5.4.61 kernel running on the DevTerm.
 
   [RISC-V support]: https://github.com/tailscale/tailscale/issues/2119
@@ -57,16 +56,15 @@ Building a TUN/TAP Kernel Module
 The first step was finding if the R-01 kernel source was available so
 re-build the exact kernel version and include the tun module by
 setting CONFIG_TUN=m. Looking around the ClockworkPi website, Discord,
-and Github I eventually found the [How to Compile Kernel][]
-documentation. This had links to the original source and the
-toolchain.
+and Github I eventually found the How to Compile Kernel documentation.
+This had links to the original source and the toolchain.
 
   [How to Compile Kernel]: https://github.com/clockworkpi/DevTerm/wiki/Create-DevTerm-R01-OS-image-from-scratch#how-to-compile-kernel
 
 Since the R-01 isn’t exactly fast, cross-building this on a x86 system
 was required. My personal Debian server is a bit of mess when it comes
 to package pinning, so I created a new 8 CPU, 8GiB memory virtual
-machine in qemu and install [Ubuntu 22.04 “Jammy Jellyfish”][] since
+machine in qemu and install Ubuntu 22.04 “Jammy Jellyfish” since
 that’s what the R-01 is running and what ClockworkPi has in it’s
 documentation.
 
@@ -81,7 +79,7 @@ the kernel,
 
 Cloning ClockworkPi Kernel Source
 
-Clone the [kernel source][] into ~/git,
+Clone the kernel source into ~/git,
 
   [kernel source]: https://github.com/cuu/last_linux-5.4
 

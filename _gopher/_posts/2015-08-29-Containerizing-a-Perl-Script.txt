@@ -10,7 +10,7 @@ Almost every IT department has one; a Perl script written decades ago
 by a long-gone employee that’s critical to production. It does it’s
 job well, but no one wants to touch or take responsibility for it. You
 just want to upgrade your infrastructure and bring it along, but there
-are so many [CPAN][] modules and inconsitencies you want never want to
+are so many CPAN modules and inconsitencies you want never want to
 look at it again. What to do?
 
   [CPAN]: http://www.cpan.org/
@@ -21,39 +21,39 @@ Most articles on containers focus on running a service, exposing ports
 and data volumes, but one feature frequently overlooked is the ability
 to run a container as an executable.
 
-In [Docker][], the [ENTRYPOINT][] instruction makes this possible by
-running a command and accpeting command line arguments from
-docker run. Combining this with -it and --rm will run an interactive
-emphermal container, disappearing when the command is complete.
+In Docker, the ENTRYPOINT instruction makes this possible by running a
+command and accpeting command line arguments from docker run.
+Combining this with -it and --rm will run an interactive emphermal
+container, disappearing when the command is complete.
 
   [Docker]: https://www.docker.com
   [ENTRYPOINT]: https://docs.docker.com/reference/builder/#entrypoint
 
 Dockerfile
 
-Let’s walk through an example that runs a Perl script called
-[ps.pl][], which prints a simple process table using the CPAN module
-[Proc::ProcessTable][] and includes -h and -v arguments.
+Let’s walk through an example that runs a Perl script called ps.pl,
+which prints a simple process table using the CPAN module
+Proc::ProcessTable and includes -h and -v arguments.
 
   [ps.pl]: https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-ps-pl
   [Proc::ProcessTable]: http://search.cpan.org/~durist/Proc-ProcessTable-0.39/ProcessTable.pm
 
-The following [Multi-Stage Dockerfile][] will build a container to run
-a simple perl script,
+The following Multi-Stage Dockerfile will build a container to run a
+simple perl script,
 
   [Multi-Stage Dockerfile]: https://docs.docker.com/develop/develop-images/multistage-build/
 
 -   Debian Stable Slim base image
 -   Install OS packages
 -   Install CPAN modules
--   Copy [ps.pl][] script
--   Set ps.pl script as [ENTRYPOINT][1]
+-   Copy ps.pl script
+-   Set ps.pl script as ENTRYPOINT
 -   Set -h as default argument
 
   [ps.pl]: https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-ps-pl
   [1]: https://docs.docker.com/engine/reference/builder/#entrypoint
 
-Here is the [Dockerfile][] in full,
+Here is the Dockerfile in full,
 
   [Dockerfile]: https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-dockerfile
 
@@ -100,9 +100,8 @@ Here is the [Dockerfile][] in full,
 
 Dockerfile Breakdown
 
-Standard start of a Dockerfile, using the [Official Debian image][]
-tagged stable-slim as the base layer and a [label][] for the image
-maintainer,
+Standard start of a Dockerfile, using the Official Debian image tagged
+stable-slim as the base layer and a label for the image maintainer,
 
   [Official Debian image]: https://hub.docker.com/_/debian/
   [label]: https://docs.docker.com/engine/reference/builder/#label
@@ -119,7 +118,7 @@ non-interactive and set locale to UTF-8,
         LANGUAGE=en_US.UTF-8
 
 Install “runtime” packages for the base layer that other layers will
-inheriet. Sets /app as [WORKDIR][],
+inheriet. Sets /app as WORKDIR,
 
   [WORKDIR]: https://docs.docker.com/engine/reference/builder/#workdir
 
@@ -145,8 +144,8 @@ improving security posture.
             build-essential \
             cpanminus
 
-Install Perl [CPAN][2] packages and dependencies with [cpanminus][]
-which works well within a container build environment,
+Install Perl CPAN packages and dependencies with cpanminus which works
+well within a container build environment,
 
   [2]: https://www.cpan.org/
   [cpanminus]: http://search.cpan.org/~miyagawa/App-cpanminus-0.05/cpanm
@@ -163,10 +162,10 @@ from the intermediate build layer to include required CPAN modules,
     # Copy build artifacts from build layer
     COPY --from=build /usr/local /usr/local
 
-Copy [ps.pl][] script into WORKDIR (aka /app) of the container. This
-is put near the end of the Dockerfile since it is the file most likely
-to change and will allow re-using of cache for previous layers,
-[speeding up subsequent builds][].
+Copy ps.pl script into WORKDIR (aka /app) of the container. This is
+put near the end of the Dockerfile since it is the file most likely to
+change and will allow re-using of cache for previous layers, speeding
+up subsequent builds.
 
   [ps.pl]: https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-ps-pl
   [speeding up subsequent builds]: https://thenewstack.io/understanding-the-docker-cache-for-faster-builds/
@@ -174,7 +173,7 @@ to change and will allow re-using of cache for previous layers,
     # Copy perl script
     COPY ./ps.pl .
 
-Set ENTRYPOINT to the [ps.pl][] script,
+Set ENTRYPOINT to the ps.pl script,
 
   [ps.pl]: https://gist.github.com/ecliptik/9a868cbe348d87a5141a#file-ps-pl
 
@@ -239,7 +238,7 @@ exits,,
 Command Line Arguments
 
 Command line arguments will also pass into the container when run
-using the [CMD][] to pass to ENTRYPOINT,
+using the CMD to pass to ENTRYPOINT,
 
   [CMD]: https://docs.docker.com/engine/reference/builder/#cmd
 
@@ -257,9 +256,9 @@ Conclusions
 
 By using the -slim variant of Debian for the base image and
 multi-stage builds, the resulting container size is just over 130MB.
-Using a smaller image like [Alpine Linux][] could further reduce the
-image size, but could introduce [known caveats][] because of [musl
-libc and glibc differences][].
+Using a smaller image like Alpine Linux could further reduce the image
+size, but could introduce known caveats because of musl libc and glibc
+differences.
 
   [Alpine Linux]: https://hub.docker.com/_/alpine/
   [known caveats]: http://gliderlabs.viewdocs.io/docker-alpine/caveats/
@@ -270,9 +269,9 @@ libc and glibc differences][].
 
 Additional References
 
--   [Dockerising a Perl application][]
--   [Downsizing Docker Containers][]
--   [Proc::ProcessTable Example][]
+-   Dockerising a Perl application
+-   Downsizing Docker Containers
+-   Proc::ProcessTable Example
 
   [Dockerising a Perl application]: http://robn.io/docker-perl/
   [Downsizing Docker Containers]: https://intercityup.com/blog/downsizing-docker-containers.html

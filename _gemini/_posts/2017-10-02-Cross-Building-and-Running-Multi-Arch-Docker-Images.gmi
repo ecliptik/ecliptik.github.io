@@ -126,20 +126,18 @@ The only disadvantage is this method relies on images from Docker Hub that have 
 
 Known repos that have `qemu` enabled images,
 
-* https://hub.docker.com/u/multiarch/[12][13]
-* https://hub.docker.com/u/resin/[14][15]
+* https://hub.docker.com/u/multiarch/[12]
+* https://hub.docker.com/u/resin/[13]
 
 => https://hub.docker.com/u/multiarch/ 12: https://hub.docker.com/u/multiarch/
-=> https://hub.docker.com/u/multiarch/ 13: https://hub.docker.com/u/multiarch/
-=> https://hub.docker.com/u/resin/ 14: https://hub.docker.com/u/resin/
-=> https://hub.docker.com/u/resin/ 15: https://hub.docker.com/u/resin/
+=> https://hub.docker.com/u/resin/ 13: https://hub.docker.com/u/resin/
 
 ## QEMU on Linux
 
-Both Debian and Ubuntu include the qemu-user-static[16] package that includes statically built emulation binaries for QEMU[17]. Installing the package on a host x86 architecture and bind mounting a `qemu-*-static` binary will allow the image to run a foreign architecture.
+Both Debian and Ubuntu include the qemu-user-static[14] package that includes statically built emulation binaries for QEMU[15]. Installing the package on a host x86 architecture and bind mounting a `qemu-*-static` binary will allow the image to run a foreign architecture.
 
-=> https://packages.debian.org/sid/qemu-user-static 16: https://packages.debian.org/sid/qemu-user-static
-=> https://wiki.qemu.org/Main_Page 17: https://wiki.qemu.org/Main_Page
+=> https://packages.debian.org/sid/qemu-user-static 14: https://packages.debian.org/sid/qemu-user-static
+=> https://wiki.qemu.org/Main_Page 15: https://wiki.qemu.org/Main_Page
 
 To setup `qemu-user-static` using the `apt` on Debian or Ubuntu,
 
@@ -152,9 +150,9 @@ Any architecture that is supported on Docker Hub and `qemu-*-static` should run 
 
 ### QEMU Examples
 
-Run a arm32v7/debian[18] image, bind mount the `/usr/bin/qemu-arm-static` binary into the container,
+Run a arm32v7/debian[16] image, bind mount the `/usr/bin/qemu-arm-static` binary into the container,
 
-=> https://hub.docker.com/r/arm32v7/debian/ 18: https://hub.docker.com/r/arm32v7/debian/
+=> https://hub.docker.com/r/arm32v7/debian/ 16: https://hub.docker.com/r/arm32v7/debian/
 
 ```console
 🐳 uname -a
@@ -170,9 +168,9 @@ root@7d91bbe1e01b:/# uname -a
 Linux 7d91bbe1e01b 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) armv7l GNU/Linux
 ```
 
-Run a s390x/debian[19] image, bind mount the `/usr/bin/qemu-s390x-static` binary into the container,
+Run a s390x/debian[17] image, bind mount the `/usr/bin/qemu-s390x-static` binary into the container,
 
-=> https://hub.docker.com/r/s390x/debian/ 19: https://hub.docker.com/r/s390x/debian/
+=> https://hub.docker.com/r/s390x/debian/ 17: https://hub.docker.com/r/s390x/debian/
 
 ```console
 🐳 uname -a
@@ -192,41 +190,39 @@ Linux ad7f1fd946fa 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) s390
 
 Using the apt package for `qemu-user-static` is much more powerful and flexible than the Multiarch method, however it requires more knowledge and configuration when running a container since each architecture will require it's `qemu-*-static` binary bind mounted and a corresponding architecture Docker image.
 
-A disadvantage of this method is it's only useful for running a container, not building a new image since that would require the `FROM` image to include the `qemu-*-static` binary and it's not possible to bind mount the binary when using `docker build`. For detailed information on cross-building images see the Docker Libary Official Images[20] documentation.
+A disadvantage of this method is it's only useful for running a container, not building a new image since that would require the `FROM` image to include the `qemu-*-static` binary and it's not possible to bind mount the binary when using `docker build`. For detailed information on cross-building images see the Docker Libary Official Images[18] documentation.
 
-=> https://github.com/docker-library/official-images 20: https://github.com/docker-library/official-images
+=> https://github.com/docker-library/official-images 18: https://github.com/docker-library/official-images
 
 Known official Docker multi-arch images,
 
-* arm32v6[21]
-* arm32v7[22]
-* arm64v8[23]
-* s390x[24]
-* ppc64le[25]
+* arm32v6[19]
+* arm32v7[20]
+* arm64v8[21]
+* s390x[22]
+* ppc64le[23]
 
-=> https://hub.docker.com/u/arm32v6/ 21: https://hub.docker.com/u/arm32v6/
-=> https://hub.docker.com/u/arm32v7/ 22: https://hub.docker.com/u/arm32v7/
-=> https://hub.docker.com/u/arm64v8/ 23: https://hub.docker.com/u/arm64v8/
-=> https://hub.docker.com/r/s390x/ 24: https://hub.docker.com/r/s390x/
-=> https://hub.docker.com/u/ppc64le/ 25: https://hub.docker.com/u/ppc64le/
+=> https://hub.docker.com/u/arm32v6/ 19: https://hub.docker.com/u/arm32v6/
+=> https://hub.docker.com/u/arm32v7/ 20: https://hub.docker.com/u/arm32v7/
+=> https://hub.docker.com/u/arm64v8/ 21: https://hub.docker.com/u/arm64v8/
+=> https://hub.docker.com/r/s390x/ 22: https://hub.docker.com/r/s390x/
+=> https://hub.docker.com/u/ppc64le/ 23: https://hub.docker.com/u/ppc64le/
 
 ## Final Considerations
 
 Cross-building Docker images is different than the recent Docker Hub Multi-arch support announcement in September 2017. That announcement is a feature of Docker Hub where a repository can have a single image name and include multiple architectures in a manifest. This means that when running Docker on any supported hardware with a multi-arch enabled image, Docker will know to use the proper image for the architecture
 
-Before, repositories would either maintain seperate images (eg https://hub.docker.com/u/arm64v8/[26]) or tag images with specific architectures (eg multiarch/debian-debootstrap:arm64-jessie). Now most of this is abstracted away and running `docker run -it --rm debian /bin/bash` on x86, armhf, or s390x will automatically know what to do without additional configuration.
+Before, repositories would either maintain seperate images (eg https://hub.docker.com/u/arm64v8/[24]) or tag images with specific architectures (eg multiarch/debian-debootstrap:arm64-jessie). Now most of this is abstracted away and running `docker run -it --rm debian /bin/bash` on x86, armhf, or s390x will automatically know what to do without additional configuration.
 
-=> https://hub.docker.com/u/arm64v8/ 26: https://hub.docker.com/u/arm64v8/
+=> https://hub.docker.com/u/arm64v8/ 24: https://hub.docker.com/u/arm64v8/
 
 ## References
 
-* https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/[27][28]
-* https://wiki.debian.org/RaspberryPi/qemu-user-static[29][30]
+* https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/[25]
+* https://wiki.debian.org/RaspberryPi/qemu-user-static[26]
 
-=> https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/ 27: https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/
-=> https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/ 28: https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/
-=> https://wiki.debian.org/RaspberryPi/qemu-user-static 29: https://wiki.debian.org/RaspberryPi/qemu-user-static
-=> https://wiki.debian.org/RaspberryPi/qemu-user-static 30: https://wiki.debian.org/RaspberryPi/qemu-user-static
+=> https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/ 25: https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/
+=> https://wiki.debian.org/RaspberryPi/qemu-user-static 26: https://wiki.debian.org/RaspberryPi/qemu-user-static
 
 ### Tags
 

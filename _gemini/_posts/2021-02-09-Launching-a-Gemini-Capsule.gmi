@@ -58,9 +58,10 @@ Manually converting markdown posts, using `scp` to copy them to RTC, and putting
 * Basic header/footer support
 * Build a gemfeed[11] to syndicate in Geminispace
 
+=> https://tildegit.org/solderpunk/gemfeed 11: https://tildegit.org/solderpunk/gemfeed
+
 Iterating on the tools I wrote for Gopher[12] by including using `md2gemini` to convert to `Gemtext` got me partially there, but was still missing some more features. After more iterations, I had updatesmallweb.sh[13] that converts Jekyll posts to Gopher and Gemini. Now whenever I publish a post on Jekyll, I can run this script to convert the post to Gopher and Gemini. Doing `git push` to github, then `git pull` on RTC and everything is up-to-date.
 
-=> https://tildegit.org/solderpunk/gemfeed 11: https://tildegit.org/solderpunk/gemfeed
 => https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/ 12: https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/
 => https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh 13: https://github.com/ecliptik/ecliptik.github.io/blob/master/_scripts/updatesmallweb.sh
 
@@ -165,6 +166,7 @@ Wrote Atom feed to ../_gemini/_posts/feed.xml.
 ```
 
 => gemini://rawtext.club/~ecliptik/assets/images/posts/gemlog-in-lagrange.png Gemlog in Lagrange [IMG]
+
 
 ## What's Next
 

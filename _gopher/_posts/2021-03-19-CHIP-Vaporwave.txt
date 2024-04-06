@@ -6,16 +6,16 @@ ___________________________________________
 
 Intro
 
-In the ever expanding ways to hack [my Pocket C.H.I.P.][], and my
-recent discovery of [Vaporwave][], I couldn’t help but combine the two
-and have a looping music video device on my desktop. Note this is not
-running in X, but in the console framebuffer, which gives it more
+In the ever expanding ways to hack my Pocket C.H.I.P., and my recent
+discovery of Vaporwave, I couldn’t help but combine the two and have a
+looping music video device on my desktop. Note this is not running in
+X, but in the console framebuffer, which gives it more
 ＡＥＳＴＨＥＴＩＣＳ.
 
   [my Pocket C.H.I.P.]: https://www.ecliptik.com/Pocket-CHIP/
   [Vaporwave]: https://en.wikipedia.org/wiki/Vaporwave
 
-[[Vaporwave in Pocket C.H.I.P][]]
+[Vaporwave in Pocket C.H.I.P]
 
   [Vaporwave in Pocket C.H.I.P]: /assets/images/posts/chip_vaporwave/chip-vaporwave.png
 
@@ -25,18 +25,17 @@ Required Software
 The C.H.I.P. is fully upgraded to Debian Buster, and there were some
 oddities with getting dpkg sorted out, so the package installs may not
 work exactly as defined here but are a general guide. It’s also
-[booting into the console framebuffer][] and not X, so there’s no
-desktop environment or window manager running.
+booting into the console framebuffer and not X, so there’s no desktop
+environment or window manager running.
 
   [booting into the console framebuffer]: http://www.chip-community.org/index.php/Setting_up_text_mode_on_PocketCHIP_4.3
 
 The following tools are used,
 
--   [mplayer][], for playback with framebuffer and armhf support
--   [alsa-utils][], specifically alsamixer to control volume from
-    console
--   [youtube-dl][], download video+audio from youtube
--   [ffmpeg][], combine video+audio from youtube-dl
+-   mplayer, for playback with framebuffer and armhf support
+-   alsa-utils, specifically alsamixer to control volume from console
+-   youtube-dl, download video+audio from youtube
+-   ffmpeg, combine video+audio from youtube-dl
 
   [mplayer]: https://mplayerhq.hu/design7/news.html
   [alsa-utils]: https://github.com/alsa-project/alsa-utils
@@ -65,8 +64,7 @@ works best for video playback.
 -   container: mp4
 -   codec: avc1
 
-For this example we’ll save [NEON PALM MALL (Vaporwave Mix +
-Video)][].
+For this example we’ll save NEON PALM MALL (Vaporwave Mix + Video).
 
   [NEON PALM MALL (Vaporwave Mix + Video)]: https://www.youtube.com/watch?v=FZUfiW3W1KY
 
