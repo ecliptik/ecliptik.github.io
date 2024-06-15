@@ -20,7 +20,7 @@ E-mail is my preferred method of communication, but I am also regularly post on 
 ## Sites
 - [Debian QA Page](https://qa.debian.org/developer.php?email=ecliptik%40gmail.com)
 - [Debian Salsa](https://salsa.debian.org/ecliptik)
-- [Gemini](gemini://sdf.org/ecliptik/)
+- [Gemini](gemini://rawtext.club/~ecliptik/)
 - [Gopher](gopher://sdf.org:70/1/users/ecliptik/)
 - [IPFS](ipns://ecliptik.eth)
 - [Handshake](https://ecliptik.hns.to)
