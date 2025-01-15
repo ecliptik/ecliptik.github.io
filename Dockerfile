@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/ruby:3-slim
+FROM public.ecr.aws/docker/library/ruby:3.2.2
 LABEL maintainer="Micheal Waltz <dockerfile@ecliptik.com>"
 
 #Set our workdir
