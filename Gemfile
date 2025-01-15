@@ -7,15 +7,5 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 4.3.3"
-gem "csv"
-gem "base64"
-gem "bigdecimal"
 
-# If you have any plugins, put them here!
-group :jekyll_plugins do
-  gem 'jekyll-feed'
-  gem 'jekyll-seo-tag'
-  gem 'jekyll-sitemap'
-  gem 'jekyll-gist'
-end
+gem "github-pages", group: :jekyll_plugins
