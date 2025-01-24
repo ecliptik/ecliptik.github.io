@@ -5,7 +5,7 @@ category: linux
 tags: terminal shell linux macos zsh bash
 ---
 
-## Ghostty
+## Ghostty 👻
 
 In December 2024 the new terminal emulator [ghostty](https://ghostty.org/) created by mitchellh[](https://mitchellh.com/) (founder of [Hashicorp](https://www.hashicorp.com/)) was released.
 
