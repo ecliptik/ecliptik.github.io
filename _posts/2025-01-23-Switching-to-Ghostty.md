@@ -21,8 +21,8 @@ This quote by mitchellh and finally convinced me I should give it a try,
 
 >I like to imagine that if stores like CompUSA still existed, Ghostty 1.0 would be boxed, shrink-wrapped, and on the shelf ready for purchase (but also free and open-source).
 
-![My Ghostty Terminal editing a draft of this post](/assets/images/posts/ghostty/ghostty-terminal.png)
-<figure><figcaption>Ghostty Terminal</figcaption></figure>
+![Ghostty Terminal editing a draft of this post](/assets/images/posts/ghostty/ghostty-terminal.png)
+<figure><figcaption>Ghostty Terminal editing a draft of this post</figcaption></figure>
 
 ## Initial Impressions
 
@@ -77,7 +77,7 @@ I've always though it was cool that some terminals could display graphics using 
 This lets terminals tools like `timg`, `mpv` and `neofetch` display graphics right in the terminal.
 
 ![Ghostty Graphics](/assets/images/posts/ghostty/ghostty-graphics.png)
-<figure><figcaption>Ghostty Graphics</figcaption></figure>
+<figure><figcaption>Ghostty Graphics with neofetch</figcaption></figure>
 
 ## After Two Weeks
 
