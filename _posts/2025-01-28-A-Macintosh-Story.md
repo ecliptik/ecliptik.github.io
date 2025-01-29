@@ -5,7 +5,7 @@ category: macintosh
 tags: macintosh 512ke 512k macplus system6 system7 retrocomputing
 ---
 
-# A Macintosh History
+## A Macintosh History
 
 This is the first post in what I am hoping to be a series of how I took a [512ke "Fat Mac"](https://en.wikipedia.org/wiki/Macintosh_512Ke) and modified it to make it My Macintosh.
 
@@ -14,14 +14,14 @@ This is the first post in what I am hoping to be a series of how I took a [512ke
 
 ## Releasing the Magic Smoke
 
-Our story begins a dozen years ago when I inherited the 512ke Mac from a nursery school. I had at one point turned it on to check if it worked and test out a few of the floppies it came with, but it wasn't until years later when I thought our kids would like to see it in action in during COVID that I did anything else with it. With them watching, I booted it up with [Dinosaur Discovery Kit](https://www.mobygames.com/game/200750/dinosaur-discovery-kit/) for them to play, which they enjoyed, but 5 minutes later there was a loud pop and a lot of smoke coming out of the case. After quickly moving the kids to a safe distance and bringing it outside, I realized it was still functioning normally even with all that smoke until I had powered hit off.
+Our story begins a dozen years ago when I inherited the 512ke Mac from a nursery school. I had at one point turned it on to check if it worked and test out a few of the floppies it came with, but it wasn't until years later when I thought the kids would like to see it in action during COVID that I did anything else with it. I booted up [Dinosaur Discovery Kit](https://www.mobygames.com/game/200750/dinosaur-discovery-kit/) for them to play, which they enjoyed, but 5 minutes later there was a loud pop and a lot of smoke coming out of the case. After quickly moving the kids to a safe distance and bringing it outside, I realized it was still functioning normally right up until I powered it off.
 
-Researching into what happened, I learned that older macs, like many systems from the 1980s used RIFA capacitors that were [notorious for failing in a spectacular manner](https://www.eevblog.com/forum/chat/old-rifa-capacitors-and-a-disaster-story/). Researching more I found that you could get a relatively inexpensive modern day replacement. I also decided to recap the entire "analog" board, as the capacitors over time could leak and cause all sorts of issues.
+Researching into what happened, I learned older macs like many systems from the 1980s used RIFA capacitors that were [notorious for failing in a spectacular manner](https://www.eevblog.com/forum/chat/old-rifa-capacitors-and-a-disaster-story/) and there were inexpensive modern day replacements. In addition to replacing the RIFA, I decided to recap the entire "analog" board, as the capacitors over time could leak and cause all sorts of issues.
 
 [![RIFA](/assets/images/posts/macintosh/rifa.jpg){: width="60%"}](/assets/images/posts/macintosh/rifa.jpg)
 <figure><figcaption>Blown RIFA capacitor</figcaption></figure>
 
-A few online purchases and days later I had replacement capacitors and slowly went through desoldering the old ones and soldering the new ones onto the analog board. Learning about proper CRT discharge procedures as the analog board could provide quite a shock due to the high voltage running through it. Once replaced the 512k worked just fine, and Dinosaur Discovery Kit and other software booted off the floppy without issue.
+A few online purchases and days later I had replacement capacitors and slowly went through desoldering the old ones and soldering the new ones onto the analog board. Learning about proper CRT discharge procedures as the analog board could provide quite a shock due to the high voltage running through it even after it was powered off. Once everything was replaced, the 512ke worked just fine and Dinosaur Discovery Kit and other software booted off the floppy without issue.
 
 I used the machine a bit more, but found it limited in what it could do, especially with many of the floppies I had not working at all. I shelved the system again, satisfied it "worked" but didn't have much use for it other than looking nice on a shelf in the garage behind me during Zoom meetings..
 
