@@ -50,6 +50,6 @@ As an aside, while doing all of this, I was still missing one major component - 
 
 ## Input/Output
 
-Up until this point I as really enjoying using the 512ke, and the software I could run with only the mouse was a lot of fun to use, but I wanted more. Seeing some videos about the SE/30 and watching the [series of videos JCS had done on their 512k](https://jcs.org/system6c) programming new System 6 software on the system itself, I wanted to do more.
+Up until this point I was really enjoying using the 512ke, and the software I could run with only the mouse was a lot of fun to use, but I wanted to do more. After watching some videos about the [SE/30](https://en.wikipedia.org/wiki/Macintosh_SE/30) the [series of videos JCS had done on their 512k](https://jcs.org/system6c) programming new System 6 software on the system itself, I knew the system was capable of much more.
 
-I knew there was a big enough [vintage Macintosh community](https://68kmla.org/bb/index.php) to support something like the FloppyEMU, so that must mean there are other projects out there right? What else could I do with the system to push it even further, avoiding memory issues, suing a modern keyboard, and maybe even getting it online? That rabbit hole was much deeper than I was expecting.
+I knew there was a big enough [vintage Macintosh community](https://68kmla.org/bb/index.php) to support something like the FloppyEMU, so that must mean there are other projects out there right? How else could I push the system; avoid memory issues, use a modern keyboard, and maybe even getting it online? That rabbit hole was much deeper than I was expecting.
