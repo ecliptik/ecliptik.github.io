@@ -10,8 +10,6 @@
 <meta name="robots" content="index, follow" />
 {%- assign sorttags = page.tags | remove: "[" | remove: "]" | remove: '"' | replace: ', ', ' '| uniq | sort | compact %}
 <meta name="keywords" content="{{ sorttags }}" />
-<meta name="twitter:site" content="@{{ site.links.twitter }}" />
-<meta name="twitter:description" content="{{ page.description }}" />
 <meta name="mastodon:site" content="{{ site.links.social }}" />
 <meta name="social:site" content="{{ site.links.social }}" />
 <meta name="google-site-verification" content="AQsWi26iUacMwox0Ft3U1bz1XwDxxbuCP4KwHmYh930" />
