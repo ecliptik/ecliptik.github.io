@@ -9,15 +9,15 @@ tags: terminal shell linux macos zsh bash
 
 In December 2024 the new terminal emulator [ghostty](https://ghostty.org/) created by mitchellh[](https://mitchellh.com/) (founder of [Hashicorp](https://www.hashicorp.com/)) was released.
 
-I originally had the (incorrect) assumption that it was similar to other "new" terminal emulators that require a network connection, were built in javascript or had some sort of "AI" features wedge in.
+I originally had the (incorrect) assumption that it was similar to other "new" terminal emulators that require a network connection, were built in javascript or had some sort of "AI" features wedged in.
 
 What caught my eye though when reading [About Ghostty](https://ghostty.org/docs/about), was the focus on the following,
 
-- [Native](https://ghostty.org/docs/about#native) no Electron
+- [Native application](https://ghostty.org/docs/about#native) no Electron
 - [Fast](https://www.youtube.com/watch?v=cPaGkEesw20&t=3015s)
 - [Released when Ready]( https://mitchellh.com/writing/ghostty-is-coming)
 
-This quote by mitchellh and finally convinced me I should give it a try,
+This quote by mitchellh and finally convinced me to give it a try,
 
 >I like to imagine that if stores like CompUSA still existed, Ghostty 1.0 would be boxed, shrink-wrapped, and on the shelf ready for purchase (but also free and open-source).
 
@@ -26,7 +26,7 @@ This quote by mitchellh and finally convinced me I should give it a try,
 
 ## Initial Impressions
 
-Installing on my MacOS and Linux laptops was relatively straightforward, although for my [Linux Mint](https://linuxmint.com/) laptop I had to install a .deb from a [3rd party repo](https://github.com/mkasberg/ghostty-ubuntu). What I first noticed was it's sane defaults, it just worked out-of-the-box and I could just start using it. It was snappy too, especially compared to Terminal.app on my MacOS.
+Installing on my MacOS and Linux laptops was relatively straightforward, although for my [Linux Mint](https://linuxmint.com/) laptop I had to install a .deb from a [3rd party repo](https://github.com/mkasberg/ghostty-ubuntu). What I first noticed was it's sane defaults, it just worked out-of-the-box and I could just start using it. It was snappy too, especially compared to Terminal.app on MacOS.
 
 What really hooked me was finding the [built-in themes](https://ghostty.org/docs/features/theme), including my current favorite, [Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme). Not only were these built into ghostty, but there was an interactive preview feature with the `ghostty +list-themes` command.
 
