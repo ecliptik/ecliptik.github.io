@@ -7,7 +7,7 @@ tags: macintosh 512ke 512k macplus system6 system7 retrocomputing
 
 ## A Macintosh History
 
-This is the first post in what I am hoping to be a series of how I took a [512ke "Fat Mac"](https://en.wikipedia.org/wiki/Macintosh_512Ke) and modified it to make it My Macintosh.
+This is the first post in what I am hoping to be a series of how I took a [512ke "Fat Mac"](https://en.wikipedia.org/wiki/Macintosh_512Ke) and modified and updated it.
 
 [![My Macintosh](/assets/images/posts/macintosh/my-macintosh.jpg){: width="60%"}](/assets/images/posts/macintosh/my-macintosh.jpg)
 <figure><figcaption>My Macintosh editing this blog post in MacWrite</figcaption></figure>
