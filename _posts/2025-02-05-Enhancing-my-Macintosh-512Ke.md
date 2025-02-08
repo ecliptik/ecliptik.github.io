@@ -12,11 +12,11 @@ This is the second in a series of posts on my Macintosh 512Ke. In my [first post
 [![Macintosh 512Ke Enhanced](/assets/images/posts/macintosh/macplus-enhanced.jpg){: width="60%"}](/assets/images/posts/macintosh/macplus-enhanced.jpg)
 <figure><figcaption>My Macintosh 512Ke Enhanced in all its glory</figcaption></figure>
 
-This post will go over the enhancements I've done to [my Macintosh 512Ke](https://en.wikipedia.org/wiki/Macintosh_512Ke#Official_upgrades) over the last six months. Getting it to the point where it can do useful, and modern day, things like writing blog posts in [MacWrite](https://en.wikipedia.org/wiki/MacWrite), surfing [Gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)), [chatting on IRC](https://jcs.org/wallops) or [cruising a BBS](https://www.telnetbbsguide.com/bbs/captains-quarters-ii/) over wifi and sharing files with modern Linux system. All of these enhancements are completely reversible and non-destructive if I ever want to I can bring the machine back to its original stock state.
+This post will go over the enhancements I've done to [my Macintosh 512Ke](https://en.wikipedia.org/wiki/Macintosh_512Ke#Official_upgrades) over the last six months. Getting it to the point where it can do useful, and modern day, things like writing blog posts in [MacWrite](https://en.wikipedia.org/wiki/MacWrite), surfing [Gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)), [chatting on IRC](https://jcs.org/wallops) or [cruising a BBS](https://www.telnetbbsguide.com/bbs/captains-quarters-ii/) over WiFi and sharing files with modern Linux system. All of these enhancements are completely reversible and non-destructive if I ever want to I can bring the machine back to its original stock state.
 
 ## FloppyEMU
 
-The [FloppyEMU](https://www.bigmessowires.com/floppy-emu/) let's me use floppy images directly from an SD card, eliminating the need to use a floppy drive. The original 800k internal floppy drive suffered from [cheese-wheel-of-death](https://youtu.be/ia513LCN7jY) which I repaired, cleaned and lubricated for whenever I use real floppies, but I usually prefer the FloppyEMU.
+A [FloppyEMU](https://www.bigmessowires.com/floppy-emu/) let's me use floppy images directly from an SD card, eliminating the need to use a floppy drive. The original 800k internal floppy drive suffered from [cheese-wheel-of-death](https://youtu.be/ia513LCN7jY) which I repaired, cleaned and lubricated for whenever I use real floppies, but I usually prefer the FloppyEMU.
 
 [![FloppyEMU](/assets/images/posts/macintosh/floppyemu-close.jpg){: width="60%"}](/assets/images/posts/macintosh/floppyemu-close.jpg)
 <figure><figcaption>FloppyEMU displaying some disks</figcaption></figure>
@@ -39,7 +39,7 @@ Technically this also makes it no longer a 512Ke, and due to the port difference
 
 ## BlueSCSI
 
-A [BlueSCSI](https://bluescsi.com/) hangs off the external SCSI port on the back of the MacPlus logic board, booting a System 7.0.1 image from its SD card. Because I splashed the extra $ and built it with a [RaspberryPi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html), it has the ability to emulate a [DynaPort](https://bluescsi.com/docs/WiFi-DaynaPORT) EtherTalk device and connect to The Internet using wifi.
+A [BlueSCSI](https://bluescsi.com/) hangs off the external SCSI port on the back of the MacPlus logic board, booting a System 7.0.1 image from its SD card. Because I splashed the extra $ and built it with a [RaspberryPi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html), it has the ability to emulate a [DynaPort](https://bluescsi.com/docs/WiFi-DaynaPORT) EtherTalk device and connect to The Internet using WiFi.
 
 [![BlueSCSI](/assets/images/posts/macintosh/bluescsi.jpg){: width="60%"}](/assets/images/posts/macintosh/bluescsi.jpg)
 <figure><figcaption>BlueSCSI</figcaption></figure>
