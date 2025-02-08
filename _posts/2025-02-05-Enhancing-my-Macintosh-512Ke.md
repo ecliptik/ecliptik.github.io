@@ -16,7 +16,7 @@ This post will go over the enhancements I've done to [my Macintosh 512Ke](https:
 
 ## FloppyEMU
 
-A [FloppyEMU](https://www.bigmessowires.com/floppy-emu/) let's me use floppy images directly from an SD card, eliminating the need to use a floppy drive. The original 800k internal floppy drive suffered from [cheese-wheel-of-death](https://youtu.be/ia513LCN7jY) which I repaired, cleaned and lubricated for whenever I use real floppies, but I usually prefer the FloppyEMU.
+A [FloppyEMU](https://www.bigmessowires.com/floppy-emu/) let's me use floppy images directly from an SD card, eliminating the need to use a floppy drive. The original 800k internal floppy drive suffered from [cheese-wheel-of-death](https://youtu.be/ia513LCN7jY) which I repaired, cleaned and lubricated for whenever I want to use real floppies, but I almost always prefer the FloppyEMU.
 
 [![FloppyEMU](/assets/images/posts/macintosh/floppyemu-close.jpg){: width="60%"}](/assets/images/posts/macintosh/floppyemu-close.jpg)
 <figure><figcaption>FloppyEMU displaying some disks</figcaption></figure>
