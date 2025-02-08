@@ -5,7 +5,7 @@ category: macintosh
 tags: macintosh 512k 512ke macplus system6 system7 retrocomputing
 ---
 
-## Further Enhancing my Macintosh 512Ke
+## Enhancing my Macintosh 512Ke
 
 This is the second in a series of posts on my Macintosh 512Ke. In my [first post](/A-Macintosh-Story/) I went over the history of how I obtained this machine and some initial exploration and repairs over the years.
 
