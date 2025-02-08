@@ -46,23 +46,23 @@ A [BlueSCSI](https://bluescsi.com/) hangs off the external SCSI port on the back
 
 ## PicoRC
 
-A [PicoRC](https://github.com/dekuNukem/PicoRC) provides power to the logic board and CRT portion of the analog board with a [PicoPSU](https://www.mini-box.com/picoPSU-80) ATX power supply and common AC power brick. It also allows easy access to the pinouts for Signal, H-Sync, V-Sync and GND pins from logic board wiring harness.
+A [PicoRC](https://github.com/dekuNukem/PicoRC) provides power to the logic board and CRT portion of the analog board with a [PicoPSU](https://www.mini-box.com/picoPSU-80) ATX power supply and common AC power brick. It also allows easy access to the pinouts for Signal, H-Sync, V-Sync and GND pins from the logic board wiring harness.
 
 [![PicoRC](/assets/images/posts/macintosh/picorc.jpg){: width="60%"}](/assets/images/posts/macintosh/picorc.jpg)
 <figure><figcaption>PicoRC connected to MacPlus logic board</figcaption></figure>
 
 ## Cooling
 
-Original Classic Macintoshs were notorious for failing over time due to heat issues, and using the fan header on the PicoRC, I strapped a [Noctua NF-A4x10 Fan](https://www.amazon.com/dp/B00NEMGCIA) to the inside of the case with a zip tie. It doesn't move a ton of air and adds some noise to a previously silent machine, but it should help add a few more hours of life to the machine.
+Original Classic Macintoshs were notorious for failing over time due to heat issues, and using the fan header on the PicoRC, I strapped a [Noctua NF-A4x10 Fan](https://www.amazon.com/dp/B00NEMGCIA) to the inside of the case with a zip tie. It doesn't move a ton of air and adds some noise to a previously silent machine, and it should add a few more hours of life.
 
 [![Fan inside case](/assets/images/posts/macintosh/fan.jpg){: width="60%"}](/assets/images/posts/macintosh/fan.jpg)
 <figure><figcaption>Fan zip-tied to inside the case</figcaption></figure>
 
 ## RGB2HDMI
 
-The [RGB2HDMI](https://github.com/hoglet67/RGBtoHDMI) can display the video output of the Macintosh over HDMI to any modern LCD monitor or video capture device. By soldering wires to the Signal, H-Sync, V-sync and Ground pinouts on the PicoRC I can tap into the video signal and can use both the internal CRT and an external display over the RGB2HDMI at the same time.
+The [RGB2HDMI](https://github.com/hoglet67/RGBtoHDMI) can display the video output of the Macintosh over HDMI to any modern LCD monitor or video capture device. By soldering wires to the Signal, H-Sync, V-sync and Ground pinouts on the PicoRC I can tap into the video signal and use the internal CRT and an external display at the same time.
 
-This is also my backup plan to continue using the machine if/when the CRT fails, as I can still use logic board and with the rest of these enhancements (USB4VC and PicoRO) to display to any monitor that supports HDMI.
+This is also my backup plan to continue using the machine if/when the CRT fails, as the logic board and rest of these enhancements (USB4VC and PicoRO) will still be able to display to any monitor that supports HDMI.
 
 [![RGB2HDMI](/assets/images/posts/macintosh/rgb2hdmi.jpg){: width="60%"}](/assets/images/posts/macintosh/rgb2hdmi.jpg)
 <figure><figcaption>Displaying Finder on an both an external LCD and the internal CRT</figcaption></figure>
