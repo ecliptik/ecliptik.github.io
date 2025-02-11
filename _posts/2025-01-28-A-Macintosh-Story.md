@@ -5,8 +5,6 @@ category: macintosh
 tags: macintosh 512ke 512k macplus system6 system7 retrocomputing
 ---
 
-## A Macintosh History
-
 This is the first post in what I am hoping a series of how I took my [512Ke "Fat Mac"](https://en.wikipedia.org/wiki/Macintosh_512Ke) and enhanched it to the state it is today.
 
 [![My Macintosh](/assets/images/posts/macintosh/my-macintosh.jpg){: width="60%"}](/assets/images/posts/macintosh/my-macintosh.jpg)
