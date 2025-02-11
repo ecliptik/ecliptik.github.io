@@ -85,7 +85,9 @@ After starting the VM will see other devices using AppleTalk on your local netwo
 
 ## Conclusion
 
-The biggest benefit I have from this setup is I can write blog posts in [MacWrite](https://en.wikipedia.org/wiki/MacWrite) on the Macintosh Plus completely distraction free and save them to a shared folder in the Basilik VM on my laptop over wifi. Previously I would have to save the file to a virtual disk on the FloppyEMU or use the [BlueSCSI Toolbox](https://bluescsi.com/toolbox) to export the file to the SD card. Saving directly to Basilisk and then copying the file to the laptop through the `unix` shared folder is much faster and closer to the original way file sharing worked on the original systems.
+The biggest benefit I have from this setup is I can write blog posts in [MacWrite](https://en.wikipedia.org/wiki/MacWrite) on the Macintosh Plus completely distraction free and save them easily to a shared folder in the Basilik on my laptop over wifi.
+
+Previously I would have to save the file to a virtual disk on the FloppyEMU or use the [BlueSCSI Toolbox](https://bluescsi.com/toolbox) to export the file to the SD card. Saving directly to Basilisk and then copying the file to the laptop through the `unix` shared folder is faster and closer to the original way file sharing worked.
 
 [![AppleShare in Basilisk](/assets/images/posts/macintosh/basilisk-appleshare.png)](/assets/images/posts/macintosh/basilisk-appleshare.png)
 <figure><figcaption>AppleShare in Basilisk</figcaption></figure>
