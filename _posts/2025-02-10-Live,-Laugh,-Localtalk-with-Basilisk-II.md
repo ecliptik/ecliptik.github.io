@@ -84,5 +84,7 @@ After starting the VM will see other devices using AppleTalk on your local netwo
 
 Now I can share files and printers between devices with AppleTalk over a modern network and going through this really made me appreciate just how well designed and throughout early forms of personal computer networking were. It really is impressive that AppleTalk is almost entirely zero-configuration, just plug systems into the same physical (or wireless) network and they're immediately available for use, even today there are very few products that can claim to do that.
 
+The biggest benefit I have from this setup is I can write blog posts in [MacWrite](https://en.wikipedia.org/wiki/MacWrite) on the Macintosh Plus completely distraction free and save them to a shared folder in the Basilik VM on my laptop. Previously I would have to save the file to a virtual disk on the FloppyEMU or use the [BlueSCSI Toolbox](https://bluescsi.com/toolbox) to export the file to the SD card. Saving directly to Basilisk and then copying the file to the laptop through the `unix` shared folder is much faster and closer to the original way file sharing worked on the original systems.
+
 [![AppleShare in Basilisk](/assets/images/posts/macintosh/basilisk-appleshare.png)](/assets/images/posts/macintosh/basilisk-appleshare.png)
 <figure><figcaption>AppleShare in Basilisk</figcaption></figure>
