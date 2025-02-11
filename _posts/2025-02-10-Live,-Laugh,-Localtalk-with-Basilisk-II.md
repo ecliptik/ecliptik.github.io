@@ -2,7 +2,7 @@
 layout: post
 title: Live, Laugh, Localtalk with Basilisk II
 category: macintosh
-tags: basilisk localtalk appletalk macintosh 512k 512ke macplus system6 system7 retrocomputing
+tags: basilisk localtalk appletalk macintosh macplus system7 retrocomputing
 ---
 
 As I mentioned in my [Enhancing my Macintosh 512Ke](/Enhancing-my-Macintosh-512Ke/) post, I use the [Basilisk II](https://basilisk.cebix.net/) Macintosh 68k emulator alongside my Macintosh Plus to facilitate downloading software, sharing files with [AppleShare](https://en.wikipedia.org/wiki/AppleShare), playing [Myst](https://www.macintoshrepository.org/4937-myst) and many other things. It does take a bit of setup to get working though, especially with configuring the network to work with [AppleTalk](https://en.wikipedia.org/wiki/AppleTalk).
@@ -13,7 +13,7 @@ Below is a short guide on how I installed and setup Basilisk II on my [Linux Min
 
 Basilisk II is available in the main Ubuntu, Linux Mint and Debian repos and I assume other Linux distros probably have it too. There are other Macintosh emulators out there like [SheepShaver](https://sheepshaver.cebix.net/), [Mini vMac](https://github.com/friedkiwi/minivmac) and even the entirely online [Infinite Mac](https://infinitemac.org/) but I like Basilisk since it provides a nice settings manager and works well.
 
-Install it with `apt` on a Debian based distro,
+It is quickly installed with `apt` on a Debian based distro,
 
 ```sh
 sudo apt update
@@ -68,7 +68,7 @@ make
 sudo make install
 ```
 
-Load the `sheep_net` kernel module and update it's permissions so users other than root can use it. This must also be done on every reboot and I have on my todo list to write a script and add it to something like `rc.local` so it loads with the correct permissions across reboots..
+Load the `sheep_net` kernel module and update it's permissions so users other than root can use it. This must also be done on every reboot and I have on my to-do list to write a script and add it to something like `rc.local` so it loads with the correct permissions across reboots..
 
 ```sh
 sudo modprobe sheep_net
@@ -82,7 +82,7 @@ Finally, in the Serial/Network tab of Basilisk, change the Ethernet Interface to
 
 After starting the VM will see other devices using AppleTalk on your local network, and if you have a [TashTalk](https://github.com/lampmerchant/tashtalk) and [TashRouter](https://github.com/lampmerchant/tashrouter/), older LocalTalk devices like a [Macintosh Plus](/Enhancing-my-Macintosh-512Ke/) are also available.
 
-Now I can share files and printers between devices with AppleTalk over a modern network.
+Now I can share files and printers between devices with AppleTalk over a modern network and going through this really made me appreciate just how well designed and throughout early forms of personal computer networking were. It really is impressive that AppleTalk is almost entirely zero-configuration, just plug systems into the same physical (or wireless) network and they're immediately available for use, even today there are very few products that can claim to do that.
 
 [![AppleShare in Basilisk](/assets/images/posts/macintosh/basilisk-appleshare.png)](/assets/images/posts/macintosh/basilisk-appleshare.png)
 <figure><figcaption>AppleShare in Basilisk</figcaption></figure>
