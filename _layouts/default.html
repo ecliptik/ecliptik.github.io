@@ -17,9 +17,13 @@
       <header class="terminal-logo">
         <div class="logo terminal-prompt">
           {%if page.url == "/" %}
-          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a>:<font color="#2aa198">~</font>🚀<font color="dc322f">➜</font>
+          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a>:<font color="#2aa198">~ </font>🚀<font color="dc322f">➜</font>
+          {%elsif page.url == "/about/" %}
+          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a>:<font color="#2aa198">/about </font>🚀<font color="dc322f">➜</font>
+          {%elsif page.url == "/contact/" %}
+          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a>:<font color="#2aa198">/contact </font>🚀<font color="dc322f">➜</font>
           {% else %}
-          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a></font>:<font color="#2aa198">{{ page.url }}</font>🚀<font color="dc322f">➜</font>
+          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a></font>:<font color="#2aa198">/blog </font>🚀<font color="dc322f">➜</font>
           {% endif %}
         </div>
       </header>
