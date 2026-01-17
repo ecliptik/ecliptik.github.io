@@ -18,7 +18,7 @@
       <header class="terminal-logo">
         <div class="logo terminal-prompt">
           {%if page.url == "/" %}
-            {% assign breadcrumb = "~" %}
+            {% assign breadcrumb = "" %}
           {%elsif page.url == "/about/" %}
             {% assign breadcrumb = "/about" %}
           {%elsif page.url == "/contact/" %}
@@ -26,15 +26,15 @@
           {% else %}
             {% assign breadcrumb = "/blog" %}
           {% endif %}
-          <span class="prompt-user">micheal</span>@<a href="/">ecliptik.com</a>:<span class="prompt-path">{{breadcrumb}} </span>🚀<span class="prompt-arrow">➜</span>
+          <span class="prompt-user">micheal</span>@<a href="/">ecliptik.com</a>:~<span class="prompt-path">{{breadcrumb}} </span>🚀<span class="prompt-arrow">➜</span>
         </div>
       </header>
       <nav class="terminal-menu">
        <ul>
-         <li><a href="/">Home/</a></li>
-         <li><a href="/blog/">Blog/</a></li>
-         <li><a href="/about/">About/</a></li>
-         <li><a href="/contact/">Contact/</a></li>
+         <li><a href="/">~</a></li>
+         <li><a href="/blog/">blog/</a></li>
+         <li><a href="/about/">about/</a></li>
+         <li><a href="/contact/">contact/</a></li>
        </ul>
       </nav>
       <div class="theme-toggle">
@@ -47,7 +47,7 @@
   <div class="container">
     {{ content }}
     <div class="footer">
-      &copy; {{ site.time | date: '%Y' }} {{ site.author.name }} [<a href="mailto:{{ site.links.email }}">Email</a>|<a rel="me" href="{{ site.links.sociallink }}">Social</a>|<a href="/feed.xml">RSS</a>]
+      &copy; {{ site.time | date: '%Y' }} {{ site.author.name }} [<a href="mailto:{{ site.links.email }}">email</a>|<a rel="me" href="{{ site.links.sociallink }}">social</a>|<a href="/feed.xml">rss</a>]
     </div>
   </div>
 {%- include analytics.html -%}
