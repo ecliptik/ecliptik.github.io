@@ -9,6 +9,7 @@
 <link rel="me" href="https://social.ecliptik.com/@micheal" />
 
 {%- include meta.html -%}
+<script src="/assets/js/theme-toggle.js"></script>
 </head>
 
 <body class="terminal">
@@ -25,7 +26,7 @@
           {% else %}
             {% assign breadcrumb = "/blog" %}
           {% endif %}
-          <font color="#b58900">micheal</font>@<a href="/">ecliptik.com</a>:<font color="#2aa198">{{breadcrumb}} </font>🚀<font color="dc322f">➜</font>
+          <span class="prompt-user">micheal</span>@<a href="/">ecliptik.com</a>:<span class="prompt-path">{{breadcrumb}} </span>🚀<span class="prompt-arrow">➜</span>
         </div>
       </header>
       <nav class="terminal-menu">
@@ -36,6 +37,11 @@
          <li><a href="/contact/">Contact/</a></li>
        </ul>
       </nav>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="btn-ghost" aria-label="Toggle theme">
+          <span class="theme-icon">☀️/🌙</span>
+        </button>
+      </div>
     </div>
   </div>
   <div class="container">

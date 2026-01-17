@@ -30,34 +30,36 @@
     text-rendering: optimizeLegibility;
 }
 
-:root {
+:root, [data-theme="light"] {
     --global-font-size: 1.15rem;
-    --text: #839496;
     --mono-font-stack: BerkeleyMono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     --font-stack: BerkeleyMono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     --global-line-height: 1.6em;
     --page-width: 60em;
     --display-h1-decoration: 1;
-    --code-bg-color: #fff;
-  /* Default (light) theme */
-  --bg: #fdf6e3;
-  --accent-bg: #eee8d5;
-  --text: #839496;
-  --text-light: #93a1a1;
-  --border: #839496;
-  --accent: #2aa198;
-  --accent-light: #cb4b16;
-  --code: #dc322f;
-  --preformatted: #2aa198;
-  --marked: #d33682;
-  --pygments-one: #586E75;
-  --pygments-two: #93A1A1;
-  --pygments-three: #859900;
-  --pygments-four: #CB4B16;
-  --pygments-five: #268BD2;
-  --pygments-six: #2AA198;
-  --pygments-seven: #DC322F;
-  --pygments-eight: #b58900;
+
+    /* TokyoNight-Day (Light) theme */
+    --bg: #e1e2e7;
+    --accent-bg: #d0d5e3;
+    --text: #3760bf;
+    --text-light: #4c5e94;
+    --border: #848cb5;
+    --accent: #2e7de9;
+    --accent-light: #9854f1;
+    --code: #f52a65;
+    --preformatted: #007197;
+    --marked: #9854f1;
+    --code-bg-color: #d0d5e3;
+
+    /* Pygments syntax highlighting */
+    --pygments-one: #848cb5;    /* Comments */
+    --pygments-two: #3760bf;    /* Operators */
+    --pygments-three: #587539;  /* Keywords (green) */
+    --pygments-four: #c64f00;   /* Constants (orange) */
+    --pygments-five: #2e7de9;   /* Functions (blue) */
+    --pygments-six: #007197;    /* Strings (cyan) */
+    --pygments-seven: #f52a65;  /* Errors (red) */
+    --pygments-eight: #8c6c3e;  /* Built-ins (yellow) */
 }
 
 @media only screen and (max-width: 850px) {
@@ -68,29 +70,66 @@
     }
 }
 
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #002b36;
-    --accent-bg: #073642;
-    --text-light: #839496;
-    --border: #839496;
-    --accent: #cb4b16;
-    --accent-light: #859900;
-    --code: #6c71c4;
-    --preformatted: #268bd2;
-    --pygments-one: #586e75;
-    --pygments-two: #93A1A1;
-    --pygments-three: #859900;
-    --pygments-four: #CB4B16;
-    --pygments-five: #268BD2;
-    --pygments-six: #2AA198;
-    --pygments-seven: #6c71c4;
-  }
+/* TokyoNight-Storm (Dark) theme */
+[data-theme="dark"] {
+    --bg: #24283b;
+    --accent-bg: #1f2335;
+    --text: #c0caf5;
+    --text-light: #a9b1d6;
+    --border: #565f89;
+    --accent: #7aa2f7;
+    --accent-light: #bb9af7;
+    --code: #f7768e;
+    --preformatted: #7dcfff;
+    --marked: #bb9af7;
+    --code-bg-color: #1f2335;
 
-  img, video {
-    opacity: .9;
-  }
+    /* Pygments syntax highlighting */
+    --pygments-one: #565f89;    /* Comments */
+    --pygments-two: #c0caf5;    /* Operators */
+    --pygments-three: #9ece6a;  /* Keywords (green) */
+    --pygments-four: #ff9e64;   /* Constants (orange) */
+    --pygments-five: #7aa2f7;   /* Functions (blue) */
+    --pygments-six: #7dcfff;    /* Strings (cyan) */
+    --pygments-seven: #f7768e;  /* Errors (red) */
+    --pygments-eight: #e0af68;  /* Built-ins (yellow) */
+}
+
+/* Apply dark theme when OS prefers dark mode and no manual theme is set */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --bg: #24283b;
+        --accent-bg: #1f2335;
+        --text: #c0caf5;
+        --text-light: #a9b1d6;
+        --border: #565f89;
+        --accent: #7aa2f7;
+        --accent-light: #bb9af7;
+        --code: #f7768e;
+        --preformatted: #7dcfff;
+        --marked: #bb9af7;
+        --code-bg-color: #1f2335;
+
+        /* Pygments syntax highlighting */
+        --pygments-one: #565f89;    /* Comments */
+        --pygments-two: #c0caf5;    /* Operators */
+        --pygments-three: #9ece6a;  /* Keywords (green) */
+        --pygments-four: #ff9e64;   /* Constants (orange) */
+        --pygments-five: #7aa2f7;   /* Functions (blue) */
+        --pygments-six: #7dcfff;    /* Strings (cyan) */
+        --pygments-seven: #f7768e;  /* Errors (red) */
+        --pygments-eight: #e0af68;  /* Built-ins (yellow) */
+    }
+
+    :root:not([data-theme]) img,
+    :root:not([data-theme]) video {
+        opacity: 0.9;
+    }
+}
+
+[data-theme="dark"] img,
+[data-theme="dark"] video {
+    opacity: 0.9;
 }
 
 
@@ -101,7 +140,7 @@
 }
 
 .box-masonry .box-masonry-image {
-    background: #fff;
+    background: var(--code-bg-color);
 }
 
 .box-masonry,
@@ -144,7 +183,7 @@ h1, h2, h3 {
 
 .content-column-content p,
 .content-column-content li {
-    color: #666;
+    color: var(--text-light);
 }
 
 h1::before {
@@ -161,9 +200,9 @@ h3::before {
 
 
 .btn-ghost {
-    color: #666;
+    color: var(--text-light);
     background-color: transparent;
-    border-color: #333;
+    border-color: var(--border);
     font-family: var(--font-stack);
     padding: 6px 12px;
     font-size: 18px;
@@ -174,12 +213,11 @@ h3::before {
 }
 
 .content-column-content .command {
-    color: #aaa;
+    color: var(--text-light);
 }
 
 p.social a {
     margin: 0 0 10px 0;
-    color: #fff;
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -188,7 +226,7 @@ p.social a {
     font-size: 25px;
     text-align: center;
     vertical-align: bottom;
-    color: #999999;
+    color: var(--text-light);
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
@@ -223,6 +261,51 @@ figure {
     padding-top: 10px;;
     border-top: 1px solid var(--pygments-two);
     color: var(--text);
+}
+
+/* Terminal prompt colors */
+.prompt-user { color: var(--pygments-eight); }  /* Yellow/orange */
+.prompt-path { color: var(--pygments-six); }    /* Cyan */
+.prompt-arrow { color: var(--pygments-seven); } /* Red */
+
+/* Theme toggle button */
+.theme-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle-btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    transition: transform 0.2s ease;
+    border: 1px solid var(--border);
+    margin: 0;
+}
+
+#theme-toggle-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--accent-bg);
+}
+
+#theme-toggle-btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.theme-icon {
+    display: inline-block;
+    user-select: none;
+}
+
+/* Smooth theme transitions */
+body, a, .btn-ghost, .terminal-nav, .terminal-menu, .footer {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.preload * {
+    transition: none !important;
 }
 
 .image-grid {
@@ -332,10 +415,20 @@ figure {
         margin-top: 50px;
         padding-top: 5px;;
     }
+
+    .theme-toggle {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    #theme-toggle-btn {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
 }
 
 .highlight{
   color: var(--preformatted);
 }
 
-.highlight .c { color: var(--pygments-one) } .highlight .err { color: var(--pygments-two) } .highlight .g { color: var(--pygments-two) } .highlight .k { color: var(--pygments-three) } .highlight .l { color: var(--pygments-two) } .highlight .n { color: var(--pygments-two) } .highlight .o { color: var(--pygments-three) } .highlight .x { color: var(--pygments-four) } .highlight .p { color: var(--pygments-two) } .highlight .cm { color: var(--pygments-one) } .highlight .cp { color: var(--pygments-three) } .highlight .c1 { color: var(--pygments-one) } .highlight .cs { color: var(--pygments-three) } .highlight .gd { color: var(--pygments-six) } .highlight .ge { color: var(--pygments-two); font-style: italic } .highlight .gr { color: var(--pygments-seven) } .highlight .gh { color: var(--pygments-four) } .highlight .gi { color: var(--pygments-three) } .highlight .go { color: var(--pygments-two) } .highlight .gp { color: var(--pygments-two) } .highlight .gs { color: var(--pygments-two); font-weight: bold } .highlight .gu { color: var(--pygments-four) } .highlight .gt { color: var(--pygments-two) } .highlight .kc { color: var(--pygments-four) } .highlight .kd { color: var(--pygments-five) } .highlight .kn { color: var(--pygments-three) } .highlight .kp { color: var(--pygments-three) } .highlight .kr { color: var(--pygments-five) } .highlight .kt { color: var(--pygments-seven) } .highlight .ld { color: var(--pygments-two) } .highlight .m { color: var(--pygments-six) } .highlight .s { color: var(--pygments-six) } .highlight .na { color: var(--pygments-two) } .highlight .nb { color: #B58900 } .highlight .nc { color: var(--pygments-five) } .highlight .no { color: var(--pygments-four) } .highlight .nd { color: var(--pygments-five) } .highlight .ni { color: var(--pygments-four) } .highlight .ne { color: var(--pygments-four) } .highlight .nf { color: var(--pygments-five) } .highlight .nl { color: var(--pygments-two) } .highlight .nn { color: var(--pygments-two) } .highlight .nx { color: var(--pygments-two) } .highlight .py { color: var(--pygments-two) } .highlight .nt { color: var(--pygments-five) } .highlight .nv { color: var(--pygments-five) } .highlight .ow { color: var(--pygments-three) } .highlight .w { color: var(--pygments-two) } .highlight .mf { color: var(--pygments-six) } .highlight .mh { color: var(--pygments-six) } .highlight .mi { color: var(--pygments-six) } .highlight .mo { color: var(--pygments-six) } .highlight .sb { color: var(--pygments-one) } .highlight .sc { color: var(--pygments-six) } .highlight .sd { color: var(--pygments-two) } .highlight .s2 { color: var(--pygments-six) } .highlight .se { color: var(--pygments-four) } .highlight .sh { color: var(--pygments-two) } .highlight .si { color: var(--pygments-six) } .highlight .sx { color: var(--pygments-six) } .highlight .sr { color: var(--pygments-seven) } .highlight .s1 { color: var(--pygments-six) } .highlight .ss { color: var(--pygments-six) } .highlight .bp { color: var(--pygments-five) } .highlight .vc { color: var(--pygments-five) } .highlight .vg { color: var(--pygments-five) } .highlight .vi { color: var(--pygments-five) } .highlight .il { color: var(--pygments-six) }
+.highlight .c { color: var(--pygments-one) } .highlight .err { color: var(--pygments-two) } .highlight .g { color: var(--pygments-two) } .highlight .k { color: var(--pygments-three) } .highlight .l { color: var(--pygments-two) } .highlight .n { color: var(--pygments-two) } .highlight .o { color: var(--pygments-three) } .highlight .x { color: var(--pygments-four) } .highlight .p { color: var(--pygments-two) } .highlight .cm { color: var(--pygments-one) } .highlight .cp { color: var(--pygments-three) } .highlight .c1 { color: var(--pygments-one) } .highlight .cs { color: var(--pygments-three) } .highlight .gd { color: var(--pygments-six) } .highlight .ge { color: var(--pygments-two); font-style: italic } .highlight .gr { color: var(--pygments-seven) } .highlight .gh { color: var(--pygments-four) } .highlight .gi { color: var(--pygments-three) } .highlight .go { color: var(--pygments-two) } .highlight .gp { color: var(--pygments-two) } .highlight .gs { color: var(--pygments-two); font-weight: bold } .highlight .gu { color: var(--pygments-four) } .highlight .gt { color: var(--pygments-two) } .highlight .kc { color: var(--pygments-four) } .highlight .kd { color: var(--pygments-five) } .highlight .kn { color: var(--pygments-three) } .highlight .kp { color: var(--pygments-three) } .highlight .kr { color: var(--pygments-five) } .highlight .kt { color: var(--pygments-seven) } .highlight .ld { color: var(--pygments-two) } .highlight .m { color: var(--pygments-six) } .highlight .s { color: var(--pygments-six) } .highlight .na { color: var(--pygments-two) } .highlight .nb { color: var(--pygments-eight) } .highlight .nc { color: var(--pygments-five) } .highlight .no { color: var(--pygments-four) } .highlight .nd { color: var(--pygments-five) } .highlight .ni { color: var(--pygments-four) } .highlight .ne { color: var(--pygments-four) } .highlight .nf { color: var(--pygments-five) } .highlight .nl { color: var(--pygments-two) } .highlight .nn { color: var(--pygments-two) } .highlight .nx { color: var(--pygments-two) } .highlight .py { color: var(--pygments-two) } .highlight .nt { color: var(--pygments-five) } .highlight .nv { color: var(--pygments-five) } .highlight .ow { color: var(--pygments-three) } .highlight .w { color: var(--pygments-two) } .highlight .mf { color: var(--pygments-six) } .highlight .mh { color: var(--pygments-six) } .highlight .mi { color: var(--pygments-six) } .highlight .mo { color: var(--pygments-six) } .highlight .sb { color: var(--pygments-one) } .highlight .sc { color: var(--pygments-six) } .highlight .sd { color: var(--pygments-two) } .highlight .s2 { color: var(--pygments-six) } .highlight .se { color: var(--pygments-four) } .highlight .sh { color: var(--pygments-two) } .highlight .si { color: var(--pygments-six) } .highlight .sx { color: var(--pygments-six) } .highlight .sr { color: var(--pygments-seven) } .highlight .s1 { color: var(--pygments-six) } .highlight .ss { color: var(--pygments-six) } .highlight .bp { color: var(--pygments-five) } .highlight .vc { color: var(--pygments-five) } .highlight .vg { color: var(--pygments-five) } .highlight .vi { color: var(--pygments-five) } .highlight .il { color: var(--pygments-six) }
