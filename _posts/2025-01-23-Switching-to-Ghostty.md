@@ -2,7 +2,7 @@
 layout: post
 title: Switching to Ghostty
 category: linux
-tags: terminal shell linux macos zsh bash
+tags: terminal linux macos zsh bash
 ---
 
 ## Ghostty 👻
