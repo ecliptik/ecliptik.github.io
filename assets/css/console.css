@@ -255,6 +255,16 @@ figure {
     margin-right: 60px;
 }
 
+figure>figcaption {
+    color: var(--accent-light) !important;
+    font-style: italic;
+}
+
+figure>figcaption::selection {
+    background-color: var(--accent-light);
+    color: var(--bg);
+}
+
 .footer {
     clear: both;
     margin-top: 50px;
