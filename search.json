@@ -2,6 +2,7 @@
 ---
 [
   {% for post in site.posts %}
+    {% assign tags = "" %}
     {% for tag in post.tags %}
       {% assign tags = tags | append:' ' | append:tag %}
     {% endfor %}
