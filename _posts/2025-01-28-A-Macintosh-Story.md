@@ -7,7 +7,7 @@ tags: macintosh 512ke macplus system6 system7 retrocomputing
 
 This is the first post in what I am hoping a series of how I took my [512Ke "Fat Mac"](https://en.wikipedia.org/wiki/Macintosh_512Ke) and enhanched it to the state it is today.
 
-[![My Macintosh](/assets/images/posts/macintosh/my-macintosh.jpg){: width="60%"}](/assets/images/posts/macintosh/my-macintosh.jpg)
+[![Vintage Macintosh 512Ke computer running MacWrite word processor on classic CRT display](/assets/images/posts/macintosh/my-macintosh.jpg){: width="60%"}](/assets/images/posts/macintosh/my-macintosh.jpg)
 <figure><figcaption>My Macintosh editing this blog post in MacWrite</figcaption></figure>
 
 ## Releasing the Magic Smoke
@@ -16,7 +16,7 @@ Our story begins a dozen years ago when I inherited the 512Ke Mac from a nursery
 
 Researching into what happened, I learned older macs like many systems from the 1980s used RIFA capacitors that were [notorious for failing in a spectacular manner](https://www.eevblog.com/forum/chat/old-rifa-capacitors-and-a-disaster-story/) and there were inexpensive modern day replacements. In addition to replacing the RIFA, I decided to recap the entire "analog" board, as the capacitors over time could leak and cause all sorts of issues.
 
-[![RIFA](/assets/images/posts/macintosh/rifa.jpg){: width="60%"}](/assets/images/posts/macintosh/rifa.jpg)
+[![Failed RIFA capacitor from vintage Macintosh 512Ke showing thermal damage and burn marks](/assets/images/posts/macintosh/rifa.jpg){: width="60%"}](/assets/images/posts/macintosh/rifa.jpg)
 <figure><figcaption>Blown RIFA capacitor</figcaption></figure>
 
 A few online purchases and days later I had replacement capacitors and slowly went through desoldering the old ones and soldering the new ones onto the analog board. Learning about proper CRT discharge procedures as the analog board could provide quite a shock due to the high voltage running through it even after it was powered off. Once everything was replaced, the 512Ke worked just fine and Dinosaur Discovery Kit and other software booted off the floppy without issue.
@@ -31,7 +31,7 @@ Reading more about the FloppyEMU opened up many possibilities, no more would I b
 
 I ordered one and after a few days it arrived, it was relatively easy to assemble and soon I was able to boot off of it, trying out all sorts of software and it completely changed how I could use the machine. It also greatly increased my knowledge of how early Macintoshes worked. Most of my computing experience has involved operating systems installed to permanent storage, like a hard drive, booting off of it and then running programs. Where with the Macintosh there was an Operating System, but you mostly booted into programs directly, they still had a Finder but were very limited and you would have to switch disks if you wanted to do something else.
 
-[![FloppyEMU running Dark Castle](/assets/images/posts/macintosh/floppyemu.jpg){: width="60%"}](/assets/images/posts/macintosh/floppyemu.jpg)
+[![FloppyEMU floppy disk emulator connected to Macintosh 512Ke running Dark Castle retro game](/assets/images/posts/macintosh/floppyemu.jpg){: width="60%"}](/assets/images/posts/macintosh/floppyemu.jpg)
 <figure><figcaption>FloppyEMU running Dark Castle</figcaption></figure>
 
 While the FloppyEMU made this easier, it was starting to show some of it's own flaws, such as "File not contiguous" errors. After a lot of reading, I found that copying files from my modern Macbook via Finder to the SD card wouldn't write them in a single stream of data, confusing the FloppyEMU. Copying disk images from my Linux system worked better, but depending on the file format, download site and many other options this was a continuous challenge.
