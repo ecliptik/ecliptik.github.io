@@ -21,6 +21,14 @@ defaults:
       path: ""
     values:
       image: /assets/images/pi-small.jpg
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      sitemap:
+        changefreq: monthly
+        priority: 0.8
 
 # Short bio or description (displayed in the header)
 description: Professional Website of Micheal Waltz
