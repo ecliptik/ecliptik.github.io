@@ -14,6 +14,14 @@
 <meta name="social:site" content="{{ site.links.social }}" />
 <meta name="google-site-verification" content="AQsWi26iUacMwox0Ft3U1bz1XwDxxbuCP4KwHmYh930" />
 
+<!-- Twitter Card meta tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@ecliptik" />
+<meta name="twitter:creator" content="@ecliptik" />
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+<meta name="twitter:image" content="{{ site.url }}{{ site.image.path }}" />
+
 {%if page.url == "/" %}
 {% else %}
 <script type="application/ld+json">
