@@ -319,6 +319,76 @@ A comprehensive cleanup was completed on 2026-01-17:
 
 **Branch:** `cleanup/jekyll-best-practices` (4 commits, not pushed to remote)
 
+### SEO Improvements (2026-01-18)
+
+**Branch:** `seo-improvements` (9 commits, ready for review)
+
+Comprehensive search engine optimization improvements to increase discoverability:
+
+1. **Technical SEO:**
+   - Created robots.txt in repository root with sitemap reference
+   - Added security headers (_headers file for Cloudflare Pages)
+   - Configured sitemap metadata for posts (changefreq, priority)
+
+2. **Social Media Optimization:**
+   - Implemented Twitter Card meta tags for better social sharing
+   - Added Person schema.org structured data to homepage
+   - Enhanced Open Graph integration
+
+3. **Content Optimization:**
+   - Improved image alt text with descriptive, keyword-rich descriptions
+   - Added internal links from older posts to newer related content
+   - Expanded RSS feed from 10 to 25 posts
+
+**Commits:**
+```
+* 19af5a4 Add internal links from older posts to recent content
+* a9d7f4f Expand RSS feed from 10 to 25 posts
+* c5a81d2 Add security headers for improved site security
+* 66ff0d9 Add sitemap metadata for posts
+* a8559c6 Improve image alt text for SEO in Macintosh Story post
+* 8fe2c45 Add Person schema.org structured data to homepage
+* dfcfc66 Add Twitter Card meta tags for better social sharing
+* cdb590e Add robots.txt for SEO optimization
+```
+
+**Impact:**
+- Better indexing by search engines
+- Improved social media link previews
+- Enhanced security posture
+- Stronger internal link structure
+
+### SEO TODOs (Future Work)
+
+The following SEO improvements are planned for a future update:
+
+1. **Heading Hierarchy:**
+   - Review and improve h1 tag structure across site
+   - Ensure each page has proper h1 with relevant keywords
+   - Fix terminal prompt styling vs semantic heading hierarchy
+
+2. **Meta Descriptions:**
+   - Add dedicated meta descriptions to all posts
+   - Optimize homepage title and description for keywords
+   - Expand description fields in post frontmatter
+
+3. **Structured Data:**
+   - Add Article schema to blog posts
+   - Implement breadcrumb UI (structured data exists)
+   - Consider adding FAQ schema for tutorial posts
+
+4. **Tag Page SEO:**
+   - Remove robots:noindex from tag pages
+   - Add meta descriptions to tag pages
+   - Consider creating topic hub pages
+
+5. **Content Strategy:**
+   - Create pillar content pages for major topics
+   - Audit older content for updates
+   - Implement related posts section
+
+**Note:** These improvements require deeper content review and should be addressed in a separate focused effort.
+
 ---
 
 ## Things to AVOID
