@@ -2,10 +2,11 @@
 ---
 [
   {% for post in site.posts %}
+    {% assign tags = "" %}
     {% for tag in post.tags %}
       {% assign tags = tags | append:' ' | append:tag %}
     {% endfor %}
-    {%- assign mungecontent =  post.excerpt| strip_html | strip_newlines | replace: ".", ". " | truncate: 300 | escape%}
+    {%- assign mungecontent =  post.excerpt| strip_html | strip_newlines | replace: ".", ". " | truncate: 150 | escape%}
     {
       "title"    : "{{ post.title }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
