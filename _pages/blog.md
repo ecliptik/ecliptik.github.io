@@ -6,6 +6,7 @@ tags: blog
 ---
 
 {% include search-form.html %}
+
 <table>
 {% for post in site.posts %}
   <tr>
