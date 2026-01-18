@@ -60,23 +60,8 @@
   }
 
   /**
-   * Initialize theme early to prevent flash of unstyled content (FOUC)
-   * This runs immediately when the script loads
-   */
-  function initThemeEarly() {
-    // Add preload class to prevent transitions on initial load
-    document.documentElement.classList.add('preload');
-    const theme = getThemePreference();
-    document.documentElement.setAttribute('data-theme', theme);
-
-    // Remove preload class after a short delay to enable transitions
-    setTimeout(() => {
-      document.documentElement.classList.remove('preload');
-    }, 100);
-  }
-
-  /**
-   * Initialize theme toggle functionality after DOM is ready
+   * Initialize theme toggle functionality
+   * Early theme setting is now handled by inline script in HTML head
    */
   function initTheme() {
     const theme = getThemePreference();
@@ -98,13 +83,6 @@
       });
   }
 
-  // Run early initialization immediately
-  initThemeEarly();
-
-  // Run full initialization when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTheme);
-  } else {
-    initTheme();
-  }
+  // Initialize when DOM is ready (script is deferred, so DOM is already parsed)
+  initTheme();
 })();

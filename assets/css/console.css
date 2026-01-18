@@ -3,6 +3,7 @@
     src: url('../font/BerkeleyMono-Regular.woff2') format('woff2');
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     text-rendering: optimizeLegibility;
 }
 
@@ -11,6 +12,7 @@
     src: url('../font/BerkeleyMono-Italic.woff2') format('woff2');
     font-style: italic;
     font-weight: 400;
+    font-display: swap;
     text-rendering: optimizeLegibility;
 }
 
@@ -19,6 +21,7 @@
     src: url('../font/BerkeleyMono-Bold.woff2') format('woff2');
     font-style: normal;
     font-weight: 700;
+    font-display: swap;
     text-rendering: optimizeLegibility;
 }
 
@@ -27,6 +30,7 @@
     src: url('../font/BerkeleyMono-BoldItalic.woff2') format('woff2');
     font-style: italic;
     font-weight: 700;
+    font-display: swap;
     text-rendering: optimizeLegibility;
 }
 
