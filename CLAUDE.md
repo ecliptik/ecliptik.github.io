@@ -1,123 +1,62 @@
-# CLAUDE.md - AI Assistant Guide for ecliptik.github.io
+# CLAUDE.md - AI Assistant Guide
 
-This file helps AI assistants (like Claude) understand and work effectively with this repository.
+Personal tech blog (20+ years) covering cloud computing, DevOps, retro computing, and small web protocols.
 
-**Last Updated:** 2026-01-18
-**Repository:** Personal tech blog and website
-**Primary Maintainer:** Micheal Waltz
-**Live Site:** https://www.ecliptik.com
-
----
-
-## What This Repository Is
-
-This is a personal tech blog built with Jekyll and hosted on GitHub Pages (with Cloudflare Pages). The site covers 20+ years of content spanning cloud computing, DevOps, retro computing, and small web protocols (Gemini/Gopher).
-
-**Technology Stack:**
-- Jekyll 4.4.1 (static site generator)
-- Ruby 3.4.4
-- Docker/Docker Compose for local development
-- Theme: Modified [solar-theme-jekyll](https://github.com/mattvh/solar-theme-jekyll)
-- Deployment: Cloudflare Pages (not GitHub Actions)
+**Site:** https://www.ecliptik.com | **Stack:** Jekyll 4.4.1, Ruby 3.4.4, Docker | **Deploy:** Cloudflare Pages
 
 ---
 
 ## Project Structure
 
 ```
-.
-├── _config.yml              # Jekyll configuration
-├── _layouts/                # HTML layouts for pages/posts
-├── _includes/               # Reusable HTML components
-├── _pages/                  # Site pages (about, contact, blog)
-│   ├── about.md
-│   ├── blog.md
-│   └── contact.md
-├── _posts/                  # Blog posts (2004-present)
-│   ├── *.md                # Markdown posts
-│   └── *.html              # Legacy HTML posts (DO NOT CONVERT)
-├── _scripts/                # Utility scripts
-│   ├── tag_generator.py    # Generates tag pages
-│   ├── updatesmallweb.sh   # Converts posts to Gopher/Gemini
-│   └── README.md           # Tag conventions & script docs
-├── _gemini/                 # Gemini protocol content (DO NOT MODIFY)
-├── _gopher/                 # Gopher protocol content (DO NOT MODIFY)
-├── tag/                     # Auto-generated tag pages
-├── assets/
-│   ├── css/                # Stylesheets (including TokyoNight theme)
-│   ├── js/                 # JavaScript
-│   └── images/             # Site images
-├── .well-known/            # Keybase/OpenPGP verification files
-├── Dockerfile              # Jekyll Docker environment
-├── docker-compose.yaml     # Local development setup
-├── index.md                # Homepage
-└── 404.md                  # 404 error page
+_config.yml              # Jekyll configuration
+_layouts/                # HTML layouts
+_includes/               # Reusable components
+_pages/                  # Site pages (about, contact, blog)
+_posts/                  # Blog posts (*.md and *.html from 2004+)
+_scripts/                # tag_generator.py, updatesmallweb.sh
+_gemini/, _gopher/       # Auto-generated (DO NOT MODIFY)
+tag/                     # Auto-generated tag pages
+assets/{css,js,images}/  # Static assets
+index.md, 404.md         # Must be in root
 ```
-
-### Special Files to Keep in Root
-
-- `index.md` - Homepage (must be in root)
-- `404.md` - Error page (must be in root for GitHub Pages)
-- `CNAME` - Domain configuration for GitHub Pages
 
 ---
 
-## Critical Conventions & Rules
+## Critical Rules
 
-### Tag System (VERY IMPORTANT)
+### Tags (VERY IMPORTANT)
 
-The tag system has been carefully curated. **READ** `_scripts/README.md` before creating or modifying tags.
+**ALWAYS** check `_scripts/README.md` before creating/modifying tags.
 
-**Key Tag Rules:**
-1. **Always lowercase** - `kubernetes` not `Kubernetes`
-2. **Check existing tags first** - Run `ls tag/` before creating new ones
-3. **Use canonical tags** - Consult `_scripts/README.md` for the approved list
-4. **No duplicates** - Use `macos` not `mac`, `osx`, or `MacOS`
+**Rules:**
+- Always lowercase: `kubernetes` not `Kubernetes`
+- Check existing first: `ls tag/`
+- Use canonical names (see below)
+- After changes: `python3 _scripts/tag_generator.py` from repo root
+- Should have ~78 tags total
 
-**Common Canonical Tags:**
+**Canonical Tags:**
 - `macos` (not: mac, osx)
 - `512ke` (not: 512k)
 - `networking` (not: network)
 - `terminal` (not: shell)
 - `smolweb` (not: smallweb)
-- `macintosh` - Vintage Macs (general)
-- `macplus` - Mac Plus specifically
 
-**After Changing Tags:**
-```bash
-# Always run from repository root
-python3 _scripts/tag_generator.py
+### HTML Posts
 
-# Verify
-ls tag/*.md | wc -l  # Should be ~78 tags
-```
+**NEVER** convert `_posts/*.html` files (2004-2011) to Markdown. They're intentionally HTML for historical preservation.
 
-### HTML Posts (DO NOT CONVERT)
+### Small Web
 
-**CRITICAL:** The `_posts/` directory contains HTML files from 2004-2011 that should **NEVER** be converted to Markdown:
-- They render correctly as-is
-- Conversion risks breaking embedded HTML/formatting
-- Historical preservation is important
-- Only modify HTML posts to fix broken links or update tags
+**DO NOT MODIFY** `_gemini/` or `_gopher/` - auto-generated by `_scripts/updatesmallweb.sh`. Ignore unless explicitly mentioned.
 
-### Gemini & Gopher Directories
+### Theme & CSS
 
-**DO NOT MODIFY** `_gemini/` or `_gopher/` directories directly:
-- These are auto-generated by `_scripts/updatesmallweb.sh`
-- They are synchronized versions of the blog for small web protocols
-- User has requested to ignore them in conversations unless explicitly mentioned
+- Source: `assets/css/console.css`
+- Production: `assets/css/console.min.css` (use in layouts)
+- After editing console.css, regenerate minified version:
 
-### Theme & Styling
-
-**TokyoNight Theme:** The site uses a custom TokyoNight color scheme with a theme toggle:
-- Source CSS: `assets/css/console.css` (human-readable)
-- Production CSS: `assets/css/console.min.css` (minified, used in production)
-- Toggle script: `assets/js/theme-toggle.js`
-- DO NOT remove or break the theme toggle functionality
-- When updating console.css, regenerate console.min.css using the Python minification script
-
-**CSS Minification:**
-After editing `console.css`, regenerate the minified version:
 ```python
 python3 << 'EOF'
 import re
@@ -137,509 +76,179 @@ with open('assets/css/console.min.css', 'w') as f:
 EOF
 ```
 
-**Removed Assets:**
-- `animate-3.7.2.min.css` - Removed during cleanup (unused). Do not re-add without verification.
-
 ---
 
-## Development Workflow
+## Development
 
-### Local Development (Recommended: Docker)
+### Docker (Recommended)
 
-**Build and run with Docker Compose:**
 ```bash
-# Build the image (first time or after Gemfile changes)
-docker compose build
-
-# Start Jekyll server
-docker compose up -d
-
-# View logs
-docker compose logs -f jekyll
-
-# Stop server
-docker compose down
+docker compose up -d              # Start (localhost:4000)
+docker compose logs -f jekyll     # View logs
+docker compose down               # Stop
 ```
 
-**Access site:** http://localhost:4000
+### Manual Jekyll
 
-**Without Docker Compose:**
 ```bash
-docker build -t jekyll .
-docker run -d -p 4000:4000 -v $(pwd):/app jekyll
-```
-
-### Manual Jekyll Commands
-
-If not using Docker:
-```bash
-# Install dependencies
 bundle install
-
-# Build site
-bundle exec jekyll build
-
-# Serve locally with live reload
-bundle exec jekyll serve --watch
-
-# Build without serving
-bundle exec jekyll build --verbose
+bundle exec jekyll serve --watch  # localhost:4000
 ```
 
-### Verification After Changes
+### Verification
 
-**Always test locally before committing:**
-1. Build the site (via Docker or Jekyll)
-2. Check for build errors in logs
-3. Browse key pages:
-   - Homepage: http://localhost:4000/
-   - About: http://localhost:4000/about/
-   - Contact: http://localhost:4000/contact/
-   - Sample post: http://localhost:4000/Switching-to-Ghostty/
-4. Verify images load correctly
-5. Test tag pages if tags were modified
+Test locally before committing:
+1. Build and check logs for errors
+2. Browse key pages (/, /about/, /contact/, sample post)
+3. Verify images load
+4. Test tag pages if tags modified
 
 ---
 
 ## Common Tasks
 
-### Creating a New Blog Post
+### New Post
 
 ```bash
-# Use the newpost.sh script
-_scripts/newpost.sh "Post Title Here"
-
-# Or manually create:
-_posts/YYYY-MM-DD-Post-Title.md
+_scripts/newpost.sh "Post Title"
+# Or manually: _posts/YYYY-MM-DD-Title.md
 ```
 
-**Post frontmatter template:**
+Frontmatter:
 ```yaml
 ---
 layout: post
 title: Your Post Title
-category: linux  # Choose appropriate category
+category: linux
 tags: linux kubernetes docker terminal  # Use canonical tags!
 ---
-
-Your content here...
 ```
 
-### Adding/Modifying Tags
+### Modify Tags
 
-1. Edit the post's frontmatter `tags:` line
-2. **Verify tag is canonical** - Check `_scripts/README.md`
-3. Regenerate tag pages:
-   ```bash
-   python3 _scripts/tag_generator.py
-   ```
-4. Verify the tag page was created: `ls tag/your-tag.md`
-5. Commit both the post and the regenerated tag files
+1. Edit post frontmatter
+2. Verify canonical (`_scripts/README.md`)
+3. `python3 _scripts/tag_generator.py`
+4. Commit post + regenerated tag files
 
-### Adding Images
+### Add Images
 
-**Preferred locations:**
-- Post-specific images: `assets/images/posts/`
-- General site images: `assets/images/`
-- Category-specific: `assets/images/{category}/` (e.g., `keyboards/`, `macintosh/`)
+Locations: `assets/images/posts/`, `assets/images/`, `assets/images/{category}/`
 
-**In posts:**
 ```markdown
-![Alt text](/assets/images/posts/your-image.jpg)
-
-# With caption
-[![Alt text](/assets/images/posts/your-image.jpg)](/assets/images/posts/your-image.jpg)
-<figure><figcaption>Your caption here</figcaption></figure>
+![Alt text](/assets/images/posts/image.jpg)
 ```
 
-### Updating Small Web Versions
+### Update Small Web
 
-To regenerate Gemini and Gopher content:
 ```bash
-# From repository root
 _scripts/updatesmallweb.sh -t all
 ```
 
 ---
 
-## Deployment
-
-**Primary Deployment:** Cloudflare Pages (automatic on push to `main`)
-- **DO NOT** create GitHub Actions workflows for deployment
-- Cloudflare handles the Jekyll build automatically
-- Configuration managed externally to this repo
-
-**Custom Domain:** www.ecliptik.com (configured via `CNAME` file)
-
----
-
 ## Git Workflow
 
-### Branch Strategy
+Branches: `feature/`, `cleanup/`, `fix/` → `main`
 
-```bash
-# Feature/fix branches
-git checkout -b feature/description
-git checkout -b cleanup/description
-git checkout -b fix/description
-
-# Main branch for production
-main
+Commit style:
 ```
+Category: Brief description
 
-### Commit Message Style
-
-Follow the existing pattern from recent commits:
-```
-Phase/Category: Brief description
-
-- Bullet point of changes
-- Another change
-- More details
+- Change 1
+- Change 2
 
 Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 ```
-
-**Good examples:**
-- "Phase 1: Asset cleanup and quick wins"
-- "Fix broken image reference in Android post"
-- "Add TokyoNight theme with toggle"
 
 ---
 
 ## Recent Improvements (2026-01)
 
-### Jekyll Cleanup Project
+### Jekyll Cleanup
+- Asset cleanup (92KB removed)
+- Directory restructure (_pages/, _scripts/)
+- Tag consolidation (86→78 tags)
+- Documentation improvements
 
-A comprehensive cleanup was completed on 2026-01-17:
+### SEO Improvements
+- robots.txt, security headers, sitemap metadata
+- Twitter Cards, schema.org structured data
+- Image alt text optimization
+- Internal linking, RSS expansion (10→25 posts)
 
-1. **Asset Cleanup:**
-   - Removed unused source maps (92KB)
-   - Fixed broken image references
-   - Removed duplicate images
-   - Cleaned up unused CSS references
+**Future SEO work:** heading hierarchy, meta descriptions, Article schema, tag page SEO, pillar content
 
-2. **Directory Restructure:**
-   - Created `_pages/` for site pages (Jekyll convention)
-   - Created `_scripts/` for utility scripts
-   - Updated `_config.yml` to include `_pages`
+### Performance Optimizations
+- CSS: Removed animate.css (57KB), minified console.css, font-display: swap
+- JS: Inlined critical theme code, deferred non-critical loading
+- Lazy loading: Search resources (~114KB) load on interaction
+- **Impact:** ~60KB CSS reduction, 30-40% faster initial load
 
-3. **Tag Consolidation:**
-   - Reduced from 86 to 78 tags (8 eliminated)
-   - Established canonical tag naming
-   - Documented conventions in `_scripts/README.md`
-   - Tag consolidations:
-     - `mac`, `osx` → `macos`
-     - `512k` → `512ke`
-     - `network` → `networking`
-     - `shell` → `terminal`
-     - `smallweb` → `smolweb`
-
-4. **Documentation:**
-   - Added comprehensive tag guidelines
-   - Documented script usage
-   - Created this CLAUDE.md file
-
-**Branch:** `cleanup/jekyll-best-practices` (4 commits, not pushed to remote)
-
-### SEO Improvements (2026-01-18)
-
-**Branch:** `seo-improvements` (9 commits, ready for review)
-
-Comprehensive search engine optimization improvements to increase discoverability:
-
-1. **Technical SEO:**
-   - Created robots.txt in repository root with sitemap reference
-   - Added security headers (_headers file for Cloudflare Pages)
-   - Configured sitemap metadata for posts (changefreq, priority)
-
-2. **Social Media Optimization:**
-   - Implemented Twitter Card meta tags for better social sharing
-   - Added Person schema.org structured data to homepage
-   - Enhanced Open Graph integration
-
-3. **Content Optimization:**
-   - Improved image alt text with descriptive, keyword-rich descriptions
-   - Added internal links from older posts to newer related content
-   - Expanded RSS feed from 10 to 25 posts
-
-**Commits:**
-```
-* 19af5a4 Add internal links from older posts to recent content
-* a9d7f4f Expand RSS feed from 10 to 25 posts
-* c5a81d2 Add security headers for improved site security
-* 66ff0d9 Add sitemap metadata for posts
-* a8559c6 Improve image alt text for SEO in Macintosh Story post
-* 8fe2c45 Add Person schema.org structured data to homepage
-* dfcfc66 Add Twitter Card meta tags for better social sharing
-* cdb590e Add robots.txt for SEO optimization
-```
-
-**Impact:**
-- Better indexing by search engines
-- Improved social media link previews
-- Enhanced security posture
-- Stronger internal link structure
-
-### SEO TODOs (Future Work)
-
-The following SEO improvements are planned for a future update:
-
-1. **Heading Hierarchy:**
-   - Review and improve h1 tag structure across site
-   - Ensure each page has proper h1 with relevant keywords
-   - Fix terminal prompt styling vs semantic heading hierarchy
-
-2. **Meta Descriptions:**
-   - Add dedicated meta descriptions to all posts
-   - Optimize homepage title and description for keywords
-   - Expand description fields in post frontmatter
-
-3. **Structured Data:**
-   - Add Article schema to blog posts
-   - Implement breadcrumb UI (structured data exists)
-   - Consider adding FAQ schema for tutorial posts
-
-4. **Tag Page SEO:**
-   - Remove robots:noindex from tag pages
-   - Add meta descriptions to tag pages
-   - Consider creating topic hub pages
-
-5. **Content Strategy:**
-   - Create pillar content pages for major topics
-   - Audit older content for updates
-   - Implement related posts section
-
-**Note:** These improvements require deeper content review and should be addressed in a separate focused effort.
-
-### Performance Optimizations (2026-01-18)
-
-Comprehensive performance improvements to reduce page size and improve load times:
-
-1. **CSS Optimizations:**
-   - Removed unused animate-3.7.2.min.css (~57KB)
-   - Created minified console.min.css (9.4KB vs 13KB)
-   - Added `font-display: swap` to all @font-face declarations
-   - Improved table row contrast in dark mode
-
-2. **JavaScript Optimizations:**
-   - Inlined critical theme initialization code
-   - Deferred non-critical JavaScript loading
-   - Prevents FOUC while eliminating render-blocking scripts
-
-3. **Resource Loading:**
-   - Preloaded critical resources (fonts, CSS)
-   - Implemented lazy loading for search functionality
-   - Search script/index only loads on user interaction (~114KB saved)
-
-4. **Theme Toggle:**
-   - Changed `:focus` to `:focus-visible` for better UX
-   - Border only shows on keyboard navigation, not mouse clicks
-
-**Total Performance Impact:**
-- ~60KB reduction in CSS
-- 114KB search resources only load when needed
-- 30-40% faster initial page load
-- Improved font rendering and accessibility
-
-**Files Modified:**
-- `_layouts/default.html` - Resource preloading, inline critical JS
-- `assets/css/console.css` - Font-display, table styling, search UI
-- `assets/css/console.min.css` - Minified version (used in production)
-- `assets/js/theme-toggle.js` - Removed duplicate early init
-- `_pages/blog.md` - Converted from blog.html for consistency
-
-### Search Optimizations (2026-01-18)
-
-**Branch:** `search-optimizations` (6 commits, ready for review)
-
-Improved search functionality with better performance and UX:
-
-1. **Bug Fixes:**
-   - Fixed duplicate tags accumulating across posts in search.json
-   - Reduced description length from 300 to 150 characters (~15-20KB saved)
-
-2. **Performance Improvements:**
-   - Lazy load search: script/index only loads on first input focus
-   - Added 300ms debouncing to reduce search calls during typing
-   - Limited results to 10 items for faster rendering
-   - Disabled fuzzy search for faster exact matching
-
-3. **User Experience:**
-   - Removed autofocus for better accessibility
-   - Added comprehensive search result styling
-   - Theme-aware colors using CSS variables
-   - Added "No results found" message
-
-**Commits:**
-```
-* d2ce90a Fix duplicate tags bug in search index
-* 0f04923 Reduce search description length to 150 characters
-* 9d80ebe Implement lazy loading for search functionality
-* ff4ddbe Add search debouncing and result limiting
-* 1ad239a Add comprehensive search result styling
-* 0e87efd Remove autofocus from search input
-```
-
-**Impact:**
-- ~114KB not loaded until user searches
-- Search index reduced ~15-20KB
-- Faster search performance with debouncing
-- Better UX with polished styling
+### Search Optimizations
+- Fixed duplicate tags bug in search.json
+- Reduced description length (300→150 chars, ~15-20KB saved)
+- Lazy load, 300ms debouncing, 10 result limit
+- Disabled fuzzy search for speed
+- Theme-aware styling, accessibility improvements
 
 ---
 
-## Things to AVOID
+## Rules
 
-### Don't Do This:
+### DON'T:
+- ❌ Convert HTML posts to Markdown
+- ❌ Modify `_gemini/`, `_gopher/` directly
+- ❌ Create duplicate tags
+- ❌ Modify CNAME
+- ❌ Add GitHub Actions (Cloudflare handles deployment)
+- ❌ Break theme toggle
+- ❌ Run tag_generator.py from _scripts/ directory
+- ❌ Make up tag variations
+- ❌ Reference console.css in layouts
+- ❌ Load search.json on page load
+- ❌ Remove font-display: swap
 
-1. ❌ **Convert HTML posts to Markdown** - They're intentionally HTML for historical reasons
-2. ❌ **Manually edit `_gemini/` or `_gopher/` directories** - Auto-generated, use scripts
-3. ❌ **Create duplicate tags** - Always check `ls tag/` and `_scripts/README.md` first
-4. ❌ **Modify the CNAME file** - Domain configuration is intentional
-5. ❌ **Add GitHub Actions for deployment** - Cloudflare handles it
-6. ❌ **Remove the theme toggle** - User likes the TokyoNight theme switcher
-7. ❌ **Run tag_generator.py from _scripts/ directory** - Always run from repo root
-8. ❌ **Make up new tag variations** - Use canonical tags (e.g., `macos` not `mac`)
-9. ❌ **Add `.well-known/` to .gitignore** - It's intentionally tracked for verification
-10. ❌ **Break backward compatibility** - Old post URLs should remain accessible
-11. ❌ **Reference console.css directly in layouts** - Use console.min.css in production
-12. ❌ **Load search.json on page load** - It's lazy loaded on user interaction
-13. ❌ **Remove font-display: swap** - Prevents invisible text during font loading
-14. ❌ **Re-add animate.css** - It was removed as unused, verify need first
-
-### Do This Instead:
-
-1. ✅ **Read `_scripts/README.md` before working with tags**
-2. ✅ **Test locally with Docker before committing**
-3. ✅ **Use canonical tag names from the approved list**
-4. ✅ **Keep directory structure conventions**
-5. ✅ **Run verification checks after major changes**
-6. ✅ **Ask the user if uncertain about structural changes**
-7. ✅ **Edit console.css, then regenerate console.min.css**
-8. ✅ **Keep search lazy-loaded for performance**
-9. ✅ **Maintain font-display: swap for better UX**
-10. ✅ **Review performance impact of new CSS/JS**
+### DO:
+- ✅ Read `_scripts/README.md` before tag work
+- ✅ Test locally with Docker
+- ✅ Use canonical tags
+- ✅ Run verification after changes
+- ✅ Edit console.css → regenerate console.min.css
+- ✅ Keep search lazy-loaded
+- ✅ Ask user about structural changes
 
 ---
 
 ## Troubleshooting
 
-### Site Won't Build
-
+**Site won't build:**
 ```bash
-# Check Jekyll build errors
 docker compose logs jekyll
-
-# Rebuild from scratch
-docker compose down
-docker compose build --no-cache
-docker compose up -d
+docker compose down && docker compose build --no-cache && docker compose up -d
 ```
 
-### Tag Pages Missing
-
+**Tag pages missing:**
 ```bash
-# Regenerate all tags
 python3 _scripts/tag_generator.py
-
-# Verify generation
 ls tag/*.md | wc -l  # Should be ~78
 ```
 
-### Images Not Loading
-
-- Check file path matches reference (case-sensitive)
-- Verify file exists in `assets/images/`
-- Check for typos in post frontmatter
-- Ensure image files are committed to git
-
----
-
-## Getting Help
-
-### Key Documentation Files
-
-1. **`_scripts/README.md`** - Tag conventions, script usage
-2. **`README.md`** - Basic project info, Docker setup
-3. **`_config.yml`** - Jekyll configuration
-4. **This file** - Comprehensive assistant guide
-
-### When to Ask the User
-
-- Structural changes to directory layout
-- Adding new dependencies to Gemfile
-- Major theme modifications
-- Deployment configuration changes
-- Creating new categories or major tag changes
-- Modifying build process or Docker setup
-
-### Common User Preferences
-
-- Prefers Docker for local development
-- Likes minimal, terminal-style aesthetics
-- Values historical preservation (don't break old content)
-- Interested in retro computing, small web, cloud native tech
-- Prefers lowercase tags and clean conventions
-- Does NOT want overly aggressive automation
+**Images not loading:** Check case-sensitive paths, verify file exists, check frontmatter
 
 ---
 
 ## Quick Reference
 
-### File Locations Cheat Sheet
+**Key files:** `_scripts/README.md` (tags), `README.md` (Docker), `_config.yml` (Jekyll)
 
-| What | Where |
-|------|-------|
-| Blog posts | `_posts/YYYY-MM-DD-Title.{md,html}` |
-| Site pages | `_pages/` (about, contact, blog) |
-| Tag pages | `tag/` (auto-generated) |
-| Images | `assets/images/` or `assets/images/posts/` |
-| Layouts | `_layouts/` |
-| Components | `_includes/` (search-form.html, meta.html) |
-| Config | `_config.yml` |
-| Scripts | `_scripts/` |
-| Theme CSS (source) | `assets/css/console.css` |
-| Theme CSS (production) | `assets/css/console.min.css` |
-| Search index | `search.json` (auto-generated) |
-| Theme toggle | `assets/js/theme-toggle.js` |
-| Search script | `assets/js/search-script.js` |
+**User preferences:** Docker dev, terminal aesthetics, historical preservation, retro computing/small web focus, lowercase tags, minimal automation
 
-### Command Cheat Sheet
-
+**Commands:**
 ```bash
-# Development
-docker compose up -d              # Start server
-docker compose logs -f jekyll     # View logs
-docker compose down               # Stop server
-
-# Tags
-python3 _scripts/tag_generator.py # Regenerate tags
-ls tag/ | grep macos              # Find specific tag
-
-# Small Web
-_scripts/updatesmallweb.sh -t all # Update Gemini/Gopher
-
-# Verification
-curl -s http://localhost:4000/ | grep "Small keyboards"  # Test homepage
+docker compose up -d                    # Start
+python3 _scripts/tag_generator.py       # Regenerate tags
+_scripts/updatesmallweb.sh -t all       # Update Gemini/Gopher
 ```
 
----
-
-## Questions for the User
-
-Before finalizing this document, I'd like to confirm a few things:
-
-1. **Deployment:** I mentioned Cloudflare Pages based on the plan notes. Is this correct, or is there a different deployment method?
-
-2. **Small Web Protocols:** Should AI assistants completely ignore `_gemini/` and `_gopher/` directories, or just avoid modifying them without explicit instruction?
-
-3. **Post Categories:** I see various categories in posts (linux, macintosh, blogger, gemini). Are there any category conventions or restrictions I should document?
-
-4. **Contribution Workflow:** If others contribute, are there any specific PR guidelines or review processes to document?
-
-5. **Backup/Archive:** Is there anything about backup procedures or archival that should be included?
-
-6. **Analytics/Monitoring:** Any analytics or monitoring tools I should mention?
-
-7. **Anything Missing:** What else would help a future AI assistant work effectively with this codebase?
+**Ask user about:** structural changes, new dependencies, major theme mods, deployment config, new categories/major tag changes, build process mods
