@@ -5,7 +5,7 @@
 <link rel="preload" href="/assets/font/BerkeleyMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/css/terminal-0.7.1.min.css" as="style">
 <link rel="stylesheet" href="/assets/css/terminal-0.7.1.min.css" />
-<link rel="stylesheet" href="/assets/css/console.min.css" />
+<link rel="stylesheet" href="/assets/css/console.css" />
 <link rel="me" href="https://hachyderm.io/@ecliptik" />
 <link rel="me" href="https://social.ecliptik.com/@micheal" />
 
@@ -20,32 +20,39 @@
 <body class="terminal">
   <div class="container">
     <div class="terminal-nav">
-      <header class="terminal-logo">
-        <div class="logo terminal-prompt">
-          {%if page.url == "/" %}
-            {% assign breadcrumb = "" %}
-          {%elsif page.url == "/about/" %}
-            {% assign breadcrumb = "/about" %}
-          {%elsif page.url == "/contact/" %}
-            {% assign breadcrumb = "/contact" %}
-          {% else %}
-            {% assign breadcrumb = "/blog" %}
-          {% endif %}
-          <span class="prompt-user">micheal</span>@<a href="/">ecliptik.com</a>:~<span class="prompt-path">{{breadcrumb}} </span>🚀<span class="prompt-arrow">➜</span>
+      <div class="terminal-header-line">
+        <header class="terminal-logo">
+          <div class="logo">
+            <span class="prompt-user">micheal</span>@<a href="/">ecliptik.com</a>
+          </div>
+        </header>
+        <nav class="terminal-menu">
+         <ul>
+           <li><a href="/">~</a></li>
+           <li><a href="/blog/">blog/</a></li>
+           <li><a href="/about/">about/</a></li>
+           <li><a href="/contact/">contact/</a></li>
+         </ul>
+        </nav>
+        <div class="theme-toggle">
+          <button id="theme-toggle-btn" class="btn-ghost" aria-label="Toggle theme">
+            <span class="theme-icon">☀️/🌙</span>
+          </button>
         </div>
-      </header>
-      <nav class="terminal-menu">
-       <ul>
-         <li><a href="/">~</a></li>
-         <li><a href="/blog/">blog/</a></li>
-         <li><a href="/about/">about/</a></li>
-         <li><a href="/contact/">contact/</a></li>
-       </ul>
-      </nav>
-      <div class="theme-toggle">
-        <button id="theme-toggle-btn" class="btn-ghost" aria-label="Toggle theme">
-          <span class="theme-icon">☀️/🌙</span>
-        </button>
+      </div>
+      <div class="terminal-prompt-line">
+        {%if page.url == "/" %}
+          {% assign breadcrumb = "~" %}
+        {%elsif page.url == "/about/" %}
+          {% assign breadcrumb = "~/about" %}
+        {%elsif page.url == "/contact/" %}
+          {% assign breadcrumb = "~/contact" %}
+        {% else %}
+          {% assign breadcrumb = "~/blog" %}
+        {% endif %}
+        <div class="terminal-prompt">
+          <span class="prompt-path">{{breadcrumb}}</span> 🚀<span class="prompt-arrow">➜</span>
+        </div>
       </div>
     </div>
   </div>
