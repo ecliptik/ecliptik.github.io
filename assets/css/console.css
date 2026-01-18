@@ -309,6 +309,17 @@ figure>figcaption::selection {
     user-select: none;
 }
 
+/* Table row contrast improvements for dark mode */
+[data-theme="dark"] tr:nth-child(even) {
+    background: #2d3348;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) tr:nth-child(even) {
+        background: #2d3348;
+    }
+}
+
 /* Smooth theme transitions */
 body, a, .btn-ghost, .terminal-nav, .terminal-menu, .footer {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
