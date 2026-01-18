@@ -290,7 +290,7 @@ figure>figcaption::selection {
     font-size: 1.2rem;
     padding: 8px 12px;
     transition: transform 0.2s ease;
-    border: 1px solid var(--border);
+    border: none;
     margin: 0;
 }
 
@@ -299,7 +299,7 @@ figure>figcaption::selection {
     background-color: var(--accent-bg);
 }
 
-#theme-toggle-btn:focus {
+#theme-toggle-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
