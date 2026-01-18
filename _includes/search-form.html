@@ -4,15 +4,29 @@
 <ul id="results-container"></ul>
 </div>
 
-<!-- Grab search-script.js -->
-<script src="/assets/js/search-script.js" type="text/javascript"></script>
-
-<!-- Configuration -->
+<!-- Lazy load search on first focus -->
 <script>
-SimpleJekyllSearch({
-  searchInput: document.getElementById('search-input'),
-  resultsContainer: document.getElementById('results-container'),
-  json: '/search.json',
-    searchResultTemplate: '<li><a href="{url}">{title}</a>  <span class="post-meta">{date}</span></li>'
-})
+(function() {
+  var searchInput = document.getElementById('search-input');
+  var searchLoaded = false;
+
+  function initSearch() {
+    SimpleJekyllSearch({
+      searchInput: searchInput,
+      resultsContainer: document.getElementById('results-container'),
+      json: '/search.json',
+      searchResultTemplate: '<li><a href="{url}">{title}</a>  <span class="post-meta">{date}</span></li>'
+    });
+  }
+
+  searchInput.addEventListener('focus', function() {
+    if (!searchLoaded) {
+      var script = document.createElement('script');
+      script.src = '/assets/js/search-script.js';
+      script.onload = initSearch;
+      document.head.appendChild(script);
+      searchLoaded = true;
+    }
+  }, { once: true });
+})();
 </script>
