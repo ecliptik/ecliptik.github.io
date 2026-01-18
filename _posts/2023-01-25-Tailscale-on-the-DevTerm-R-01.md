@@ -9,8 +9,6 @@ toc: true
 
 ## Intro
 
-> **Update (2025):** Interested in more retro computing projects? Check out my series on [restoring and enhancing a Macintosh 512Ke](/A-Macintosh-Story/), including networking it with modern protocols.
-
 Recently I assembled a [ClockworkPi DevTerm R-01](https://www.clockworkpi.com/product-page/devterm-kit-r01), a cyberdeck-like terminal with a [RISC-V](https://en.wikipedia.org/wiki/RISC-V) compute module. While the retro-future design of the DevTerm really appealed to me, and I've also been wanting to work with RISC-V for a while to learn a new architecture making the R-01 a perfect esoteric project platform.
 
 ![DevTermR01](/assets/images/posts/devtermtailscale/devterm-r01.png)
