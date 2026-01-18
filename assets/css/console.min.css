@@ -65,6 +65,15 @@ figure{margin-top:5px;margin-bottom:5px;margin-left:30px;margin-right:30px}
 .theme-toggle{margin-left:0;margin-top:5px}
 #theme-toggle-btn{font-size:1rem;padding:6px 10px}
 }
+#search-container{margin-bottom:2rem}
+#search-input{width:100%;max-width:500px;padding:10px;font-family:var(--font-stack);font-size:1rem;background:var(--bg);color:var(--text);border:2px solid var(--border);border-radius:0}
+#search-input:focus{outline:none;border-color:var(--accent)}
+#results-container{list-style:none;padding:0;margin-top:1rem}
+#results-container li{padding:8px 0;border-bottom:1px solid var(--border)}
+#results-container li:last-child{border-bottom:none}
+#results-container a{color:var(--accent);text-decoration:none}
+#results-container a:hover{text-decoration:underline}
+.post-meta{color:var(--text-light);font-size:0.9rem;margin-left:0.5rem}
 .highlight{color:var(--preformatted)}
 .highlight .c{color:var(--pygments-one)}
 .highlight .err{color:var(--pygments-two)}
