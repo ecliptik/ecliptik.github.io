@@ -374,19 +374,35 @@ figure>figcaption::selection {
     color: var(--text);
 }
 
-/* Body and content links use accent-light */
-.content-column-content a,
-main a,
-article a,
-.post a {
+/* Body and content links use accent-light (exclude header/footer) */
+.container p a,
+.container li a,
+.container h1 a,
+.container h2 a,
+.container h3 a,
+.container h4 a,
+.container h5 a,
+.container h6 a,
+.container blockquote a,
+.container table a,
+.container dd a,
+.container dt a {
     color: var(--accent-light);
     text-decoration: none;
 }
 
-.content-column-content a:hover,
-main a:hover,
-article a:hover,
-.post a:hover {
+.container p a:hover,
+.container li a:hover,
+.container h1 a:hover,
+.container h2 a:hover,
+.container h3 a:hover,
+.container h4 a:hover,
+.container h5 a:hover,
+.container h6 a:hover,
+.container blockquote a:hover,
+.container table a:hover,
+.container dd a:hover,
+.container dt a:hover {
     color: var(--accent-light);
     text-decoration: underline;
 }
