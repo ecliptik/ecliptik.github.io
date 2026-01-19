@@ -281,6 +281,9 @@ date: {metadata.date_str}
             with open(source, 'r', encoding='utf8') as f:
                 content = f.read()
 
+            # Extract images before conversion for better processing
+            images = self.extract_images(content)
+
             # Remove frontmatter
             content = self._remove_frontmatter(content)
 
@@ -300,7 +303,12 @@ date: {metadata.date_str}
                 print(f"Error converting {source}: {result.stderr}")
                 return content
 
-            return result.stdout
+            plaintext = result.stdout
+
+            # Post-process to clean up image references
+            plaintext = self._process_image_references(plaintext, images)
+
+            return plaintext
 
         except FileNotFoundError:
             print("Error: Pandoc not installed. Install with: apt install pandoc")
@@ -314,6 +322,41 @@ date: {metadata.date_str}
         # TODO: Implement HTML conversion with BeautifulSoup
         print(f"Note: HTML conversion not yet implemented for {source}")
         return f"[HTML post conversion coming soon]\n\nSee: https://www.ecliptik.com{metadata.gopher_path}"
+
+    def _process_image_references(self, content: str, images: List[tuple]) -> str:
+        """Post-process plaintext to clean up image references."""
+        # Remove Jekyll/Kramdown attributes like {: width="60%"}
+        content = re.sub(r'\{:.*?\}', '', content)
+
+        # Remove leftover markdown link reference markers
+        content = re.sub(r'\]\(([^\)]+)\)', '', content)
+
+        # Clean up standalone square brackets around alt text
+        # These are leftover from pandoc conversion
+        content = re.sub(r'\[([^\]]+)\]\s*\n', r'[Image: \1]\n', content)
+
+        # Add image references with URLs at the end if we have images
+        if images:
+            image_refs = []
+            for i, (alt, path) in enumerate(images, 1):
+                # Convert relative paths to full URLs
+                if path.startswith('/'):
+                    url = f"https://www.ecliptik.com{path}"
+                elif path.startswith('http'):
+                    url = path
+                else:
+                    url = f"https://www.ecliptik.com/{path}"
+
+                # Only add if alt text exists
+                if alt:
+                    image_refs.append(f"  [{i}] {alt}: {url}")
+
+            # Append image references if any exist
+            if image_refs:
+                separator = "_" * 70
+                content += f"\n\n{separator}\nImages:\n" + '\n'.join(image_refs) + f"\n{separator}\n"
+
+        return content
 
     def _remove_frontmatter(self, content: str) -> str:
         """Remove YAML frontmatter from content."""
