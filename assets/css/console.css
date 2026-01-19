@@ -462,7 +462,6 @@ figure>figcaption::selection {
 
 #theme-toggle-btn:hover {
     transform: scale(1.1);
-    background-color: var(--accent-bg);
 }
 
 #theme-toggle-btn:focus-visible {
