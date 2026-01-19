@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: rss"
 tag: rss
-robots: noindex
+description: "Blog posts tagged with rss covering technical topics, tutorials, and experiences"
 ---

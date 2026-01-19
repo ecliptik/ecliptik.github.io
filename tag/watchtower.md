@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: watchtower"
 tag: watchtower
-robots: noindex
+description: "Blog posts tagged with watchtower covering technical topics, tutorials, and experiences"
 ---

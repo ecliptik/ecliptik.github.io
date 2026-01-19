@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: appletalk"
 tag: appletalk
-robots: noindex
+description: "Blog posts tagged with appletalk covering technical topics, tutorials, and experiences"
 ---

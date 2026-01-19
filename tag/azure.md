@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: azure"
 tag: azure
-robots: noindex
+description: "Blog posts tagged with azure covering technical topics, tutorials, and experiences"
 ---

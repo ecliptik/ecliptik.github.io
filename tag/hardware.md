@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: hardware"
 tag: hardware
-robots: noindex
+description: "Blog posts tagged with hardware covering technical topics, tutorials, and experiences"
 ---

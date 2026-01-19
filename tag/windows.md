@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: windows"
 tag: windows
-robots: noindex
+description: "Blog posts tagged with windows covering technical topics, tutorials, and experiences"
 ---

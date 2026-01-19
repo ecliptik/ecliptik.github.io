@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: localtalk"
 tag: localtalk
-robots: noindex
+description: "Blog posts tagged with localtalk covering technical topics, tutorials, and experiences"
 ---

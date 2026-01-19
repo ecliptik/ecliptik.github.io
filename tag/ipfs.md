@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: ipfs"
 tag: ipfs
-robots: noindex
+description: "Blog posts tagged with ipfs covering technical topics, tutorials, and experiences"
 ---

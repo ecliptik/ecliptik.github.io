@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: notebook"
 tag: notebook
-robots: noindex
+description: "Blog posts tagged with notebook covering technical topics, tutorials, and experiences"
 ---

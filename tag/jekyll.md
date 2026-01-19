@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: jekyll"
 tag: jekyll
-robots: noindex
+description: "Blog posts tagged with jekyll covering technical topics, tutorials, and experiences"
 ---

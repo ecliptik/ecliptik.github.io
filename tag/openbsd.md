@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: openbsd"
 tag: openbsd
-robots: noindex
+description: "Blog posts tagged with openbsd covering technical topics, tutorials, and experiences"
 ---

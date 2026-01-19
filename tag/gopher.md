@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: gopher"
 tag: gopher
-robots: noindex
+description: "Blog posts tagged with gopher covering technical topics, tutorials, and experiences"
 ---

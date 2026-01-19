@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: docker"
 tag: docker
-robots: noindex
+description: "Blog posts tagged with docker covering technical topics, tutorials, and experiences"
 ---

@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: git"
 tag: git
-robots: noindex
+description: "Blog posts tagged with git covering technical topics, tutorials, and experiences"
 ---

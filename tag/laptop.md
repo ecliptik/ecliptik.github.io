@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: laptop"
 tag: laptop
-robots: noindex
+description: "Blog posts tagged with laptop covering technical topics, tutorials, and experiences"
 ---

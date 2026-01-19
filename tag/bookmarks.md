@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: bookmarks"
 tag: bookmarks
-robots: noindex
+description: "Blog posts tagged with bookmarks covering technical topics, tutorials, and experiences"
 ---

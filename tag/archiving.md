@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: archiving"
 tag: archiving
-robots: noindex
+description: "Blog posts tagged with archiving covering technical topics, tutorials, and experiences"
 ---

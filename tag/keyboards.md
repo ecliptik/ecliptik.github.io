@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: keyboards"
 tag: keyboards
-robots: noindex
+description: "Blog posts tagged with keyboards covering technical topics, tutorials, and experiences"
 ---

@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: gpg"
 tag: gpg
-robots: noindex
+description: "Blog posts tagged with gpg covering technical topics, tutorials, and experiences"
 ---

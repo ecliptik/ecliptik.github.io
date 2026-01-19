@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: htpc"
 tag: htpc
-robots: noindex
+description: "Blog posts tagged with htpc covering technical topics, tutorials, and experiences"
 ---

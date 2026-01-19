@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: perl"
 tag: perl
-robots: noindex
+description: "Blog posts tagged with perl covering technical topics, tutorials, and experiences"
 ---

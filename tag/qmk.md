@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: qmk"
 tag: qmk
-robots: noindex
+description: "Blog posts tagged with qmk covering technical topics, tutorials, and experiences"
 ---

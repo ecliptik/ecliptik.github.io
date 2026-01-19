@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: unix"
 tag: unix
-robots: noindex
+description: "Blog posts tagged with unix covering technical topics, tutorials, and experiences"
 ---

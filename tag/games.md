@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: games"
 tag: games
-robots: noindex
+description: "Blog posts tagged with games covering technical topics, tutorials, and experiences"
 ---

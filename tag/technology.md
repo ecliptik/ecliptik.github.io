@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: technology"
 tag: technology
-robots: noindex
+description: "Blog posts tagged with technology covering technical topics, tutorials, and experiences"
 ---

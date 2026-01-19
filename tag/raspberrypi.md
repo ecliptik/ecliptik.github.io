@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: raspberrypi"
 tag: raspberrypi
-robots: noindex
+description: "Blog posts tagged with raspberrypi covering technical topics, tutorials, and experiences"
 ---

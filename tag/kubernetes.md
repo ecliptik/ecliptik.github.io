@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: kubernetes"
 tag: kubernetes
-robots: noindex
+description: "Blog posts tagged with kubernetes covering technical topics, tutorials, and experiences"
 ---

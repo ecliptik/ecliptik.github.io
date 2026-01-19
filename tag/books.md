@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: books"
 tag: books
-robots: noindex
+description: "Blog posts tagged with books covering technical topics, tutorials, and experiences"
 ---

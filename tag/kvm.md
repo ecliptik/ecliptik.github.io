@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: kvm"
 tag: kvm
-robots: noindex
+description: "Blog posts tagged with kvm covering technical topics, tutorials, and experiences"
 ---

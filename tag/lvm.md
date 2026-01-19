@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: lvm"
 tag: lvm
-robots: noindex
+description: "Blog posts tagged with lvm covering technical topics, tutorials, and experiences"
 ---

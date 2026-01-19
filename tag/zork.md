@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: zork"
 tag: zork
-robots: noindex
+description: "Blog posts tagged with zork covering technical topics, tutorials, and experiences"
 ---

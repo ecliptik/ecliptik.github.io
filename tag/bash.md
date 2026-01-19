@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: bash"
 tag: bash
-robots: noindex
+description: "Blog posts tagged with bash covering technical topics, tutorials, and experiences"
 ---

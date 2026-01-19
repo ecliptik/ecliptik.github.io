@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: google"
 tag: google
-robots: noindex
+description: "Blog posts tagged with google covering technical topics, tutorials, and experiences"
 ---

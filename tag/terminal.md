@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: terminal"
 tag: terminal
-robots: noindex
+description: "Blog posts tagged with terminal covering technical topics, tutorials, and experiences"
 ---

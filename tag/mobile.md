@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: mobile"
 tag: mobile
-robots: noindex
+description: "Blog posts tagged with mobile covering technical topics, tutorials, and experiences"
 ---

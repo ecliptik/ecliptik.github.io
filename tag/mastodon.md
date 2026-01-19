@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: mastodon"
 tag: mastodon
-robots: noindex
+description: "Blog posts tagged with mastodon covering technical topics, tutorials, and experiences"
 ---

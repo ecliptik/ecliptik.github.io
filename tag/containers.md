@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: containers"
 tag: containers
-robots: noindex
+description: "Blog posts tagged with containers covering technical topics, tutorials, and experiences"
 ---

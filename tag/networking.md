@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: networking"
 tag: networking
-robots: noindex
+description: "Blog posts tagged with networking covering technical topics, tutorials, and experiences"
 ---

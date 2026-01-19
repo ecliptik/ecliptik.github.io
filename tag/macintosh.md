@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: macintosh"
 tag: macintosh
-robots: noindex
+description: "Blog posts tagged with macintosh covering technical topics, tutorials, and experiences"
 ---

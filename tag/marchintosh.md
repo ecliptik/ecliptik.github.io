@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: marchintosh"
 tag: marchintosh
-robots: noindex
+description: "Blog posts tagged with marchintosh covering technical topics, tutorials, and experiences"
 ---

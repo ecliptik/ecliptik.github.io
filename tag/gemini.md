@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: gemini"
 tag: gemini
-robots: noindex
+description: "Blog posts tagged with gemini covering technical topics, tutorials, and experiences"
 ---

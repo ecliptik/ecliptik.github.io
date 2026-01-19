@@ -2,5 +2,5 @@
 layout: tagpage
 title: "Tag: retrocomputing"
 tag: retrocomputing
-robots: noindex
+description: "Blog posts tagged with retrocomputing covering technical topics, tutorials, and experiences"
 ---
