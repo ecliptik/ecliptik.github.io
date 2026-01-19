@@ -403,8 +403,9 @@ figure>figcaption::selection {
 .container table a:hover,
 .container dd a:hover,
 .container dt a:hover {
-    color: var(--accent-light);
-    text-decoration: underline;
+    background-color: var(--accent-light);
+    color: var(--bg);
+    text-decoration: none;
 }
 
 /* Terminal prompt colors */
