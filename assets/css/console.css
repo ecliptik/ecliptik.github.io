@@ -257,36 +257,18 @@ strong {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    row-gap: 0 !important;
 }
 
 .terminal-header-line {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     flex-wrap: nowrap;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1;
-}
-
-.terminal-header-line * {
-    line-height: 1;
-    margin: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
 }
 
 .terminal-header-line .terminal-logo {
     flex-shrink: 0;
-    margin: 0;
-    padding: 0;
-}
-
-.terminal-header-line .logo {
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
 .terminal-header-line .terminal-menu {
@@ -294,7 +276,6 @@ strong {
     flex-grow: 1;
     justify-content: flex-end;
     margin: 0 !important;
-    padding: 0;
     width: auto !important;
 }
 
@@ -309,30 +290,13 @@ strong {
 
 .terminal-header-line .theme-toggle {
     flex-shrink: 0;
-    margin: 0;
-    padding: 0;
-}
-
-.terminal-header-line .theme-toggle .btn-ghost {
-    margin: 0 !important;
-    padding: 4px 8px !important;
-}
-
-.terminal-header-line .terminal-menu li a {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    margin-left: 0;
 }
 
 .terminal-prompt-line {
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-}
-
-.terminal-prompt-line * {
-    line-height: 1;
+    margin-top: 0;
 }
 
 /* Override base terminal.css media query */
@@ -340,16 +304,12 @@ strong {
     .terminal-nav {
         flex-direction: column !important;
         align-items: flex-start !important;
-        margin-bottom: 2em !important;
+        margin-bottom: 0 !important;
     }
 
     .terminal-header-line .terminal-menu ul {
         flex-direction: row !important;
         margin-top: 0 !important;
-    }
-
-    .terminal-header-line .logo {
-        padding: 0 !important;
     }
 }
 
@@ -511,7 +471,7 @@ body, a, .btn-ghost, .terminal-nav, .terminal-menu, .footer {
     }
 
     .logo {
-        padding: 0 !important;
+        padding: calc(var(--global-space) * 1) 0 calc(var(--global-space) * 1);
     }
 
     figure {
