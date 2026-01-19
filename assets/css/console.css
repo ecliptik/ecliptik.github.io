@@ -259,6 +259,7 @@ strong {
     align-items: flex-start !important;
     row-gap: 0 !important;
     margin-top: 1em !important;
+    font-weight: bold;
 }
 
 .terminal-header-line {
@@ -372,6 +373,7 @@ figure>figcaption::selection {
     padding-top: 10px;;
     border-top: 1px solid var(--pygments-two);
     color: var(--text);
+    font-weight: bold;
 }
 
 /* Body and content links use accent-light (exclude header/footer) */
