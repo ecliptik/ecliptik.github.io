@@ -419,7 +419,8 @@ figure>figcaption::selection {
 }
 
 .terminal-menu a:hover {
-    color: var(--accent);
+    background-color: var(--accent);
+    color: var(--bg);
     text-decoration: none;
 }
 
@@ -430,7 +431,8 @@ figure>figcaption::selection {
 }
 
 .prompt-path a:hover {
-    color: var(--accent);
+    background-color: var(--accent);
+    color: var(--bg);
     text-decoration: none;
 }
 
