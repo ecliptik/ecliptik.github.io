@@ -1,25 +1,52 @@
 # ecliptik.github.io
-Github Page
+
+Personal tech blog hosted on GitHub Pages and deployed via Cloudflare Pages.
+
+**Site:** https://www.ecliptik.com
 
 - Theme: [solar-theme-jekyll](https://github.com/mattvh/solar-theme-jekyll)
 - Tags: [github-jekyll-tag](https://longqian.me/2017/02/09/github-jekyll-tag/)
 
-## Running Jekyll Locally in a Docker Container
+## Running Jekyll Locally with Docker
 
-This repository contains a [Dockerfile](Dockerfile) to easily standup a Jekyll instance of this Github-pages site. This makes testing site updates locally within a stable Docker enviromnent before pushing to Github and without having to worry about installing all the necessary dependicies on your system.
+This repository includes Docker support for local development and testing before deploying to production.
 
-Build a Jekyll container image with the necessary dependencies,
+### Quick Start
 
-```
-docker build -t jekyll .
-```
+Start the Jekyll development server:
 
-Run a container using this repository as the document root. The volume mount must be read-write, otherwise Bundler and Jekyll will complain.
-
-```
-docker run -d -p 4000:4000 -v $(pwd):/app jekyll
+```bash
+docker compose up -d
 ```
 
-Access the site at
+Access the site at:
+- http://localhost:4000
+- http://jezebel:4000 (or any hostname on your network)
 
-> http://localhost:4000
+View logs:
+
+```bash
+docker compose logs -f jekyll
+```
+
+Stop the server:
+
+```bash
+docker compose down
+```
+
+### Rebuilding After Changes
+
+If you modify `Gemfile` or need a clean build:
+
+```bash
+docker compose down
+docker compose build --no-cache
+docker compose up -d
+```
+
+### Development Configuration
+
+The Docker setup uses both `_config.yml` and `_config_dev.yml` to enable relative URL redirects, allowing access via any hostname (localhost, tailnet hosts, etc.).
+
+For more details, see [CLAUDE.md](CLAUDE.md).
