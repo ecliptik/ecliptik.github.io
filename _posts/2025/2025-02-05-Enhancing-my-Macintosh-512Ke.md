@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Enhancing my Macintosh 512Ke
+description: Modernizing a Macintosh 512Ke with FloppyEMU, MacPlus logic board, BlueSCSI, USB4VC, RGB2HDMI, TashTalk networking, and other reversible enhancements
 category: macintosh
 tags: macintosh 512ke macplus system6 system7 retrocomputing
 redirect_from: /Enhancing-my-Macintosh-512Ke/

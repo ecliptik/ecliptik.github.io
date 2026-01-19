@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Live, Laugh, Localtalk with Basilisk II
+description: Setting up Basilisk II Macintosh 68k emulator on Linux Mint with AppleTalk networking to share files with classic Macintosh hardware over LocalTalk
 category: macintosh
 tags: basilisk localtalk appletalk macintosh macplus system7 retrocomputing
 redirect_from: /Live,-Laugh,-Localtalk-with-Basilisk-II/

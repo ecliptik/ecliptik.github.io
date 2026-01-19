@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Automating Container Updates With Watchtower
+description: Using Watchtower to automatically detect and deploy updated Docker container images across multiple hosts without manual intervention
 category: containers
 toc: true
 tags: docker containers watchtower

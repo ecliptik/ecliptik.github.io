@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building a website with Github and Jekyll
+description: Setting up a static website with GitHub Pages and Jekyll, including a Docker container for local development and preview
 category: coding
 toc: true
 tags: docker jekyll github

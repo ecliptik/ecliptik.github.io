@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Containerizing a Perl Script
+description: Creating a multi-stage Docker container to run a legacy Perl script with CPAN dependencies as an executable using ENTRYPOINT
 category: containers
 toc: true
 tags: perl docker containers

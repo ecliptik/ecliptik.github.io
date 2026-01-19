@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Switching to Ghostty
+description: Exploring Ghostty, a new native terminal emulator focused on speed and quality, including themes, graphics support, and initial impressions after two weeks of use
 category: linux
 tags: terminal linux macos zsh bash
 redirect_from: /Switching-to-Ghostty/

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Emulating ARM64 on Linux
+description: Building and configuring a QEMU-based ARM64 virtual machine on x86 Linux to explore 64-bit ARM architecture for datacenter applications
 category: arm
 toc: true
 tags: operatingsystems arm ubuntu

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A Macintosh Story
+description: The story of inheriting a Macintosh 512Ke, repairing the failed RIFA capacitor, discovering the FloppyEMU, and beginning the journey to enhance and use the system
 category: macintosh
 tags: macintosh 512ke macplus system6 system7 retrocomputing
 redirect_from: /A-Macintosh-Story/

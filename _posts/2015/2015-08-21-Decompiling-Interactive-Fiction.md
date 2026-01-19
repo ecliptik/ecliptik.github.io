@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Decompiling Interactive Fiction
+description: Exploring Z-Machine interactive fiction by decompiling Aisle using z-code tools to extract the full story text and understand how classic text adventures work
 category: coding
 toc: true
 tags: zmachine interactivefiction zork

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Surfing GlobalTalk with a Macintosh 512Ke
+description: Connecting a Macintosh 512Ke to GlobalTalk using TashTalk, jrouter, and PhoneNET to access worldwide AppleTalk file servers and zones for MARCHintosh 2025
 category: macintosh
 tags: marchintosh globaltalk macintosh localtalk 512ke appletalk
 redirect_from: /Surfing-GlobalTalk-with-a-Macintosh-512Ke/

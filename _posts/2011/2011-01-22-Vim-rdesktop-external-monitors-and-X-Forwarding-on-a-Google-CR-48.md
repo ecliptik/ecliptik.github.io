@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48
+description: Setting up developer tools, remote desktop, and external monitors on a Google CR-48 Chromebook running Chrome OS in developer mode
 category: blogger
 tags: vim google cr-48 linux blogger
 redirect_from: /Vim-rdesktop-external-monitors-and-X-Forwarding-on-a-Google-CR-48/

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: DNS Guardrails with dnscrypt-proxy
+description: Building a containerized DNS infrastructure with dnscrypt-proxy, Cloudflare for Families, ad-blocking, and YouTube restrictions accessible only via Tailscale
 category: linux
 tags: linux dns containers docker networking tailscale
 redirect_from: /DNS-Guardrails-with-dnscrypt-proxy/
