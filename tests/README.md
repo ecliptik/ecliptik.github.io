@@ -2,9 +2,16 @@
 
 ## Quick Start
 
-### Generate Gopher Content
+### Generate Gopher Content for Testing
 ```bash
+# Default generates for localhost:7070 (Docker testing)
 python3 _scripts/manage.py gopher
+```
+
+### Generate for Production Deployment
+```bash
+# For SDF.org gopher.club
+python3 _scripts/manage.py gopher --host gopher.club --port 70
 ```
 
 ### Verify Generation

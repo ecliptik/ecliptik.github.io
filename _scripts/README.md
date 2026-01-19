@@ -87,8 +87,22 @@ python3 _scripts/manage.py all
 
 Generate RFC1436-compliant gopher content from Jekyll blog posts.
 
+**Local Testing (default):**
 ```bash
+# Generate for localhost:7070 (Docker testing)
 python3 _scripts/manage.py gopher
+```
+
+**Production Deployment:**
+```bash
+# Generate for SDF.org gopher.club
+python3 _scripts/manage.py gopher --host gopher.club --port 70
+
+# Or with base URL
+python3 _scripts/manage.py gopher \
+  --host gopher.club \
+  --port 70 \
+  --base-url "gopher://gopher.club:70/1/users/ecliptik/"
 ```
 
 **What it does:**
@@ -97,6 +111,7 @@ python3 _scripts/manage.py gopher
 3. Creates year archives and tag pages
 4. Converts static pages (about, contact)
 5. Adds image references with URLs
+6. Configures host/port in all gophermap links
 
 **Output:** `_gopher/` directory with:
 - 30 plaintext posts in `blog/YYYY/*.txt`
@@ -112,19 +127,37 @@ python3 _scripts/manage.py gopher --host example.com   # Custom host
 python3 _scripts/manage.py gopher --port 7070          # Custom port
 ```
 
-**Testing:**
+**Local Testing:**
 ```bash
+# Generate for localhost (default)
+python3 _scripts/manage.py gopher
+
 # Verify generation
 bash tests/verify_gopher.sh
 
 # Start Docker test server
 docker compose -f docker-compose.gopher.yml up -d
 
-# Test with curl
-curl gopher://localhost:70/
+# Test with netcat
+echo "" | nc localhost 7070
 
-# Test with lynx
-lynx gopher://localhost:70
+# Test with bombadillo
+bombadillo gopher://localhost:7070
+
+# Stop server
+docker compose -f docker-compose.gopher.yml down
+```
+
+**Deploy to SDF.org:**
+```bash
+# 1. Generate for production
+python3 _scripts/manage.py gopher --host gopher.club --port 70
+
+# 2. Upload to SDF
+scp -r _gopher/* username@sdf.org:gopher/
+
+# 3. Test production
+echo "" | nc gopher.club 70
 ```
 
 See `tests/README.md` for detailed testing documentation.

@@ -38,9 +38,9 @@ from smallweb_core import (
 @dataclass
 class GopherConfig:
     """Configuration for gopher generation."""
-    base_url: str = "gopher://gopher.club:70/1/users/ecliptik/"
-    host: str = "gopher.club"
-    port: int = 70
+    base_url: str = "gopher://localhost:7070/"
+    host: str = "localhost"
+    port: int = 7070
     columns: int = 70
     max_recent_posts: int = 10
     output_dir: str = "_gopher"
