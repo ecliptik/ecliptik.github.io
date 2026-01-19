@@ -386,8 +386,9 @@ figure>figcaption::selection {
 }
 
 .prompt-path a:hover {
-    text-decoration: underline;
-    color: var(--accent);  /* Highlight on hover */
+    background-color: var(--pygments-six);  /* Cyan background */
+    color: var(--bg);  /* Background color for text - inverse */
+    text-decoration: none;
 }
 
 /* Theme toggle button */

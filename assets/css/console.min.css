@@ -50,7 +50,7 @@ figure>figcaption::selection{background-color:var(--accent-light);color:var(--bg
 .prompt-path{color:var(--pygments-six)}
 .prompt-arrow{color:var(--pygments-seven)}
 .prompt-path a{color:var(--pygments-six);text-decoration:none}
-.prompt-path a:hover{text-decoration:underline;color:var(--accent)}
+.prompt-path a:hover{background-color:var(--pygments-six);color:var(--bg);text-decoration:none}
 .theme-toggle{margin-left:auto;display:flex;align-items:center}
 #theme-toggle-btn{cursor:pointer;font-size:1.2rem;padding:8px 12px;transition:transform 0.2s ease;border:none;margin:0}
 #theme-toggle-btn:hover{transform:scale(1.1);background-color:var(--accent-bg)}
