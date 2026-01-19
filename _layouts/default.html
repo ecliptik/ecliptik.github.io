@@ -41,21 +41,28 @@
         </div>
       </div>
       <div class="terminal-prompt-line">
-        {%if page.url == "/" %}
-          {% assign breadcrumb = "~" %}
-        {%elsif page.url == "/about/" %}
-          {% assign breadcrumb = "~/about" %}
-        {%elsif page.url == "/contact/" %}
-          {% assign breadcrumb = "~/contact" %}
-        {%elsif page.layout == "post" %}
-          {% assign post_year = page.date | date: "%Y" %}
-          {% assign post_slug = page.url | split: "/" | last %}
-          {% assign breadcrumb = "~/blog/" | append: post_year | append: "/" | append: post_slug %}
-        {% else %}
-          {% assign breadcrumb = "~/blog" %}
-        {% endif %}
         <div class="terminal-prompt">
-          <span class="prompt-path">{{breadcrumb}}</span> 🚀<span class="prompt-arrow">➜</span>
+          <span class="prompt-path">
+            {%if page.url == "/" %}
+              ~
+            {%elsif page.url == "/about/" %}
+              <a href="/">~</a>/about
+            {%elsif page.url == "/contact/" %}
+              <a href="/">~</a>/contact
+            {%elsif page.url == "/blog/" %}
+              <a href="/">~</a>/blog
+            {%elsif page.layout == "yeararchive" %}
+              <a href="/">~</a>/<a href="/blog/">blog</a>/{{ page.year }}
+            {%elsif page.layout == "post" %}
+              {% assign post_year = page.date | date: "%Y" %}
+              {% assign post_slug = page.url | split: "/" | last %}
+              <a href="/">~</a>/<a href="/blog/">blog</a>/<a href="/blog/{{ post_year }}/">{{ post_year }}</a>/{{ post_slug }}
+            {%elsif page.url contains "/tag/" %}
+              <a href="/">~</a>/<a href="/blog/">blog</a>/tag
+            {% else %}
+              <a href="/">~</a>/blog
+            {% endif %}
+          </span> 🚀<span class="prompt-arrow">➜</span>
         </div>
       </div>
     </div>

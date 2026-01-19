@@ -379,6 +379,17 @@ figure>figcaption::selection {
 .prompt-path { color: var(--pygments-six); }    /* Cyan */
 .prompt-arrow { color: var(--pygments-seven); } /* Red */
 
+/* Prompt path links */
+.prompt-path a {
+    color: var(--pygments-six);  /* Cyan - same as path */
+    text-decoration: none;
+}
+
+.prompt-path a:hover {
+    text-decoration: underline;
+    color: var(--accent);  /* Highlight on hover */
+}
+
 /* Theme toggle button */
 .theme-toggle {
     margin-left: auto;
