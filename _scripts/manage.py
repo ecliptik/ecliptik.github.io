@@ -361,11 +361,28 @@ description: "Blog posts from {year} covering technical topics, tutorials, and e
 # ============================================================================
 
 def generate_gopher(args):
-    """Generate gopher content (stub for future implementation)."""
-    print("\n=== Gopher Generation ===\n")
-    print("🚧 Gopher generation coming soon!")
-    print("   Use _scripts/deprecated/updatesmallweb.sh for now")
-    return 0
+    """Generate gopher content from Jekyll blog posts."""
+    try:
+        from gopher_generator import GopherConfig, GopherGenerator
+
+        # Create configuration from arguments
+        config = GopherConfig.from_args(args)
+
+        # Create generator and run
+        generator = GopherGenerator(config)
+        generator.generate_all()
+
+        return 0
+
+    except ImportError as e:
+        print(f"Error: Could not import gopher_generator: {e}")
+        print("Make sure gopher_generator.py is in the _scripts directory")
+        return 1
+    except Exception as e:
+        print(f"Error during gopher generation: {e}")
+        import traceback
+        traceback.print_exc()
+        return 1
 
 
 def generate_gemini(args):
@@ -429,7 +446,12 @@ def main():
     years_parser.set_defaults(func=generate_years)
 
     # Gopher command
-    gopher_parser = subparsers.add_parser('gopher', help='Generate gopher content (stub)')
+    gopher_parser = subparsers.add_parser('gopher', help='Generate gopher content')
+    gopher_parser.add_argument('--base-url', help='Gopher base URL (default: gopher://gopher.club:70/1/users/ecliptik/)')
+    gopher_parser.add_argument('--host', help='Gopher host (default: gopher.club)')
+    gopher_parser.add_argument('--port', type=int, help='Gopher port (default: 70)')
+    gopher_parser.add_argument('--columns', type=int, help='Column width for text wrapping (default: 70)')
+    gopher_parser.add_argument('--force', action='store_true', help='Force regeneration of all files')
     gopher_parser.set_defaults(func=generate_gopher)
 
     # Gemini command
