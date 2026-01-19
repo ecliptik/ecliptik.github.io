@@ -410,7 +410,7 @@ figure>figcaption::selection {
 
 /* Terminal prompt colors */
 .prompt-user { color: var(--pygments-eight); }  /* Yellow/orange */
-.prompt-path { color: var(--pygments-six); }    /* Cyan */
+.prompt-path { color: var(--accent); }          /* Blue */
 .prompt-arrow { color: var(--pygments-seven); } /* Red */
 
 /* Terminal menu links - match footer styling */
