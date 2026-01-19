@@ -36,7 +36,10 @@ assets/                        # css, js, images
 - `_posts/*.html` (2004-2011 historical HTML)
 - `_gemini/`, `_gopher/` (auto-generated)
 - CNAME (Cloudflare handles DNS)
-- Reference `console.min.css` in layouts, not `console.css`
+
+**CSS Reference:**
+- Development: `_layouts/default.html` uses `console.css` (unminified)
+- Production: Switch to `console.min.css` before deployment
 
 ---
 
@@ -132,7 +135,8 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 - Read `_scripts/README.md` before tag work
 - Test locally with Docker before commits
 - Use canonical lowercase tags
-- Regenerate console.min.css after CSS edits
+- Edit console.css (unminified) during development
+- Minify and switch to console.min.css before production deployment
 - Ask user about structural changes, new dependencies, major theme changes
 
 ---
@@ -148,6 +152,14 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 - Tag pages indexed (removed noindex, added descriptions)
 - Open Graph + Twitter Cards with auto image extraction
 - Year archive pages with clickable breadcrumb navigation (`~/blog/2025/post-slug`)
+
+**Theme Updates (WIP - feature/accent-light-links branch):**
+- Link styling: Body/content links use `--accent-light` (purple), header/footer use `--accent` (blue)
+- All links bold in body/content for better visibility
+- Hover: Inverse colors (bg/text swap), no underlines throughout
+- Header/footer text: Bold for improved hierarchy
+- Terminal cursor: Wider (12px) and taller (1.2em) animation
+- Theme toggle: No background shade on hover
 
 ---
 
