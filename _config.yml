@@ -101,3 +101,4 @@ exclude:
     - LICENSE
     - README.md
     - CNAME
+    - _config_dev.yml

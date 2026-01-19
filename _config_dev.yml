@@ -1,0 +1,7 @@
+# Development configuration overrides
+# This file overrides settings in _config.yml for local development
+# Usage: jekyll serve --config _config.yml,_config_dev.yml
+
+# Set url to false/null to make jekyll-redirect-from use relative URLs
+# This allows accessing the site via any hostname (localhost, jezebel, etc.)
+url:
