@@ -83,14 +83,59 @@ python3 _scripts/manage.py all
 - Modifying post tags
 - Moving posts to new years
 
-#### Gopher/Gemini (Coming Soon)
+#### Generate Gopher Content
+
+Generate RFC1436-compliant gopher content from Jekyll blog posts.
 
 ```bash
-python3 _scripts/manage.py gopher  # Stub for future
-python3 _scripts/manage.py gemini  # Stub for future
+python3 _scripts/manage.py gopher
 ```
 
-Until these are implemented, use `_scripts/deprecated/updatesmallweb.sh` for gopher/gemini conversion.
+**What it does:**
+1. Converts markdown posts to plaintext (70 columns) using Pandoc
+2. Generates gophermaps for navigation (root, blog, tags, years)
+3. Creates year archives and tag pages
+4. Converts static pages (about, contact)
+5. Adds image references with URLs
+
+**Output:** `_gopher/` directory with:
+- 30 plaintext posts in `blog/YYYY/*.txt`
+- 63 tag pages with gophermaps
+- 8 year archive pages
+- Root gophermap with site navigation
+
+**Options:**
+```bash
+python3 _scripts/manage.py gopher --force              # Regenerate all
+python3 _scripts/manage.py gopher --columns 80         # Custom width
+python3 _scripts/manage.py gopher --host example.com   # Custom host
+python3 _scripts/manage.py gopher --port 7070          # Custom port
+```
+
+**Testing:**
+```bash
+# Verify generation
+bash tests/verify_gopher.sh
+
+# Start Docker test server
+docker compose -f docker-compose.gopher.yml up -d
+
+# Test with curl
+curl gopher://localhost:70/
+
+# Test with lynx
+lynx gopher://localhost:70
+```
+
+See `tests/README.md` for detailed testing documentation.
+
+#### Generate Gemini Content (Coming Soon)
+
+```bash
+python3 _scripts/manage.py gemini  # Planned
+```
+
+Will use shared abstractions from gopher generator for Gemini capsule generation.
 
 ### Help
 
@@ -221,10 +266,29 @@ See `_scripts/deprecated/README.md` for migration guide and details.
 
 ## Small Web Protocols
 
-Results can be seen at my Gopherhole: [gopher://rawtext.club:70/1~ecliptik/phlog](gopher://rawtext.club:70/1~ecliptik/phlog)
+Results can be seen at:
+- **Gopher:** [gopher://gopher.club:70/1/users/ecliptik](gopher://gopher.club:70/1/users/ecliptik)
+- **Gemini:** [gemini://gmi.ecliptik.com](gemini://gmi.ecliptik.com)
 
 These tools were inspired by [Making a Gopherhole](https://johngodlee.github.io/2019/11/20/gopher.html).
 
-**Current:** Use `_scripts/deprecated/updatesmallweb.sh` for gopher/gemini conversion
+### Gopher Protocol (Implemented)
 
-**Future:** `manage.py gopher` and `manage.py gemini` commands (in development)
+Generate gopher content with `python3 _scripts/manage.py gopher`:
+- RFC1436-compliant gophermaps
+- Markdown to plaintext conversion (Pandoc, 70 columns)
+- Image references with URLs
+- Year archives and tag navigation
+- Docker test stack included
+
+See above for detailed usage and `tests/README.md` for testing.
+
+### Gemini Protocol (Planned)
+
+Will reuse abstractions from gopher generator:
+- Gemtext format conversion
+- Capsule structure mirroring Jekyll site
+- Image handling
+- Navigation gemberlogs
+
+**Current workaround:** Use `_scripts/deprecated/updatesmallweb.sh` for gemini conversion
