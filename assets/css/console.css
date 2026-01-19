@@ -414,12 +414,12 @@ figure>figcaption::selection {
 .prompt-arrow { color: var(--pygments-seven); } /* Red */
 
 /* Terminal menu links - match footer styling */
-.terminal-menu a {
+.terminal-menu li a {
     color: var(--accent);
     text-decoration: none;
 }
 
-.terminal-menu a:hover {
+.terminal-menu li a:hover {
     background-color: var(--accent);
     color: var(--bg);
     text-decoration: none;
