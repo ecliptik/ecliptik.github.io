@@ -770,8 +770,15 @@ figure>figcaption::selection {
 }
 
 .terminal-header-line .terminal-menu li {
-    margin-right: 30px;
+    display: inline-flex !important;
+    margin: 0 30px 0 0 !important;
+    padding: 0;
     line-height: 1;
+}
+
+.terminal-header-line .terminal-menu li a:not(.btn) {
+    display: inline !important;
+    width: auto !important;
 }
 
 .terminal-header-line .theme-toggle {
@@ -810,14 +817,14 @@ figure>figcaption::selection {
     margin-top: 0;
 }
 
-.terminal-menu li {
+.terminal-nav > .terminal-menu li {
     display: flex;
     margin: 0 0 .5em 0;
     padding: 0;
     margin-right: 30px;
 }
 
-.terminal-menu li:last-child {
+.terminal-nav > .terminal-menu li:last-child {
     margin-bottom: 0;
 }
 
@@ -825,7 +832,7 @@ figure>figcaption::selection {
     display: none;
 }
 
-.terminal-menu li a:not(.btn) {
+.terminal-nav > .terminal-menu li a:not(.btn) {
     text-decoration: none;
     display: block;
     width: 100%;
@@ -833,11 +840,11 @@ figure>figcaption::selection {
     color: var(--accent);
 }
 
-.terminal-menu li a.active {
+.terminal-nav > .terminal-menu li a.active {
     color: var(--text);
 }
 
-.terminal-menu li a:not(.btn):hover {
+.terminal-nav > .terminal-menu li a:not(.btn):hover {
     background-color: var(--accent);
     color: var(--bg);
     text-decoration: none;
