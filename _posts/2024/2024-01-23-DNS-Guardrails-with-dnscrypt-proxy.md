@@ -3,6 +3,7 @@ layout: post
 title: DNS Guardrails with dnscrypt-proxy
 category: linux
 tags: linux dns containers docker networking tailscale
+redirect_from: /DNS-Guardrails-with-dnscrypt-proxy/
 ---
 
 ## Intro

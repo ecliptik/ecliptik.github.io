@@ -6,6 +6,7 @@ permalink: /bookmarking-with-raindrop/
 category: technology
 toc: true
 tags: hack bookmarks archiving
+redirect_from: /Bookmarking-and-Creating-a-Local-Internet-Archive/
 ---
 
 ## Intro

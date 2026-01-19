@@ -3,6 +3,7 @@ layout: post
 title: Switching to Ghostty
 category: linux
 tags: terminal linux macos zsh bash
+redirect_from: /Switching-to-Ghostty/
 ---
 
 ## Ghostty 👻

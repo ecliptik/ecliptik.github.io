@@ -3,6 +3,7 @@ layout: post
 title: Live, Laugh, Localtalk with Basilisk II
 category: macintosh
 tags: basilisk localtalk appletalk macintosh macplus system7 retrocomputing
+redirect_from: /Live,-Laugh,-Localtalk-with-Basilisk-II/
 ---
 
 As I mentioned in my [Enhancing my Macintosh 512Ke](/Enhancing-my-Macintosh-512Ke/) post, I use the [Basilisk II](https://basilisk.cebix.net/) Macintosh 68k emulator alongside my Macintosh Plus to facilitate downloading software, sharing files with [AppleShare](https://en.wikipedia.org/wiki/AppleShare), playing [Myst](https://www.macintoshrepository.org/4937-myst) and many other things. It does take a bit of setup to get working though, especially with configuring the network to work with [AppleTalk](https://en.wikipedia.org/wiki/AppleTalk).

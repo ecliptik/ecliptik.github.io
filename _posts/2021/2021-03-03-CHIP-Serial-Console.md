@@ -11,7 +11,7 @@ comments:
   fediHost:  fosstodon.org
   fediusername:  ecliptik
   fediid:  105830175973621499
-
+redirect_from: /CHIP-Serial-Console/
 ---
 
 ## Intro

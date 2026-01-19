@@ -3,6 +3,7 @@ layout: post
 title: Surfing GlobalTalk with a Macintosh 512Ke
 category: macintosh
 tags: marchintosh globaltalk macintosh localtalk 512ke appletalk
+redirect_from: /Surfing-GlobalTalk-with-a-Macintosh-512Ke/
 ---
 
 While I've discussed the [origins of my Macintosh 512Ke](https://www.ecliptik.com/A-Macintosh-Story/) and the [enhancements](https://www.ecliptik.com/Enhancing-my-Macintosh-512Ke/) I've done over the past year. What really kicked off my interest in using it more than just Zoom background discussion piece, were all the fediverse posts I saw on [GlobalTalk](https://marchintosh.com/globaltalk.html) during [MARCHintosh](https://www.marchintosh.com/) 2024.

@@ -5,6 +5,7 @@ description: Building a TUN/TAP Kernel Module to run Tailscale on a DevTerm R-01
 category: devterm
 tags: devterm riscv linux tailscale
 toc: true
+redirect_from: /Tailscale-on-the-DevTerm-R-01/
 ---
 
 ## Intro

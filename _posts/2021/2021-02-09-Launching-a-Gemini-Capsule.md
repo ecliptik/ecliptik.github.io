@@ -11,6 +11,7 @@ comments:
   fediHost:  fosstodon.org
   fediusername:  ecliptik
   fediid:  105705673465664725
+redirect_from: /Launching-a-Gemini-Capsule/
 ---
 
 ## Gemawhat?

@@ -5,6 +5,7 @@ description: Cross building and running multi-arch docker images for arm and Ras
 category: containers
 toc: true
 tags: docker arm raspberrypi
+redirect_from: /Cross-Building-and-Running-Multi-Arch-Docker-Images/
 ---
 
 ## Intro

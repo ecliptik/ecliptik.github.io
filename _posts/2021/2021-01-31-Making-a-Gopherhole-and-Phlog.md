@@ -10,6 +10,7 @@ comments:
   fediHost:  fosstodon.org
   fediusername:  ecliptik
   fediid:  105652970406443377
+redirect_from: /Making-a-Gopherhole-and-Phlog/
 ---
 
 ## But Why?

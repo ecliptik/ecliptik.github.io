@@ -11,6 +11,7 @@ comments:
   fediHost:  fosstodon.org
   fediusername:  ecliptik
   fediid:  105740118192056355
+redirect_from: /Custom-Keyboards-Sully-and-Pok3r/
 ---
 
 ## Intro

@@ -5,6 +5,7 @@ description: Running the Azure Container Instances Connector for Kubernetes on a
 category: containers
 toc: true
 tags: docker azure arm kubernetes raspberrypi
+redirect_from: /ACI-Connector-for-k8s-on-a-Raspberry-Pi-Cluster/
 ---
 
 ## Intro

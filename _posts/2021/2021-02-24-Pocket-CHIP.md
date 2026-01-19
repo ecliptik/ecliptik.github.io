@@ -11,7 +11,7 @@ comments:
   fediHost:  fosstodon.org
   fediusername:  ecliptik
   fediid:  105789701988446339
-
+redirect_from: /Pocket-CHIP/
 ---
 
 ## Intro

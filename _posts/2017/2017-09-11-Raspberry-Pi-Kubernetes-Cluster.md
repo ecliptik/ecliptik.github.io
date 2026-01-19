@@ -5,6 +5,7 @@ description: Setting up a Kubernetes on a cluster of RaspberryPis
 category: containers
 toc: true
 tags: docker arm kubernetes raspberrypi
+redirect_from: /Raspberry-Pi-Kubernetes-Cluster/
 ---
 
 ## Intro

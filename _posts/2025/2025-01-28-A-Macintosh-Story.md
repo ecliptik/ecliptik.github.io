@@ -3,6 +3,7 @@ layout: post
 title: A Macintosh Story
 category: macintosh
 tags: macintosh 512ke macplus system6 system7 retrocomputing
+redirect_from: /A-Macintosh-Story/
 ---
 
 This is the first post in what I am hoping a series of how I took my [512Ke "Fat Mac"](https://en.wikipedia.org/wiki/Macintosh_512Ke) and enhanched it to the state it is today.

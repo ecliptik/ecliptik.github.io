@@ -11,6 +11,7 @@ comments:
   fediHost:  fosstodon.org
   fediusername:  ecliptik
   fediid:  105626739761251196
+redirect_from: /One-Week-With-Mastodon/
 ---
 
 ## Intro

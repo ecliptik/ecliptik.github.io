@@ -4,6 +4,7 @@ title: Automating Container Updates With Watchtower
 category: containers
 toc: true
 tags: docker containers watchtower
+redirect_from: /Automating-Container-Updates-With-Watchtower/
 ---
 
 ## Intro

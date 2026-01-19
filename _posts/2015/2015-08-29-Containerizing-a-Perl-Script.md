@@ -4,6 +4,7 @@ title: Containerizing a Perl Script
 category: containers
 toc: true
 tags: perl docker containers
+redirect_from: /Containerizing-a-Perl-Script/
 ---
 
 ## Intro

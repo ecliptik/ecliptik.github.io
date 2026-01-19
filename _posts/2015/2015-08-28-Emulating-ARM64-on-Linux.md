@@ -4,6 +4,7 @@ title: Emulating ARM64 on Linux
 category: arm
 toc: true
 tags: operatingsystems arm ubuntu
+redirect_from: /Emulating-ARM64-on-Linux/
 ---
 
 ## Intro

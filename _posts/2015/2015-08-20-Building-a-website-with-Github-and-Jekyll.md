@@ -4,6 +4,7 @@ title: Building a website with Github and Jekyll
 category: coding
 toc: true
 tags: docker jekyll github
+redirect_from: /Building-a-website-with-Github-and-Jekyll/
 ---
 
 ## Intro

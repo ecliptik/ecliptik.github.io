@@ -6,6 +6,7 @@ permalink: /setting-up-ipfs-ens-and-handshake/
 category: technology
 toc: true
 tags: ipfs distributed
+redirect_from: /This-Website-Is-Now-Available-on-IPFS,-ENS,-and-Handshake/
 ---
 
 ## Intro

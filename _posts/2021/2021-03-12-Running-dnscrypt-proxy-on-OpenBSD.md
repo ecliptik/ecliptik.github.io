@@ -11,7 +11,7 @@ comments:
   fediHost:  fosstodon.org
   fediusername:  ecliptik
   fediid:  105880046333621858
-
+redirect_from: /Running-dnscrypt-proxy-on-OpenBSD/
 ---
 
 ## Intro

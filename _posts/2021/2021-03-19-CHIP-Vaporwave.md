@@ -11,7 +11,7 @@ comments:
   fediHost:  fosstodon.org
   fediusername:  ecliptik
   fediid:  105915488359029065
-
+redirect_from: /CHIP-Vaporwave/
 ---
 
 ## Intro
