@@ -101,6 +101,8 @@ tags: linux kubernetes docker terminal  # Use canonical tags!
 
 Branches: `feature/`, `cleanup/`, `fix/` → `main`
 
+**NEVER `git push` OR `git merge`** - User handles all pushes and merges
+
 **No GPG signing:** Use `git commit --no-gpg-sign` or `git commit -m`
 
 **Commit Format:**
@@ -118,6 +120,7 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 ## Rules & Best Practices
 
 **DON'T:**
+- Use `git push` or `git merge` (user handles all pushes and merges)
 - Convert HTML posts to Markdown
 - Modify auto-generated files
 - Create duplicate/variant tags
