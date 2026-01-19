@@ -6,6 +6,9 @@ gopher_generator.py - Gopher Protocol Content Generator
 Generates RFC1436-compliant gopher content from Jekyll blog posts.
 Uses gophermaps for navigation and converts markdown to plaintext.
 
+Built on shared abstractions from smallweb_core.py for code reuse
+with future Gemini generator.
+
 Usage:
     python3 _scripts/manage.py gopher [--force] [--base-url URL] [--host HOST] [--port PORT]
 """
@@ -13,11 +16,19 @@ Usage:
 import os
 import re
 import subprocess
-import glob
-from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import List, Dict, Optional
 from datetime import datetime
+
+# Import shared abstractions
+from smallweb_core import (
+    SmallWebConverter,
+    PostScanner,
+    TagAggregator,
+    YearOrganizer,
+    PostMetadata,
+    NavigationContext
+)
 
 
 # ============================================================================
@@ -54,29 +65,9 @@ class GopherConfig:
         return config
 
 
-# ============================================================================
-# Post Metadata
-# ============================================================================
-
-@dataclass
-class PostMetadata:
-    """Structured metadata for a blog post."""
-    title: str
-    date: datetime
-    tags: List[str]
-    category: str
-    description: str
-    slug: str
-    year: str
-    filepath: str
-    is_markdown: bool
-    redirect_from: Optional[str] = None
-
-    @property
-    def date_str(self) -> str:
-        """Format date as YYYY-MM-DD."""
-        return self.date.strftime('%Y-%m-%d')
-
+# Add gopher-specific properties to PostMetadata
+def _add_gopher_properties():
+    """Add gopher-specific properties to PostMetadata."""
     @property
     def gopher_filename(self) -> str:
         """Generate gopher filename (plaintext)."""
@@ -87,180 +78,51 @@ class PostMetadata:
         """Generate gopher path relative to root."""
         return f"/blog/{self.year}/{self.gopher_filename}"
 
+    PostMetadata.gopher_filename = gopher_filename
+    PostMetadata.gopher_path = gopher_path
 
-# ============================================================================
-# Frontmatter Parser
-# ============================================================================
-
-class FrontmatterParser:
-    """Parse Jekyll frontmatter from markdown and HTML posts."""
-
-    @staticmethod
-    def parse_file(filepath: str) -> Dict:
-        """Parse frontmatter from a post file."""
-        try:
-            with open(filepath, 'r', encoding='utf8') as f:
-                content = f.read()
-
-            # Check if HTML or markdown
-            is_html = filepath.endswith('.html')
-
-            if is_html:
-                return FrontmatterParser._parse_html_frontmatter(content)
-            else:
-                return FrontmatterParser._parse_yaml_frontmatter(content)
-
-        except Exception as e:
-            print(f"Error parsing {filepath}: {e}")
-            return {}
-
-    @staticmethod
-    def _parse_yaml_frontmatter(content: str) -> Dict:
-        """Parse YAML frontmatter from markdown."""
-        frontmatter = {}
-        lines = content.split('\n')
-        in_frontmatter = False
-        i = 0
-
-        for i, line in enumerate(lines):
-            line = line.strip()
-
-            if line == '---':
-                if not in_frontmatter:
-                    in_frontmatter = True
-                else:
-                    break
-            elif in_frontmatter:
-                if line.startswith('tags:'):
-                    tags = line.replace('tags:', '').strip().split()
-                    frontmatter['tags'] = tags
-                elif ':' in line:
-                    key, value = line.split(':', 1)
-                    frontmatter[key.strip()] = value.strip()
-
-        return frontmatter
-
-    @staticmethod
-    def _parse_html_frontmatter(content: str) -> Dict:
-        """Parse frontmatter from HTML posts (from HTML comments)."""
-        frontmatter = {}
-
-        # Look for YAML frontmatter in HTML comments or front of file
-        # HTML posts typically have frontmatter at the beginning
-        lines = content.split('\n')
-        in_frontmatter = False
-
-        for line in lines:
-            line = line.strip()
-
-            if line == '---':
-                if not in_frontmatter:
-                    in_frontmatter = True
-                else:
-                    break
-            elif in_frontmatter:
-                if line.startswith('tags:'):
-                    tags = line.replace('tags:', '').strip().split()
-                    frontmatter['tags'] = tags
-                elif ':' in line:
-                    key, value = line.split(':', 1)
-                    frontmatter[key.strip()] = value.strip()
-
-        return frontmatter
-
-    @staticmethod
-    def extract_metadata(filepath: str) -> Optional[PostMetadata]:
-        """Extract structured metadata from a post file."""
-        frontmatter = FrontmatterParser.parse_file(filepath)
-
-        if not frontmatter:
-            return None
-
-        # Extract date from filename (YYYY-MM-DD format)
-        filename = os.path.basename(filepath)
-        date_match = re.match(r'(\d{4})-(\d{2})-(\d{2})-(.+)\.(md|html)', filename)
-
-        if not date_match:
-            print(f"Warning: Could not parse date from filename: {filename}")
-            return None
-
-        year, month, day, slug = date_match.groups()[:4]
-        date = datetime(int(year), int(month), int(day))
-
-        # Extract fields with fallbacks
-        title = frontmatter.get('title', slug.replace('-', ' ').title())
-        tags = frontmatter.get('tags', [])
-        category = frontmatter.get('category', 'blog')
-        description = frontmatter.get('description', '')
-        redirect_from = frontmatter.get('redirect_from', None)
-        is_markdown = filepath.endswith('.md')
-
-        return PostMetadata(
-            title=title,
-            date=date,
-            tags=tags,
-            category=category,
-            description=description,
-            slug=slug,
-            year=year,
-            filepath=filepath,
-            is_markdown=is_markdown,
-            redirect_from=redirect_from
-        )
-
-
-# ============================================================================
-# Content Converter (Abstract)
-# ============================================================================
-
-class ContentConverter(ABC):
-    """Abstract base class for content conversion."""
-
-    def __init__(self, config: GopherConfig):
-        self.config = config
-
-    @abstractmethod
-    def convert(self, source: str, metadata: PostMetadata) -> str:
-        """Convert source content to target format."""
-        pass
-
-    def clean_content(self, content: str) -> str:
-        """Clean and normalize content."""
-        # Remove multiple blank lines
-        content = re.sub(r'\n{3,}', '\n\n', content)
-        # Strip trailing whitespace
-        content = '\n'.join(line.rstrip() for line in content.split('\n'))
-        return content.strip()
-
-    def extract_images(self, content: str) -> List[tuple]:
-        """Extract image references from markdown content."""
-        # Match markdown image syntax: ![alt](path)
-        pattern = r'!\[([^\]]*)\]\(([^\)]+)\)'
-        matches = re.findall(pattern, content)
-        return [(alt, path) for alt, path in matches]
+_add_gopher_properties()
 
 
 # ============================================================================
 # Gopher Converter
 # ============================================================================
 
-class GopherConverter(ContentConverter):
+class GopherConverter(SmallWebConverter):
     """Convert content to gopher plaintext format."""
 
-    def convert(self, source: str, metadata: PostMetadata) -> str:
-        """Convert markdown/HTML to plaintext."""
+    def convert_post(self, metadata: PostMetadata, content: str) -> str:
+        """Convert a post to gopher plaintext format (implements SmallWebConverter)."""
         if metadata.is_markdown:
-            content = self.markdown_to_plaintext(source, metadata)
+            plaintext = self.markdown_to_plaintext(metadata.filepath, metadata)
         else:
-            content = self.html_to_plaintext(source, metadata)
+            plaintext = self.html_to_plaintext(metadata.filepath, metadata)
 
         # Add metadata header
-        content = self.add_metadata_header(content, metadata)
+        plaintext = self.add_metadata_header(plaintext, metadata)
 
         # Clean content
-        content = self.clean_content(content)
+        plaintext = self.clean_content(plaintext)
 
-        return content
+        return plaintext
+
+    def build_index(self, posts: List[PostMetadata], title: str) -> str:
+        """Build an index gophermap (implements SmallWebConverter)."""
+        builder = GophermapBuilder(self.config)
+        builder.add_info_line(title)
+        builder.add_separator()
+        builder.add_info_line()
+
+        # Add posts
+        for post in posts:
+            link_title = f"{post.date_str} {post.title}"
+            builder.add_text_link(link_title, post.gopher_path)
+
+        return builder.build()
+
+    def format_link(self, title: str, path: str) -> str:
+        """Format a gopher link (implements SmallWebConverter)."""
+        return f"0{title}\t{path}\t{self.config.host}\t{self.config.port}"
 
     def add_metadata_header(self, content: str, metadata: PostMetadata) -> str:
         """Add metadata header to post content."""
@@ -484,6 +346,7 @@ class GopherGenerator:
     def __init__(self, config: GopherConfig):
         self.config = config
         self.converter = GopherConverter(config)
+        self.scanner = PostScanner(config.posts_dir)
         self.posts: List[PostMetadata] = []
 
     def generate_all(self):
@@ -494,9 +357,9 @@ class GopherGenerator:
         print(f"Columns: {self.config.columns}")
         print()
 
-        # Scan posts
+        # Scan posts using shared PostScanner
         print("Scanning posts...")
-        self.posts = self._scan_posts()
+        self.posts = self.scanner.scan_posts()
         markdown_posts = [p for p in self.posts if p.is_markdown]
         html_posts = [p for p in self.posts if not p.is_markdown]
 
@@ -523,11 +386,15 @@ class GopherGenerator:
         self.generate_pages()
         print()
 
+        # Use shared organizers for statistics
+        years = YearOrganizer.get_years(markdown_posts)
+        tags = TagAggregator.collect_tags(markdown_posts)
+
         print("✅ Gopher generation complete!")
         print(f"\nGenerated content in: {self.config.output_dir}/")
         print(f"  - {len(markdown_posts)} posts")
-        print(f"  - {len(self._get_years(markdown_posts))} year archives")
-        print(f"  - {len(self._get_tags(markdown_posts))} tag pages")
+        print(f"  - {len(years)} year archives")
+        print(f"  - {len(tags)} tag pages")
 
     def generate_posts(self, posts: List[PostMetadata]):
         """Generate plaintext files for all posts."""
@@ -543,8 +410,8 @@ class GopherGenerator:
             if os.path.exists(output_path) and not self.config.force:
                 continue
 
-            # Convert content
-            content = self.converter.convert(post.filepath, post)
+            # Convert content using SmallWebConverter interface
+            content = self.converter.convert_post(post, "")
 
             # Write output
             try:
@@ -556,7 +423,8 @@ class GopherGenerator:
 
     def generate_year_archives(self, posts: List[PostMetadata]):
         """Generate year archive gophermaps."""
-        years = self._get_years(posts)
+        # Use shared YearOrganizer
+        years = YearOrganizer.get_years(posts)
 
         for year in years:
             year_posts = [p for p in posts if p.year == year]
@@ -602,7 +470,8 @@ class GopherGenerator:
 
     def generate_tag_pages(self, posts: List[PostMetadata]):
         """Generate tag page gophermaps."""
-        tags = self._get_tags(posts)
+        # Use shared TagAggregator
+        tags = TagAggregator.collect_tags(posts)
 
         # Create tags directory
         tags_dir = os.path.join(self.config.output_dir, 'tags')
@@ -721,8 +590,8 @@ class GopherGenerator:
         builder.add_separator()
         builder.add_info_line()
 
-        # Add year archives
-        years = self._get_years(posts)
+        # Add year archives using shared YearOrganizer
+        years = YearOrganizer.get_years(posts)
         for year in sorted(years, reverse=True):
             year_posts = [p for p in posts if p.year == year]
             title = f"{year} ({len(year_posts)} posts)"
@@ -777,33 +646,3 @@ class GopherGenerator:
                 print(f"  ✓ {output_name}")
             except Exception as e:
                 print(f"  ✗ Error writing {output_path}: {e}")
-
-    def _scan_posts(self) -> List[PostMetadata]:
-        """Scan posts directory and extract metadata."""
-        posts = []
-
-        # Find all post files
-        post_files = glob.glob(os.path.join(self.config.posts_dir, '**', '*.md'), recursive=True)
-        post_files += glob.glob(os.path.join(self.config.posts_dir, '**', '*.html'), recursive=True)
-
-        for filepath in post_files:
-            metadata = FrontmatterParser.extract_metadata(filepath)
-            if metadata:
-                posts.append(metadata)
-
-        return posts
-
-    def _get_years(self, posts: List[PostMetadata]) -> List[str]:
-        """Get unique years from posts."""
-        years = set(p.year for p in posts)
-        return sorted(years)
-
-    def _get_tags(self, posts: List[PostMetadata]) -> Dict[str, List[PostMetadata]]:
-        """Get posts grouped by tag."""
-        tags = {}
-        for post in posts:
-            for tag in post.tags:
-                if tag not in tags:
-                    tags[tag] = []
-                tags[tag].append(post)
-        return tags
