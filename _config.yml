@@ -11,7 +11,7 @@ author:
   url: https://www.ecliptik.com
 
 image:
-  path: /assets/images/pi-small.jpg
+  path: /assets/images/shared/pi-small.jpg
   height: 100
   width: 75
   alt: pi-small.jpg
@@ -20,7 +20,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/images/pi-small.jpg
+      image: /assets/images/shared/pi-small.jpg
   - scope:
       path: ""
       type: "posts"
