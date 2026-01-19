@@ -374,7 +374,7 @@ figure>figcaption::selection {
     color: var(--text);
 }
 
-/* Body and content links use accent (exclude header/footer) */
+/* Body and content links use accent-light (exclude header/footer) */
 .container p a,
 .container li a,
 .container h1 a,
@@ -387,7 +387,7 @@ figure>figcaption::selection {
 .container table a,
 .container dd a,
 .container dt a {
-    color: var(--accent);
+    color: var(--accent-light);
     text-decoration: none;
 }
 
@@ -403,7 +403,7 @@ figure>figcaption::selection {
 .container table a:hover,
 .container dd a:hover,
 .container dt a:hover {
-    background-color: var(--accent);
+    background-color: var(--accent-light);
     color: var(--bg);
     text-decoration: none;
 }
