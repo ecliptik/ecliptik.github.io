@@ -1,0 +1,22 @@
+FROM python:3.11-slim
+
+# Create gopher user and directory
+RUN useradd -r -u 1000 -m -s /bin/false gopher && \
+    mkdir -p /var/gopher && \
+    chown -R gopher:gopher /var/gopher
+
+# Copy gopher server script
+COPY gopher_server.py /usr/local/bin/gopher_server.py
+RUN chmod +x /usr/local/bin/gopher_server.py
+
+# Switch to gopher user
+USER gopher
+
+# Expose gopher port
+EXPOSE 7070
+
+# Set working directory
+WORKDIR /var/gopher
+
+# Run Python gopher server
+CMD ["python3", "/usr/local/bin/gopher_server.py"]

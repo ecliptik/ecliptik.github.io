@@ -9,14 +9,13 @@ services:
       - gopher-test
 
   gopher:
-    image: prologic/gophernicus:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.gopher
     ports:
-      - "70:70"
+      - "7070:7070"
     volumes:
       - ./_gopher:/var/gopher:ro
-    environment:
-      - GOPHER_ROOT=/var/gopher
-      - GOPHER_HOSTNAME=localhost
     networks:
       - gopher-test
     restart: unless-stopped

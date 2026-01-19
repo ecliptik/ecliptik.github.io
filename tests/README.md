@@ -17,27 +17,33 @@ bash tests/verify_gopher.sh
 docker compose -f docker-compose.gopher.yml up -d
 ```
 
-### Test with Curl
+### Test with Netcat
 ```bash
 # Test root gophermap
-curl gopher://localhost:70/
+echo "" | nc localhost 7070
 
 # Test blog index
-curl gopher://localhost:70/1/blog
+echo "/blog" | nc localhost 7070
 
 # Test a specific post
-curl gopher://localhost:70/0/blog/2025/2025-01-28-A-Macintosh-Story.txt
+echo "/blog/2025/2025-01-28-A-Macintosh-Story.txt" | nc localhost 7070
 
 # Test tags
-curl gopher://localhost:70/1/tags
+echo "/tags" | nc localhost 7070
 
 # Test a specific tag
-curl gopher://localhost:70/1/tags/macintosh
+echo "/tags/macintosh" | nc localhost 7070
+```
+
+### Test with Curl (if curl supports gopher)
+```bash
+# Note: curl gopher support varies by platform
+curl gopher://localhost:7070/
 ```
 
 ### Test with Lynx Browser
 ```bash
-lynx gopher://localhost:70
+lynx gopher://localhost:7070
 ```
 
 ### Stop Docker Stack
@@ -62,19 +68,32 @@ docker compose -f docker-compose.gopher.yml down
 - `g` = GIF image
 - `I` = Generic image (PNG, JPG)
 
+## Server Details
+
+The Docker test stack uses a custom Python gopher server (RFC1436-compliant):
+- **Port**: 7070 (non-privileged port, easier for testing)
+- **Image**: python:3.11-slim with custom gopher_server.py
+- **Features**: Directory listings, gophermap parsing, text file serving
+
+### Why Port 7070?
+Port 70 is the standard gopher port but requires root privileges. The test server uses port 7070 to:
+- Avoid needing root/sudo
+- Work in non-privileged Docker containers
+- Prevent conflicts with system gopher servers
+
 ## Troubleshooting
 
-### Port 70 Already in Use
+### Port 7070 Already in Use
 ```bash
-# Find process using port 70
-sudo lsof -i :70
+# Find process using port 7070
+sudo lsof -i :7070
 
 # Or change port in docker-compose.gopher.yml
 ports:
-  - "7070:70"
+  - "8070:7070"
 
 # Then access with:
-curl gopher://localhost:7070/
+echo "" | nc localhost 8070
 ```
 
 ### Regenerate All Content
