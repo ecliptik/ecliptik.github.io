@@ -1,13 +1,4 @@
 services:
-  jekyll:
-    build: .
-    ports:
-      - "4000:4000"
-    volumes:
-      - .:/app
-    networks:
-      - gopher-test
-
   gopher:
     build:
       context: .
@@ -16,12 +7,4 @@ services:
       - "7070:7070"
     volumes:
       - ./_gopher:/var/gopher:ro
-    networks:
-      - gopher-test
     restart: unless-stopped
-    depends_on:
-      - jekyll
-
-networks:
-  gopher-test:
-    driver: bridge
