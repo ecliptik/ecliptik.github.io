@@ -1,12 +1,6 @@
 ---
 layout: default
 ---
-<nav class="breadcrumb" aria-label="Breadcrumb navigation">
-  <a href="/">~</a> <span class="breadcrumb-separator">></span>
-  <a href="/blog/">blog</a> <span class="breadcrumb-separator">></span>
-  <a href="/blog/{{ page.date | date: '%Y' }}/">{{ page.date | date: "%Y" }}</a> <span class="breadcrumb-separator">></span>
-  <span class="breadcrumb-current">{{ page.title | truncate: 50 }}</span>
-</nav>
 <h1>{{ page.title }}</h1>
 <h4>{{ page.date | date: "%b %d, %Y" }}
 [

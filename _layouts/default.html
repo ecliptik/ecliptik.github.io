@@ -47,6 +47,10 @@
           {% assign breadcrumb = "~/about" %}
         {%elsif page.url == "/contact/" %}
           {% assign breadcrumb = "~/contact" %}
+        {%elsif page.layout == "post" %}
+          {% assign post_year = page.date | date: "%Y" %}
+          {% assign post_slug = page.url | split: "/" | last %}
+          {% assign breadcrumb = "~/blog/" | append: post_year | append: "/" | append: post_slug %}
         {% else %}
           {% assign breadcrumb = "~/blog" %}
         {% endif %}
