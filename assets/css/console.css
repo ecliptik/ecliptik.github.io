@@ -374,6 +374,23 @@ figure>figcaption::selection {
     color: var(--text);
 }
 
+/* Body and content links use accent-light */
+.content-column-content a,
+main a,
+article a,
+.post a {
+    color: var(--accent-light);
+    text-decoration: none;
+}
+
+.content-column-content a:hover,
+main a:hover,
+article a:hover,
+.post a:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
 /* Terminal prompt colors */
 .prompt-user { color: var(--pygments-eight); }  /* Yellow/orange */
 .prompt-path { color: var(--pygments-six); }    /* Cyan */
