@@ -749,8 +749,9 @@ figure>figcaption::selection {
 }
 
 .terminal-header-line .terminal-menu {
-    display: flex;
+    display: flex !important;
     flex-grow: 1;
+    flex-shrink: 0;
     justify-content: flex-end;
     margin: 0 !important;
     padding: 0;
@@ -794,11 +795,11 @@ figure>figcaption::selection {
     line-height: 1;
 }
 
-.terminal-menu {
+.terminal-nav > .terminal-menu {
     width: 100%;
 }
 
-.terminal-menu ul {
+.terminal-nav > .terminal-menu ul {
     list-style-type: none;
     padding: 0 !important;
     display: flex;
