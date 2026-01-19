@@ -779,6 +779,14 @@ figure>figcaption::selection {
 .terminal-header-line .terminal-menu li a:not(.btn) {
     display: inline !important;
     width: auto !important;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.terminal-header-line .terminal-menu li a:not(.btn):hover {
+    background-color: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
 }
 
 .terminal-header-line .theme-toggle {
