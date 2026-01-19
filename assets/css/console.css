@@ -789,6 +789,12 @@ figure>figcaption::selection {
     text-decoration: none;
 }
 
+/* Increase clickable area for home link (~) without changing alignment */
+.terminal-header-line .terminal-menu li:first-child a {
+    padding: 0.5em 1em;
+    margin: -0.5em -1em;
+}
+
 .terminal-header-line .theme-toggle {
     flex-shrink: 0;
     margin: 0;
