@@ -245,7 +245,11 @@ strong {
 }
 
 .logo {
-    font-weight: normal;
+    font-weight: bold;
+}
+
+.logo a:hover {
+    font-weight: bold;
 }
 
 .terminal-menu li {
@@ -412,7 +416,7 @@ figure>figcaption::selection {
 }
 
 /* Terminal prompt colors */
-.prompt-user { color: var(--pygments-eight); }  /* Yellow/orange */
+.prompt-user { color: var(--pygments-eight); font-weight: bold; }  /* Yellow/orange */
 .prompt-path { color: var(--accent); }          /* Blue */
 .prompt-arrow { color: var(--pygments-seven); } /* Red */
 
