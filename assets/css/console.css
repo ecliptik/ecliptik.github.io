@@ -412,15 +412,25 @@ figure>figcaption::selection {
 .prompt-path { color: var(--pygments-six); }    /* Cyan */
 .prompt-arrow { color: var(--pygments-seven); } /* Red */
 
-/* Prompt path links */
+/* Terminal menu links - match footer styling */
+.terminal-menu a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.terminal-menu a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Prompt path links - match footer styling */
 .prompt-path a {
-    color: var(--pygments-six);  /* Cyan - same as path */
+    color: var(--accent);
     text-decoration: none;
 }
 
 .prompt-path a:hover {
-    background-color: var(--pygments-six);  /* Cyan background */
-    color: var(--bg);  /* Background color for text - inverse */
+    color: var(--accent);
     text-decoration: none;
 }
 
