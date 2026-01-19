@@ -192,6 +192,14 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 - Disabled fuzzy search for speed
 - Theme-aware styling, accessibility improvements
 
+### Header Layout Redesign
+- Two-line header layout: email@domain on first line, breadcrumb prompt on second
+- Desktop: `micheal@ecliptik.com` (left) | `~ blog/ about/ contact/ theme-toggle` (right), then `~/path 🚀➜` below
+- Mobile: Vertical stack - logo, prompt, menu, theme-toggle with optimized spacing
+- Minimal spacing using `line-height: 1`, `align-items: flex-end`, removed padding/margins
+- Mobile uses `display: contents` with flexbox `order` for element reordering
+- Zero padding on theme toggle button, 30px menu spacing (20px mobile)
+
 ---
 
 ## Rules
