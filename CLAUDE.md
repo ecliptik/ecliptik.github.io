@@ -37,9 +37,7 @@ assets/                        # css, js, images
 - `_gemini/`, `_gopher/` (auto-generated)
 - CNAME (Cloudflare handles DNS)
 
-**CSS Reference:**
-- Development: `_layouts/default.html` uses `console.css` (unminified)
-- Production: Switch to `console.min.css` before deployment
+**CSS:** Single consolidated stylesheet (`assets/css/console.css`) - merged Terminal.css base + custom styles, no minification needed
 
 ---
 
@@ -54,26 +52,6 @@ docker compose build --no-cache   # Rebuild after Gemfile changes
 ```
 
 **Manual:** `bundle install && bundle exec jekyll serve --watch`
-
-**CSS Workflow:** Edit `assets/css/console.css` then minify:
-```bash
-python3 << 'EOF'
-import re
-with open('assets/css/console.css', 'r') as f:
-    css = f.read()
-css = re.sub(r'/\*.*?\*/', '', css, flags=re.DOTALL)
-css = re.sub(r'\s+', ' ', css)
-css = re.sub(r'\s*{\s*', '{', css)
-css = re.sub(r'\s*}\s*', '}', css)
-css = re.sub(r'\s*:\s*', ':', css)
-css = re.sub(r'\s*;\s*', ';', css)
-css = re.sub(r'\s*,\s*', ',', css)
-css = re.sub(r';\s*}', '}', css)
-css = re.sub(r'}', '}\n', css)
-with open('assets/css/console.min.css', 'w') as f:
-    f.write(css.strip())
-EOF
-```
 
 ---
 
@@ -135,8 +113,7 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 - Read `_scripts/README.md` before tag work
 - Test locally with Docker before commits
 - Use canonical lowercase tags
-- Edit console.css (unminified) during development
-- Minify and switch to console.min.css before production deployment
+- Edit `assets/css/console.css` directly (no minification needed)
 - Ask user about structural changes, new dependencies, major theme changes
 
 ---
@@ -145,7 +122,9 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 
 **URL Structure:** Year-based directories (`_posts/YYYY/`), permalinks changed to `/blog/:year/:title/`, 67 posts with redirect_from
 
-**Performance:** Removed animate.css (57KB), lazy-loaded search (~114KB), minified CSS, font-display: swap. **Result:** ~60KB reduction, 30-40% faster load
+**Stylesheet Consolidation:** Merged Terminal.css (908 lines) + console.css (718 lines) into single consolidated stylesheet (~1150 lines). Removed unused components (forms, buttons, progress bars, cards, timelines, alerts). **Result:** Simpler maintenance, no more override conflicts, clearer codebase.
+
+**Performance:** Removed animate.css (57KB), lazy-loaded search (~114KB), consolidated CSS, font-display: swap. **Result:** ~60KB reduction, 30-40% faster load
 
 **SEO & Social Media:**
 - All posts have meta descriptions and BlogPosting schema
