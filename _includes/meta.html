@@ -14,13 +14,80 @@
 <meta name="social:site" content="{{ site.links.social }}" />
 <meta name="google-site-verification" content="AQsWi26iUacMwox0Ft3U1bz1XwDxxbuCP4KwHmYh930" />
 
+{%- comment -%} Image Selection Priority {%- endcomment -%}
+{%- assign post_image = false -%}
+{%- assign image_width = 1200 -%}
+{%- assign image_height = 630 -%}
+
+{%- comment -%} Priority 1: Frontmatter image {%- endcomment -%}
+{%- if page.image -%}
+  {%- if page.image.path -%}
+    {%- assign post_image = page.image.path -%}
+    {%- if page.image.width -%}{%- assign image_width = page.image.width -%}{%- endif -%}
+    {%- if page.image.height -%}{%- assign image_height = page.image.height -%}{%- endif -%}
+  {%- else -%}
+    {%- assign post_image = page.image -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- comment -%} Priority 2: Extract first image from content {%- endcomment -%}
+{%- unless post_image -%}
+  {%- if page.content contains '<img src="/assets/images/' -%}
+    {%- assign img_parts = page.content | split: '<img src="/assets/images/' -%}
+    {%- if img_parts.size > 1 -%}
+      {%- for part in img_parts offset:1 limit:1 -%}
+        {%- assign img_file = part | split: '"' | first | strip -%}
+        {%- assign post_image = "/assets/images/" | append: img_file -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endunless -%}
+
+{%- comment -%} Priority 3: Site default {%- endcomment -%}
+{%- unless post_image -%}
+  {%- assign post_image = site.image.path -%}
+  {%- assign image_width = site.image.width -%}
+  {%- assign image_height = site.image.height -%}
+{%- endunless -%}
+
+{%- assign post_image_url = site.url | append: post_image -%}
+{%- assign twitter_card_type = "summary_large_image" -%}
+{%- if post_image == site.image.path -%}
+  {%- assign twitter_card_type = "summary" -%}
+{%- endif -%}
+
 <!-- Twitter Card meta tags -->
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="{{ twitter_card_type }}" />
 <meta name="twitter:site" content="@micheal@ecliptik.com" />
 <meta name="twitter:creator" content="@micheal@ecliptik.com" />
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
 <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
-<meta name="twitter:image" content="{{ site.url }}{{ site.image.path }}" />
+<meta name="twitter:image" content="{{ post_image_url }}" />
+{%- if post_image != site.image.path -%}
+<meta name="twitter:image:alt" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+{%- endif -%}
+
+<!-- Open Graph meta tags -->
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:site_name" content="{{ site.title }}" />
+<meta property="og:image" content="{{ post_image_url }}" />
+<meta property="og:image:width" content="{{ image_width }}" />
+<meta property="og:image:height" content="{{ image_height }}" />
+{%- if post_image != site.image.path -%}
+<meta property="og:image:alt" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+{%- endif -%}
+{%- if page.layout == 'post' -%}
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+<meta property="article:author" content="{{ site.author.name }}" />
+{%- if page.tags -%}
+  {%- for tag in page.tags -%}
+<meta property="article:tag" content="{{ tag }}" />
+  {%- endfor -%}
+{%- endif -%}
+{%- endif -%}
 
 {%if page.url == "/" %}
 {% else %}
@@ -40,6 +107,36 @@
       }]
     }]
 </script>
+
+{%- if page.layout == 'post' and post_image != site.image.path -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "description": "{% if page.description %}{{ page.description | escape }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}{% endif %}",
+  "image": "{{ post_image_url }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.image.path }}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  }
+}
+</script>
+{%- endif -%}
 {% endif %}
 
 {% seo %}

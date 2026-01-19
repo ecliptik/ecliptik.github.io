@@ -11,16 +11,12 @@ author:
   url: https://www.ecliptik.com
 
 image:
-  path: /assets/images/shared/pi-small.jpg
-  height: 100
-  width: 75
-  alt: pi-small.jpg
+  path: /assets/images/shared/og-default.jpg
+  height: 630
+  width: 1200
+  alt: micheal@ecliptik.com - Personal tech blog
 
 defaults:
-  - scope:
-      path: ""
-    values:
-      image: /assets/images/shared/pi-small.jpg
   - scope:
       path: ""
       type: "posts"
