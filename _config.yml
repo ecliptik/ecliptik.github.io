@@ -88,6 +88,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-redirect-from
 
 # Include well-known directory, pages, and headers
 include: [".well-known", "_pages", "_headers"]
