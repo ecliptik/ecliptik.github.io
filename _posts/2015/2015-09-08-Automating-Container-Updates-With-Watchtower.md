@@ -16,7 +16,7 @@ There are a variety of tools to use in this situation, [Ansible](https://ansible
 
 That's where [Watchtower](https://labs.ctl.io/watchtower-automatic-updates-for-docker-containers/) comes in.
 
-![Watchtower](/assets/images/posts/watchtower.jpg)
+![Watchtower](/assets/images/posts/automating-container-updates-with-watchtower/watchtower.jpg)
 
 ## Simple Case Study
 

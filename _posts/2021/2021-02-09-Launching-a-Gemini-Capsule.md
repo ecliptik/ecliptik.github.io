@@ -147,7 +147,7 @@ Adding 2015-08-21-Decompiling-Interactive-Fiction.gmi with title 'Decompiling In
 Wrote Atom feed to ../_gemini/_posts/feed.xml.
 ```
 
-![Gemlog in Lagrange](/assets/images/posts/gemlog-in-lagrange.png)
+![Gemlog in Lagrange](/assets/images/posts/launching-a-gemini-capsule/gemlog-in-lagrange.png)
 <figure><figcaption>Gemlog in Lagrange</figcaption></figure>
 
 ## What's Next

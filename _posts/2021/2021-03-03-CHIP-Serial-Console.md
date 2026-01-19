@@ -24,7 +24,7 @@ I also wanted to [install OpenBSD onto a RaspberryPi 3](https://brainsnapped.com
 
 Following the Hackernoon post, and using the [RPI GPIO documentation](https://www.raspberrypi.org/documentation/usage/gpio/), I soldered some lead pins onto the CHIPs `5V`, `GND`, `TXD` and `RXD` breakout at the top, made some basic GPIO wires and hooked it all up. Using the `5V` has the added benefit of powering the RaspberryPi from the CHIP battery, which in makes both of them portable.
 
-![C.H.I.P. Serial Console](/assets/images/posts/pocket-chip-serial.png)
+![C.H.I.P. Serial Console](/assets/images/posts/chip-serial-console/pocket-chip-serial.png)
 <figure><figcaption>C.H.I.P. Serial Console</figcaption></figure>
 
 ## Software

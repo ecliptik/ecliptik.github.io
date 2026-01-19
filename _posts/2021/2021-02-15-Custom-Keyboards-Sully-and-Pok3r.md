@@ -24,7 +24,7 @@ Back in 2013 I convinced my boss that I needed a high-end mechanical keyboard to
 
 After spending some time on [r/MechanicalKeyboards](https://www.reddit.com/r/MechanicalKeyboards/) I got the itch to customize it and bought some blank PBT DSA keys in teal and purple, calling it "Sully".
 
-![Sully](/assets/images/posts/sully.jpg)
+![Sully](/assets/images/posts/custom-keyboards-sully-and-pok3r/sully.jpg)
 <figure><figcaption>Sully</figcaption></figure>
 
 Sully was a fantastic board and I used it up until 2019 when I discovered even smaller form factors like 60%. It's still used in our house, but mostly as a kids toy, demostrating just how well-built it is.

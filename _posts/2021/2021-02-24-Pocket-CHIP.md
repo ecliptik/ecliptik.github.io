@@ -18,7 +18,7 @@ redirect_from: /Pocket-CHIP/
 
 Recently I got a [Pocket C.H.I.P.](https://shop.pocketchip.co/) with the idea of making it mini terminal on my desk, displaying things like weather, new email, new mastodon toots, etc. It comes pre-loaded with some basic software: terminal, [pico8](https://www.lexaloffle.com/pico-8.php), and a few other utilities. Because it was released in 2017 and the demise of the original Next Thing the software on it is out-of-date, running Debian 8 and an older version of pico8.
 
-![Pocket C.H.I.P.](/assets/images/posts/pocket-chip.png)
+![Pocket C.H.I.P.](/assets/images/posts/pocket-chip/pocket-chip.png)
 <figure><figcaption>Pocket C.H.I.P.</figcaption></figure>
 
 I wanted to updated it to at least Debian 10, and found a [working guide](https://gist.github.com/luzhuomi/526fbcc30f3522f09eacf20d0f776fa5) which follows the basic Debian upgrade process as well as some fixes for common issues like Xorg configs and updating wifi settings.
@@ -168,7 +168,7 @@ Restart `lightdm` and it will restart the C.H.I.P. with the new window manager.
 sudo systemctl restart lightdm
 ```
 
-![Fluxbox on PocketCHIP](/assets/images/posts/fluxbox-chip.png)
+![Fluxbox on PocketCHIP](/assets/images/posts/pocket-chip/fluxbox-chip.png)
 <figure><figcaption>Fluxbox on PocketChip</figcaption></figure>
 
 
