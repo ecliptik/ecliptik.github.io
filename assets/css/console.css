@@ -487,18 +487,50 @@ body, a, .btn-ghost, .terminal-nav, .terminal-menu, .footer {
         align-items: flex-start;
         flex-direction: column;
         display: flex;
+        row-gap: 0 !important;
     }
 
     .terminal-header-line {
-        flex-direction: column;
-        align-items: flex-start;
+        display: contents;
+    }
+
+    .terminal-header-line .terminal-logo {
+        order: 1;
+        margin-bottom: 0.25em;
+    }
+
+    .terminal-header-line .terminal-menu {
+        order: 2;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .terminal-prompt-line {
+        order: 3;
+        margin-bottom: 0;
+    }
+
+    .terminal-header-line .theme-toggle {
+        order: 4;
+        margin-top: 1em;
+        margin-bottom: 1em;
     }
 
     .terminal-header-line .terminal-menu li {
         margin-right: 20px;
+        margin-bottom: 0 !important;
     }
 
     .terminal-header-line .logo {
+        padding: 0 !important;
+    }
+
+    .terminal-header-line .terminal-menu ul {
+        align-items: flex-end !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        margin: 0 !important;
         padding: 0 !important;
     }
 
