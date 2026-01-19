@@ -13,7 +13,7 @@ _config.yml              # Jekyll configuration
 _layouts/                # HTML layouts
 _includes/               # Reusable components
 _pages/                  # Site pages (about, contact, blog)
-_posts/                  # Blog posts (*.md and *.html from 2004+)
+_posts/YYYY/             # Blog posts organized by year (*.md and *.html from 2004+)
 _scripts/                # tag_generator.py, updatesmallweb.sh
 _gemini/, _gopher/       # Auto-generated (DO NOT MODIFY)
 tag/                     # Auto-generated tag pages
@@ -150,6 +150,8 @@ _scripts/updatesmallweb.sh -t all
 ## Git Workflow
 
 Branches: `feature/`, `cleanup/`, `fix/` → `main`
+
+**IMPORTANT:** Do not GPG-sign commits. Use `git commit --no-gpg-sign` or `git commit -m`.
 
 Commit style:
 ```
