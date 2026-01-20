@@ -5,12 +5,6 @@ description: Building a mini-desktop terminal with a Pocket C.H.I.P.
 category: chip
 tags: chip hack 100daystooffload
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  106011231236382834
 redirect_from: /Pocket-CHIP-Terminal-Dashboard/
 ---
 

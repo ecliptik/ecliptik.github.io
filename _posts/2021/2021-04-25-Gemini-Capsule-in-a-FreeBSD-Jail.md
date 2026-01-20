@@ -5,12 +5,6 @@ description: Running a Gemini capsule in a FreeBSD jail
 category: hack
 tags: freebsd hack gemini 100daystooffload
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  106130559129256903
 redirect_from: /Gemini-Capsule-in-a-FreeBSD-Jail/
 ---
 

@@ -5,12 +5,6 @@ description: Building a portable serial console with a Pocket C.H.I.P.
 category: chip
 tags: chip openbsd 100daystooffload hack raspberrypi
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  105830175973621499
 redirect_from: /CHIP-Serial-Console/
 ---
 

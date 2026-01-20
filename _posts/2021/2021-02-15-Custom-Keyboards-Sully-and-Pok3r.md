@@ -5,12 +5,6 @@ description: Showing off two of my mechanical keyboards
 category: technology
 tags: keyboards technology qmk hardware 100daystooffload
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  105740118192056355
 redirect_from: /Custom-Keyboards-Sully-and-Pok3r/
 ---
 

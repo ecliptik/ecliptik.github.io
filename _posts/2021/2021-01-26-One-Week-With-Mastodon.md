@@ -5,12 +5,6 @@ description: Experience of using Mastodon for a week
 category: mastodon
 tags: mastodon fediverse 100daystooffload
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  105626739761251196
 redirect_from: /One-Week-With-Mastodon/
 ---
 

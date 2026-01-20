@@ -4,12 +4,6 @@ title: Making a Gopherhole and Phlog
 description: Experience of setting up a Gopherhole for this blog
 category: gopher
 tags: gopher 100daystooffload
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  105652970406443377
 redirect_from: /Making-a-Gopherhole-and-Phlog/
 ---
 

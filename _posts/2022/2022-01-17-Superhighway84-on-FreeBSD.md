@@ -5,12 +5,6 @@ description: Setting up Superhighway84 on FreeBSD.
 category: bsd
 tags: freebsd smolweb ipfs
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  107642122120401193
 redirect_from: /Superhighway84-on-FreeBSD/
 ---
 

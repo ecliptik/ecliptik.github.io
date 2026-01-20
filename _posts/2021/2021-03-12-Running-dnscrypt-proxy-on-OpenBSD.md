@@ -5,12 +5,6 @@ description: Setting up dnscrypt-proxy with OpenBSD running on a RaspberryPi
 category: hack
 tags: openbsd raspberrypi hack dns 100daystooffload
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  105880046333621858
 redirect_from: /Running-dnscrypt-proxy-on-OpenBSD/
 ---
 

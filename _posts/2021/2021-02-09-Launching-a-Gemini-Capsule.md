@@ -5,12 +5,6 @@ description: Experience of creating a Gemini capsule for this blog
 category: gemini
 tags: gemini smolweb 100daystooffload
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  105705673465664725
 redirect_from: /Launching-a-Gemini-Capsule/
 ---
 

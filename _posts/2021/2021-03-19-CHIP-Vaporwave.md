@@ -5,12 +5,6 @@ description: Playing vaporwave videos in the framebuffer of a Pocket C.H.I.P.
 category: hack
 tags: chip hack 100daystooffload
 toc: true
-
-comments:
-  show:  true
-  fediHost:  fosstodon.org
-  fediusername:  ecliptik
-  fediid:  105915488359029065
 redirect_from: /CHIP-Vaporwave/
 ---
 
