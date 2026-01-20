@@ -1065,10 +1065,6 @@ class GeminiGenerator:
         builder.add_heading("Other Protocols", level=2)
         builder.add_link("https://www.ecliptik.com", "Web (HTTPS)")
         builder.add_link("gopher://gopher.club:70/1/users/ecliptik/", "Gopher")
-        builder.add_blank_line()
-
-        # Add footer
-        builder.add_text("Made with Jekyll and gemini_generator.py")
 
         # Write index.gmi
         output_path = os.path.join(self.config.output_dir, 'index.gmi')
