@@ -14,13 +14,13 @@ You must generate them locally before starting the Docker container.
 
 ```bash
 # From the repository root:
-./.docker/gemini/certs/generate-certs.sh
+./smallweb/gemini/config/certs/generate-certs.sh
 ```
 
 ### Manual Generation
 
 ```bash
-cd .docker/gemini/certs
+cd smallweb/gemini/config/certs
 openssl req -x509 -newkey rsa:2048 \
     -keyout key.pem \
     -out cert.pem \

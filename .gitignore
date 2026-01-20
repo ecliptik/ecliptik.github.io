@@ -11,5 +11,5 @@ _gopher/
 _scripts/__pycache__/
 *.log
 privkey.pem
-.docker/gemini/certs/*.pem
-.docker/gemini/logs/
+smallweb/gemini/config/certs/*.pem
+smallweb/gemini/config/logs/

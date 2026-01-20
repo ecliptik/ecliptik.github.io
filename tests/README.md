@@ -25,7 +25,7 @@ bash tests/verify_gopher.sh
 
 ### Start Docker Test Stack
 ```bash
-docker compose -f docker-compose.gopher.yml up -d
+docker compose -f smallweb/gopher/docker-compose.yml up -d
 ```
 
 ### Test with Netcat
@@ -59,7 +59,7 @@ lynx gopher://localhost:7070
 
 ### Stop Docker Stack
 ```bash
-docker compose -f docker-compose.gopher.yml down
+docker compose -f smallweb/gopher/docker-compose.yml down
 ```
 
 ## Expected Results
@@ -114,7 +114,7 @@ python3 _scripts/manage.py gopher --force
 
 ### View Gopher Server Logs
 ```bash
-docker compose -f docker-compose.gopher.yml logs -f gopher
+docker compose -f smallweb/gopher/docker-compose.yml logs -f gopher
 ```
 
 ---
@@ -142,7 +142,7 @@ bash tests/verify_gemini.sh
 
 #### Start Docker Test Stack
 ```bash
-docker compose -f docker-compose.gemini.yml up -d
+docker compose -f smallweb/gemini/docker-compose.yml up -d
 ```
 
 #### Test with Gemini Clients
@@ -194,7 +194,7 @@ amfora gemini://localhost:1965/contact.gmi
 
 #### Stop Docker Stack
 ```bash
-docker compose -f docker-compose.gemini.yml down
+docker compose -f smallweb/gemini/docker-compose.yml down
 ```
 
 ### Expected Results
@@ -271,7 +271,7 @@ python3 _scripts/manage.py gemini --force
 
 #### View Gemini Server Logs
 ```bash
-docker compose -f docker-compose.gemini.yml logs -f gemini
+docker compose -f smallweb/gemini/docker-compose.yml logs -f gemini
 ```
 
 #### Verification Warnings

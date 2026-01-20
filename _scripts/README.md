@@ -136,7 +136,7 @@ python3 _scripts/manage.py gopher
 bash tests/verify_gopher.sh
 
 # Start Docker test server
-docker compose -f docker-compose.gopher.yml up -d
+docker compose -f smallweb/gopher/docker-compose.yml up -d
 
 # Test with netcat
 echo "" | nc localhost 7070
@@ -145,7 +145,7 @@ echo "" | nc localhost 7070
 bombadillo gopher://localhost:7070
 
 # Stop server
-docker compose -f docker-compose.gopher.yml down
+docker compose -f smallweb/gopher/docker-compose.yml down
 ```
 
 **Deploy to SDF.org:**
@@ -377,9 +377,9 @@ _gemini/
 bash tests/verify_gemini.sh
 
 # Test with Docker
-docker compose -f docker-compose.gemini.yml up -d
+docker compose -f smallweb/gemini/docker-compose.yml up -d
 amfora gemini://localhost:1965/
-docker compose -f docker-compose.gemini.yml down
+docker compose -f smallweb/gemini/docker-compose.yml down
 ```
 
 **Deploy to SDF.org:**

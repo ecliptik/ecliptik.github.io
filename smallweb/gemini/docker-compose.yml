@@ -1,0 +1,16 @@
+services:
+  gemini:
+    build:
+      context: ../..
+      dockerfile: smallweb/gemini/Dockerfile
+    ports:
+      - "1965:1965"
+    volumes:
+      # Mount gemini content
+      - ../../_gemini:/var/gemini:ro
+      # Mount config
+      - ./config/molly.conf:/gemini/molly.conf:ro
+      # Persist certs and logs within repo
+      - ./config/certs:/gemini/certs
+      - ./config/logs:/gemini/logs
+    restart: unless-stopped

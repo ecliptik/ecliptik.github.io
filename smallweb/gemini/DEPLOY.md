@@ -37,10 +37,10 @@ bash tests/verify_gemini.sh
 
 ```bash
 # Generate self-signed certificates for local testing
-./.docker/gemini/certs/generate-certs.sh
+./smallweb/gemini/config/certs/generate-certs.sh
 
 # Or manually:
-cd .docker/gemini/certs
+cd smallweb/gemini/config/certs
 openssl req -x509 -newkey rsa:2048 \
     -keyout key.pem \
     -out cert.pem \
@@ -56,10 +56,10 @@ openssl req -x509 -newkey rsa:2048 \
 
 ```bash
 # Start molly-brown server
-docker compose -f docker-compose.gemini.yml up -d
+docker compose -f smallweb/gemini/docker-compose.yml up -d
 
 # View logs
-docker compose -f docker-compose.gemini.yml logs -f
+docker compose -f smallweb/gemini/docker-compose.yml logs -f
 
 # Test with gemini client (choose one):
 # - Using a command-line client
@@ -75,7 +75,7 @@ amfora gemini://localhost:1965/
 lagrange gemini://localhost:1965/
 
 # Stop server
-docker compose -f docker-compose.gemini.yml down
+docker compose -f smallweb/gemini/docker-compose.yml down
 ```
 
 ## Tailscale Testing
@@ -87,7 +87,7 @@ The Docker container is configured with hostname `jezebel` for testing from othe
 # No need to regenerate gemini content
 
 # Start Docker test server
-docker compose -f docker-compose.gemini.yml up -d
+docker compose -f smallweb/gemini/docker-compose.yml up -d
 
 # Test from laptop or other Tailscale device
 # Using bombadillo
@@ -103,7 +103,7 @@ lagrange gemini://jezebel:1965/
 echo "" | openssl s_client -connect jezebel:1965 -servername jezebel -quiet
 
 # Stop server
-docker compose -f docker-compose.gemini.yml down
+docker compose -f smallweb/gemini/docker-compose.yml down
 ```
 
 **Note:** The TLS certificates include `jezebel` and `jezebel.hale-gopher.ts.net` in the Subject Alternative Names, so they will validate correctly when accessed via Tailscale hostname.
@@ -221,9 +221,9 @@ rsync -avz --delete _gemini/ username@sdf.org:gemini/
 
 # With Docker testing
 python3 _scripts/manage.py gemini
-docker compose -f docker-compose.gemini.yml up -d
+docker compose -f smallweb/gemini/docker-compose.yml up -d
 amfora gemini://localhost:1965/
-docker compose -f docker-compose.gemini.yml down
+docker compose -f smallweb/gemini/docker-compose.yml down
 
 # Production deployment
 python3 _scripts/manage.py gemini \
@@ -249,12 +249,12 @@ python3 _scripts/manage.py gemini --force
 
 ```bash
 # Check logs
-docker compose -f docker-compose.gemini.yml logs
+docker compose -f smallweb/gemini/docker-compose.yml logs
 
 # Rebuild
-docker compose -f docker-compose.gemini.yml down
-docker compose -f docker-compose.gemini.yml build --no-cache
-docker compose -f docker-compose.gemini.yml up -d
+docker compose -f smallweb/gemini/docker-compose.yml down
+docker compose -f smallweb/gemini/docker-compose.yml build --no-cache
+docker compose -f smallweb/gemini/docker-compose.yml up -d
 ```
 
 ### Permissions errors on SDF.org

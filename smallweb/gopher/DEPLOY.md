@@ -9,7 +9,7 @@ Quick reference for deploying gopher content to production.
 python3 _scripts/manage.py gopher
 
 # 2. Start Docker test server
-docker compose -f docker-compose.gopher.yml up -d
+docker compose -f smallweb/gopher/docker-compose.yml up -d
 
 # 3. Test with bombadillo
 bombadillo gopher://localhost:7070
@@ -19,7 +19,7 @@ echo "" | nc localhost 7070
 echo "/blog" | nc localhost 7070
 
 # 5. Stop server
-docker compose -f docker-compose.gopher.yml down
+docker compose -f smallweb/gopher/docker-compose.yml down
 ```
 
 ## Tailscale Testing
@@ -31,14 +31,14 @@ Test from other devices on your Tailscale network:
 python3 _scripts/manage.py gopher --host jezebel --port 7070
 
 # 2. Start Docker test server
-docker compose -f docker-compose.gopher.yml up -d
+docker compose -f smallweb/gopher/docker-compose.yml up -d
 
 # 3. Test from laptop or other Tailscale device
 bombadillo gopher://jezebel:7070
 echo "" | nc jezebel 7070
 
 # 4. Stop server
-docker compose -f docker-compose.gopher.yml down
+docker compose -f smallweb/gopher/docker-compose.yml down
 ```
 
 Replace `jezebel` with your Tailscale hostname.

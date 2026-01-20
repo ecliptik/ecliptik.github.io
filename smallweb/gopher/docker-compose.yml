@@ -1,10 +1,10 @@
 services:
   gopher:
     build:
-      context: .
-      dockerfile: Dockerfile.gopher
+      context: ../..
+      dockerfile: smallweb/gopher/Dockerfile
     ports:
       - "7070:7070"
     volumes:
-      - ./_gopher:/var/gopher:ro
+      - ../../_gopher:/var/gopher:ro
     restart: unless-stopped

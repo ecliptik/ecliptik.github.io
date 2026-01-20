@@ -6,7 +6,7 @@ RUN useradd -r -u 1000 -m -s /bin/false gopher && \
     chown -R gopher:gopher /var/gopher
 
 # Copy gopher server script
-COPY gopher_server.py /usr/local/bin/gopher_server.py
+COPY smallweb/gopher/gopher_server.py /usr/local/bin/gopher_server.py
 RUN chmod +x /usr/local/bin/gopher_server.py
 
 # Switch to gopher user
