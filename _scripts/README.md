@@ -316,12 +316,85 @@ Generate gopher content with `python3 _scripts/manage.py gopher`:
 
 See above for detailed usage and `tests/README.md` for testing.
 
-### Gemini Protocol (Planned)
+### Gemini Protocol (Implemented)
 
-Will reuse abstractions from gopher generator:
-- Gemtext format conversion
-- Capsule structure mirroring Jekyll site
-- Image handling
-- Navigation gemberlogs
+Generate gemini capsule content from Jekyll posts.
 
-**Current workaround:** Use `_scripts/deprecated/updatesmallweb.sh` for gemini conversion
+**Basic usage (localhost testing):**
+```bash
+python3 _scripts/manage.py gemini
+```
+
+**Production deployment (SDF.org):**
+```bash
+python3 _scripts/manage.py gemini --host sdf.org --port 1965 --base-url "gemini://sdf.org/ecliptik/"
+```
+
+**Options:**
+- `--host HOST` - Gemini host (default: localhost)
+- `--port PORT` - Gemini port (default: 1965)
+- `--base-url URL` - Full base URL (overrides host/port)
+- `--force` - Force regeneration of all files
+
+**What it does:**
+- Scans `_posts/` for markdown posts (30 posts)
+- Converts markdown to gemtext format (.gmi files)
+- Generates gemini capsule in `_gemini/` directory
+- Creates year archives (8 years: 2011, 2015, 2017, 2021-2025)
+- Creates tag pages (63 tags)
+- Creates navigation indexes (root, blog, tags)
+- Converts static pages (about, contact)
+
+**Key features:**
+- Native gemtext format (not plaintext like gopher)
+- NO line wrapping (gemini clients handle it)
+- Link syntax: `=> URL optional text`
+- Heading syntax: `#` (h1), `##` (h2), `###` (h3)
+- Preserves ASCII art header from `_gemini/_layouts/gem_header`
+- Reuses abstractions from `smallweb_core.py`
+
+**Output structure:**
+```
+_gemini/
+├── index.gmi                 # Root page with navigation
+├── about.gmi                 # Static pages
+├── contact.gmi
+├── blog/
+│   ├── index.gmi             # Year list
+│   ├── 2025/
+│   │   ├── index.gmi         # Posts in 2025
+│   │   └── *.gmi             # Individual posts
+│   └── ...
+└── tags/
+    ├── index.gmi             # Tag list
+    ├── linux.gmi             # Tag pages
+    └── ...
+```
+
+**Testing:**
+```bash
+# Verify generation
+bash tests/verify_gemini.sh
+
+# Test with Docker
+docker compose -f docker-compose.gemini.yml up -d
+amfora gemini://localhost:1965/
+docker compose -f docker-compose.gemini.yml down
+```
+
+**Deploy to SDF.org:**
+```bash
+# Generate for production
+python3 _scripts/manage.py gemini --host sdf.org --base-url "gemini://sdf.org/ecliptik/"
+
+# Upload
+rsync -avz --delete _gemini/ username@sdf.org:gemini/
+
+# Set permissions
+ssh username@sdf.org 'chmod -R a+rX ~/gemini/'
+```
+
+**See also:**
+- `GEMINI_DEPLOY.md` - Full deployment guide
+- `tests/README.md` - Testing documentation
+- `_scripts/gemini_generator.py` - Implementation details
