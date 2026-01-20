@@ -250,7 +250,7 @@ body, a, .btn-ghost, .terminal-nav, .terminal-menu, .footer {
 }
 
 h1, h2, h3 {
-    color: var(--accent-light);
+    color: var(--preformatted);
 }
 
 h1::before {
