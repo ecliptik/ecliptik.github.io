@@ -261,7 +261,7 @@ class GeminiConverter(SmallWebConverter):
                 return f.read().strip()
         else:
             # Fallback ASCII art
-            return """```
+            return r"""```
 =====================================================================
              ___       __  _ __
   ___  _____/ (_)___  / /_(_) /__
@@ -406,14 +406,17 @@ class GeminiConverter(SmallWebConverter):
                 output.append(line)
                 continue
 
-            # Convert lists (unordered and ordered)
+            # Convert links and images FIRST (before list processing)
+            line = self._convert_links_and_images(line, metadata)
+
+            # Convert lists (unordered and ordered) AFTER link conversion
             list_match = re.match(r'^(\s*)([-*+]|\d+\.)\s+(.+)$', line)
             if list_match:
-                output.append(f"* {list_match.group(3)}")
+                item_text = list_match.group(3)
+                # Strip any remaining markdown from list items
+                item_text = self._strip_emphasis(item_text)
+                output.append(f"* {item_text}")
                 continue
-
-            # Convert links and images
-            line = self._convert_links_and_images(line, metadata)
 
             # Strip emphasis markers
             line = self._strip_emphasis(line)
@@ -428,7 +431,15 @@ class GeminiConverter(SmallWebConverter):
             # Add line (no wrapping - gemini clients handle it)
             output.append(line)
 
-        return '\n'.join(output)
+        # Remove consecutive duplicate lines (from HTML artifacts)
+        cleaned_output = []
+        prev_line = None
+        for line in output:
+            if line != prev_line or line.strip() == "":
+                cleaned_output.append(line)
+            prev_line = line
+
+        return '\n'.join(cleaned_output)
 
     def _remove_frontmatter(self, content: str) -> str:
         """Remove YAML frontmatter from content."""
@@ -466,6 +477,9 @@ class GeminiConverter(SmallWebConverter):
             return f"=> {full_url} {alt}"
 
         line = re.sub(r'!\[([^\]]*)\]\(([^\)]+)\)', replace_image, line)
+
+        # Remove empty link brackets: [](url) → ""
+        line = re.sub(r'\[\]\([^\)]+\)', '', line)
 
         # Convert links: [text](url) → => url text
         def replace_link(match):
@@ -508,6 +522,10 @@ class GeminiConverter(SmallWebConverter):
         Returns:
             Line with HTML tags removed
         """
+        # Skip lines that are only HTML tags (figure captions, etc.)
+        if re.match(r'^\s*<[^>]+>.*<[^>]+>\s*$', line):
+            return ""
+
         # Remove HTML tags completely
         line = re.sub(r'<[^>]+>', '', line)
         return line
@@ -618,8 +636,35 @@ class GeminiGenerator:
             posts: List of post metadata
         """
         print("\nGenerating posts...")
-        # Placeholder - will be implemented in Phase 3
-        pass
+
+        for post in posts:
+            # Read post content
+            try:
+                with open(post.filepath, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            except Exception as e:
+                print(f"  ✗ Error reading {post.filepath}: {e}")
+                continue
+
+            # Convert to gemtext
+            gemtext = self.converter.convert_post(post, content)
+
+            # Write to output file
+            output_path = os.path.join(
+                self.config.output_dir,
+                'blog',
+                post.year,
+                post.gemini_filename
+            )
+
+            try:
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(gemtext)
+                print(f"  ✓ {post.year}/{post.gemini_filename}")
+            except Exception as e:
+                print(f"  ✗ Error writing {output_path}: {e}")
+
+        print(f"  Generated {len(posts)} posts")
 
     def generate_year_archives(self, posts: List[PostMetadata]):
         """
