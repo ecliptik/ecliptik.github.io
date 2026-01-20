@@ -850,10 +850,15 @@ figure>figcaption::selection {
 }
 
 .terminal-header-line .theme-toggle {
+    display: none; /* Hide by default when JavaScript is disabled */
     flex-shrink: 0;
     margin: 0;
     padding: 0;
     line-height: 1;
+}
+
+.js-enabled .terminal-header-line .theme-toggle {
+    display: block; /* Show when JavaScript is enabled */
 }
 
 .terminal-header-line .theme-toggle .btn-ghost {
