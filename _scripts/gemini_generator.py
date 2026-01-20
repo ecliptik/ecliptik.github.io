@@ -1,0 +1,660 @@
+#!/usr/bin/env python3
+
+"""
+gemini_generator.py - Gemini Capsule Generation for Jekyll Blog
+
+Generates Gemini protocol content from Jekyll markdown posts. Reuses abstractions
+from smallweb_core.py for scanning posts, organizing by tags/years, and navigation.
+
+Architecture:
+- GeminiConfig: Configuration management
+- GemtextBuilder: Build gemtext formatted content
+- GeminiConverter: Convert markdown to gemtext (extends SmallWebConverter)
+- GeminiGenerator: Main orchestrator
+
+Usage:
+    from gemini_generator import GeminiConfig, GeminiGenerator
+
+    config = GeminiConfig(host="sdf.org", port=1965)
+    generator = GeminiGenerator(config)
+    generator.generate_all()
+
+Gemtext Format:
+- Links: => URL optional text
+- Headings: # (h1), ## (h2), ### (h3)
+- Lists: * Item text
+- Quotes: > Quote text
+- Preformatted: ``` ... ```
+- Text: Plain lines (no markup)
+
+Key Differences from Gopher:
+- Native link support (not tab-delimited selectors)
+- Native heading support (not plaintext separators)
+- NO line wrapping (clients handle it)
+- .gmi extension (not .txt)
+- index.gmi files (not gophermap)
+"""
+
+from dataclasses import dataclass
+from typing import List, Dict, Optional
+import os
+import re
+import glob
+from datetime import datetime
+
+# Import reusable abstractions
+from smallweb_core import (
+    SmallWebConverter,
+    PostMetadata,
+    PostScanner,
+    TagAggregator,
+    YearOrganizer,
+    NavigationContext
+)
+
+
+# ============================================================================
+# Configuration
+# ============================================================================
+
+@dataclass
+class GeminiConfig:
+    """Configuration for gemini capsule generation."""
+    base_url: str = "gemini://localhost:1965/"
+    host: str = "localhost"
+    port: int = 1965
+    max_recent_posts: int = 10
+    output_dir: str = "_gemini"
+    posts_dir: str = "_posts"
+    pages_dir: str = "_pages"
+    force: bool = False
+    web_base_url: str = "https://www.ecliptik.com"
+
+    @classmethod
+    def from_args(cls, args):
+        """
+        Create config from CLI arguments.
+
+        Args:
+            args: argparse Namespace object
+
+        Returns:
+            GeminiConfig instance
+        """
+        base_url = f"gemini://{args.host}:{args.port}/"
+        if hasattr(args, 'base_url') and args.base_url:
+            base_url = args.base_url
+
+        return cls(
+            base_url=base_url,
+            host=args.host,
+            port=args.port,
+            force=getattr(args, 'force', False),
+            output_dir=getattr(args, 'output_dir', '_gemini'),
+            posts_dir=getattr(args, 'posts_dir', '_posts'),
+            pages_dir=getattr(args, 'pages_dir', '_pages')
+        )
+
+
+# ============================================================================
+# Gemtext Builder
+# ============================================================================
+
+class GemtextBuilder:
+    """
+    Build gemtext formatted content.
+
+    Similar to GophermapBuilder but for gemtext format. Provides methods
+    to add different gemtext line types: links, headings, lists, etc.
+    """
+
+    def __init__(self):
+        """Initialize empty gemtext builder."""
+        self.lines = []
+
+    def add_heading(self, text: str, level: int = 1):
+        """
+        Add a heading line.
+
+        Args:
+            text: Heading text
+            level: Heading level (1-3, corresponds to #, ##, ###)
+
+        Returns:
+            self (for chaining)
+        """
+        if level < 1 or level > 3:
+            level = min(max(level, 1), 3)  # Clamp to 1-3
+
+        prefix = '#' * level
+        self.lines.append(f"{prefix} {text}")
+        return self
+
+    def add_link(self, url: str, text: str = ""):
+        """
+        Add a link line.
+
+        Args:
+            url: Link URL
+            text: Optional link text (if empty, URL is used)
+
+        Returns:
+            self (for chaining)
+        """
+        if text:
+            self.lines.append(f"=> {url} {text}")
+        else:
+            self.lines.append(f"=> {url}")
+        return self
+
+    def add_text(self, text: str):
+        """
+        Add a plain text line.
+
+        Args:
+            text: Text content
+
+        Returns:
+            self (for chaining)
+        """
+        self.lines.append(text)
+        return self
+
+    def add_blank_line(self):
+        """
+        Add a blank line.
+
+        Returns:
+            self (for chaining)
+        """
+        self.lines.append("")
+        return self
+
+    def add_list_item(self, text: str):
+        """
+        Add a list item line.
+
+        Args:
+            text: List item text
+
+        Returns:
+            self (for chaining)
+        """
+        self.lines.append(f"* {text}")
+        return self
+
+    def add_quote(self, text: str):
+        """
+        Add a quote line.
+
+        Args:
+            text: Quote text
+
+        Returns:
+            self (for chaining)
+        """
+        self.lines.append(f"> {text}")
+        return self
+
+    def add_preformatted(self, content: str, alt_text: str = ""):
+        """
+        Add preformatted block.
+
+        Args:
+            content: Preformatted content
+            alt_text: Optional alt text for opening fence
+
+        Returns:
+            self (for chaining)
+        """
+        if alt_text:
+            self.lines.append(f"```{alt_text}")
+        else:
+            self.lines.append("```")
+        self.lines.append(content)
+        self.lines.append("```")
+        return self
+
+    def build(self) -> str:
+        """
+        Build final gemtext content.
+
+        Returns:
+            Gemtext string with newline-separated lines
+        """
+        return '\n'.join(self.lines)
+
+
+# ============================================================================
+# Gemini Converter
+# ============================================================================
+
+class GeminiConverter(SmallWebConverter):
+    """
+    Convert content to gemtext format.
+
+    Extends SmallWebConverter abstract base class to implement gemini-specific
+    conversion logic. Handles markdown to gemtext conversion, post formatting,
+    and index page generation.
+    """
+
+    def __init__(self, config: GeminiConfig):
+        """
+        Initialize converter with configuration.
+
+        Args:
+            config: GeminiConfig instance
+        """
+        super().__init__(config)
+        self.ascii_header = self._load_ascii_header()
+
+    def _load_ascii_header(self) -> str:
+        """
+        Load ASCII art header template.
+
+        Returns:
+            ASCII art header string
+        """
+        header_path = os.path.join(self.config.output_dir, '_layouts', 'gem_header')
+        if os.path.exists(header_path):
+            with open(header_path, 'r', encoding='utf-8') as f:
+                return f.read().strip()
+        else:
+            # Fallback ASCII art
+            return """```
+=====================================================================
+             ___       __  _ __
+  ___  _____/ (_)___  / /_(_) /__
+ / _ \/ ___/ / / __ \/ __/ / //_/
+/  __/ /__/ / / /_/ / /_/ / ,<
+\___/\___/_/_/ .___/\__/_/_/|_|
+            /_/
+=====================================================================
+```"""
+
+    def convert_post(self, metadata: PostMetadata, content: str) -> str:
+        """
+        Convert a single post to gemtext format.
+
+        Implements abstract method from SmallWebConverter.
+
+        Args:
+            metadata: Post metadata
+            content: Post content (raw markdown)
+
+        Returns:
+            Converted gemtext content with header and metadata
+        """
+        # Convert markdown to gemtext
+        gemtext_content = self.markdown_to_gemtext(content, metadata)
+
+        # Add metadata header
+        full_content = self.add_metadata_header(gemtext_content, metadata)
+
+        return full_content
+
+    def build_index(self, posts: List[PostMetadata], title: str) -> str:
+        """
+        Build an index page listing posts.
+
+        Implements abstract method from SmallWebConverter.
+
+        Args:
+            posts: List of post metadata
+            title: Index page title
+
+        Returns:
+            Gemtext index content
+        """
+        builder = GemtextBuilder()
+
+        # Add title
+        builder.add_heading(title, level=1)
+        builder.add_blank_line()
+
+        # List posts
+        for post in sorted(posts, key=lambda p: p.date, reverse=True):
+            builder.add_link(
+                f"/blog/{post.year}/{post.slug}.gmi",
+                f"{post.date_str} - {post.title}"
+            )
+
+        return builder.build()
+
+    def format_link(self, title: str, path: str) -> str:
+        """
+        Format a link in gemini syntax.
+
+        Implements abstract method from SmallWebConverter.
+
+        Args:
+            title: Link title
+            path: Link path
+
+        Returns:
+            Formatted gemtext link
+        """
+        return f"=> {path} {title}"
+
+    def markdown_to_gemtext(self, source: str, metadata: PostMetadata) -> str:
+        """
+        Convert markdown to gemtext using custom parser.
+
+        Key conversion rules:
+        - Headers: # → #, ## → ##, ### → ### (collapse >H3 to H3)
+        - Links: [text](url) → => url text
+        - Images: ![alt](path) → => https://... alt
+        - Lists: -/* → *
+        - Code blocks: preserve ```
+        - Blockquotes: > → >
+        - Emphasis: strip ** * `
+        - NO line wrapping (gemini clients handle it)
+
+        Args:
+            source: Markdown source content
+            metadata: Post metadata (for image path resolution)
+
+        Returns:
+            Gemtext formatted content
+        """
+        # Remove YAML frontmatter
+        source = self._remove_frontmatter(source)
+
+        lines = source.split('\n')
+        output = []
+        in_code_block = False
+        code_block_lines = []
+        code_block_lang = ""
+
+        for line in lines:
+            # Handle code blocks
+            if line.strip().startswith('```'):
+                if not in_code_block:
+                    # Start code block
+                    in_code_block = True
+                    code_block_lang = line.strip()[3:].strip()
+                    code_block_lines = []
+                else:
+                    # End code block
+                    in_code_block = False
+                    # Add preformatted block
+                    if code_block_lang:
+                        output.append(f"```{code_block_lang}")
+                    else:
+                        output.append("```")
+                    output.extend(code_block_lines)
+                    output.append("```")
+                    code_block_lines = []
+                    code_block_lang = ""
+                continue
+
+            if in_code_block:
+                code_block_lines.append(line)
+                continue
+
+            # Convert headers (collapse >H3 to H3)
+            if line.startswith('#'):
+                match = re.match(r'^(#{1,6})\s+(.+)$', line)
+                if match:
+                    level = min(len(match.group(1)), 3)  # Max level 3
+                    prefix = '#' * level
+                    output.append(f"{prefix} {match.group(2)}")
+                    continue
+
+            # Convert blockquotes
+            if line.startswith('>'):
+                output.append(line)
+                continue
+
+            # Convert lists (unordered and ordered)
+            list_match = re.match(r'^(\s*)([-*+]|\d+\.)\s+(.+)$', line)
+            if list_match:
+                output.append(f"* {list_match.group(3)}")
+                continue
+
+            # Convert links and images
+            line = self._convert_links_and_images(line, metadata)
+
+            # Strip emphasis markers
+            line = self._strip_emphasis(line)
+
+            # Add line (no wrapping - gemini clients handle it)
+            output.append(line)
+
+        return '\n'.join(output)
+
+    def _remove_frontmatter(self, content: str) -> str:
+        """Remove YAML frontmatter from content."""
+        lines = content.split('\n')
+        if lines[0].strip() == '---':
+            # Find closing ---
+            for i in range(1, len(lines)):
+                if lines[i].strip() == '---':
+                    return '\n'.join(lines[i+1:])
+        return content
+
+    def _convert_links_and_images(self, line: str, metadata: PostMetadata) -> str:
+        """
+        Convert markdown links and images to gemtext.
+
+        Args:
+            line: Line of text
+            metadata: Post metadata for path resolution
+
+        Returns:
+            Line with converted links
+        """
+        # Convert images: ![alt](path) → => full_url alt
+        def replace_image(match):
+            alt = match.group(1)
+            path = match.group(2)
+            # Convert relative paths to full URLs
+            if not path.startswith('http'):
+                if path.startswith('/'):
+                    full_url = f"{self.config.web_base_url}{path}"
+                else:
+                    full_url = f"{self.config.web_base_url}/assets/images/{path}"
+            else:
+                full_url = path
+            return f"=> {full_url} {alt}"
+
+        line = re.sub(r'!\[([^\]]*)\]\(([^\)]+)\)', replace_image, line)
+
+        # Convert links: [text](url) → => url text
+        def replace_link(match):
+            text = match.group(1)
+            url = match.group(2)
+            return f"=> {url} {text}"
+
+        line = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', replace_link, line)
+
+        # Convert bare URLs: <https://...> → => https://...
+        line = re.sub(r'<(https?://[^>]+)>', r'=> \1', line)
+
+        return line
+
+    def _strip_emphasis(self, line: str) -> str:
+        """
+        Strip markdown emphasis markers.
+
+        Args:
+            line: Line of text
+
+        Returns:
+            Line with emphasis stripped
+        """
+        # Strip bold: **text** → text
+        line = re.sub(r'\*\*([^\*]+)\*\*', r'\1', line)
+        # Strip italic: *text* → text
+        line = re.sub(r'\*([^\*]+)\*', r'\1', line)
+        # Strip code: `text` → text
+        line = re.sub(r'`([^`]+)`', r'\1', line)
+        return line
+
+    def add_metadata_header(self, content: str, metadata: PostMetadata) -> str:
+        """
+        Add ASCII art header and metadata to content.
+
+        Args:
+            content: Gemtext content
+            metadata: Post metadata
+
+        Returns:
+            Content with header prepended
+        """
+        builder = GemtextBuilder()
+
+        # Add ASCII art
+        builder.add_text(self.ascii_header)
+        builder.add_blank_line()
+
+        # Add title
+        builder.add_heading(metadata.title, level=1)
+
+        # Add metadata line (date and tags)
+        tags_str = ' '.join(f"#{tag}" for tag in metadata.tags)
+        builder.add_heading(f"{metadata.date_str} | {tags_str}", level=3)
+        builder.add_blank_line()
+
+        # Add content
+        builder.add_text(content)
+
+        return builder.build()
+
+
+# ============================================================================
+# Gemini Generator
+# ============================================================================
+
+class GeminiGenerator:
+    """
+    Main orchestrator for gemini capsule generation.
+
+    Coordinates post scanning, conversion, and file generation for all
+    gemini capsule content (posts, tags, years, indexes, static pages).
+    """
+
+    def __init__(self, config: GeminiConfig):
+        """
+        Initialize generator with configuration.
+
+        Args:
+            config: GeminiConfig instance
+        """
+        self.config = config
+        self.converter = GeminiConverter(config)
+        self.scanner = PostScanner(config.posts_dir)
+
+    def generate_all(self):
+        """Generate all gemini capsule content."""
+        print(f"Generating Gemini capsule content...")
+        print(f"  Output directory: {self.config.output_dir}")
+        print(f"  Base URL: {self.config.base_url}")
+
+        # Create output directory structure
+        self._create_directories()
+
+        # Scan posts
+        print("\nScanning posts...")
+        posts = self.scanner.scan_posts()
+
+        # Filter to markdown posts only (for now)
+        markdown_posts = [p for p in posts if p.is_markdown]
+        print(f"  Found {len(markdown_posts)} markdown posts")
+
+        # Generate content
+        self.generate_posts(markdown_posts)
+        self.generate_year_archives(markdown_posts)
+        self.generate_tag_pages(markdown_posts)
+        self.generate_root_index(markdown_posts)
+        self.generate_pages()
+
+        print(f"\n✓ Gemini capsule generated successfully!")
+        print(f"  Total posts: {len(markdown_posts)}")
+        print(f"  Years: {len(YearOrganizer.get_years(markdown_posts))}")
+        print(f"  Tags: {len(TagAggregator.get_tag_list(markdown_posts))}")
+
+    def _create_directories(self):
+        """Create output directory structure."""
+        dirs = [
+            self.config.output_dir,
+            os.path.join(self.config.output_dir, 'blog'),
+            os.path.join(self.config.output_dir, 'tags'),
+        ]
+
+        # Add year directories
+        for year in range(2011, datetime.now().year + 1):
+            dirs.append(os.path.join(self.config.output_dir, 'blog', str(year)))
+
+        for d in dirs:
+            os.makedirs(d, exist_ok=True)
+
+    def generate_posts(self, posts: List[PostMetadata]):
+        """
+        Generate gemini post files.
+
+        Args:
+            posts: List of post metadata
+        """
+        print("\nGenerating posts...")
+        # Placeholder - will be implemented in Phase 3
+        pass
+
+    def generate_year_archives(self, posts: List[PostMetadata]):
+        """
+        Generate year archive index files.
+
+        Args:
+            posts: List of post metadata
+        """
+        print("\nGenerating year archives...")
+        # Placeholder - will be implemented in Phase 4
+        pass
+
+    def generate_tag_pages(self, posts: List[PostMetadata]):
+        """
+        Generate tag pages.
+
+        Args:
+            posts: List of post metadata
+        """
+        print("\nGenerating tag pages...")
+        # Placeholder - will be implemented in Phase 5
+        pass
+
+    def generate_root_index(self, posts: List[PostMetadata]):
+        """
+        Generate root index.gmi file.
+
+        Args:
+            posts: List of post metadata
+        """
+        print("\nGenerating root index...")
+        # Placeholder - will be implemented in Phase 6
+        pass
+
+    def generate_pages(self):
+        """Generate static pages (about, contact)."""
+        print("\nGenerating static pages...")
+        # Placeholder - will be implemented in Phase 7
+        pass
+
+
+# ============================================================================
+# CLI Entry Point (for testing)
+# ============================================================================
+
+if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Generate Gemini capsule content')
+    parser.add_argument('--host', default='localhost', help='Gemini host (default: localhost)')
+    parser.add_argument('--port', type=int, default=1965, help='Gemini port (default: 1965)')
+    parser.add_argument('--base-url', help='Full base URL (overrides host/port)')
+    parser.add_argument('--force', action='store_true', help='Force regeneration of all content')
+    parser.add_argument('--output-dir', default='_gemini', help='Output directory')
+
+    args = parser.parse_args()
+    config = GeminiConfig.from_args(args)
+    generator = GeminiGenerator(config)
+    generator.generate_all()

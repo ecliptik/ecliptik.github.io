@@ -55,6 +55,16 @@ class PostMetadata:
         """Format date as YYYY-MM-DD."""
         return self.date.strftime('%Y-%m-%d')
 
+    @property
+    def gemini_filename(self) -> str:
+        """Get gemini filename (slug.gmi)."""
+        return f"{self.slug}.gmi"
+
+    @property
+    def gemini_path(self) -> str:
+        """Get gemini path relative to capsule root."""
+        return f"/blog/{self.year}/{self.slug}.gmi"
+
 
 # ============================================================================
 # Abstract Base Class for Protocol Converters
