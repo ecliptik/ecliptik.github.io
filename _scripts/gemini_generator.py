@@ -775,6 +775,24 @@ class GeminiGenerator:
         self.converter = GeminiConverter(config)
         self.scanner = PostScanner(config.posts_dir)
 
+    def _build_site_map_footer(self) -> str:
+        """
+        Build site map footer for all pages.
+
+        Returns:
+            Gemtext footer with site map navigation
+        """
+        builder = GemtextBuilder()
+        builder.add_blank_line()
+        builder.add_blank_line()
+        builder.add_heading("Site Map", level=2)
+        builder.add_link("/", "Home")
+        builder.add_link("/about.gmi", "About")
+        builder.add_link("/contact.gmi", "Contact")
+        builder.add_link("/blog/", "Blog")
+        builder.add_link("/tags/", "Tags")
+        return builder.build()
+
     def generate_all(self):
         """Generate all gemini capsule content."""
         print(f"Generating Gemini capsule content...")
@@ -862,6 +880,9 @@ class GeminiGenerator:
             # Convert to gemtext
             gemtext = self.converter.convert_post(post, content)
 
+            # Add site map footer
+            gemtext += self._build_site_map_footer()
+
             # Write to output file
             output_path = os.path.join(
                 self.config.output_dir,
@@ -913,6 +934,9 @@ class GeminiGenerator:
                     f"{post.gemini_path}",
                     f"{post.date_str} - {post.title}"
                 )
+
+            # Add site map footer
+            builder.add_text(self._build_site_map_footer())
 
             # Write index.gmi file
             output_path = os.path.join(
@@ -974,6 +998,9 @@ class GeminiGenerator:
                 f"{tag} ({count} posts)"
             )
 
+        # Add site map footer
+        builder.add_text(self._build_site_map_footer())
+
         # Write tags/index.gmi
         output_path = os.path.join(self.config.output_dir, 'tags', 'index.gmi')
         try:
@@ -1005,6 +1032,9 @@ class GeminiGenerator:
                 f"{post.gemini_path}",
                 f"{post.date_str} - {post.title}"
             )
+
+        # Add site map footer
+        builder.add_text(self._build_site_map_footer())
 
         # Write tags/[tagname].gmi
         output_path = os.path.join(self.config.output_dir, 'tags', f'{tag}.gmi')
@@ -1099,6 +1129,9 @@ class GeminiGenerator:
                 f"{year} ({count} posts)"
             )
 
+        # Add site map footer
+        builder.add_text(self._build_site_map_footer())
+
         # Write blog/index.gmi
         output_path = os.path.join(self.config.output_dir, 'blog', 'index.gmi')
         try:
@@ -1172,14 +1205,10 @@ class GeminiGenerator:
         # Convert markdown to gemtext
         gemtext = self.converter.markdown_to_gemtext(content, metadata)
 
-        # Add navigation footer
-        builder = GemtextBuilder()
-        builder.add_text(gemtext)
-        builder.add_blank_line()
-        builder.add_blank_line()
-        builder.add_link("/", "← Home")
+        # Add site map footer
+        gemtext += self._build_site_map_footer()
 
-        return builder.build()
+        return gemtext
 
 
 # ============================================================================
