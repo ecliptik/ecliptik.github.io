@@ -1152,6 +1152,7 @@ figure>figcaption::selection {
     .terminal-header-line .terminal-logo {
         order: 1;
         margin-bottom: 0;
+        align-self: flex-start;
     }
 
     .terminal-prompt-line {
@@ -1163,6 +1164,7 @@ figure>figcaption::selection {
         order: 3;
         margin: 0 !important;
         padding: 0 !important;
+        justify-content: flex-start;
     }
 
     .terminal-header-line .theme-toggle {
@@ -1180,11 +1182,15 @@ figure>figcaption::selection {
         padding: 0;
     }
 
+    .terminal-header-line .terminal-menu {
+        width: 100%;
+    }
+
     .terminal-header-line .terminal-menu ul {
-        align-items: flex-end !important;
+        align-items: flex-start !important;
         display: flex;
         flex-direction: row;
-        justify-content: left;
+        justify-content: flex-start;
         margin: 0;
         padding: 0;
     }
@@ -1193,7 +1199,7 @@ figure>figcaption::selection {
         align-items: flex-start;
         display: flex;
         flex-direction: row;
-        justify-content: left;
+        justify-content: flex-start;
         margin-top: 0;
     }
 
