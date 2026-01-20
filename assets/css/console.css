@@ -1050,7 +1050,7 @@ figure>figcaption::selection {
 }
 
 #results-container {
-    list-style: none;
+    list-style: none !important;
     padding: 0;
     margin-top: 1rem;
     margin-left: 0;
@@ -1060,7 +1060,7 @@ figure>figcaption::selection {
     padding: 8px 0;
     padding-left: 0;
     border-bottom: 1px solid var(--border);
-    list-style-type: none;
+    list-style: none !important;
 }
 
 #results-container li:first-child {
