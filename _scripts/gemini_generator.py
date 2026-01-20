@@ -365,8 +365,8 @@ class GeminiConverter(SmallWebConverter):
 
         Key conversion rules:
         - Headers: # → #, ## → ##, ### → ### (collapse >H3 to H3)
-        - Links: [text](url) → => url text
-        - Images: ![alt](path) → => https://... alt
+        - Links: [text](url) → [N] with footnote links at bottom
+        - Images: ![alt](path) → [N] with footnote links at bottom
         - Lists: -/* → *
         - Code blocks: preserve ```
         - Blockquotes: > → >
@@ -382,6 +382,9 @@ class GeminiConverter(SmallWebConverter):
         """
         # Remove YAML frontmatter
         source = self._remove_frontmatter(source)
+
+        # Collect all links as footnotes
+        footnotes = []  # List of (url, text) tuples
 
         lines = source.split('\n')
         output = []
@@ -429,8 +432,8 @@ class GeminiConverter(SmallWebConverter):
                 output.append(line)
                 continue
 
-            # Convert links and images FIRST (before list processing)
-            line = self._convert_links_and_images(line, metadata)
+            # Collect links and images as footnotes (before list processing)
+            line = self._collect_links_as_footnotes(line, metadata, footnotes)
 
             # Convert lists (unordered and ordered) AFTER link conversion
             list_match = re.match(r'^(\s*)([-*+]|\d+\.)\s+(.+)$', line)
@@ -462,6 +465,17 @@ class GeminiConverter(SmallWebConverter):
                 cleaned_output.append(line)
             prev_line = line
 
+        # Add footnotes section if there are any links
+        if footnotes:
+            cleaned_output.append("")
+            cleaned_output.append("## Links")
+            cleaned_output.append("")
+            for i, (url, text) in enumerate(footnotes, 1):
+                if text:
+                    cleaned_output.append(f"=> {url} [{i}] {text}")
+                else:
+                    cleaned_output.append(f"=> {url} [{i}]")
+
         return '\n'.join(cleaned_output)
 
     def _remove_frontmatter(self, content: str) -> str:
@@ -473,6 +487,70 @@ class GeminiConverter(SmallWebConverter):
                 if lines[i].strip() == '---':
                     return '\n'.join(lines[i+1:])
         return content
+
+    def _collect_links_as_footnotes(self, line: str, metadata: PostMetadata, footnotes: list) -> str:
+        """
+        Collect markdown links and images as footnotes, replacing inline with [N] references.
+
+        Args:
+            line: Line of text
+            metadata: Post metadata for path resolution
+            footnotes: List of (url, text) tuples to append to
+
+        Returns:
+            Line with inline links replaced by [N] footnote references
+        """
+        # Convert images: ![alt](path) → [N]
+        def replace_image(match):
+            alt = match.group(1)
+            path = match.group(2)
+            # Convert relative paths to full URLs
+            if not path.startswith('http'):
+                if path.startswith('/'):
+                    full_url = f"{self.config.web_base_url}{path}"
+                else:
+                    full_url = f"{self.config.web_base_url}/assets/images/{path}"
+            else:
+                full_url = path
+            footnotes.append((full_url, alt))
+            return f"[{len(footnotes)}]"
+
+        line = re.sub(r'!\[([^\]]*)\]\(([^\)]+)\)', replace_image, line)
+
+        # Remove empty link brackets: [](url) → ""
+        line = re.sub(r'\[\]\([^\)]+\)', '', line)
+
+        # Convert links: [text](url) → [N]
+        def replace_link(match):
+            text = match.group(1)
+            url = match.group(2)
+
+            # Check if this is an internal blog post link
+            if url.startswith(self.config.web_base_url):
+                # Extract path after base URL
+                path = url.replace(self.config.web_base_url, '').rstrip('/')
+
+                # Look up gemini path for this post
+                if path in self.posts_lookup:
+                    gemini_path = self.posts_lookup[path]
+                    footnotes.append((gemini_path, text))
+                    return f"[{len(footnotes)}]"
+
+            # External link - add as footnote
+            footnotes.append((url, text))
+            return f"[{len(footnotes)}]"
+
+        line = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', replace_link, line)
+
+        # Convert bare URLs: <https://...> → [N]
+        def replace_bare_url(match):
+            url = match.group(1)
+            footnotes.append((url, ""))
+            return f"[{len(footnotes)}]"
+
+        line = re.sub(r'<(https?://[^>]+)>', replace_bare_url, line)
+
+        return line
 
     def _convert_links_and_images(self, line: str, metadata: PostMetadata) -> str:
         """
