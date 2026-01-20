@@ -1,0 +1,34 @@
+FROM golang:1.21-alpine AS builder
+
+# Build molly-brown from source
+RUN apk add --no-cache git
+RUN git clone https://tildegit.org/solderpunk/molly-brown.git /tmp/molly
+WORKDIR /tmp/molly
+RUN go build
+
+FROM alpine:latest
+RUN apk add --no-cache ca-certificates openssl
+
+# Copy molly-brown binary
+COPY --from=builder /tmp/molly/molly-brown /usr/local/bin/
+
+# Create gemini user
+RUN adduser -D -u 1000 gemini
+RUN mkdir -p /var/gemini /etc/molly-brown
+RUN chown -R gemini:gemini /var/gemini /etc/molly-brown
+
+# Generate self-signed cert for testing
+RUN openssl req -x509 -newkey rsa:4096 -keyout /etc/molly-brown/key.pem \
+    -out /etc/molly-brown/cert.pem -days 365 -nodes \
+    -subj "/CN=localhost"
+
+# Copy config
+COPY molly-brown.ini /etc/molly-brown/molly-brown.ini
+RUN chown gemini:gemini /etc/molly-brown/molly-brown.ini
+
+USER gemini
+WORKDIR /var/gemini
+
+EXPOSE 1965
+
+CMD ["molly-brown", "-c", "/etc/molly-brown/molly-brown.ini"]

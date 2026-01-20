@@ -1,0 +1,10 @@
+services:
+  gemini:
+    build:
+      context: .
+      dockerfile: Dockerfile.gemini
+    ports:
+      - "1965:1965"
+    volumes:
+      - ./_gemini:/var/gemini:ro
+    restart: unless-stopped
