@@ -97,3 +97,5 @@ exclude:
     - README.md
     - CNAME
     - _config_dev.yml
+    - CLAUDE.md
+    - docker-compose.yaml
