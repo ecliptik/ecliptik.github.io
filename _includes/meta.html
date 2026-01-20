@@ -23,6 +23,7 @@
 <meta name="twitter:creator" content="@micheal@ecliptik.com" />
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
 <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+<meta name="twitter:image" content="{{ site.url }}{{ site.image.path }}" />
 
 <!-- Open Graph meta tags -->
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
