@@ -247,6 +247,29 @@ class GeminiConverter(SmallWebConverter):
         """
         super().__init__(config)
         self.ascii_header = self._load_ascii_header()
+        self.posts_lookup = {}  # URL path -> gemini path lookup
+
+    def set_posts_lookup(self, posts: List[PostMetadata]):
+        """
+        Build lookup table of web URLs to gemini paths.
+
+        Args:
+            posts: List of all post metadata
+        """
+        self.posts_lookup = {}
+        for post in posts:
+            # Map both old and new permalink formats to gemini path
+            # Old format: /Post-Title/
+            # New format: /blog/YYYY/Post-Title/
+
+            # New format permalink
+            new_permalink = f"/blog/{post.year}/{post.slug}"
+            self.posts_lookup[new_permalink] = post.gemini_path
+
+            # Old format permalink (from redirect_from)
+            if post.redirect_from:
+                old_permalink = post.redirect_from.rstrip('/')
+                self.posts_lookup[old_permalink] = post.gemini_path
 
     def _load_ascii_header(self) -> str:
         """
@@ -485,6 +508,18 @@ class GeminiConverter(SmallWebConverter):
         def replace_link(match):
             text = match.group(1)
             url = match.group(2)
+
+            # Check if this is an internal blog post link
+            if url.startswith(self.config.web_base_url):
+                # Extract path after base URL
+                path = url.replace(self.config.web_base_url, '').rstrip('/')
+
+                # Look up gemini path for this post
+                if path in self.posts_lookup:
+                    gemini_path = self.posts_lookup[path]
+                    return f"=> {gemini_path} {text}"
+
+            # External link or not found - keep as-is
             return f"=> {url} {text}"
 
         line = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', replace_link, line)
@@ -600,6 +635,9 @@ class GeminiGenerator:
         # Filter to markdown posts only (for now)
         markdown_posts = [p for p in posts if p.is_markdown]
         print(f"  Found {len(markdown_posts)} markdown posts")
+
+        # Build lookup table for internal links
+        self.converter.set_posts_lookup(markdown_posts)
 
         # Generate content
         self.generate_posts(markdown_posts)
