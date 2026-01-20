@@ -1063,6 +1063,10 @@ figure>figcaption::selection {
     list-style: none !important;
 }
 
+#results-container li::after {
+    content: "";
+}
+
 #results-container li:first-child {
     padding-top: 0;
 }
