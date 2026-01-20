@@ -386,11 +386,35 @@ def generate_gopher(args):
 
 
 def generate_gemini(args):
-    """Generate gemini content (stub for future implementation)."""
+    """Generate gemini content."""
     print("\n=== Gemini Generation ===\n")
-    print("🚧 Gemini generation coming soon!")
-    print("   Use _scripts/deprecated/updatesmallweb.sh for now")
-    return 0
+
+    try:
+        from gemini_generator import GeminiConfig, GeminiGenerator
+
+        # Create config from arguments
+        config = GeminiConfig(
+            host=getattr(args, 'host', 'localhost'),
+            port=getattr(args, 'port', 1965),
+            base_url=getattr(args, 'base_url', None),
+            force=getattr(args, 'force', False)
+        )
+
+        # If base_url wasn't provided, construct from host/port
+        if not config.base_url:
+            config.base_url = f"gemini://{config.host}:{config.port}/"
+
+        # Create generator and run
+        generator = GeminiGenerator(config)
+        generator.generate_all()
+
+        return 0
+
+    except Exception as e:
+        print(f"Error during gemini generation: {e}")
+        import traceback
+        traceback.print_exc()
+        return 1
 
 
 # ============================================================================
@@ -455,7 +479,11 @@ def main():
     gopher_parser.set_defaults(func=generate_gopher)
 
     # Gemini command
-    gemini_parser = subparsers.add_parser('gemini', help='Generate gemini content (stub)')
+    gemini_parser = subparsers.add_parser('gemini', help='Generate gemini content')
+    gemini_parser.add_argument('--base-url', help='Gemini base URL (overrides host/port)')
+    gemini_parser.add_argument('--host', default='localhost', help='Gemini host (default: localhost)')
+    gemini_parser.add_argument('--port', type=int, default=1965, help='Gemini port (default: 1965)')
+    gemini_parser.add_argument('--force', action='store_true', help='Force regeneration of all files')
     gemini_parser.set_defaults(func=generate_gemini)
 
     # All command
