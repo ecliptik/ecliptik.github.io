@@ -6,5 +6,5 @@ services:
     ports:
       - "1965:1965"
     volumes:
-      - ./_gemini:/var/gemini:ro
+      - ./_gemini:/var/gemini/content:ro
     restart: unless-stopped
