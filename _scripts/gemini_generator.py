@@ -902,8 +902,75 @@ class GeminiGenerator:
     def generate_pages(self):
         """Generate static pages (about, contact)."""
         print("\nGenerating static pages...")
-        # Placeholder - will be implemented in Phase 7
-        pass
+
+        # Define pages to convert
+        pages = ['about.md', 'contact.md']
+
+        for page_file in pages:
+            page_path = os.path.join(self.config.pages_dir, page_file)
+
+            if not os.path.exists(page_path):
+                print(f"  ⚠ Skipping {page_file} (not found)")
+                continue
+
+            # Read page content
+            try:
+                with open(page_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            except Exception as e:
+                print(f"  ✗ Error reading {page_path}: {e}")
+                continue
+
+            # Convert to gemtext (without metadata header)
+            gemtext = self._convert_static_page(content, page_file)
+
+            # Write output file
+            output_filename = page_file.replace('.md', '.gmi')
+            output_path = os.path.join(self.config.output_dir, output_filename)
+
+            try:
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(gemtext)
+                print(f"  ✓ {output_filename}")
+            except Exception as e:
+                print(f"  ✗ Error writing {output_path}: {e}")
+
+    def _convert_static_page(self, content: str, filename: str) -> str:
+        """
+        Convert static page to gemtext.
+
+        Args:
+            content: Page content
+            filename: Filename for context
+
+        Returns:
+            Gemtext content
+        """
+        # Create a minimal metadata object for conversion
+        from datetime import datetime
+        metadata = PostMetadata(
+            title=filename.replace('.md', '').title(),
+            date=datetime.now(),
+            tags=[],
+            category='page',
+            description='',
+            slug=filename.replace('.md', ''),
+            year='',
+            filepath='',
+            is_markdown=True
+        )
+
+        # Convert markdown to gemtext
+        gemtext = self.converter.markdown_to_gemtext(content, metadata)
+
+        # Add navigation footer
+        builder = GemtextBuilder()
+        builder.add_text(gemtext)
+        builder.add_blank_line()
+        builder.add_blank_line()
+        builder.add_link("/", "← Home")
+
+        return builder.build()
 
 
 # ============================================================================
