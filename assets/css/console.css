@@ -583,10 +583,21 @@ figure>img {
     padding: 0;
 }
 
+/* Remove gap when paragraph with image is followed by figure */
+p:has(img) {
+    margin-bottom: 0;
+}
+
+p:has(img) + figure {
+    margin-top: 0;
+}
+
 figure>figcaption {
     color: var(--accent-light) !important;
     font-style: italic;
     text-align: center;
+    margin-top: 0.3em;
+    font-size: 0.9em;
 }
 
 figure>figcaption::selection {
