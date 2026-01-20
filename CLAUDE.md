@@ -318,7 +318,9 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 **SEO & Social Media:**
 - All posts have meta descriptions and BlogPosting schema
 - Tag pages indexed (removed noindex, added descriptions)
-- Open Graph + Twitter Cards with auto image extraction
+- Open Graph + Twitter Cards with compact thumbnail (pi-og.jpg: 400x300, 30KB)
+- Optimized grayscale image for mobile-friendly previews in Signal/Slack
+- Text-focused social cards (title, description, URL) with small thumbnail
 - Year archive pages with clickable breadcrumb navigation (`~/blog/2025/post-slug`)
 
 **Theme Updates (WIP - feature/accent-light-links branch):**
@@ -348,6 +350,16 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 - **Implementation**: `.js-enabled` class added via inline script for progressive enhancement
 - **Files modified**: `_layouts/default.html`, `assets/css/console.css`
 - **Result:** Clean, accessible experience for users with JavaScript disabled
+
+**Social Media Preview Optimization (2026-01-20):**
+- Simplified Open Graph/Twitter Card implementation for compact mobile previews
+- **Image**: pi-og.jpg (400x300, 30KB) - optimized grayscale thumbnail of Raspberry Pi setup
+- **Optimization**: Converted to grayscale, progressive JPEG, stripped metadata
+- **Platform support**: Works in Signal (compact preview), Slack (requires og:image), LinkedIn
+- **Meta tags**: twitter:card (summary), og:image, og:title, og:description, og:url
+- **Mobile-friendly**: Small thumbnail prevents giant images in mobile share previews
+- **Note**: Slack caches previews aggressively - may need 24-48hrs or query params to refresh
+- **Files modified**: `_includes/meta.html`, `_config.yml`, created `assets/images/shared/pi-og.jpg`
 
 ---
 
