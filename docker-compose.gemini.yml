@@ -6,5 +6,11 @@ services:
     ports:
       - "1965:1965"
     volumes:
-      - ./_gemini:/var/gemini/content:ro
+      # Mount gemini content
+      - ./_gemini:/var/gemini:ro
+      # Mount config
+      - ./.docker/gemini/molly.conf:/gemini/molly.conf:ro
+      # Persist certs and logs within repo
+      - ./.docker/gemini/certs:/gemini/certs
+      - ./.docker/gemini/logs:/gemini/logs
     restart: unless-stopped

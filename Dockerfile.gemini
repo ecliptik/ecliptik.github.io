@@ -1,35 +1,18 @@
-FROM golang:1.21-alpine AS builder
+FROM golang:1.21-alpine
 
-# Build molly-brown from source
-RUN apk add --no-cache git
-RUN git clone https://tildegit.org/solderpunk/molly-brown.git /tmp/molly
-WORKDIR /tmp/molly
-RUN go build
-
-FROM alpine:latest
-RUN apk add --no-cache ca-certificates openssl
-
-# Copy molly-brown binary
-COPY --from=builder /tmp/molly/molly-brown /usr/local/bin/
+# Install molly-brown using go install
+RUN go install tildegit.org/solderpunk/molly-brown@latest
 
 # Create gemini user and directories
 RUN adduser -D -u 1000 gemini
-RUN mkdir -p /var/gemini/content /etc/molly-brown
+RUN mkdir -p /var/gemini /gemini/certs /gemini/logs
 
-# Generate self-signed cert for testing in /etc
-RUN openssl req -x509 -newkey rsa:4096 -keyout /etc/molly-brown/key.pem \
-    -out /etc/molly-brown/cert.pem -days 365 -nodes \
-    -subj "/CN=localhost"
-
-# Copy config
-COPY molly-brown.ini /etc/molly-brown/molly.ini
-
-# Set permissions
-RUN chown -R gemini:gemini /var/gemini /etc/molly-brown
+# Set permissions (certs will be mounted from host)
+RUN chown -R gemini:gemini /var/gemini /gemini
 
 USER gemini
-WORKDIR /var/gemini/content
+WORKDIR /var/gemini
 
 EXPOSE 1965
 
-CMD ["molly-brown", "-c", "/etc/molly-brown/molly.ini"]
+CMD ["/go/bin/molly-brown", "-c", "/gemini/molly.conf"]

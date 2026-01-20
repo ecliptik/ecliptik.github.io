@@ -6,3 +6,8 @@ vendor
 *.swp
 *.DS_Store
 .syncthing*
+_gemini/
+_gopher/
+_scripts/__pycache__/
+*.log
+privkey.pem
