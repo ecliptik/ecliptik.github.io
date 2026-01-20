@@ -848,10 +848,10 @@ figure>figcaption::selection {
 #theme-toggle-btn {
     cursor: pointer;
     font-size: 1.2rem;
-    padding: 8px 12px;
+    padding: 6px !important;
     transition: transform 0.2s ease;
     border: 1px solid var(--border);
-    margin: 0;
+    margin: -4px;
 }
 
 [data-theme="light"] #theme-toggle-btn {
@@ -881,7 +881,7 @@ figure>figcaption::selection {
     background-color: transparent;
     border-color: var(--border);
     font-family: var(--font-stack);
-    padding: 6px 12px;
+    padding: 6px;
     font-size: 18px;
     line-height: 1.55;
     border-radius: 0;
@@ -1110,6 +1110,7 @@ figure>figcaption::selection {
 
     #theme-toggle-btn {
         font-size: 1rem;
-        padding: 6px 10px;
+        padding: 6px !important;
+        margin: -4px;
     }
 }
