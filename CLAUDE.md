@@ -244,6 +244,14 @@ ssh username@sdf.org 'chmod -R a+rX ~/gemini/'
 - Port 1965 (not 70)
 - .gmi extension (not .txt)
 
+**Page structure:**
+- **Site map:** All pages include site map navigation at the top (Home, About, Contact, Blog, Tags)
+  - Blog posts: Site map appears after ASCII art header, before title
+  - Archive/index pages: Site map appears after breadcrumbs, before title
+  - Static pages: Site map appears at the very top
+- **Blog posts:** ASCII art header → Site map → Title → Date/Tags → Content → Links section
+- **Navigation:** Breadcrumbs on archive/index pages (← Home, ← Blog, etc.)
+
 **Link and image handling:**
 - **Text links:** Footnote style with inline text and `[N]` references
   - Example: `I discussed the origins[1] and enhancements[2] here.`
