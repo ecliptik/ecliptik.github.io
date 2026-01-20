@@ -2,11 +2,14 @@
   {% include collecttags.html -%}
 {%- endif -%}
 
+<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 <meta charset="utf-8" />
 <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
 <meta http-equiv='X-UA-Compatible' content='IE=edge' />
 <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+<meta name="description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
 <meta name="robots" content="index, follow" />
 {%- assign sorttags = page.tags | remove: "[" | remove: "]" | remove: '"' | replace: ', ', ' '| uniq | sort | compact %}
 <meta name="keywords" content="{{ sorttags }}" />
@@ -138,5 +141,3 @@
 </script>
 {%- endif -%}
 {% endif %}
-
-{% seo %}
