@@ -1060,17 +1060,24 @@ figure>figcaption::selection {
     border-bottom: 1px solid var(--border);
 }
 
+#results-container li:first-child {
+    padding-top: 0;
+}
+
 #results-container li:last-child {
     border-bottom: none;
 }
 
 #results-container a {
-    color: var(--accent);
+    color: var(--accent-light);
     text-decoration: none;
+    font-weight: bold;
 }
 
 #results-container a:hover {
-    text-decoration: underline;
+    background-color: var(--accent-light);
+    color: var(--bg);
+    text-decoration: none;
 }
 
 /* ============================================
