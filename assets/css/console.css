@@ -127,6 +127,10 @@
     text-rendering: geometricPrecision;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 ::-moz-selection {
     background: var(--accent-light);
     color: var(--bg);
@@ -218,6 +222,10 @@ h2, h3, h5, h6 {
 p {
     margin: 0 0 var(--global-line-height);
     color: var(--text);
+}
+
+p:first-child {
+    margin-top: calc(var(--global-space) * 2);
 }
 
 .content-column-content p,
@@ -922,6 +930,7 @@ figure>figcaption::selection {
    ============================================ */
 
 #search-container {
+    margin-top: calc(var(--global-space) * 2);
     margin-bottom: 2rem;
 }
 
