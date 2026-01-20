@@ -11,9 +11,9 @@ author:
   url: https://www.ecliptik.com
 
 image:
-  path: /assets/images/shared/og-default.jpg
-  height: 630
-  width: 1200
+  path: /assets/images/shared/pi-small.jpg
+  height: 75
+  width: 100
   alt: micheal@ecliptik.com - Personal tech blog
 
 defaults:
