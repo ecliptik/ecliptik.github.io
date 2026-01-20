@@ -19,8 +19,8 @@
 
 {%- comment -%} Image Selection Priority {%- endcomment -%}
 {%- assign post_image = false -%}
-{%- assign image_width = 600 -%}
-{%- assign image_height = 315 -%}
+{%- assign image_width = 280 -%}
+{%- assign image_height = 150 -%}
 
 {%- comment -%} Priority 1: Frontmatter image {%- endcomment -%}
 {%- if page.image -%}
@@ -54,10 +54,7 @@
 {%- endunless -%}
 
 {%- assign post_image_url = site.url | append: post_image -%}
-{%- assign twitter_card_type = "summary_large_image" -%}
-{%- if post_image == site.image.path -%}
-  {%- assign twitter_card_type = "summary" -%}
-{%- endif -%}
+{%- assign twitter_card_type = "summary" -%}
 
 <!-- Twitter Card meta tags -->
 <meta name="twitter:card" content="{{ twitter_card_type }}" />
