@@ -43,15 +43,15 @@ assets/                        # css, js, images
 
 ## Development
 
-**Docker (Recommended):**
+**Docker (Required):**
 ```bash
 docker compose up -d              # Start (localhost:4000)
 docker compose logs -f jekyll     # View logs
 docker compose down               # Stop
-docker compose build --no-cache   # Rebuild after Gemfile changes
+docker compose build --no-cache   # Rebuild after Gemfile changes (no bundle install needed)
 ```
 
-**Manual:** `bundle install && bundle exec jekyll serve --watch`
+**Note:** Ruby/bundle are NOT installed locally - all development happens in Docker. After Gemfile changes, just rebuild the container.
 
 ---
 
