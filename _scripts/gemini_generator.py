@@ -726,8 +726,81 @@ class GeminiGenerator:
             posts: List of post metadata
         """
         print("\nGenerating tag pages...")
-        # Placeholder - will be implemented in Phase 5
-        pass
+
+        # Collect tags using TagAggregator
+        tags_dict = TagAggregator.collect_tags(posts)
+        tag_list = TagAggregator.get_tag_list(posts)
+
+        # Generate tags index page
+        self._generate_tags_index(tag_list, tags_dict)
+
+        # Generate individual tag pages
+        for tag in sorted(tag_list):
+            tag_posts = tags_dict[tag]
+            self._generate_tag_page(tag, tag_posts)
+
+        print(f"  Generated {len(tag_list)} tag pages")
+
+    def _generate_tags_index(self, tag_list: List[str], tags_dict: Dict):
+        """Generate tags/index.gmi with list of all tags."""
+        builder = GemtextBuilder()
+
+        # Add breadcrumb navigation
+        builder.add_link("/", "← Home")
+        builder.add_blank_line()
+
+        # Add title
+        builder.add_heading("Tags", level=1)
+        builder.add_blank_line()
+
+        # List all tags with post counts
+        for tag in sorted(tag_list):
+            count = len(tags_dict[tag])
+            builder.add_link(
+                f"/tags/{tag}.gmi",
+                f"{tag} ({count} posts)"
+            )
+
+        # Write tags/index.gmi
+        output_path = os.path.join(self.config.output_dir, 'tags', 'index.gmi')
+        try:
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(builder.build())
+            print(f"  ✓ tags/index.gmi")
+        except Exception as e:
+            print(f"  ✗ Error writing {output_path}: {e}")
+
+    def _generate_tag_page(self, tag: str, tag_posts: List[PostMetadata]):
+        """Generate individual tag page."""
+        builder = GemtextBuilder()
+
+        # Add breadcrumb navigation
+        builder.add_link("/", "← Home")
+        builder.add_link("/tags/", "← Tags")
+        builder.add_blank_line()
+
+        # Add title
+        builder.add_heading(f"Tag: {tag}", level=1)
+        builder.add_blank_line()
+
+        # Sort posts by date (newest first)
+        sorted_posts = sorted(tag_posts, key=lambda p: p.date, reverse=True)
+
+        # List posts
+        for post in sorted_posts:
+            builder.add_link(
+                f"{post.gemini_path}",
+                f"{post.date_str} - {post.title}"
+            )
+
+        # Write tags/[tagname].gmi
+        output_path = os.path.join(self.config.output_dir, 'tags', f'{tag}.gmi')
+        try:
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(builder.build())
+            print(f"  ✓ tags/{tag}.gmi ({len(tag_posts)} posts)")
+        except Exception as e:
+            print(f"  ✗ Error writing {output_path}: {e}")
 
     def generate_root_index(self, posts: List[PostMetadata]):
         """
