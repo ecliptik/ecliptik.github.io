@@ -12,8 +12,8 @@ author:
 
 image:
   path: /assets/images/shared/pi-og.jpg
-  height: 200
-  width: 267
+  height: 600
+  width: 800
   alt: micheal@ecliptik.com
 
 defaults:
