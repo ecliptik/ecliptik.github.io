@@ -593,7 +593,7 @@ p:has(img) + figure {
 }
 
 figure>figcaption {
-    color: var(--accent-light) !important;
+    color: var(--pygments-one) !important;
     font-style: italic;
     text-align: center;
     margin-top: 0.3em;
