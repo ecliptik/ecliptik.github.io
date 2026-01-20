@@ -574,6 +574,23 @@ tr:nth-child(even) {
     background: var(--accent-bg);
 }
 
+/* Dark mode: better contrast for alternating table rows */
+[data-theme="dark"] tr:nth-child(even) {
+    background: #2a2f47;
+}
+
+/* Default dark theme (when no theme attribute set) */
+:root:not([data-theme]) tr:nth-child(even) {
+    background: #2a2f47;
+}
+
+/* Respect system preference when JavaScript is disabled */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) tr:nth-child(even) {
+        background: #2a2f47;
+    }
+}
+
 /* ============================================
    IMAGES & FIGURES
    ============================================ */
