@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: mastodon
-
-=> /blog/2021/One-Week-With-Mastodon.gmi 2021-01-26 - One Week With Mastodon

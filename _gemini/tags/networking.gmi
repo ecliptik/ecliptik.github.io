@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: networking
-
-=> /blog/2024/DNS-Guardrails-with-dnscrypt-proxy.gmi 2024-01-23 - DNS Guardrails with dnscrypt-proxy

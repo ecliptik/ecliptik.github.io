@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: jekyll
-
-=> /blog/2015/Building-a-website-with-Github-and-Jekyll.gmi 2015-08-20 - Building a website with Github and Jekyll

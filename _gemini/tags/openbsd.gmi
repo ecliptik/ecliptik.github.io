@@ -1,7 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: openbsd
-
-=> /blog/2021/Running-dnscrypt-proxy-on-OpenBSD.gmi 2021-03-12 - Running dnscrypt-proxy on OpenBSD
-=> /blog/2021/CHIP-Serial-Console.gmi 2021-03-03 - CHIP Serial Console

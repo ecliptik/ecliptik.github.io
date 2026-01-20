@@ -1,7 +1,0 @@
-=> / ← Home
-=> /blog/ ← Blog
-
-# Posts from 2022
-
-=> /blog/2022/Superhighway84-on-FreeBSD.gmi 2022-01-17 - Superhighway84 on FreeBSD
-=> /blog/2022/Bookmarking-and-Creating-a-Local-Internet-Archive.gmi 2022-01-04 - Bookmarking and Creating a Local Internet Archive

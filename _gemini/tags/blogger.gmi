@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: blogger
-
-=> /blog/2011/Vim-rdesktop-external-monitors-and-X-Forwarding-on-a-Google-CR-48.gmi 2011-01-22 - Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48

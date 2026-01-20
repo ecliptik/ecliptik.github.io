@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: gopher
-
-=> /blog/2021/Making-a-Gopherhole-and-Phlog.gmi 2021-01-31 - Making a Gopherhole and Phlog

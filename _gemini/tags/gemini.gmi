@@ -1,7 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: gemini
-
-=> /blog/2021/Gemini-Capsule-in-a-FreeBSD-Jail.gmi 2021-04-25 - Gemini Capsule in a FreeBSD Jail running on a RaspberryPi
-=> /blog/2021/Launching-a-Gemini-Capsule.gmi 2021-02-09 - Launching a Gemini Capsule

@@ -1,7 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: dns
-
-=> /blog/2024/DNS-Guardrails-with-dnscrypt-proxy.gmi 2024-01-23 - DNS Guardrails with dnscrypt-proxy
-=> /blog/2021/Running-dnscrypt-proxy-on-OpenBSD.gmi 2021-03-12 - Running dnscrypt-proxy on OpenBSD

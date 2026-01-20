@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: hardware
-
-=> /blog/2021/Custom-Keyboards-Sully-and-Pok3r.gmi 2021-02-15 - Custom Keyboards, Sully and Pok3r

@@ -1,7 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: tailscale
-
-=> /blog/2024/DNS-Guardrails-with-dnscrypt-proxy.gmi 2024-01-23 - DNS Guardrails with dnscrypt-proxy
-=> /blog/2023/Tailscale-on-the-DevTerm-R-01.gmi 2023-01-25 - Tailscale on the DevTerm R-01

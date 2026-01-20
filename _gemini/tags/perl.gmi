@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: perl
-
-=> /blog/2015/Containerizing-a-Perl-Script.gmi 2015-08-29 - Containerizing a Perl Script

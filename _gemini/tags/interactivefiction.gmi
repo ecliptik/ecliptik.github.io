@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: interactivefiction
-
-=> /blog/2015/Decompiling-Interactive-Fiction.gmi 2015-08-21 - Decompiling Interactive Fiction

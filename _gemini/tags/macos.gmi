@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: macos
-
-=> /blog/2025/Switching-to-Ghostty.gmi 2025-01-23 - Switching to Ghostty

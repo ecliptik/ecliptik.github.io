@@ -1,7 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: freebsd
-
-=> /blog/2022/Superhighway84-on-FreeBSD.gmi 2022-01-17 - Superhighway84 on FreeBSD
-=> /blog/2021/Gemini-Capsule-in-a-FreeBSD-Jail.gmi 2021-04-25 - Gemini Capsule in a FreeBSD Jail running on a RaspberryPi

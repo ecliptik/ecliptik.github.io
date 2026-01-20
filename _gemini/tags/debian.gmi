@@ -1,6 +1,0 @@
-=> / ← Home
-=> /tags/ ← Tags
-
-# Tag: debian
-
-=> /blog/2021/Pocket-CHIP.gmi 2021-02-24 - Pocket C.H.I.P.
