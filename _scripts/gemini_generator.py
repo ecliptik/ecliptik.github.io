@@ -418,6 +418,13 @@ class GeminiConverter(SmallWebConverter):
             # Strip emphasis markers
             line = self._strip_emphasis(line)
 
+            # Strip HTML tags
+            line = self._strip_html_tags(line)
+
+            # Skip empty lines at start
+            if not output and not line.strip():
+                continue
+
             # Add line (no wrapping - gemini clients handle it)
             output.append(line)
 
@@ -489,6 +496,20 @@ class GeminiConverter(SmallWebConverter):
         line = re.sub(r'\*([^\*]+)\*', r'\1', line)
         # Strip code: `text` → text
         line = re.sub(r'`([^`]+)`', r'\1', line)
+        return line
+
+    def _strip_html_tags(self, line: str) -> str:
+        """
+        Strip HTML tags from line.
+
+        Args:
+            line: Line of text
+
+        Returns:
+            Line with HTML tags removed
+        """
+        # Remove HTML tags completely
+        line = re.sub(r'<[^>]+>', '', line)
         return line
 
     def add_metadata_header(self, content: str, metadata: PostMetadata) -> str:
