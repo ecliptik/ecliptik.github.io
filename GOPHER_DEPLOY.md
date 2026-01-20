@@ -22,6 +22,27 @@ echo "/blog" | nc localhost 7070
 docker compose -f docker-compose.gopher.yml down
 ```
 
+## Tailscale Testing
+
+Test from other devices on your Tailscale network:
+
+```bash
+# 1. Generate for Tailscale hostname
+python3 _scripts/manage.py gopher --host jezebel --port 7070
+
+# 2. Start Docker test server
+docker compose -f docker-compose.gopher.yml up -d
+
+# 3. Test from laptop or other Tailscale device
+bombadillo gopher://jezebel:7070
+echo "" | nc jezebel 7070
+
+# 4. Stop server
+docker compose -f docker-compose.gopher.yml down
+```
+
+Replace `jezebel` with your Tailscale hostname.
+
 ## Production Deployment to SDF.org
 
 ### Step 1: Generate for Production

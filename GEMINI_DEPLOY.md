@@ -59,6 +59,36 @@ lagrange gemini://localhost:1965/
 docker compose -f docker-compose.gemini.yml down
 ```
 
+## Tailscale Testing
+
+The Docker container is configured with hostname `jezebel` for testing from other Tailscale devices.
+
+```bash
+# Container is already configured for jezebel hostname
+# No need to regenerate gemini content
+
+# Start Docker test server
+docker compose -f docker-compose.gemini.yml up -d
+
+# Test from laptop or other Tailscale device
+# Using bombadillo
+bombadillo gemini://jezebel:1965/
+
+# Using amfora
+amfora gemini://jezebel:1965/
+
+# Using lagrange (GUI)
+lagrange gemini://jezebel:1965/
+
+# Using openssl
+echo "" | openssl s_client -connect jezebel:1965 -servername jezebel -quiet
+
+# Stop server
+docker compose -f docker-compose.gemini.yml down
+```
+
+**Note:** The TLS certificates include `jezebel` and `jezebel.tail-scale.ts.net` in the Subject Alternative Names, so they will validate correctly when accessed via Tailscale hostname.
+
 ## Production Deployment (SDF.org)
 
 ### 1. Generate for Production
