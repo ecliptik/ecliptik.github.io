@@ -338,6 +338,17 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 - Old scripts moved to `_scripts/deprecated/` for reference
 - **Result:** Consistent post creation, automatic year archives, better maintainability
 
+**Progressive Enhancement - No JavaScript Support (2026-01-20):**
+- Site fully functional without JavaScript enabled
+- **Theme**: Defaults to dark mode (TokyoNight-Storm) when JS disabled
+- **System preferences**: Respects `prefers-color-scheme: light` media query
+- **Tables**: Use CSS variables consistently (removed hardcoded colors)
+- **Search**: Hidden when JS disabled (no broken functionality)
+- **Theme toggle**: Hidden when JS disabled (no non-functional buttons)
+- **Implementation**: `.js-enabled` class added via inline script for progressive enhancement
+- **Files modified**: `_layouts/default.html`, `assets/css/console.css`
+- **Result:** Clean, accessible experience for users with JavaScript disabled
+
 ---
 
 ## Troubleshooting
