@@ -540,16 +540,19 @@ class GeminiConverter(SmallWebConverter):
                 alt = match.group(1)
                 img_path = match.group(2)
 
-                # Convert relative paths to full URLs
+                # Use gemini path (relative or absolute within capsule)
                 if not img_path.startswith('http'):
                     if img_path.startswith('/'):
-                        full_url = f"{self.config.web_base_url}{img_path}"
+                        # Absolute path within capsule
+                        gemini_path = img_path
                     else:
-                        full_url = f"{self.config.web_base_url}/assets/images/{img_path}"
+                        # Relative path - make it absolute
+                        gemini_path = f"/assets/images/{img_path}"
                 else:
-                    full_url = img_path
+                    # External image - keep as-is
+                    gemini_path = img_path
 
-                output_lines.append(f"=> {full_url} {alt}")
+                output_lines.append(f"=> {gemini_path} {alt}")
             return output_lines
 
         # Handle standalone image pattern: ![alt](path)
@@ -561,16 +564,19 @@ class GeminiConverter(SmallWebConverter):
                 alt = match.group(1)
                 img_path = match.group(2)
 
-                # Convert relative paths to full URLs
+                # Use gemini path (relative or absolute within capsule)
                 if not img_path.startswith('http'):
                     if img_path.startswith('/'):
-                        full_url = f"{self.config.web_base_url}{img_path}"
+                        # Absolute path within capsule
+                        gemini_path = img_path
                     else:
-                        full_url = f"{self.config.web_base_url}/assets/images/{img_path}"
+                        # Relative path - make it absolute
+                        gemini_path = f"/assets/images/{img_path}"
                 else:
-                    full_url = img_path
+                    # External image - keep as-is
+                    gemini_path = img_path
 
-                output_lines.append(f"=> {full_url} {alt}")
+                output_lines.append(f"=> {gemini_path} {alt}")
             return output_lines
 
         return output_lines
@@ -778,6 +784,9 @@ class GeminiGenerator:
         # Create output directory structure
         self._create_directories()
 
+        # Copy assets directory for images
+        self._copy_assets()
+
         # Scan posts
         print("\nScanning posts...")
         posts = self.scanner.scan_posts()
@@ -815,6 +824,22 @@ class GeminiGenerator:
 
         for d in dirs:
             os.makedirs(d, exist_ok=True)
+
+    def _copy_assets(self):
+        """Copy assets directory to gemini output for images."""
+        import shutil
+
+        src_assets = "assets"
+        dst_assets = os.path.join(self.config.output_dir, "assets")
+
+        # Remove existing assets directory if present
+        if os.path.exists(dst_assets):
+            shutil.rmtree(dst_assets)
+
+        # Copy assets directory
+        if os.path.exists(src_assets):
+            shutil.copytree(src_assets, dst_assets)
+            print(f"  Copied assets directory to {dst_assets}")
 
     def generate_posts(self, posts: List[PostMetadata]):
         """
