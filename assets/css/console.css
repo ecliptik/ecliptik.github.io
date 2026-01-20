@@ -562,7 +562,7 @@ p:has(img) + figure {
 }
 
 figure>figcaption {
-    color: var(--pygments-one) !important;
+    color: var(--pygments-six) !important;
     font-style: italic;
     text-align: center;
     margin-top: 0.3em;
@@ -850,8 +850,16 @@ figure>figcaption::selection {
     font-size: 1.2rem;
     padding: 8px 12px;
     transition: transform 0.2s ease;
-    border: none;
+    border: 1px solid var(--border);
     margin: 0;
+}
+
+[data-theme="light"] #theme-toggle-btn {
+    background-color: #c0c5d8;
+}
+
+[data-theme="dark"] #theme-toggle-btn {
+    background-color: #1a1e2e;
 }
 
 #theme-toggle-btn:hover {
