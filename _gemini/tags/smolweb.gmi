@@ -1,0 +1,7 @@
+=> / ← Home
+=> /tags/ ← Tags
+
+# Tag: smolweb
+
+=> /blog/2022/Superhighway84-on-FreeBSD.gmi 2022-01-17 - Superhighway84 on FreeBSD
+=> /blog/2021/Launching-a-Gemini-Capsule.gmi 2021-02-09 - Launching a Gemini Capsule

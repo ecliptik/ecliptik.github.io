@@ -1,0 +1,6 @@
+=> / ← Home
+=> /blog/ ← Blog
+
+# Posts from 2024
+
+=> /blog/2024/DNS-Guardrails-with-dnscrypt-proxy.gmi 2024-01-23 - DNS Guardrails with dnscrypt-proxy

@@ -1,0 +1,6 @@
+=> / ← Home
+=> /tags/ ← Tags
+
+# Tag: fediverse
+
+=> /blog/2021/One-Week-With-Mastodon.gmi 2021-01-26 - One Week With Mastodon

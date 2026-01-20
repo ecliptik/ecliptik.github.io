@@ -1,0 +1,6 @@
+=> / ← Home
+=> /tags/ ← Tags
+
+# Tag: bookmarks
+
+=> /blog/2022/Bookmarking-and-Creating-a-Local-Internet-Archive.gmi 2022-01-04 - Bookmarking and Creating a Local Internet Archive

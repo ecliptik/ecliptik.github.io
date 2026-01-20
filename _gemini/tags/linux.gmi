@@ -1,0 +1,10 @@
+=> / ← Home
+=> /tags/ ← Tags
+
+# Tag: linux
+
+=> /blog/2025/Switching-to-Ghostty.gmi 2025-01-23 - Switching to Ghostty
+=> /blog/2024/DNS-Guardrails-with-dnscrypt-proxy.gmi 2024-01-23 - DNS Guardrails with dnscrypt-proxy
+=> /blog/2023/Tailscale-on-the-DevTerm-R-01.gmi 2023-01-25 - Tailscale on the DevTerm R-01
+=> /blog/2021/Forwarding-gpg-agent-over-SSH.gmi 2021-12-27 - Forwarding gpg-agent Over SSH
+=> /blog/2011/Vim-rdesktop-external-monitors-and-X-Forwarding-on-a-Google-CR-48.gmi 2011-01-22 - Vim, rdesktop, external monitors, and X Forwarding on a Google CR-48

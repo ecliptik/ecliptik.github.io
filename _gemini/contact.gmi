@@ -1,0 +1,22 @@
+E-mail is my preferred method of communication, but I am also regularly post on => https://fosstodon.org/ Fosstodon and am frequently available on => https://matrix.org Matrix.
+
+## Contact
+
+* Email: => mailto:{{ site.links.email }} {{ site.links.email }}
+* LinkedIn: => https://www.linkedin.com/in/{{ site.links.linkedin }}/ {{ site.links.linkedin }}
+* Github: => https://www.github.com/{{ site.links.github }} {{ site.links.github }}
+* Social: => {{ site.links.sociallink }} @{{ site.links.social }}
+* Matrix: => https://matrix.org @ecliptik:matrix.org
+* GPG/Keyoxide: => https://keyoxide.org/hkp/{{ site.links.keyoxide }} 5F70 F2AC BD58 F580 DF15  3D1F 4FA2 70F5 CD36 71F9
+
+## Sites
+* => https://qa.debian.org/developer.php?email=ecliptik%40gmail.com Debian QA Page
+* => https://salsa.debian.org/ecliptik Debian Salsa
+* => gemini://rawtext.club/~ecliptik/ Gemini
+* => gopher://sdf.org:70/1/users/ecliptik/ Gopher
+* => ipns://ecliptik.eth IPFS
+* => https://ecliptik.hns.to Handshake
+
+
+
+=> / ← Home

@@ -1,0 +1,6 @@
+=> / ← Home
+=> /blog/ ← Blog
+
+# Posts from 2023
+
+=> /blog/2023/Tailscale-on-the-DevTerm-R-01.gmi 2023-01-25 - Tailscale on the DevTerm R-01
