@@ -47,7 +47,7 @@
    CSS CUSTOM PROPERTIES - TOKYONIGHT THEMES
    ============================================ */
 
-:root, [data-theme="light"] {
+:root {
     --global-font-size: 1.15rem;
     --mono-font-stack: BerkeleyMono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     --font-stack: BerkeleyMono, Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
@@ -56,7 +56,32 @@
     --page-width: 60em;
     --display-h1-decoration: 1;
 
-    /* TokyoNight-Day (Light) theme */
+    /* TokyoNight-Storm (Dark) theme - default */
+    --bg: #24283b;
+    --accent-bg: #1f2335;
+    --text: #c0caf5;
+    --text-light: #a9b1d6;
+    --border: #565f89;
+    --accent: #7aa2f7;
+    --accent-light: #bb9af7;
+    --code: #f7768e;
+    --preformatted: #7dcfff;
+    --marked: #bb9af7;
+    --code-bg-color: #1f2335;
+
+    /* Pygments syntax highlighting */
+    --pygments-one: #565f89;    /* Comments */
+    --pygments-two: #c0caf5;    /* Operators */
+    --pygments-three: #9ece6a;  /* Keywords (green) */
+    --pygments-four: #ff9e64;   /* Constants (orange) */
+    --pygments-five: #7aa2f7;   /* Functions (blue) */
+    --pygments-six: #7dcfff;    /* Strings (cyan) */
+    --pygments-seven: #f7768e;  /* Errors (red) */
+    --pygments-eight: #e0af68;  /* Built-ins (yellow) */
+}
+
+/* TokyoNight-Day (Light) theme - requires JavaScript */
+[data-theme="light"] {
     --bg: #e1e2e7;
     --accent-bg: #d0d5e3;
     --text: #3760bf;
@@ -116,6 +141,33 @@
 [data-theme="dark"] img,
 [data-theme="dark"] video {
     opacity: 0.9;
+}
+
+/* Respect system preference when JavaScript is disabled */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --bg: #e1e2e7;
+        --accent-bg: #d0d5e3;
+        --text: #3760bf;
+        --text-light: #4c5e94;
+        --border: #848cb5;
+        --accent: #2e7de9;
+        --accent-light: #9854f1;
+        --code: #f52a65;
+        --preformatted: #007197;
+        --marked: #9854f1;
+        --code-bg-color: #d0d5e3;
+
+        /* Pygments syntax highlighting */
+        --pygments-one: #848cb5;    /* Comments */
+        --pygments-two: #3760bf;    /* Operators */
+        --pygments-three: #587539;  /* Keywords (green) */
+        --pygments-four: #c64f00;   /* Constants (orange) */
+        --pygments-five: #2e7de9;   /* Functions (blue) */
+        --pygments-six: #007197;    /* Strings (cyan) */
+        --pygments-seven: #f52a65;  /* Errors (red) */
+        --pygments-eight: #8c6c3e;  /* Built-ins (yellow) */
+    }
 }
 
 /* ============================================
@@ -520,17 +572,6 @@ table caption {
 
 tr:nth-child(even) {
     background: var(--accent-bg);
-}
-
-/* Table row contrast improvements for dark mode */
-[data-theme="dark"] tr:nth-child(even) {
-    background: #2d3348;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) tr:nth-child(even) {
-        background: #2d3348;
-    }
 }
 
 /* ============================================
@@ -977,8 +1018,13 @@ figure>figcaption::selection {
    ============================================ */
 
 #search-container {
+    display: none; /* Hide by default when JavaScript is disabled */
     margin-top: calc(var(--global-space) * 2);
     margin-bottom: 2rem;
+}
+
+.js-enabled #search-container {
+    display: block; /* Show when JavaScript is enabled */
 }
 
 #search-input {
