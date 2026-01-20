@@ -13,7 +13,7 @@ subjectAltName = @alt_names
 
 [alt_names]
 DNS.1 = jezebel
-DNS.2 = jezebel.tail-scale.ts.net
+DNS.2 = jezebel.hale-gopher.ts.net
 DNS.3 = localhost
 DNS.4 = *.localhost
 IP.1 = 127.0.0.1
