@@ -674,8 +674,49 @@ class GeminiGenerator:
             posts: List of post metadata
         """
         print("\nGenerating year archives...")
-        # Placeholder - will be implemented in Phase 4
-        pass
+
+        # Group posts by year using YearOrganizer
+        years = YearOrganizer.group_by_year(posts)
+
+        for year, year_posts in sorted(years.items(), reverse=True):
+            # Sort posts by date (newest first)
+            year_posts_sorted = sorted(year_posts, key=lambda p: p.date, reverse=True)
+
+            # Build index.gmi content
+            builder = GemtextBuilder()
+
+            # Add breadcrumb navigation
+            builder.add_link("/", "← Home")
+            builder.add_link("/blog/", "← Blog")
+            builder.add_blank_line()
+
+            # Add title
+            builder.add_heading(f"Posts from {year}", level=1)
+            builder.add_blank_line()
+
+            # List posts
+            for post in year_posts_sorted:
+                builder.add_link(
+                    f"{post.gemini_path}",
+                    f"{post.date_str} - {post.title}"
+                )
+
+            # Write index.gmi file
+            output_path = os.path.join(
+                self.config.output_dir,
+                'blog',
+                year,
+                'index.gmi'
+            )
+
+            try:
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(builder.build())
+                print(f"  ✓ {year}/index.gmi ({len(year_posts)} posts)")
+            except Exception as e:
+                print(f"  ✗ Error writing {output_path}: {e}")
+
+        print(f"  Generated {len(years)} year archives")
 
     def generate_tag_pages(self, posts: List[PostMetadata]):
         """
