@@ -2,6 +2,5 @@
 User-agent: *
 Allow: /
 Disallow: /assets/font/
-Disallow: /_site/
 
 Sitemap: https://www.ecliptik.com/sitemap.xml
