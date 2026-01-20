@@ -99,3 +99,5 @@ exclude:
     - _config_dev.yml
     - CLAUDE.md
     - docker-compose.yaml
+    - tests
+    - smallweb
