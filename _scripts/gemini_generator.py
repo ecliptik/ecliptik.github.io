@@ -810,8 +810,94 @@ class GeminiGenerator:
             posts: List of post metadata
         """
         print("\nGenerating root index...")
-        # Placeholder - will be implemented in Phase 6
-        pass
+
+        # Generate main index.gmi
+        self._generate_main_index(posts)
+
+        # Generate blog/index.gmi with year list
+        self._generate_blog_index(posts)
+
+    def _generate_main_index(self, posts: List[PostMetadata]):
+        """Generate main index.gmi file."""
+        builder = GemtextBuilder()
+
+        # Add ASCII art header
+        builder.add_text(self.converter.ascii_header)
+        builder.add_blank_line()
+
+        # Add title and description
+        builder.add_heading("ecliptik", level=1)
+        builder.add_text("Personal tech blog - cloud, DevOps, retro computing, small web protocols")
+        builder.add_blank_line()
+
+        # Add sitemap section
+        builder.add_heading("Site Map", level=2)
+        builder.add_link("/about.gmi", "About")
+        builder.add_link("/contact.gmi", "Contact")
+        builder.add_link("/blog/", "Blog")
+        builder.add_link("/tags/", "Tags")
+        builder.add_blank_line()
+
+        # Add recent posts section
+        builder.add_heading("Recent Posts", level=2)
+        recent_posts = sorted(posts, key=lambda p: p.date, reverse=True)[:self.config.max_recent_posts]
+        for post in recent_posts:
+            builder.add_link(
+                post.gemini_path,
+                f"{post.date_str} - {post.title}"
+            )
+        builder.add_blank_line()
+
+        # Add external links section
+        builder.add_heading("Other Protocols", level=2)
+        builder.add_link("https://www.ecliptik.com", "Web (HTTPS)")
+        builder.add_link("gopher://gopher.club:70/1/users/ecliptik/", "Gopher")
+        builder.add_blank_line()
+
+        # Add footer
+        builder.add_text("Made with Jekyll and gemini_generator.py")
+
+        # Write index.gmi
+        output_path = os.path.join(self.config.output_dir, 'index.gmi')
+        try:
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(builder.build())
+            print(f"  ✓ index.gmi")
+        except Exception as e:
+            print(f"  ✗ Error writing {output_path}: {e}")
+
+    def _generate_blog_index(self, posts: List[PostMetadata]):
+        """Generate blog/index.gmi with year list."""
+        builder = GemtextBuilder()
+
+        # Add breadcrumb navigation
+        builder.add_link("/", "← Home")
+        builder.add_blank_line()
+
+        # Add title
+        builder.add_heading("Blog", level=1)
+        builder.add_blank_line()
+
+        # Get years and post counts
+        years = YearOrganizer.group_by_year(posts)
+
+        # List years with post counts (newest first)
+        builder.add_heading("Posts by Year", level=2)
+        for year in sorted(years.keys(), reverse=True):
+            count = len(years[year])
+            builder.add_link(
+                f"/blog/{year}/",
+                f"{year} ({count} posts)"
+            )
+
+        # Write blog/index.gmi
+        output_path = os.path.join(self.config.output_dir, 'blog', 'index.gmi')
+        try:
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(builder.build())
+            print(f"  ✓ blog/index.gmi")
+        except Exception as e:
+            print(f"  ✗ Error writing {output_path}: {e}")
 
     def generate_pages(self):
         """Generate static pages (about, contact)."""
