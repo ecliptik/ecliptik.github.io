@@ -14,7 +14,7 @@ image:
   path: /assets/images/shared/pi-small.jpg
   height: 75
   width: 100
-  alt: micheal@ecliptik.com - Personal tech blog
+  alt: micheal@ecliptik.com
 
 defaults:
   - scope:
