@@ -60,6 +60,49 @@
   }
 
   /**
+   * Tooltip functionality
+   */
+  let tooltip = null;
+
+  function createTooltip() {
+    tooltip = document.createElement('div');
+    tooltip.className = 'image-tooltip';
+    document.body.appendChild(tooltip);
+  }
+
+  function showTooltip(e, text, themeClass) {
+    if (!tooltip) createTooltip();
+
+    tooltip.textContent = text;
+    tooltip.className = 'image-tooltip visible';
+    if (themeClass) {
+      tooltip.classList.add(themeClass);
+    }
+
+    const btnRect = e.target.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+
+    // Position tooltip below the button
+    let left = btnRect.left + (btnRect.width / 2) - (tooltipRect.width / 2);
+    let top = btnRect.bottom + 8;
+
+    // Keep tooltip within viewport horizontally
+    if (left < 5) left = 5;
+    if (left + tooltipRect.width > window.innerWidth - 5) {
+      left = window.innerWidth - tooltipRect.width - 5;
+    }
+
+    tooltip.style.left = left + window.scrollX + 'px';
+    tooltip.style.top = top + window.scrollY + 'px';
+  }
+
+  function hideTooltip() {
+    if (tooltip) {
+      tooltip.classList.remove('visible');
+    }
+  }
+
+  /**
    * Initialize theme toggle functionality
    * Early theme setting is now handled by inline script in HTML head
    */
@@ -71,6 +114,20 @@
     const toggleBtn = document.getElementById('theme-toggle-btn');
     if (toggleBtn) {
       toggleBtn.addEventListener('click', toggleTheme);
+
+      // Add tooltip on hover
+      toggleBtn.addEventListener('mouseenter', function(e) {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const tooltipText = currentTheme === THEME_DARK
+          ? 'Switch to Light Mode'
+          : 'Switch to Dark Mode';
+        const themeClass = currentTheme === THEME_DARK
+          ? 'theme-light'
+          : 'theme-dark';
+        showTooltip(e, tooltipText, themeClass);
+      });
+
+      toggleBtn.addEventListener('mouseleave', hideTooltip);
     }
 
     // Listen for system theme changes (only applies if user hasn't set manual preference)
