@@ -33,7 +33,26 @@ bash tests/verify_gemini.sh
 # - All gemtext syntax checks pass
 ```
 
-### 3. Test with Docker
+### 3. Generate TLS Certificates (First Time Only)
+
+```bash
+# Generate self-signed certificates for local testing
+./.docker/gemini/certs/generate-certs.sh
+
+# Or manually:
+cd .docker/gemini/certs
+openssl req -x509 -newkey rsa:2048 \
+    -keyout key.pem \
+    -out cert.pem \
+    -days 365 \
+    -nodes \
+    -config openssl.cnf \
+    -extensions v3_req
+```
+
+**Note:** Certificates are not committed to git for security. You only need to generate them once (valid for 365 days).
+
+### 4. Test with Docker
 
 ```bash
 # Start molly-brown server
@@ -87,7 +106,7 @@ echo "" | openssl s_client -connect jezebel:1965 -servername jezebel -quiet
 docker compose -f docker-compose.gemini.yml down
 ```
 
-**Note:** The TLS certificates include `jezebel` and `jezebel.tail-scale.ts.net` in the Subject Alternative Names, so they will validate correctly when accessed via Tailscale hostname.
+**Note:** The TLS certificates include `jezebel` and `jezebel.hale-gopher.ts.net` in the Subject Alternative Names, so they will validate correctly when accessed via Tailscale hostname.
 
 ## Production Deployment (SDF.org)
 
