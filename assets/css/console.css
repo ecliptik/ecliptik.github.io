@@ -699,7 +699,7 @@ figure>figcaption::selection {
 
 .terminal-header-line {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
     width: 100%;
     flex-wrap: nowrap;
@@ -714,6 +714,7 @@ figure>figcaption::selection {
     padding: 0;
     line-height: 1;
     font-weight: bold;
+    align-self: flex-end;
 }
 
 .terminal-header-line .logo {
@@ -731,6 +732,7 @@ figure>figcaption::selection {
     padding: 0;
     width: auto;
     line-height: 1;
+    align-self: flex-end;
 }
 
 .terminal-header-line .terminal-menu ul {
@@ -851,7 +853,7 @@ figure>figcaption::selection {
     padding: 6px !important;
     transition: transform 0.2s ease;
     border: 1px solid var(--border);
-    margin: -4px;
+    margin: 0;
 }
 
 [data-theme="light"] #theme-toggle-btn {
@@ -1111,6 +1113,6 @@ figure>figcaption::selection {
     #theme-toggle-btn {
         font-size: 1rem;
         padding: 6px !important;
-        margin: -4px;
+        margin: 0;
     }
 }
