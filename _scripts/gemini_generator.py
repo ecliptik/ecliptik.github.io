@@ -432,7 +432,18 @@ class GeminiConverter(SmallWebConverter):
                 output.append(line)
                 continue
 
-            # Collect links and images as footnotes (before list processing)
+            # Strip Kramdown/Jekyll attributes before processing
+            line = self._strip_kramdown_attributes(line)
+
+            # Convert images to immediate gemtext links (on their own line)
+            # This must happen before footnote collection
+            image_lines = self._convert_images_to_gemtext(line, metadata)
+            if image_lines:
+                # If we found images, add them and skip further processing
+                output.extend(image_lines)
+                continue
+
+            # Collect text links as footnotes (after image processing)
             line = self._collect_links_as_footnotes(line, metadata, footnotes)
 
             # Convert lists (unordered and ordered) AFTER link conversion
@@ -488,9 +499,87 @@ class GeminiConverter(SmallWebConverter):
                     return '\n'.join(lines[i+1:])
         return content
 
+    def _strip_kramdown_attributes(self, line: str) -> str:
+        """
+        Strip Kramdown/Jekyll attributes like {: width="60%"}.
+
+        Args:
+            line: Line of text
+
+        Returns:
+            Line with Kramdown attributes removed
+        """
+        # Remove {: ... } patterns
+        line = re.sub(r'\{:[^}]+\}', '', line)
+        return line
+
+    def _convert_images_to_gemtext(self, line: str, metadata: PostMetadata) -> list:
+        """
+        Convert markdown images to gemtext links on their own lines.
+
+        Handles patterns like:
+        - ![alt](path)
+        - [![alt](img)](img) (clickable image link)
+
+        Args:
+            line: Line of text
+            metadata: Post metadata for path resolution
+
+        Returns:
+            List of gemtext link lines, or empty list if no images found
+        """
+        output_lines = []
+
+        # Handle clickable image pattern: [![alt](img)](img)
+        # This is an image wrapped in a link pointing to itself
+        clickable_pattern = r'\[!\[([^\]]*)\]\(([^\)]+)\)\]\(([^\)]+)\)'
+        matches = list(re.finditer(clickable_pattern, line))
+
+        if matches:
+            for match in matches:
+                alt = match.group(1)
+                img_path = match.group(2)
+
+                # Convert relative paths to full URLs
+                if not img_path.startswith('http'):
+                    if img_path.startswith('/'):
+                        full_url = f"{self.config.web_base_url}{img_path}"
+                    else:
+                        full_url = f"{self.config.web_base_url}/assets/images/{img_path}"
+                else:
+                    full_url = img_path
+
+                output_lines.append(f"=> {full_url} {alt}")
+            return output_lines
+
+        # Handle standalone image pattern: ![alt](path)
+        standalone_pattern = r'!\[([^\]]*)\]\(([^\)]+)\)'
+        matches = list(re.finditer(standalone_pattern, line))
+
+        if matches:
+            for match in matches:
+                alt = match.group(1)
+                img_path = match.group(2)
+
+                # Convert relative paths to full URLs
+                if not img_path.startswith('http'):
+                    if img_path.startswith('/'):
+                        full_url = f"{self.config.web_base_url}{img_path}"
+                    else:
+                        full_url = f"{self.config.web_base_url}/assets/images/{img_path}"
+                else:
+                    full_url = img_path
+
+                output_lines.append(f"=> {full_url} {alt}")
+            return output_lines
+
+        return output_lines
+
     def _collect_links_as_footnotes(self, line: str, metadata: PostMetadata, footnotes: list) -> str:
         """
-        Collect markdown links and images as footnotes, replacing inline with [N] references.
+        Collect markdown text links as footnotes, replacing inline with [N] references.
+
+        Note: Images are handled separately by _convert_images_to_gemtext().
 
         Args:
             line: Line of text
@@ -500,23 +589,6 @@ class GeminiConverter(SmallWebConverter):
         Returns:
             Line with inline links replaced by [N] footnote references
         """
-        # Convert images: ![alt](path) → [N]
-        def replace_image(match):
-            alt = match.group(1)
-            path = match.group(2)
-            # Convert relative paths to full URLs
-            if not path.startswith('http'):
-                if path.startswith('/'):
-                    full_url = f"{self.config.web_base_url}{path}"
-                else:
-                    full_url = f"{self.config.web_base_url}/assets/images/{path}"
-            else:
-                full_url = path
-            footnotes.append((full_url, alt))
-            return f"[{len(footnotes)}]"
-
-        line = re.sub(r'!\[([^\]]*)\]\(([^\)]+)\)', replace_image, line)
-
         # Remove empty link brackets: [](url) → ""
         line = re.sub(r'\[\]\([^\)]+\)', '', line)
 
