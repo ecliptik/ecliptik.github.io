@@ -40,7 +40,7 @@ About a year ago I started looking into alternative for LastPass as my password 
 
 ## ScreenShotSunday
 
-It turns out on Sundays a thing to do on Fosstodon is post screenshots with the tag `#screenshotsunday`. Since I have a post on [screenshots through the years](https://www.ecliptik.com/Screenshots-Over-the-Years/) I tooted an old screenshot from [RedHat Linux 6.1 in 2000](https://fosstodon.org/@ecliptik/105611942604393139) and got a lot of positive responses, boosts, and followers leading to my highest "engagement".
+It turns out on Sundays a thing to do on Fosstodon is post screenshots with the tag `#screenshotsunday`. Since I have a post on [screenshots through the years](/blog/2008/Screenshots-Over-the-Years/) I tooted an old screenshot from [RedHat Linux 6.1 in 2000](https://fosstodon.org/@ecliptik/105611942604393139) and got a lot of positive responses, boosts, and followers leading to my highest "engagement".
 
 ## Summary
 

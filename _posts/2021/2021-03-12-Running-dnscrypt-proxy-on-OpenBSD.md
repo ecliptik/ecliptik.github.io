@@ -10,7 +10,7 @@ redirect_from: /Running-dnscrypt-proxy-on-OpenBSD/
 
 ## Intro
 
-A couple of weeks ago I took a spare RaspberryPi 3 leftover from my [old k3s cluster](https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/) and installed [OpenBSD](https://www.openbsd.org/) on it using my [Pocket C.H.I.P.](https://www.ecliptik.com/CHIP-Serial-Console/). While getting it installed was fun, I wanted to do more with it and use it on a more regular basis to continue learning about OpenBSD in general.
+A couple of weeks ago I took a spare RaspberryPi 3 leftover from my [old k3s cluster](/blog/2017/Raspberry-Pi-Kubernetes-Cluster/) and installed [OpenBSD](https://www.openbsd.org/) on it using my [Pocket C.H.I.P.](/blog/2021/CHIP-Serial-Console/). While getting it installed was fun, I wanted to do more with it and use it on a more regular basis to continue learning about OpenBSD in general.
 
 ![OpenBSD on RaspberryPi](/assets/images/posts/openbsd-rpi/openbsd-rpi.png)
 <figure><figcaption>OpenBSD 4.9 Sticker on RaspberryPi 3</figcaption></figure>

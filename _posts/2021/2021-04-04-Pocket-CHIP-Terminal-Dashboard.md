@@ -10,7 +10,7 @@ redirect_from: /Pocket-CHIP-Terminal-Dashboard/
 
 ## Intro
 
-When I first got my [Pocket C.H.I.P.](https://www.ecliptik.com/Pocket-CHIP/) one of the first thoughts I had was to use it as sort of a mini-desktop terminal to display things like weather, new mail, etc. After doing some [other tinkering](https://www.ecliptik.com/CHIP-Serial-Console/) with it first, it has been on my desk the last couple of weeks displaying the following information,
+When I first got my [Pocket C.H.I.P.](/blog/2021/Pocket-CHIP/) one of the first thoughts I had was to use it as sort of a mini-desktop terminal to display things like weather, new mail, etc. After doing some [other tinkering](/blog/2021/CHIP-Serial-Console/) with it first, it has been on my desk the last couple of weeks displaying the following information,
 
 * Latest local toot in [Fosstodon](https://fosstodon.org/web/timelines/public/local) using [Toot](https://github.com/ihabunek/toot)
 * Top 10 [Hacker News](https://news.ycombinator.com) posts using [haxor-news](https://github.com/donnemartin/haxor-news)
@@ -23,7 +23,7 @@ When I first got my [Pocket C.H.I.P.](https://www.ecliptik.com/Pocket-CHIP/) one
 
 ## Setup
 
-[Tmux](https://github.com/tmux/tmux) is the heart of the setup, with each applet in it's own terminal pane and then borders turned off so it looks like a single seamless screen. Running in tmux has the added benefit of detaching the dashboard, like when you want to watch some [vaporwave on the framebuffer](https://www.ecliptik.com/CHIP-Vaporwave/) or sharing the screen from ssh for remote control.
+[Tmux](https://github.com/tmux/tmux) is the heart of the setup, with each applet in it's own terminal pane and then borders turned off so it looks like a single seamless screen. Running in tmux has the added benefit of detaching the dashboard, like when you want to watch some [vaporwave on the framebuffer](/blog/2021/CHIP-Vaporwave/) or sharing the screen from ssh for remote control.
 
 The tools used in these panes are a combination of `watch` to refresh every 60 seconds or a small shell script. I attempted to use `watch` for everything, but some commands didn't work well with the ASCII escape codes even with the `--color` option.
 

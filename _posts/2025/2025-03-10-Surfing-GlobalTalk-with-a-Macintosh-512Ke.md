@@ -7,13 +7,13 @@ tags: marchintosh globaltalk macintosh localtalk 512ke appletalk
 redirect_from: /Surfing-GlobalTalk-with-a-Macintosh-512Ke/
 ---
 
-While I've discussed the [origins of my Macintosh 512Ke](https://www.ecliptik.com/A-Macintosh-Story/) and the [enhancements](https://www.ecliptik.com/Enhancing-my-Macintosh-512Ke/) I've done over the past year. What really kicked off my interest in using it more than just Zoom background discussion piece, were all the fediverse posts I saw on [GlobalTalk](https://marchintosh.com/globaltalk.html) during [MARCHintosh](https://www.marchintosh.com/) 2024.
+While I've discussed the [origins of my Macintosh 512Ke](/blog/2025/A-Macintosh-Story/) and the [enhancements](/blog/2025/Enhancing-my-Macintosh-512Ke/) I've done over the past year. What really kicked off my interest in using it more than just Zoom background discussion piece, were all the fediverse posts I saw on [GlobalTalk](https://marchintosh.com/globaltalk.html) during [MARCHintosh](https://www.marchintosh.com/) 2024.
 
 I was intrigued that classic Macs like my 512Ke, which I always thought was limited in what it could do, could network with other systems, and not just locally but globally. With this in mind I set a goal for myself to have my 512Ke participate in GlobalTalk for MARCHintosh 2025.
 
 ## LocalTalk, GlobalTalk, TashTalk, Oh My
 
-A quick aside, as noted in my [512Ke enhancements](https://www.ecliptik.com/Enhancing-my-Macintosh-512Ke/) post,I swapped a Macintosh Plus logic board for the 512Ke board in the original case. By using a PicoPSU, RGB2HDMI, FloppyEMU, an original mouse and PS2 keyboard adapter, I can run the 512Ke in a bareboard cyberpunk fashion.
+A quick aside, as noted in my [512Ke enhancements](/blog/2025/Enhancing-my-Macintosh-512Ke/) post,I swapped a Macintosh Plus logic board for the 512Ke board in the original case. By using a PicoPSU, RGB2HDMI, FloppyEMU, an original mouse and PS2 keyboard adapter, I can run the 512Ke in a bareboard cyberpunk fashion.
 
 [![Bareboard 512Ke](/assets/images/posts/512ke/512ke-bareboard.jpg){: width="60%"}](/assets/images/posts/512ke/512ke-bareboard.jpg)
 <figure><figcaption>Bareboard 512Ke</figcaption></figure>

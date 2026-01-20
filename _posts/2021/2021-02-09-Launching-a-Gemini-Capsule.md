@@ -10,9 +10,9 @@ redirect_from: /Launching-a-Gemini-Capsule/
 
 ## Gemawhat?
 
-Even since I started [using Mastodon](https://www.ecliptik.com/One-Week-With-Mastodon/) a couple of weeks ago, [Project Gemini](https://gemini.circumlunar.space) is one of the most exciting new technologies I've discovered in my [local feed](https://fosstodon.org/web/timelines/public/local).
+Even since I started [using Mastodon](/blog/2021/One-Week-With-Mastodon/) a couple of weeks ago, [Project Gemini](https://gemini.circumlunar.space) is one of the most exciting new technologies I've discovered in my [local feed](https://fosstodon.org/web/timelines/public/local).
 
-I won't go into full detail on what Gemini is, but similar to [why I made a Gopherhole](https://www.ecliptik.com/Making-a-Gopherhole-and-Phlog/), Gemini is a newer Internet protocol that strips away the bloat of the modern web to a core set of concepts, generality, and maximum power-to-weight-ratio.
+I won't go into full detail on what Gemini is, but similar to [why I made a Gopherhole](/blog/2021/Making-a-Gopherhole-and-Phlog/), Gemini is a newer Internet protocol that strips away the bloat of the modern web to a core set of concepts, generality, and maximum power-to-weight-ratio.
 
 > Gemini is a new, collaboratively designed internet protocol, which explores the space in between gopher and the web, striving to address (perceived) limitations of one while avoiding the (undeniable) pitfalls of the other.
 

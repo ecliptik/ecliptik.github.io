@@ -9,7 +9,7 @@ redirect_from: /Making-a-Gopherhole-and-Phlog/
 
 ## But Why?
 
-The obvious questions is why make a Gopherhole (what [gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) sites are called) when all the action is on the [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web) over `html` and `http`? Didn't those protocols win the Internet two decades ago? I didn't really think much about Gopher until I started reading more about the newer [Gemini](https://gemini.circumlunar.space) protocol on my foray [into Mastodon](https://www.ecliptik.com/One-Week-With-Mastodon/) last week and figuratively went "down" the Gopherhole.
+The obvious questions is why make a Gopherhole (what [gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) sites are called) when all the action is on the [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web) over `html` and `http`? Didn't those protocols win the Internet two decades ago? I didn't really think much about Gopher until I started reading more about the newer [Gemini](https://gemini.circumlunar.space) protocol on my foray [into Mastodon](/blog/2021/One-Week-With-Mastodon/) last week and figuratively went "down" the Gopherhole.
 
 ![Slides from 1992 Gopher presentation](/assets/images/posts/making-a-gopherhole-and-phlog/gopher-slides.png)
 <figure><figcaption>Slides from 1992 Gopher presentation</figcaption></figure>
@@ -20,7 +20,7 @@ For a much more in-depth look on modern Gopher, I recommend reading [Burrowing A
 
 ## Start Burrowing
 
-The first thing I needed to to was figure out how to host a Gopherhole. I could run it myself locally, and was thinking of re-purposing one of [my numerous raspberrypis](https://www.ecliptik.com/Raspberry-Pi-Kubernetes-Cluster/) to self-host it over port 70. I even got as far as trying to make a `Dockerfile` to run [gophernicus](http://www.gophernicus.org) in a container and maybe even get it to run in Kubernetes! I quickly realized this was missing the point of slowing down and focusing on the simplicity that intially drew me in the first place and scrapped this idea.
+The first thing I needed to to was figure out how to host a Gopherhole. I could run it myself locally, and was thinking of re-purposing one of [my numerous raspberrypis](/blog/2017/Raspberry-Pi-Kubernetes-Cluster/) to self-host it over port 70. I even got as far as trying to make a `Dockerfile` to run [gophernicus](http://www.gophernicus.org) in a container and maybe even get it to run in Kubernetes! I quickly realized this was missing the point of slowing down and focusing on the simplicity that intially drew me in the first place and scrapped this idea.
 
 While browsing Gemini capsules (the term for Gemini sites), I came across the [PubNix](https://github.com/cwmccabe/pubnixhist) [RawText.club](https://rawtext.club), whose mission fit  with the themes of simplicity and do-it-yourself while offering some basic hosting services for gopher, gemini, and web.
 
@@ -86,7 +86,7 @@ MAP   [4]  rawtext.club
 
 ## Phlog
 
-After getting the basic site up I wanted to update it frequently with a Phlog, which is the gopher equivalent of a Blog. Since I already have this blog with [Jekyll](https://www.ecliptik.com/Building-a-website-with-Github-and-Jekyll/) and uses markdown for posts, I thought I might as well mirror these posts to the Phlog. I also decided to only do the pure markdown posts, as some of the older posts on the blog were converted from [my old blogger site](https://junocake.blogspot.com) and are HTML. Having to convert all of those to markdown or writing scripts to also convert HTML was a bit too much for this project.
+After getting the basic site up I wanted to update it frequently with a Phlog, which is the gopher equivalent of a Blog. Since I already have this blog with [Jekyll](/blog/2015/Building-a-website-with-Github-and-Jekyll/) and uses markdown for posts, I thought I might as well mirror these posts to the Phlog. I also decided to only do the pure markdown posts, as some of the older posts on the blog were converted from [my old blogger site](https://junocake.blogspot.com) and are HTML. Having to convert all of those to markdown or writing scripts to also convert HTML was a bit too much for this project.
 
 A few others have already done this, as referenced above for Jekyll and Hugo already, but I wanted to do my own take on it. Originally I wrote a script that would convert a post to a `gophermap`, converting the links to blocks, identifying what type they were and creating item links.
 
