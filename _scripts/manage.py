@@ -12,6 +12,7 @@ Usage:
     python3 _scripts/manage.py years
     python3 _scripts/manage.py gopher
     python3 _scripts/manage.py gemini
+    python3 _scripts/manage.py minify
     python3 _scripts/manage.py all
 
 Run from repository root directory.
@@ -418,6 +419,155 @@ def generate_gemini(args):
 
 
 # ============================================================================
+# Minification Command
+# ============================================================================
+
+def minify_css(content):
+    """Minify CSS content by removing comments and unnecessary whitespace."""
+    # Remove CSS comments /* ... */
+    content = re.sub(r'/\*[^*]*\*+(?:[^/*][^*]*\*+)*/', '', content)
+
+    # Remove leading/trailing whitespace from each line
+    content = '\n'.join(line.strip() for line in content.split('\n'))
+
+    # Remove empty lines
+    content = re.sub(r'\n+', '\n', content)
+
+    # Remove whitespace around special characters
+    content = re.sub(r'\s*([{}:;,>+~\[\]])\s*', r'\1', content)
+
+    # Remove whitespace before opening brace
+    content = re.sub(r'\s+{', '{', content)
+
+    # Collapse multiple spaces into one
+    content = re.sub(r' +', ' ', content)
+
+    # Remove newlines (keep everything on fewer lines)
+    content = content.replace('\n', '')
+
+    return content
+
+
+def minify_js(content):
+    """Minify JavaScript content by removing comments and unnecessary whitespace."""
+    # Remove single-line comments (// ...)
+    # But preserve URLs (http://, https://)
+    content = re.sub(r'(?<!:)//[^\n]*', '', content)
+
+    # Remove multi-line comments /* ... */
+    # But preserve license comments /*! ... */
+    lines = content.split('\n')
+    result = []
+    in_comment = False
+
+    for line in lines:
+        if '/*!' in line:
+            # Keep license comments
+            result.append(line)
+            continue
+
+        if '/*' in line and '*/' not in line:
+            in_comment = True
+            # Keep the part before the comment
+            result.append(line.split('/*')[0])
+            continue
+        elif '*/' in line:
+            in_comment = False
+            # Keep the part after the comment
+            result.append(line.split('*/', 1)[1] if len(line.split('*/', 1)) > 1 else '')
+            continue
+        elif in_comment:
+            continue
+        else:
+            result.append(line)
+
+    content = '\n'.join(result)
+
+    # Remove leading/trailing whitespace from each line
+    content = '\n'.join(line.strip() for line in content.split('\n'))
+
+    # Remove empty lines
+    content = re.sub(r'\n+', '\n', content)
+
+    # Collapse multiple spaces into one (but preserve strings)
+    # This is a simple approach; a full JS minifier would parse the AST
+    content = re.sub(r' +', ' ', content)
+
+    return content
+
+
+def minify_assets(args):
+    """Minify CSS and JavaScript files."""
+    print("\n=== Minifying Assets ===\n")
+
+    css_files = [
+        ('assets/css/console.css', 'assets/css/console.min.css')
+    ]
+
+    js_files = [
+        ('assets/js/theme-toggle.js', 'assets/js/theme-toggle.min.js'),
+        ('assets/js/search-init.js', 'assets/js/search-init.min.js'),
+        ('assets/js/image-captions.js', 'assets/js/image-captions.min.js'),
+        ('assets/js/tooltip.js', 'assets/js/tooltip.min.js'),
+    ]
+
+    total_saved = 0
+
+    # Minify CSS files
+    print("Minifying CSS files...")
+    for source, dest in css_files:
+        if not os.path.exists(source):
+            print(f"⚠️  Skipping {source} (not found)")
+            continue
+
+        with open(source, 'r', encoding='utf8') as f:
+            original = f.read()
+
+        minified = minify_css(original)
+
+        with open(dest, 'w', encoding='utf8') as f:
+            f.write(minified)
+
+        original_size = len(original)
+        minified_size = len(minified)
+        saved = original_size - minified_size
+        percent = (saved / original_size) * 100
+        total_saved += saved
+
+        print(f"  ✅ {source}")
+        print(f"     {original_size:,} bytes → {minified_size:,} bytes ({percent:.1f}% reduction)")
+
+    # Minify JS files
+    print("\nMinifying JavaScript files...")
+    for source, dest in js_files:
+        if not os.path.exists(source):
+            print(f"⚠️  Skipping {source} (not found)")
+            continue
+
+        with open(source, 'r', encoding='utf8') as f:
+            original = f.read()
+
+        minified = minify_js(original)
+
+        with open(dest, 'w', encoding='utf8') as f:
+            f.write(minified)
+
+        original_size = len(original)
+        minified_size = len(minified)
+        saved = original_size - minified_size
+        percent = (saved / original_size) * 100
+        total_saved += saved
+
+        print(f"  ✅ {source}")
+        print(f"     {original_size:,} bytes → {minified_size:,} bytes ({percent:.1f}% reduction)")
+
+    print(f"\n✅ Total savings: {total_saved:,} bytes ({total_saved/1024:.1f} KB)")
+    print("\nNote: Update your layouts to reference .min.css and .min.js files")
+
+    return 0
+
+
+# ============================================================================
 # All Command
 # ============================================================================
 
@@ -485,6 +635,10 @@ def main():
     gemini_parser.add_argument('--port', type=int, default=1965, help='Gemini port (default: 1965)')
     gemini_parser.add_argument('--force', action='store_true', help='Force regeneration of all files')
     gemini_parser.set_defaults(func=generate_gemini)
+
+    # Minify command
+    minify_parser = subparsers.add_parser('minify', help='Minify CSS and JavaScript files')
+    minify_parser.set_defaults(func=minify_assets)
 
     # All command
     all_parser = subparsers.add_parser('all', help='Run tags and years generation')

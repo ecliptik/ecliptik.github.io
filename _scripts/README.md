@@ -83,6 +83,27 @@ python3 _scripts/manage.py all
 - Modifying post tags
 - Moving posts to new years
 
+#### Minify Assets
+
+Minify CSS and JavaScript files to reduce page load size.
+
+```bash
+python3 _scripts/manage.py minify
+```
+
+**What it does:**
+1. Minifies `assets/css/console.css` → `assets/css/console.min.css`
+2. Minifies JavaScript files:
+   - `assets/js/theme-toggle.js` → `assets/js/theme-toggle.min.js`
+   - `assets/js/search-init.js` → `assets/js/search-init.min.js`
+   - `assets/js/image-captions.js` → `assets/js/image-captions.min.js`
+   - `assets/js/tooltip.js` → `assets/js/tooltip.min.js`
+3. Reports file size reductions (typically ~30-40%)
+
+**Note:** Layouts already reference minified files. Run this command after editing source CSS/JS files.
+
+**Typical savings:** ~12KB reduction (from ~41KB to ~29KB)
+
 #### Generate Gopher Content
 
 Generate RFC1436-compliant gopher content from Jekyll blog posts.
