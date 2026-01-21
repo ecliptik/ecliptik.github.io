@@ -107,7 +107,7 @@
 
 @media only screen and (max-width: 850px) {
     :root {
-        --global-font-size: 1rem;
+        --global-font-size: 1.05rem;
         --global-line-height: 1.6em;
         --page-width: 70em;
     }
