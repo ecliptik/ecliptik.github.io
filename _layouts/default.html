@@ -12,9 +12,10 @@
 // Critical theme initialization (inline to prevent FOUC)
 (function(){const e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",t=localStorage.getItem("theme-preference")||e;document.documentElement.classList.add("preload","js-enabled"),document.documentElement.setAttribute("data-theme",t),setTimeout(()=>document.documentElement.classList.remove("preload"),100)})();
 </script>
+<script src="/assets/js/lazy-images.min.js" defer></script>
 <script src="/assets/js/tooltip.min.js" defer></script>
 <script src="/assets/js/theme-toggle.min.js" defer></script>
-<script src="/assets/js/image-captions.min.js" defer></script>
+<parameter name="image-captions.min.js" defer></script>
 </head>
 
 <body class="terminal">

@@ -505,6 +505,7 @@ def minify_assets(args):
     ]
 
     js_files = [
+        ('assets/js/lazy-images.js', 'assets/js/lazy-images.min.js'),
         ('assets/js/theme-toggle.js', 'assets/js/theme-toggle.min.js'),
         ('assets/js/search-init.js', 'assets/js/search-init.min.js'),
         ('assets/js/image-captions.js', 'assets/js/image-captions.min.js'),
