@@ -113,31 +113,8 @@
     }
 }
 
-/* TokyoNight-Storm (Dark) theme */
-[data-theme="dark"] {
-    --bg: #24283b;
-    --accent-bg: #1f2335;
-    --text: #c0caf5;
-    --text-light: #a9b1d6;
-    --border: #565f89;
-    --accent: #7aa2f7;
-    --accent-light: #bb9af7;
-    --code: #f7768e;
-    --preformatted: #7dcfff;
-    --marked: #bb9af7;
-    --code-bg-color: #1f2335;
-
-    /* Pygments syntax highlighting */
-    --pygments-one: #565f89;    /* Comments */
-    --pygments-two: #c0caf5;    /* Operators */
-    --pygments-three: #9ece6a;  /* Keywords (green) */
-    --pygments-four: #ff9e64;   /* Constants (orange) */
-    --pygments-five: #7aa2f7;   /* Functions (blue) */
-    --pygments-six: #7dcfff;    /* Strings (cyan) */
-    --pygments-seven: #f7768e;  /* Errors (red) */
-    --pygments-eight: #e0af68;  /* Built-ins (yellow) */
-}
-
+/* TokyoNight-Storm (Dark) theme - image adjustments only */
+/* Color variables are inherited from :root default theme */
 [data-theme="dark"] img,
 [data-theme="dark"] video {
     opacity: 0.9;
