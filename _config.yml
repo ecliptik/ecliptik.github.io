@@ -17,6 +17,32 @@ image:
   alt: micheal@ecliptik.com
 
 defaults:
+  # Recent posts (2024-2026) - higher priority
+  - scope:
+      path: "_posts/2024"
+      type: "posts"
+    values:
+      layout: "post"
+      sitemap:
+        changefreq: weekly
+        priority: 0.9
+  - scope:
+      path: "_posts/2025"
+      type: "posts"
+    values:
+      layout: "post"
+      sitemap:
+        changefreq: weekly
+        priority: 0.9
+  - scope:
+      path: "_posts/2026"
+      type: "posts"
+    values:
+      layout: "post"
+      sitemap:
+        changefreq: weekly
+        priority: 0.9
+  # Older posts - lower priority
   - scope:
       path: ""
       type: "posts"
@@ -24,7 +50,7 @@ defaults:
       layout: "post"
       sitemap:
         changefreq: monthly
-        priority: 0.8
+        priority: 0.7
 
 # Short bio or description (displayed in the header)
 description: Professional Website of Micheal Waltz

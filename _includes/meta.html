@@ -72,13 +72,23 @@
   "description": "{% if page.description %}{{ page.description | escape }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}{% endif %}",
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ site.url }}{{ site.image.path }}",
+    "width": "{{ site.image.width }}",
+    "height": "{{ site.image.height }}"
+  },
   "author": {
     "@type": "Person",
     "name": "{{ site.author.name }}"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "{{ site.title }}"
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.image.path }}"
+    }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
