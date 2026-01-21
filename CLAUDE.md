@@ -391,3 +391,54 @@ python3 _scripts/manage.py gemini                # Generate Gemini
 **Key Files:** `_scripts/README.md` (manage.py docs), `_config.yml` (Jekyll), `_config_dev.yml` (dev overrides)
 
 **Ask User About:** Structural changes, new dependencies, major theme mods, deployment config
+
+---
+
+## Future Improvements (TODO)
+
+**Image Optimization:**
+- Implement responsive images with `<picture>` elements
+- Add WebP/AVIF format support with fallbacks
+  ```html
+  <picture>
+    <source srcset="image.avif" type="image/avif">
+    <source srcset="image.webp" type="image/webp">
+    <img src="image.jpg" alt="Description">
+  </picture>
+  ```
+- Create automated image conversion workflow in manage.py
+- Consider lazy loading for below-the-fold images
+- Optimize large images in `assets/images/posts/` directory
+
+**Table Accessibility:**
+- Add `<caption>` elements to all tables for context
+- Use `<th>` headers with `scope` attributes on tag/year archive tables
+- Add `role="table"` for better screen reader support
+- Example improvements for `_layouts/tagpage.html` and `_layouts/yeararchive.html`:
+  ```html
+  <table role="table">
+    <caption>Posts tagged with #{{ page.tag }}</caption>
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- table rows -->
+    </tbody>
+  </table>
+  ```
+
+**Additional Accessibility:**
+- Add skip-to-content link for keyboard navigation
+- Implement visible focus indicators throughout site
+- Add proper `<label>` elements to search input (not just placeholder)
+- Verify WCAG AA color contrast ratios for all theme combinations
+- Add ARIA landmarks (`<main>`, `<nav role="navigation">`)
+
+**SEO Enhancements:**
+- Track actual modification dates (separate from publish date)
+- Add prev/next post navigation
+- Implement related posts section
+- Add estimated reading time to posts
