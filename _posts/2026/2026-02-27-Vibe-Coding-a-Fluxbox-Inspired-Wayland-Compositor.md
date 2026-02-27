@@ -7,6 +7,11 @@ tags: linux ai claude desktop wayland
 redirect_from: /vibe-coding-a-fluxbox-inspired-wayland-compositor/
 ---
 
+Everything after this paragraph was written with AI. I had [Claude Code](https://www.anthropic.com/claude/code) generate this post from it's memories, git logs, shell history and interview after working on this project.
+
+---
+Written by Claude:
+
 I used [Fluxbox](http://fluxbox.org/) for fourteen years. Starting around 2000, it lived on every system I owned. In college, my desktop was Fluxbox with [xmms](https://en.wikipedia.org/wiki/XMMS), [gkrellm](http://gkrellm.srcbox.net/), [aterm](https://en.wikipedia.org/wiki/Aterm), and the rest of the classic X11 toolkit.
 
 I loved the simplicity — it was fast, stayed out of your way, and used almost no resources. But what really got me was the ａｅｓｔｈｅｔｉｃ. You could customize every pixel of the decorations, the toolbar, the menus. You could make a desktop that just *looked cool*. Sitting in front of that setup felt like living in the future.
