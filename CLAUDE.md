@@ -53,6 +53,29 @@ docker compose build --no-cache   # Rebuild after Gemfile changes (no bundle ins
 
 **Note:** Ruby/bundle are NOT installed locally - all development happens in Docker. After Gemfile changes, just rebuild the container.
 
+**Production build (matches Cloudflare):**
+```bash
+docker compose run --rm jekyll exec jekyll build   # bundle exec jekyll build, _config.yml only
+```
+
+---
+
+## Deploy (Cloudflare Pages)
+
+Build settings live in the Cloudflare dashboard (Workers & Pages → project → Settings → Build), not in the repo:
+
+| Setting | Value |
+|---|---|
+| Build command | `bundle exec jekyll build` |
+| Build output | `_site` |
+| Root directory | (empty) |
+| Production branch | `main` (other branches get preview deploys) |
+| Ruby version | From `.ruby-version` (3.4.4) - don't set `RUBY_VERSION` in the dashboard |
+
+**Must use `bundle exec`:** Plain `jekyll build` runs the build image's global gems and fails with `You have already activated public_suffix X, but your Gemfile requires public_suffix Y` whenever the image's gems drift from `Gemfile.lock`.
+
+**Keep in sync:** Ruby version in `.ruby-version` and the `Dockerfile` base image (`ruby:3.4.4`) should match.
+
 ---
 
 ## Common Tasks
@@ -374,6 +397,8 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
 **Missing year archives:** `python3 _scripts/manage.py years`
 
 **Dev redirects broken:** Ensure `_config_dev.yml` exists
+
+**Cloudflare build fails with `already activated <gem>`:** Build command must be `bundle exec jekyll build` (see Deploy section)
 
 ---
 
