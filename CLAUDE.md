@@ -71,6 +71,7 @@ Build settings live in the Cloudflare dashboard (Workers & Pages → project →
 | Root directory | (empty) |
 | Production branch | `main` (other branches get preview deploys) |
 | Ruby version | From `.ruby-version` (3.4.4) - don't set `RUBY_VERSION` in the dashboard |
+| Build system | Version 3 |
 
 **Must use `bundle exec`:** Plain `jekyll build` runs the build image's global gems and fails with `You have already activated public_suffix X, but your Gemfile requires public_suffix Y` whenever the image's gems drift from `Gemfile.lock`.
 
