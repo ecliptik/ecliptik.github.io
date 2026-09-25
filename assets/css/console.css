@@ -978,6 +978,11 @@ figure>figcaption::selection {
     margin-left: 0.5rem;
 }
 
+/* Gap between date/tags line and body when there's no TOC */
+.post-date {
+    margin-bottom: var(--global-line-height);
+}
+
 /* ============================================
    SEARCH
    ============================================ */
