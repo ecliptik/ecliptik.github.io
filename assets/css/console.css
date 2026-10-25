@@ -578,6 +578,17 @@ img {
     display: block;
 }
 
+/* A link around an image is only as wide as the image. The images are display:block, so inside an inline <a> the link's
+   box otherwise stretches across the whole line: the empty space left and right of the picture was clickable and lit up
+   on hover. */
+a:has(> img) {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Custom tooltips for images */
 .image-tooltip {
     position: absolute;
